@@ -1,0 +1,219 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const services = [
+  {
+    title: 'Energy Healing',
+    subtitle: 'Reiki & Pranic Healing',
+    description: 'Restore the flow of vital energy through gentle hands-on techniques. Release blockages and rebalance your body\'s natural energy field.',
+    icon: '✦',
+    color: 'rose',
+  },
+  {
+    title: 'Sound Therapy',
+    subtitle: 'Singing Bowls & Tuning Forks',
+    description: 'Immerse in healing vibrations that realign your chakras and promote deep cellular relaxation. Sound frequencies for profound inner peace.',
+    icon: '♯',
+    color: 'lavender',
+  },
+  {
+    title: 'Meditation Guidance',
+    subtitle: 'One-on-One & Group',
+    description: 'Learn to quiet the mind and connect with your inner wisdom. Guided sessions tailored to your experience level and intentions.',
+    icon: '○',
+    color: 'sky',
+  },
+  {
+    title: 'Spiritual Coaching',
+    subtitle: 'Life Path & Purpose',
+    description: 'Clarity and direction through intuitive guidance. Navigate life transitions with confidence and reconnect with your soul\'s purpose.',
+    icon: '☆',
+    color: 'peach',
+  },
+  {
+    title: 'Chakra Alignment',
+    subtitle: 'Aura Cleansing & Balancing',
+    description: 'Harmonize your seven energy centers. Restore balance to your physical, emotional, and spiritual bodies through targeted energy work.',
+    icon: '◈',
+    color: 'rose',
+  },
+];
+
+const blogPosts = [
+  {
+    title: 'The Power of Sound Healing in Modern Life',
+    excerpt: 'How ancient sound frequencies can help us navigate the chaos of our modern world and restore inner balance.',
+    date: 'March 15, 2026',
+    category: 'News',
+    slug: 'power-of-sound-healing',
+  },
+  {
+    title: 'Understanding Your Energy Body',
+    excerpt: 'A beginner\'s guide to the seven chakras and how they influence your physical and emotional wellbeing.',
+    date: 'February 28, 2026',
+    category: 'All Posts',
+    slug: 'understanding-energy-body',
+  },
+  {
+    title: 'Spring Equinox — A Time for Renewal',
+    excerpt: 'Rituals and practices to align with the energy of spring and plant seeds for the season ahead.',
+    date: 'February 10, 2026',
+    category: 'All Posts',
+    slug: 'spring-equinox-renewal',
+  },
+];
+
+const testimonials = [
+  {
+    name: 'Sarah L.',
+    text: 'After just three sessions with Carmen, I felt a shift I hadn\'t experienced in years. The energy work released something I didn\'t even know I was holding.',
+    rating: 5,
+  },
+  {
+    name: 'Michael T.',
+    text: 'The sound bath session was transformative. I\'ve never felt such deep relaxation. Carmen creates a truly sacred space.',
+    rating: 5,
+  },
+  {
+    name: 'Emily W.',
+    text: 'Carmen\'s spiritual coaching helped me find clarity during a difficult career transition. Her intuition is remarkable.',
+    rating: 5,
+  },
+];
+---
+
+<Layout title="Home" description="Holistic healing through energy work, sound therapy, and spiritual guidance with Carmen Ng.">
+
+  <!-- Hero Section -->
+  <section class="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-blush via-warm-white to-warm-white">
+    <div class="absolute w-96 h-96 rounded-full bg-lavender-light/30 blur-3xl -top-20 -left-20 animate-pulse pointer-events-none"></div>
+    <div class="absolute w-80 h-80 rounded-full bg-sky-light/20 blur-3xl top-40 -right-20 animate-pulse pointer-events-none" style="animation-delay: 2s"></div>
+    <div class="absolute w-64 h-64 rounded-full bg-peach-light/25 blur-3xl bottom-20 left-1/3 animate-pulse pointer-events-none" style="animation-delay: 4s"></div>
+
+    <div class="relative z-10 text-center px-6 max-w-3xl mx-auto">
+      <p class="text-rose font-serif text-lg md:text-xl italic mb-4">Welcome to</p>
+      <h1 class="text-5xl md:text-7xl font-serif font-bold text-ink mb-6 leading-tight">
+        Carmen Ng<br />
+        <span class="text-3xl md:text-4xl font-normal italic text-ink-light">Holistic Healing</span>
+      </h1>
+      <p class="text-ink-light text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed">
+        Rediscover your inner harmony through energy healing, sound therapy, and spiritual guidance.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact" class="btn-primary text-base px-10 py-4">Book a Session</a>
+        <a href="#services" class="btn-outline text-base px-10 py-4">Explore Services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-24 bg-cream">
+    <div class="max-w-6xl mx-auto px-6">
+      <p class="text-rose font-serif text-center text-lg italic mb-2">What I Offer</p>
+      <h2 class="section-title">My Healing Approach</h2>
+      <p class="section-subtitle">
+        Every journey is unique. I offer a range of modalities to support your path to wellness.
+      </p>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {services.map((s) => (
+          <div class="card group hover:-translate-y-1 cursor-default">
+            <div class={`w-12 h-12 rounded-xl bg-${s.color}/10 flex items-center justify-center text-${s.color} text-xl mb-5 group-hover:scale-110 transition-transform`}>
+              {s.icon}
+            </div>
+            <h3 class="font-serif text-xl mb-1">{s.title}</h3>
+            <p class="text-rose text-xs tracking-widest uppercase mb-3">{s.subtitle}</p>
+            <p class="text-ink-light text-sm leading-relaxed">{s.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Preview Section -->
+  <section class="py-24">
+    <div class="max-w-6xl mx-auto px-6">
+      <p class="text-rose font-serif text-center text-lg italic mb-2">Latest Insights</p>
+      <h2 class="section-title">From the Blog</h2>
+      <p class="section-subtitle">Thoughts on healing, spirituality, and living authentically.</p>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        {blogPosts.map((post) => (
+          <article class="card group cursor-pointer">
+            <div class="w-full h-48 bg-gradient-to-br from-lavender-light/40 to-sky-light/40 rounded-xl mb-5 flex items-center justify-center">
+              <span class="text-4xl opacity-30">✦</span>
+            </div>
+            <p class="text-xs text-rose tracking-wider uppercase mb-2">{post.category}</p>
+            <h3 class="font-serif text-lg mb-2 group-hover:text-rose transition-colors">{post.title}</h3>
+            <p class="text-ink-light text-sm leading-relaxed mb-4">{post.excerpt}</p>
+            <div class="flex items-center justify-between">
+              <span class="text-xs text-ink-light/60">{post.date}</span>
+              <a href={`/blog/${post.slug}`} class="text-rose text-sm hover:underline">Read more →</a>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div class="text-center mt-10">
+        <a href="/blog" class="btn-outline">View All Posts</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="py-24 bg-gradient-to-b from-warm-white to-blush">
+    <div class="max-w-6xl mx-auto px-6">
+      <p class="text-rose font-serif text-center text-lg italic mb-2">What Clients Say</p>
+      <h2 class="section-title">Kind Words</h2>
+
+      <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        {testimonials.map((t) => (
+          <div class="card relative">
+            <div class="text-rose/30 text-5xl font-serif leading-none mb-2">"</div>
+            <p class="text-ink-light text-sm leading-relaxed mb-6 italic">"{t.text}"</p>
+            <div class="flex items-center justify-between mt-auto">
+              <span class="text-sm font-medium">— {t.name}</span>
+              <div class="flex gap-0.5 text-rose text-xs">{'★'.repeat(t.rating)}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="text-center mt-10">
+        <a href="/testimonials" class="btn-outline">Read All Reviews</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="py-24">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row items-center gap-12 max-w-4xl mx-auto">
+        <div class="w-64 h-64 rounded-full bg-gradient-to-br from-lavender-light to-sky-light flex-shrink-0 flex items-center justify-center">
+          <span class="text-6xl opacity-40">✦</span>
+        </div>
+        <div>
+          <p class="text-rose font-serif italic text-lg mb-2">About Me</p>
+          <h2 class="font-serif text-3xl md:text-4xl mb-6">Meet Carmen</h2>
+          <div class="text-ink-light text-sm leading-relaxed space-y-4">
+            <p>
+              My journey into healing began over a decade ago, after experiencing the profound transformation 
+              that energy work brought to my own life. What started as personal healing evolved into a calling 
+              to guide others on their path to wholeness.
+            </p>
+            <p>
+              Trained in Reiki, sound therapy, and various meditation traditions, I blend ancient wisdom with 
+              intuitive practice. Every session is a co-created space — tailored to where you are today, 
+              and where you're ready to go.
+            </p>
+            <p>
+              I believe healing isn't about fixing what's broken — it's about remembering what's already whole. 
+              My role is simply to hold the space for that remembering.
+            </p>
+          </div>
+          <a href="/contact" class="btn-primary mt-8">Connect With Me</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

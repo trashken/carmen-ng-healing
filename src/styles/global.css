@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+
+  --color-blush: #fef5f0;
+  --color-blush-light: #fff8f5;
+  --color-rose: #e8a0a0;
+  --color-rose-dark: #d47a7a;
+  --color-lavender: #c4b5d4;
+  --color-lavender-light: #e8dcef;
+  --color-sky: #a8c8e0;
+  --color-sky-light: #d0e4f0;
+  --color-peach: #f4cba8;
+  --color-peach-light: #fce4d0;
+  --color-cream: #faf6f0;
+  --color-ink: #2d2a33;
+  --color-ink-light: #5c5866;
+  --color-warm-white: #fdfbf9;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-warm-white text-ink font-sans antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-serif;
+  }
+
+  a {
+    @apply transition-colors duration-200;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-block px-8 py-3 bg-rose text-white font-sans text-sm tracking-widest uppercase
+           rounded-full hover:bg-rose-dark transition-all duration-300
+           hover:shadow-lg hover:shadow-rose/30;
+  }
+
+  .btn-outline {
+    @apply inline-block px-8 py-3 border-2 border-rose text-rose font-sans text-sm tracking-widest uppercase
+           rounded-full hover:bg-rose hover:text-white transition-all duration-300;
+  }
+
+  .section-title {
+    @apply font-serif text-3xl md:text-4xl text-center mb-4;
+  }
+
+  .section-subtitle {
+    @apply text-ink-light text-center max-w-xl mx-auto mb-12 text-sm leading-relaxed;
+  }
+
+  .card {
+    @apply bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-all duration-300
+           border border-white/60;
+  }
+
+  .watercolor-blob {
+    @apply absolute pointer-events-none select-none;
+  }
+}
+
+/* Font loading */
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 400 700;
+  src: url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300 600;
+  src: url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+}

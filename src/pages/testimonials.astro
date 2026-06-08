@@ -1,0 +1,56 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const reviews = [
+  { name: 'Sarah L.', text: 'After just three sessions with Carmen, I felt a shift I hadn\'t experienced in years. The energy work released something I didn\'t even know I was holding.', rating: 5 },
+  { name: 'Michael T.', text: 'The sound bath session was transformative. I\'ve never felt such deep relaxation. Carmen creates a truly sacred space.', rating: 5 },
+  { name: 'Emily W.', text: 'Carmen\'s spiritual coaching helped me find clarity during a difficult career transition. Her intuition is remarkable.', rating: 5 },
+  { name: 'David C.', text: 'I was sceptical about energy healing, but Carmen\'s gentle approach and the results I experienced changed my perspective completely.', rating: 5 },
+  { name: 'Lisa M.', text: 'The chakra alignment session left me feeling lighter than I have in years. Carmen has a gift for sensing exactly where you need the most support.', rating: 5 },
+  { name: 'Jennifer K.', text: 'I\'ve been coming to Carmen for over a year now. Each session deepens my practice and brings new insights. Truly grateful.', rating: 5 },
+  { name: 'Robert P.', text: 'Sound therapy with Carmen was unlike anything I\'ve tried. The vibrations from the singing bowls were physically palpable and deeply calming.', rating: 5 },
+  { name: 'Anna H.', text: 'Carmen\'s guided meditations helped me manage my anxiety in ways that talk therapy alone couldn\'t. A beautiful complement to my wellness routine.', rating: 5 },
+  { name: 'Grace T.', text: 'The Reiki session was my first, and Carmen made me feel completely at ease. I felt warmth and tingling during the treatment — truly magical.', rating: 5 },
+  { name: 'Thomas R.', text: 'As someone dealing with grief, Carmen\'s compassionate coaching provided a safe container for my healing process. I am deeply thankful.', rating: 4 },
+  { name: 'Maya S.', text: 'I attended one of Carmen\'s group meditation sessions and was blown away by the sense of community and peace she cultivates.', rating: 5 },
+];
+
+const pageSize = 6;
+const totalPages = Math.ceil(reviews.length / pageSize);
+const page = 1;
+const pageReviews = reviews.slice(0, pageSize);
+---
+
+<Layout title="Testimonials" description="Read what clients say about their healing journey with Carmen Ng.">
+  <section class="py-24 bg-gradient-to-b from-blush to-warm-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <p class="text-rose font-serif text-center text-lg italic mb-2">Client Stories</p>
+      <h1 class="section-title">Testimonials</h1>
+      <p class="section-subtitle">The greatest honour of this work is witnessing transformation. Here are some words from those who've walked this path.</p>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {pageReviews.map((r) => (
+          <div class="card">
+            <div class="text-rose/30 text-4xl font-serif leading-none mb-2">"</div>
+            <p class="text-ink-light text-sm leading-relaxed mb-6 italic">"{r.text}"</p>
+            <div class="flex items-center justify-between mt-auto border-t border-rose/10 pt-4">
+              <span class="text-sm font-medium">— {r.name}</span>
+              <div class="flex gap-0.5 text-rose text-xs">{'★'.repeat(r.rating)}{'☆'.repeat(5 - r.rating)}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Pagination -->
+      {totalPages > 1 && (
+        <div class="flex justify-center mt-12 gap-2">
+          {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
+            <span class={`w-10 h-10 rounded-full flex items-center justify-center text-sm cursor-pointer ${p === page ? 'bg-rose text-white' : 'bg-cream text-ink-light hover:bg-rose/10'}`}>
+              {p}
+            </span>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+</Layout>
