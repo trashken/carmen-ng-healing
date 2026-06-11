@@ -25,7 +25,14 @@ const testimonials = defineCollection({
     name: z.string(),
     service: z.string(),
     lang: z.enum(['jp', 'en', 'zh']),
-    rating: z.number().min(1).max(5),
+    // Carmen's Wix CSV/JSON export doesn't include a star rating, so we
+    // default to 5. The rating field is rendered in the card; if you
+    // want lower ratings for some entries, override in the .md file.
+    rating: z.number().min(1).max(5).default(5),
+    // Optional "updated" timestamp from the Wix export. Used as a
+    // secondary sort key for the testimonials page; missing on entries
+    // created via PagesCMS so we fall back to insertion order.
+    updated: z.coerce.date().optional(),
   }),
 });
 

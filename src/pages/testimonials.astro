@@ -3,7 +3,10 @@ import Layout from '../layouts/Layout.astro';
 import { getCollection, render } from 'astro:content';
 
 const allTestimonials = await getCollection('testimonials');
-// Render each entry's Markdown body to HTML.
+
+// Render every entry's Markdown body to HTML server-side so the page works
+// without JavaScript. The filter/pagination script on the client toggles
+// visibility via [hidden] and shows the right slice.
 const rendered = await Promise.all(
   allTestimonials.map(async (entry) => {
     const { Content } = await render(entry);
@@ -11,8 +14,33 @@ const rendered = await Promise.all(
   }),
 );
 
-// Order: same as the original page (alphabetical by name within the
-// original grouping was the source's order; we'll just keep file order).
+// Sort: most recent updates first. Wix's CSV doesn't expose a stable
+// "created" date per testimonial, so we use file mtime (set during
+// migration = CSV row order) as a proxy. New entries added via
+// PagesCMS will appear at the top.
+rendered.sort(
+  (a, b) =>
+    (b.entry.data.updated?.getTime?.() ?? 0) -
+    (a.entry.data.updated?.getTime?.() ?? 0),
+);
+
+// Top N services by count. Anything not in the top list falls under "Other".
+// "All services" is the default unfiltered view. Service names are kept
+// verbatim from the Wix export (no normalization) so what you see in the
+// filter matches what you see in each card.
+const SERVICE_TOP_N = 6;
+const serviceCounts = new Map<string, number>();
+for (const r of rendered) {
+  const s = r.entry.data.service;
+  serviceCounts.set(s, (serviceCounts.get(s) ?? 0) + 1);
+}
+const sortedServices = Array.from(serviceCounts.entries())
+  .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+const topServices = sortedServices.slice(0, SERVICE_TOP_N).map(([s]) => s);
+const otherCount = sortedServices.slice(SERVICE_TOP_N).reduce((n, [, c]) => n + c, 0);
+
+const PAGE_SIZE = 12;
+
 const langBadge: Record<'jp' | 'en' | 'zh', string> = {
   jp: '日本語',
   en: 'English',
@@ -27,9 +55,45 @@ const langBadge: Record<'jp' | 'en' | 'zh', string> = {
       <h1 class="section-title">Testimonials</h1>
       <p class="section-subtitle">The greatest honour of this work is witnessing transformation. Here are some words from those who've walked this path.</p>
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {rendered.map(({ entry, Content }) => (
-          <div class="card">
+      {/* Filter bar — language */}
+      <div class="flex flex-wrap items-center justify-center gap-2 mb-3" data-filter-group="lang">
+        <span class="text-xs uppercase tracking-wider text-ink-light/60 mr-2">Language</span>
+        <button data-filter="lang" data-filter-value="" class="tab px-4 py-1.5 rounded-full bg-rose text-white text-sm">All</button>
+        <button data-filter="lang" data-filter-value="en" class="tab px-4 py-1.5 rounded-full border border-rose/30 text-ink-light text-sm hover:bg-rose/5">English</button>
+        <button data-filter="lang" data-filter-value="jp" class="tab px-4 py-1.5 rounded-full border border-rose/30 text-ink-light text-sm hover:bg-rose/5">日本語</button>
+        <button data-filter="lang" data-filter-value="zh" class="tab px-4 py-1.5 rounded-full border border-rose/30 text-ink-light text-sm hover:bg-rose/5">中文</button>
+      </div>
+
+      {/* Filter bar — service */}
+      <div class="flex flex-wrap items-center justify-center gap-2 mb-8" data-filter-group="service">
+        <span class="text-xs uppercase tracking-wider text-ink-light/60 mr-2">Service</span>
+        <button data-filter="service" data-filter-value="" class="tab px-4 py-1.5 rounded-full bg-rose text-white text-sm">All</button>
+        {topServices.map((s) => (
+          <button data-filter="service" data-filter-value={s} class="tab px-4 py-1.5 rounded-full border border-rose/30 text-ink-light text-sm hover:bg-rose/5" title={s}>
+            {s} <span class="text-ink-light/50">({serviceCounts.get(s)})</span>
+          </button>
+        ))}
+        {otherCount > 0 && (
+          <button data-filter="service" data-filter-value="__other__" class="tab px-4 py-1.5 rounded-full border border-rose/30 text-ink-light text-sm hover:bg-rose/5">
+            Other <span class="text-ink-light/50">({otherCount})</span>
+          </button>
+        )}
+      </div>
+
+      <p id="result-count" class="text-center text-sm text-ink-light/70 mb-6" aria-live="polite">
+        Showing <span data-result-count>{rendered.length}</span> of {rendered.length} testimonials
+      </p>
+
+      <div id="testimonial-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {rendered.map(({ entry, Content }, i) => (
+          <article
+            class="card testimonial-card"
+            data-card
+            data-card-index={i}
+            data-service={entry.data.service}
+            data-lang={entry.data.lang}
+            data-top-services={JSON.stringify(topServices)}
+          >
             <div class="flex items-center justify-between mb-3">
               <span class="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full bg-rose/10 text-rose">
                 {entry.data.service}
@@ -46,9 +110,177 @@ const langBadge: Record<'jp' | 'en' | 'zh', string> = {
               <span class="text-sm font-medium">— {entry.data.name}</span>
               <div class="flex gap-0.5 text-rose text-xs">{'★'.repeat(entry.data.rating)}{'☆'.repeat(5 - entry.data.rating)}</div>
             </div>
-          </div>
+          </article>
         ))}
       </div>
+
+      <nav id="pagination" class="mt-12 flex flex-wrap items-center justify-center gap-2" aria-label="Pagination">
+        <button data-page-nav="prev" class="hidden px-4 py-2 rounded-full border border-rose/30 text-ink-light text-sm hover:bg-rose/5">← Previous</button>
+        <div data-page-numbers class="flex flex-wrap items-center justify-center gap-2"></div>
+        <button data-page-nav="next" class="hidden px-4 py-2 rounded-full border border-rose/30 text-ink-light text-sm hover:bg-rose/5">Next →</button>
+      </nav>
+
+      <p id="empty-state" class="hidden text-center text-ink-light/60 italic mt-12">
+        No testimonials match the current filter.
+      </p>
     </div>
   </section>
 </Layout>
+
+<script>
+const PAGE_SIZE = 12; // also referenced from the client <script> below
+  const TOP_SERVICES = JSON.parse(
+    document.querySelector('[data-card-index="0"]')?.getAttribute('data-top-services') ?? '[]',
+  );
+  const TOP_SERVICES_SET = new Set(TOP_SERVICES);
+
+  const grid = document.getElementById('testimonial-grid');
+  const cards = grid ? Array.from(grid.querySelectorAll<HTMLElement>('[data-card]') ) : [];
+  const emptyState = document.getElementById('empty-state');
+  const paginationEl = document.getElementById('pagination');
+  const pageNumbersEl = paginationEl?.querySelector<HTMLElement>('[data-page-numbers]') ?? null;
+  const prevBtn = paginationEl?.querySelector<HTMLElement>('[data-page-nav="prev"]') ?? null;
+  const nextBtn = paginationEl?.querySelector<HTMLElement>('[data-page-nav="next"]') ?? null;
+
+  let currentLang = '';
+  let currentService = '';
+  let currentPage = 1;
+
+  function visibleCardIndices(): number[] {
+    return cards
+      .map((el, i) => ({ el, i }))
+      .filter(({ el }) => {
+        if (currentLang && el.dataset.lang !== currentLang) return false;
+        if (!currentService) return true;
+        if (currentService === '__other__') {
+          return !TOP_SERVICES_SET.has(el.dataset.service ?? '');
+        }
+        return el.dataset.service === currentService;
+      })
+      .map(({ i }) => i);
+  }
+
+  function apply() {
+    const indices = visibleCardIndices();
+    const totalPages = Math.max(1, Math.ceil(indices.length / PAGE_SIZE));
+    if (currentPage > totalPages) currentPage = totalPages;
+    const start = (currentPage - 1) * PAGE_SIZE;
+    const end = start + PAGE_SIZE;
+    const onThisPage = new Set(indices.slice(start, end));
+
+    // Show/hide cards. We use [hidden] so the layout collapses properly
+    // and screen readers ignore the hidden ones.
+    cards.forEach((card, i) => {
+      card.hidden = !onThisPage.has(i);
+    });
+
+    // Result count text.
+    const total = cards.length;
+    const summary = document.getElementById('result-count');
+    if (summary) {
+      let label: string;
+      if (indices.length === 0) {
+        label = `0 of ${total} testimonials match the current filter`;
+      } else if (indices.length === total) {
+        label = `Showing all ${total} testimonials`;
+      } else {
+        label = `Showing ${indices.length} of ${total} testimonials`;
+      }
+      // Rebuild the element: a static text node, then a span with the count.
+      summary.textContent = label.replace(/\d+/, '');
+      const countSpan = document.createElement('span');
+      countSpan.setAttribute('data-result-count', '');
+      const match = label.match(/(\d+)/);
+      countSpan.textContent = match ? match[1] : '';
+      summary.appendChild(countSpan);
+    }
+
+    // Empty state.
+    if (emptyState) emptyState.hidden = indices.length > 0;
+
+    // Pagination controls.
+    if (paginationEl) {
+      paginationEl.style.display = totalPages > 1 ? '' : 'none';
+    }
+    if (prevBtn) prevBtn.hidden = currentPage <= 1;
+    if (nextBtn) nextBtn.hidden = currentPage >= totalPages;
+    if (pageNumbersEl) {
+      pageNumbersEl.innerHTML = '';
+      for (let p = 1; p <= totalPages; p++) {
+        const btn = document.createElement('button');
+        btn.className = 'w-10 h-10 rounded-full text-sm flex items-center justify-center ' +
+          (p === currentPage
+            ? 'bg-rose text-white'
+            : 'bg-cream text-ink-light hover:bg-rose/10');
+        btn.textContent = String(p);
+        btn.setAttribute('data-page', String(p));
+        btn.addEventListener('click', () => goToPage(p));
+        pageNumbersEl.appendChild(btn);
+      }
+    }
+  }
+
+  function goToPage(p: number) {
+    currentPage = p;
+    apply();
+    syncUrl();
+    // Scroll to the top of the grid so the user sees the new page.
+    grid?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function syncUrl() {
+    const params = new URLSearchParams(window.location.search);
+    if (currentLang) params.set('lang', currentLang); else params.delete('lang');
+    if (currentService) params.set('service', currentService); else params.delete('service');
+    if (currentPage > 1) params.set('page', String(currentPage)); else params.delete('page');
+    const qs = params.toString();
+    const url = window.location.pathname + (qs ? '?' + qs : '') + window.location.hash;
+    window.history.replaceState(null, '', url);
+  }
+
+  function readUrl() {
+    const params = new URLSearchParams(window.location.search);
+    currentLang = params.get('lang') ?? '';
+    currentService = params.get('service') ?? '';
+    const p = parseInt(params.get('page') ?? '1', 10);
+    currentPage = isNaN(p) || p < 1 ? 1 : p;
+  }
+
+  function syncButtonStyles() {
+    document.querySelectorAll<HTMLButtonElement>('[data-filter]').forEach((btn) => {
+      const group = btn.getAttribute('data-filter');
+      const value = btn.getAttribute('data-filter-value') ?? '';
+      const isActive = group === 'lang' ? value === currentLang : value === currentService;
+      btn.className = 'tab px-4 py-1.5 rounded-full text-sm ' +
+        (isActive
+          ? 'bg-rose text-white'
+          : 'border border-rose/30 text-ink-light hover:bg-rose/5');
+    });
+  }
+
+  // Wire filter buttons.
+  document.querySelectorAll<HTMLButtonElement>('[data-filter]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const group = btn.getAttribute('data-filter');
+      const value = btn.getAttribute('data-filter-value') ?? '';
+      if (group === 'lang') currentLang = value;
+      if (group === 'service') currentService = value;
+      currentPage = 1; // reset on filter change
+      syncButtonStyles();
+      apply();
+      syncUrl();
+    });
+  });
+
+  // Wire pagination nav buttons.
+  prevBtn?.addEventListener('click', () => goToPage(Math.max(1, currentPage - 1)));
+  nextBtn?.addEventListener('click', () => {
+    const totalPages = Math.ceil(visibleCardIndices().length / PAGE_SIZE);
+    goToPage(Math.min(totalPages, currentPage + 1));
+  });
+
+  // Initial state.
+  readUrl();
+  syncButtonStyles();
+  apply();
+</script>

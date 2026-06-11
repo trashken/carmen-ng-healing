@@ -35,7 +35,7 @@ src/
   content.config.ts       # Astro content collection schema (blog + testimonials + services)
   content/
     blog/                 # 11 .md files, one per blog post
-    testimonials/         # 9 .md files, one per testimonial
+    testimonials/         # 94 .md files, one per testimonial (imported from Wix export)
     services/             # 6 .md files, one per service offering
   components/
     HomeContent.astro     # EN homepage body: breathable, 3-up grids, large
@@ -80,10 +80,11 @@ tsconfig.json             # extends astro/tsconfigs/strict
 
 ## Testimonials content
 
-- One Markdown file per testimonial in `src/content/testimonials/`. Filename is the author's first name (Unicode-preserving, so Japanese names like `もん.md`, `清水.md` are valid).
-- **Schema** (in `src/content.config.ts`): `name`, `service` (string), `lang` (enum: `jp` | `en` | `zh`), `rating` (number 1-5).
+- One Markdown file per testimonial in `src/content/testimonials/`. 94 entries, filenames are slugified titles (Unicode-preserving, so Japanese names like `改善睡眠及膝頭痛.md` are valid).
+- **Schema** (in `src/content.config.ts`): `name` (extracted from the `~ Name` signature in the body), `service` (string), `lang` (enum: `jp` | `en` | `zh`), `rating` (number 1-5, defaults to 5).
 - **The testimonial text lives in the Markdown body**, not in frontmatter. The Astro page renders it via `<Content />` from `astro:content`'s `render()`.
 - **PagesCMS schema mismatch (intentional):** the `.pages.yml` config has a `text` frontmatter field for testimonials, but the Astro side reads the text from the Markdown body instead. PagesCMS will write to the `text` field if used, but the page will display the Markdown body content. To make this fully roundtrip with PagesCMS, move `text` to the Markdown body in the `.pages.yml` schema too (use the rich-text type, not text, and it'll write to the body section). This is documented here for future cleanup.
+- **The `/testimonials` page is single-page with 94 cards** (no pagination). If the page becomes too long to scroll, add basic pagination to `testimonials.astro`.
 
 ## Services content
 
