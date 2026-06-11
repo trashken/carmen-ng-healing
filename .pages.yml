@@ -110,6 +110,7 @@ content:
   # One Markdown file per testimonial, in src/content/testimonials/{name}.md.
   # Filename is the testimonial author's first name (used as a unique id).
   # ---------------------------------------------------------------------------
+  
   - name: testimonials
     label: Testimonials
     type: collection
@@ -117,43 +118,46 @@ content:
     filename: '{name}.md'
     format: yaml-frontmatter
     view:
-      primary: name
-      sort: name
-      order: asc
-    fields:
+      fields: [title, rating, date]
+      primary: title
+      sort: [date, title]
+      default:
+        sort: date
+        order: desc    
+    fields:     
       - name: name
         type: string
         label: Author first name
         options:
-          maxlength: 40
-
+          maxlength: 40  
       - name: service
         type: string
-        label: Service / workshop
+        label: Session / Workshop
         description: >-
           Which session or workshop the testimonial is for (e.g. "Spiritual
           Guidance & Healing", "Body Scan Workshop", "Home Cleansing R.A.A.H.").
-
+      - name: date
+        type: date
+        label: Publish date    
       - name: lang
         type: select
         label: Original language
         options:
-          - value: jp
+          values:
+          - name: jp
             label: 日本語 (Japanese)
-          - value: en
+          - name: en
             label: English
-          - value: zh
+          - name: zh
             label: 中文 (Traditional Chinese)
-
       - name: rating
         type: number
         label: Star rating
         options:
           min: 1
           max: 5
-
       - name: text
-        type: text
+        type: rich-text
         label: Testimonial text
         description: >-
           In the original language as Carmen received it. Line breaks are
