@@ -1,16 +1,17 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
-import { posts } from '../../../data/posts';
+import { getCollection } from 'astro:content';
 import { getDictionary, type Locale } from '../../../i18n';
 
 const locale: Locale = 'jp';
 const t = getDictionary(locale);
 
-const sortedPosts = [...posts].sort((a, b) => b.date.localeCompare(a.date));
-const formatDate = (iso: string) => {
-  const d = new Date(iso);
-  return d.toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' });
-};
+const allPosts = await getCollection('blog');
+const sortedPosts = allPosts.sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+const formatDate = (iso: Date) =>
+  iso.toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' });
 ---
 
 <Layout title={`${t.nav.blog} | ${t.meta.siteName}`} locale={locale}>
@@ -27,35 +28,35 @@ const formatDate = (iso: string) => {
 
       <div id="post-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {sortedPosts.map((post) => (
-          <article class="card group" data-category={post.category}>
-            <a href={`/jp/blog/${post.slug}`} class="block">
+          <article class="card group" data-category={post.data.category}>
+            <a href={`/jp/blog/${post.data.slug}`} class="block">
               <div class="w-full h-44 rounded-xl mb-5 overflow-hidden bg-gradient-to-br from-sky-light/40 to-lavender-light/40 relative">
-                {post.cover
-                  ? <img src={post.cover} alt="" loading="lazy" class="w-full h-full object-cover" />
+                {post.data.cover
+                  ? <img src={post.data.cover} alt="" loading="lazy" class="w-full h-full object-cover" />
                   : <div class="w-full h-full flex items-center justify-center">
-                      {post.video
+                      {post.data.video
                         ? <span class="text-3xl opacity-30">▶</span>
                         : <span class="text-3xl opacity-20">✦</span>
                       }
                     </div>
                 }
-                {post.video && (
+                {post.data.video && (
                   <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
                     <span class="w-12 h-12 rounded-full bg-ink/60 text-white text-2xl flex items-center justify-center">▶</span>
                   </div>
                 )}
               </div>
               <p class="text-xs text-rose tracking-wider uppercase mb-2">
-                {post.category === 'news' ? 'お知らせ' : '記事'}
+                {post.data.category === 'news' ? 'お知らせ' : '記事'}
               </p>
               <h2 class="font-serif text-lg mb-2 group-hover:text-rose transition-colors">
-                {post.title.jp}
+                {post.data.title_jp}
               </h2>
-              <p class="text-ink-light text-sm leading-relaxed mb-4 line-clamp-3">
-                {post.body.jp.split('\n')[0].slice(0, 100)}…
+              <p class="text-ink-light text-sm leading-relaxed mb-4 line-clamp-3 whitespace-pre-line">
+                {post.data.body_jp.split('\n')[0].slice(0, 100)}…
               </p>
               <div class="flex items-center justify-between">
-                <span class="text-xs text-ink-light/60">{formatDate(post.date)}</span>
+                <span class="text-xs text-ink-light/60">{formatDate(post.data.date)}</span>
                 <span class="text-rose text-sm group-hover:underline">続きを読む →</span>
               </div>
             </a>

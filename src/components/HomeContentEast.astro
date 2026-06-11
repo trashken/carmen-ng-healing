@@ -1,0 +1,277 @@
+---
+import { getCollection } from 'astro:content';
+
+export interface Props {
+  locale: 'jp' | 'zh';
+}
+
+const { locale } = Astro.props;
+
+const services = [
+  {
+    title: 'Energy Healing',
+    subtitle: 'Reiki & Pranic Healing',
+    description: "Restore the flow of vital energy through gentle hands-on techniques.",
+    icon: '✦',
+  },
+  {
+    title: 'Sound Therapy',
+    subtitle: 'Singing Bowls & Tuning Forks',
+    description: 'Healing vibrations that realign chakras and promote deep cellular relaxation.',
+    icon: '♯',
+  },
+  {
+    title: 'Meditation Guidance',
+    subtitle: 'One-on-One & Group',
+    description: 'Quiet the mind and connect with inner wisdom through guided practice.',
+    icon: '○',
+  },
+  {
+    title: 'Spiritual Coaching',
+    subtitle: 'Life Path & Purpose',
+    description: 'Intuitive guidance for life transitions and reconnecting with soul purpose.',
+    icon: '☆',
+  },
+  {
+    title: 'Chakra Alignment',
+    subtitle: 'Aura Cleansing & Balancing',
+    description: 'Harmonize the seven energy centers for physical, emotional, spiritual balance.',
+    icon: '◈',
+  },
+  {
+    title: 'Workshops',
+    subtitle: 'Group Sessions & Retreats',
+    description: 'Body scan, sound bath, and home cleansing group sessions throughout the year.',
+    icon: '✶',
+  },
+];
+
+const allPosts = await getCollection('blog');
+const topPosts = allPosts
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 4);
+
+const formatDate = (iso: Date) => {
+  // CJK date format: 2026年6月9日 (JP) or 2026年6月9日 (ZH)
+  const y = iso.getFullYear();
+  const m = iso.getMonth() + 1;
+  const d = iso.getDate();
+  return locale === 'jp' ? `${y}年${m}月${d}日` : `${y}年${m}月${d}日`;
+};
+
+const testimonials = [
+  {
+    name: 'Kao',
+    quote: '心も体も軽くなり、自分の進みたい方向もはっきりして、とても安心しました。',
+    service: 'ガイダンス',
+  },
+  {
+    name: 'もん',
+    quote: '実際の誘導以外の説明やアフターケアを絵や文字で示してくださり、確認しやすかったです。',
+    service: 'ボディスキャン',
+  },
+  {
+    name: 'おゆ',
+    quote: '感謝と愛をたくさん感じることができる時間は改めて幸せだなあと思いました。',
+    service: 'ボディスキャン',
+  },
+];
+
+const copy = {
+  jp: {
+    heroWelcome: 'ようこそ',
+    heroSubtitle: 'ホリスティック・ヒーリング',
+    heroDescription: 'エネルギーヒーリング、 sound therapy、スピリチュアル・ガイダンスを通じて内なる調和を取り戻します。',
+    bookSession: 'セッションを予約',
+    exploreServices: 'サービス一覧',
+    sectionServices: '提供内容',
+    sectionServicesSub: 'あらゆる旅路に寄り添うメソッド',
+    sectionLatest: '最新のインサイト',
+    sectionLatestSub: 'ブログより',
+    sectionLatestBody: '癒し、スピリチュアル、マインドフル・ライフについての考察。',
+    viewAll: '全ての記事',
+    sectionVoices: 'お客様の声',
+    sectionVoicesSub: 'ご感想',
+    readAllVoices: '全てのレビュー',
+    sectionAbout: 'プロフィール',
+    sectionAboutSub: 'カーメンについて',
+    connectWithMe: 'お問い合わせ',
+    articleLabel: '記事',
+    newsLabel: 'お知らせ',
+    readMore: '続きを読む',
+    byLine: '提供',
+  },
+  zh: {
+    heroWelcome: '歡迎來到',
+    heroSubtitle: '整體療癒',
+    heroDescription: '透過能量療癒、聲音療法與靈性指引，重新與內在的和諧連結。',
+    bookSession: '預約療程',
+    exploreServices: '所有服務',
+    sectionServices: '服務項目',
+    sectionServicesSub: '支持每一段獨特的療癒之旅',
+    sectionLatest: '最新分享',
+    sectionLatestSub: '網誌精選',
+    sectionLatestBody: '關於療癒、靈性與真實生活的反思。',
+    viewAll: '查看全部',
+    sectionVoices: '客戶分享',
+    sectionVoicesSub: '他們的話',
+    readAllVoices: '閱讀所有分享',
+    sectionAbout: '關於我',
+    sectionAboutSub: '認識 Carmen',
+    connectWithMe: '與我聯絡',
+    articleLabel: '文章',
+    newsLabel: '最新消息',
+    readMore: '閱讀全文',
+    byLine: '療程',
+  },
+} as const;
+
+const c = copy[locale];
+const blogIndexPath = `/${locale}/blog`;
+---
+
+  <!-- Hero Section (breathable, but smaller than EN) -->
+  <section class="relative min-h-[55vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-blush via-warm-white to-warm-white border-b border-rose/10">
+    <div class="absolute w-72 h-72 rounded-full bg-lavender-light/20 blur-3xl -top-10 -left-10 pointer-events-none"></div>
+    <div class="absolute w-60 h-60 rounded-full bg-sky-light/15 blur-3xl bottom-0 right-0 pointer-events-none"></div>
+
+    <div class="relative z-10 text-center px-6 max-w-2xl mx-auto py-16">
+      <p class="text-rose font-serif text-sm italic mb-2">{c.heroWelcome}</p>
+      <h1 class="text-3xl md:text-5xl font-serif font-bold text-ink mb-3 leading-tight">
+        Carmen Ng
+      </h1>
+      <p class="text-base md:text-lg font-serif italic text-ink-light mb-5">{c.heroSubtitle}</p>
+      <p class="text-sm md:text-base text-ink-light mb-6 leading-relaxed max-w-xl mx-auto">
+        {c.heroDescription}
+      </p>
+      <div class="flex flex-col sm:flex-row gap-2 justify-center">
+        <a href="/contact" class="btn-primary text-xs px-6 py-2">{c.bookSession}</a>
+        <a href="#services" class="btn-outline text-xs px-6 py-2">{c.exploreServices}</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section (4-up grid, dense) -->
+  <section id="services" class="py-12 bg-cream/40">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-baseline justify-between mb-6 border-b border-rose/20 pb-2">
+        <h2 class="font-serif text-xl text-ink">{c.sectionServices}</h2>
+        <p class="text-xs text-ink-light/70">{c.sectionServicesSub}</p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+        {services.map((s) => (
+          <div class="bg-white/80 border border-rose/10 rounded-md p-3 hover:border-rose/30 transition-colors">
+            <div class="flex items-baseline gap-2 mb-1">
+              <span class="text-rose text-base">{s.icon}</span>
+              <h3 class="font-serif text-sm text-ink leading-tight">{s.title}</h3>
+            </div>
+            <p class="text-[10px] text-rose tracking-wider uppercase mb-1.5">{s.subtitle}</p>
+            <p class="text-xs text-ink-light leading-snug">{s.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Section (dense 4-up grid) -->
+  <section class="py-12">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-baseline justify-between mb-4 border-b border-rose/20 pb-2">
+        <div class="flex items-baseline gap-3">
+          <h2 class="font-serif text-xl text-ink">{c.sectionLatest}</h2>
+          <span class="text-xs text-ink-light/60">{c.sectionLatestSub}</span>
+        </div>
+        <a href={blogIndexPath} class="text-xs text-rose hover:underline">{c.viewAll} →</a>
+      </div>
+      <p class="text-xs text-ink-light/70 mb-4">{c.sectionLatestBody}</p>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+        {topPosts.map((post) => (
+          <a href={`${blogIndexPath}/${post.data.slug}`} class="block group">
+            <div class="aspect-[4/3] rounded-md mb-2 overflow-hidden bg-gradient-to-br from-sky-light/30 to-lavender-light/30 relative">
+              {post.data.cover
+                ? <img src={post.data.cover} alt="" loading="lazy" class="w-full h-full object-cover" />
+                : <div class="w-full h-full flex items-center justify-center">
+                    {post.data.video
+                      ? <span class="text-2xl opacity-30">▶</span>
+                      : <span class="text-2xl opacity-20">✦</span>
+                    }
+                  </div>
+              }
+              {post.data.video && (
+                <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  <span class="w-8 h-8 rounded-full bg-ink/60 text-white text-sm flex items-center justify-center">▶</span>
+                </div>
+              )}
+            </div>
+            <p class="text-[10px] text-rose tracking-wider uppercase mb-1">
+              {post.data.category === 'news' ? c.newsLabel : c.articleLabel}
+            </p>
+            <h3 class="font-serif text-sm text-ink leading-snug mb-1 group-hover:text-rose transition-colors line-clamp-2">
+              {post.data.title_jp}
+            </h3>
+            <p class="text-[11px] text-ink-light/60">{formatDate(post.data.date)}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section (compact, more like a sidebar pull-quote) -->
+  <section class="py-12 bg-gradient-to-b from-warm-white to-blush/30">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-baseline justify-between mb-4 border-b border-rose/20 pb-2">
+        <div class="flex items-baseline gap-3">
+          <h2 class="font-serif text-xl text-ink">{c.sectionVoices}</h2>
+          <span class="text-xs text-ink-light/60">{c.sectionVoicesSub}</span>
+        </div>
+        <a href="/testimonials" class="text-xs text-rose hover:underline">{c.readAllVoices} →</a>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-3">
+        {testimonials.map((t) => (
+          <div class="bg-white/70 border-l-2 border-rose/40 pl-3 pr-2 py-2 rounded-r-md">
+            <p class="text-xs text-ink-light leading-relaxed mb-2 line-clamp-4">{t.quote}</p>
+            <div class="flex items-center justify-between text-[11px]">
+              <span class="font-medium text-ink">— {t.name}</span>
+              <span class="text-ink-light/60">{c.byLine}: {t.service}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section (stacked, denser) -->
+  <section class="py-12 border-t border-rose/10">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="flex items-baseline gap-3 mb-4 border-b border-rose/20 pb-2">
+        <h2 class="font-serif text-xl text-ink">{c.sectionAbout}</h2>
+        <span class="text-xs text-ink-light/60">{c.sectionAboutSub}</span>
+      </div>
+      <div class="flex items-start gap-6">
+        <div class="w-28 h-28 flex-shrink-0 rounded-full bg-gradient-to-br from-lavender-light to-sky-light flex items-center justify-center">
+          <span class="text-3xl opacity-40">✦</span>
+        </div>
+        <div class="flex-1">
+          <div class="text-xs text-ink-light leading-relaxed space-y-2">
+            {locale === 'jp' ? (
+              <>
+                <p>ヒーリングの旅は十多年前、エネルギー・ワークが私の人生にもたらした深い変容の体験から始まりました。個人 RAAH セッション、ヒーリング、ボディスキャン・ワークショップなどを通し、クライアントの「自分の中にあるギフトや癒しの力を思い出す」お手伝いをしています。</p>
+                <p>レイキ、サウンドセラピー、量子催眠（QHHT）など複数の伝統を学び、古代の叡智と直感的な実践を融合させています。</p>
+                <p>セッションやワークショップの最新情報はブログとニュースレターにて。</p>
+              </>
+            ) : (
+              <>
+                <p>我的療癒旅程始於十多年前，親身經歷了能量療癒為生命帶來的深刻轉化。透過個人 RAAH 靈氣、療癒、Body Scan 工作坊等方式，協助客戶憶起自身本有的療癒力量。</p>
+                <p>我受過 Reiki、聲音療法、量子催眠（QHHT）等多重傳統的訓練，將古老的智慧與直覺性的實踐相融合。</p>
+                <p>最新工作坊與活動資訊請見網誌與電子報。</p>
+              </>
+            )}
+          </div>
+          <a href="/contact" class="inline-block mt-3 text-xs text-rose hover:underline">{c.connectWithMe} →</a>
+        </div>
+      </div>
+    </div>
+  </section>

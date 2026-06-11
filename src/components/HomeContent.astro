@@ -1,0 +1,334 @@
+---
+import { getCollection } from 'astro:content';
+import { type Locale } from '../i18n';
+
+export interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+
+const services = [
+  {
+    title: 'Energy Healing',
+    subtitle: 'Reiki & Pranic Healing',
+    description: "Restore the flow of vital energy through gentle hands-on techniques. Release blockages and rebalance your body's natural energy field.",
+    icon: '✦',
+    color: 'rose',
+  },
+  {
+    title: 'Sound Therapy',
+    subtitle: 'Singing Bowls & Tuning Forks',
+    description: 'Immerse in healing vibrations that realign your chakras and promote deep cellular relaxation. Sound frequencies for profound inner peace.',
+    icon: '♯',
+    color: 'lavender',
+  },
+  {
+    title: 'Meditation Guidance',
+    subtitle: 'One-on-One & Group',
+    description: 'Learn to quiet the mind and connect with your inner wisdom. Guided sessions tailored to your experience level and intentions.',
+    icon: '○',
+    color: 'sky',
+  },
+  {
+    title: 'Spiritual Coaching',
+    subtitle: 'Life Path & Purpose',
+    description: 'Clarity and direction through intuitive guidance. Navigate life transitions with confidence and reconnect with your soul\'s purpose.',
+    icon: '☆',
+    color: 'peach',
+  },
+  {
+    title: 'Chakra Alignment',
+    subtitle: 'Aura Cleansing & Balancing',
+    description: 'Harmonize your seven energy centers. Restore balance to your physical, emotional, and spiritual bodies through targeted energy work.',
+    icon: '◈',
+    color: 'rose',
+  },
+];
+
+const allPosts = await getCollection('blog');
+const topPosts = allPosts
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
+
+const formatDate = (iso: Date) =>
+  iso.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+const testimonials = [
+  {
+    name: 'Sarah L.',
+    text: "After just three sessions with Carmen, I felt a shift I hadn't experienced in years. The energy work released something I didn't even know I was holding.",
+    rating: 5,
+  },
+  {
+    name: 'Michael T.',
+    text: "The sound bath session was transformative. I've never felt such deep relaxation. Carmen creates a truly sacred space.",
+    rating: 5,
+  },
+  {
+    name: 'Emily W.',
+    text: "Carmen's spiritual coaching helped me find clarity during a difficult career transition. Her intuition is remarkable.",
+    rating: 5,
+  },
+];
+
+// Locale-aware copy for the hero and section headers. The service / blog /
+// testimonials / about *content* (cards, quotes) is still in English; only
+// the page chrome (titles, subtitles) is localized for now. You can replace
+// the body copy with localized versions in the dictionaries if needed.
+const copy: Record<Locale, {
+  heroWelcome: string;
+  heroTitle: string;
+  heroSubtitle: string;
+  heroDescription: string;
+  bookSession: string;
+  exploreServices: string;
+  whatIOffer: string;
+  myHealingApproach: string;
+  myHealingApproachBody: string;
+  latestInsights: string;
+  fromTheBlog: string;
+  fromTheBlogBody: string;
+  viewAllPosts: string;
+  whatClientsSay: string;
+  kindWords: string;
+  readAllReviews: string;
+  aboutMe: string;
+  meetCarmen: string;
+  meetCarmenBody: string[];
+  connectWithMe: string;
+  articleLabel: string;
+  newsLabel: string;
+  readMore: string;
+}> = {
+  en: {
+    heroWelcome: 'Welcome to',
+    heroTitle: 'Holistic Healing',
+    heroSubtitle: 'Holistic Healing',
+    heroDescription: 'Rediscover your inner harmony through energy healing, sound therapy, and spiritual guidance.',
+    bookSession: 'Book a Session',
+    exploreServices: 'Explore Services',
+    whatIOffer: 'What I Offer',
+    myHealingApproach: 'My Healing Approach',
+    myHealingApproachBody: 'Every journey is unique. I offer a range of modalities to support your path to wellness.',
+    latestInsights: 'Latest Insights',
+    fromTheBlog: 'From the Blog',
+    fromTheBlogBody: 'Thoughts on healing, spirituality, and living authentically.',
+    viewAllPosts: 'View All Posts',
+    whatClientsSay: 'What Clients Say',
+    kindWords: 'Kind Words',
+    readAllReviews: 'Read All Reviews',
+    aboutMe: 'About Me',
+    meetCarmen: 'Meet Carmen',
+    meetCarmenBody: [
+      'My journey into healing began over a decade ago, after experiencing the profound transformation that energy work brought to my own life. What started as personal healing evolved into a calling to guide others on their path to wholeness.',
+      'Trained in Reiki, sound therapy, and various meditation traditions, I blend ancient wisdom with intuitive practice. Every session is a co-created space — tailored to where you are today, and where you\'re ready to go.',
+      'I believe healing isn\'t about fixing what\'s broken — it\'s about remembering what\'s already whole. My role is simply to hold the space for that remembering.',
+    ],
+    connectWithMe: 'Connect With Me',
+    articleLabel: 'Articles',
+    newsLabel: 'News & Events',
+    readMore: 'Read more →',
+  },
+  jp: {
+    heroWelcome: 'ようこそ',
+    heroTitle: 'ホリスティック・ヒーリング',
+    heroSubtitle: 'ホリスティック・ヒーリング',
+    heroDescription: 'エネルギーヒーリング、 sound therapy、スピリチュアル・ガイダンスを通じて内なる調和を取り戻します。',
+    bookSession: 'セッションを予約',
+    exploreServices: 'サービスを見る',
+    whatIOffer: '提供内容',
+    myHealingApproach: '私のアプローチ',
+    myHealingApproachBody: '一人ひとり異なる旅路に、心と体の癒しを提供します。',
+    latestInsights: '最新のインサイト',
+    fromTheBlog: 'ブログより',
+    fromTheBlogBody: '癒し、スピリチュアル、マインドフル・ライフについての考察。',
+    viewAllPosts: '全ての記事を見る',
+    whatClientsSay: 'お客様の声',
+    kindWords: 'ご感想',
+    readAllReviews: '全てのレビューを読む',
+    aboutMe: 'プロフィール',
+    meetCarmen: 'カーメンについて',
+    meetCarmenBody: [
+      'ヒーリングの旅は十多年前、エネルギー・ワークが私の人生にもたらした深い変容の体験から始まりました。',
+      'レイキ、サウンドセラピー、そして様々な瞑想の伝統を学んだ上で、古代の叡智と直感的な実践を融合させています。',
+      '癒しは「壊れた部分を直す」ことではなく、「すでに whole である自分を思い出す」ことだと信じています。',
+    ],
+    connectWithMe: 'お問い合わせ',
+    articleLabel: '記事',
+    newsLabel: 'お知らせ',
+    readMore: '続きを読む →',
+  },
+  zh: {
+    heroWelcome: '歡迎來到',
+    heroTitle: '整體療癒',
+    heroSubtitle: '整體療癒',
+    heroDescription: '透過能量療癒、聲音療法與靈性指引，重新與內在的和諧連結。',
+    bookSession: '預約療程',
+    exploreServices: '了解服務',
+    whatIOffer: '服務項目',
+    myHealingApproach: '我的療癒方式',
+    myHealingApproachBody: '每個人的旅程都獨一無二，我提供多元的療癒方式來支持您的健康之路。',
+    latestInsights: '最新分享',
+    fromTheBlog: '網誌精選',
+    fromTheBlogBody: '關於療癒、靈性與真實生活的反思。',
+    viewAllPosts: '查看所有文章',
+    whatClientsSay: '客戶分享',
+    kindWords: '他們的話',
+    readAllReviews: '閱讀所有分享',
+    aboutMe: '關於我',
+    meetCarmen: '認識 Carmen',
+    meetCarmenBody: [
+      '我的療癒旅程始於十多年前，親身經歷了能量療癒為生命帶來的深刻轉化。',
+      '我受過 Reiki、聲音療法及多種冥想傳統的訓練，將古老的智慧與直覺性的實踐相融合。',
+      '我相信療癒不是「修補破碎」，而是「憶起本已完整」。我的角色只是為這份憶起提供空間。',
+    ],
+    connectWithMe: '與我聯絡',
+    articleLabel: '文章',
+    newsLabel: '最新消息',
+    readMore: '閱讀全文 →',
+  },
+};
+
+const c = copy[locale];
+const blogIndexPath = locale === 'en' ? '/en/blog' : `/${locale}/blog`;
+---
+
+  <!-- Hero Section -->
+  <section class="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-blush via-warm-white to-warm-white">
+    <div class="absolute w-96 h-96 rounded-full bg-lavender-light/30 blur-3xl -top-20 -left-20 animate-pulse pointer-events-none"></div>
+    <div class="absolute w-80 h-80 rounded-full bg-sky-light/20 blur-3xl top-40 -right-20 animate-pulse pointer-events-none" style="animation-delay: 2s"></div>
+    <div class="absolute w-64 h-64 rounded-full bg-peach-light/25 blur-3xl bottom-20 left-1/3 animate-pulse pointer-events-none" style="animation-delay: 4s"></div>
+
+    <div class="relative z-10 text-center px-6 max-w-3xl mx-auto">
+      <p class="text-rose font-serif text-lg md:text-xl italic mb-4">{c.heroWelcome}</p>
+      <h1 class="text-5xl md:text-7xl font-serif font-bold text-ink mb-6 leading-tight">
+        Carmen Ng<br />
+        <span class="text-3xl md:text-4xl font-normal italic text-ink-light">{c.heroSubtitle}</span>
+      </h1>
+      <p class="text-ink-light text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed">
+        {c.heroDescription}
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact" class="btn-primary text-base px-10 py-4">{c.bookSession}</a>
+        <a href="#services" class="btn-outline text-base px-10 py-4">{c.exploreServices}</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-24 bg-cream">
+    <div class="max-w-6xl mx-auto px-6">
+      <p class="text-rose font-serif text-center text-lg italic mb-2">{c.whatIOffer}</p>
+      <h2 class="section-title">{c.myHealingApproach}</h2>
+      <p class="section-subtitle">
+        {c.myHealingApproachBody}
+      </p>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {services.map((s) => (
+          <div class="card group hover:-translate-y-1 cursor-default">
+            <div class={`w-12 h-12 rounded-xl bg-${s.color}/10 flex items-center justify-center text-${s.color} text-xl mb-5 group-hover:scale-110 transition-transform`}>
+              {s.icon}
+            </div>
+            <h3 class="font-serif text-xl mb-1">{s.title}</h3>
+            <p class="text-rose text-xs tracking-widest uppercase mb-3">{s.subtitle}</p>
+            <p class="text-ink-light text-sm leading-relaxed">{s.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Preview Section -->
+  <section class="py-24">
+    <div class="max-w-6xl mx-auto px-6">
+      <p class="text-rose font-serif text-center text-lg italic mb-2">{c.latestInsights}</p>
+      <h2 class="section-title">{c.fromTheBlog}</h2>
+      <p class="section-subtitle">{c.fromTheBlogBody}</p>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        {topPosts.map((post) => (
+          <a href={`${blogIndexPath}/${post.data.slug}`} class="card group block">
+            <div class="w-full h-48 rounded-xl mb-5 overflow-hidden bg-gradient-to-br from-lavender-light/40 to-sky-light/40 relative">
+              {post.data.cover
+                ? <img src={post.data.cover} alt="" loading="lazy" class="w-full h-full object-cover" />
+                : <div class="w-full h-full flex items-center justify-center">
+                    {post.data.video
+                      ? <span class="text-4xl opacity-30">▶</span>
+                      : <span class="text-4xl opacity-30">✦</span>
+                    }
+                  </div>
+              }
+              {post.data.video && (
+                <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  <span class="w-12 h-12 rounded-full bg-ink/60 text-white text-2xl flex items-center justify-center">▶</span>
+                </div>
+              )}
+            </div>
+            <p class="text-xs text-rose tracking-wider uppercase mb-2">
+              {post.data.category === 'news' ? c.newsLabel : c.articleLabel}
+            </p>
+            <h3 class="font-serif text-lg mb-2 group-hover:text-rose transition-colors">
+              {(locale === 'jp' ? post.data.title_jp : (post.data.title_en || post.data.title_jp))}
+            </h3>
+            <p class="text-ink-light text-sm leading-relaxed mb-4 line-clamp-3">
+              {(post.data.body_en || post.data.body_jp).split('\n')[0].slice(0, 140)}…
+            </p>
+            <div class="flex items-center justify-between">
+              <span class="text-xs text-ink-light/60">{formatDate(post.data.date)}</span>
+              <span class="text-rose text-sm group-hover:underline">{c.readMore}</span>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <div class="text-center mt-10">
+        <a href={blogIndexPath} class="btn-outline">{c.viewAllPosts}</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="py-24 bg-gradient-to-b from-warm-white to-blush">
+    <div class="max-w-6xl mx-auto px-6">
+      <p class="text-rose font-serif text-center text-lg italic mb-2">{c.whatClientsSay}</p>
+      <h2 class="section-title">{c.kindWords}</h2>
+
+      <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        {testimonials.map((t) => (
+          <div class="card relative">
+            <div class="text-rose/30 text-5xl font-serif leading-none mb-2">"</div>
+            <p class="text-ink-light text-sm leading-relaxed mb-6 italic">"{t.text}"</p>
+            <div class="flex items-center justify-between mt-auto">
+              <span class="text-sm font-medium">— {t.name}</span>
+              <div class="flex gap-0.5 text-rose text-xs">{'★'.repeat(t.rating)}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="text-center mt-10">
+        <a href="/testimonials" class="btn-outline">{c.readAllReviews}</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="py-24">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row items-center gap-12 max-w-4xl mx-auto">
+        <div class="w-64 h-64 rounded-full bg-gradient-to-br from-lavender-light to-sky-light flex-shrink-0 flex items-center justify-center">
+          <span class="text-6xl opacity-40">✦</span>
+        </div>
+        <div>
+          <p class="text-rose font-serif italic text-lg mb-2">{c.aboutMe}</p>
+          <h2 class="font-serif text-3xl md:text-4xl mb-6">{c.meetCarmen}</h2>
+          <div class="text-ink-light text-sm leading-relaxed space-y-4">
+            {c.meetCarmenBody.map((p) => <p>{p}</p>)}
+          </div>
+          <a href="/contact" class="btn-primary mt-8">{c.connectWithMe}</a>
+        </div>
+      </div>
+    </div>
+  </section>

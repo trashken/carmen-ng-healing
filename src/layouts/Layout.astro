@@ -11,6 +11,39 @@ export interface Props {
 const { title, description, locale = defaultLocale } = Astro.props;
 const t = getDictionary(locale);
 const otherLocales = locales.filter((l) => l !== locale);
+
+// Smart language switcher: given the target locale and the current URL,
+// return the path the switcher should link to.
+//
+// Rules:
+//   1. Strip any existing locale prefix from the current path.
+//   2. If the current path is /testimonials or /contact (unlocalized),
+//      the switcher goes to that locale's home.
+//   3. Otherwise, prepend the target locale's prefix (or / for default).
+//
+// Examples (current path -> JP link):
+//   /jp/blog/ghibli               -> /jp/blog/ghibli
+//   /en/blog                      -> /jp/blog
+//   /testimonials                 -> /jp          (locale home)
+//   /contact                      -> /jp          (locale home)
+//   /                             -> /jp
+function localePathFor(target: Locale, currentPath: string): string {
+  // Step 1: strip leading /:en|jp|zh prefix
+  const stripped = currentPath.replace(/^\/(en|jp|zh)(?=\/|$)/, '');
+
+  // Step 2: unlocalized routes go to the locale home
+  if (stripped === '/testimonials' || stripped === '/contact') {
+    return target === defaultLocale ? '/' : `/${target}`;
+  }
+
+  // Step 3: prepend the target locale (or / for default)
+  if (target === defaultLocale) {
+    return stripped === '' ? '/' : stripped;
+  }
+  return stripped === '' ? `/${target}` : `/${target}${stripped}`;
+}
+
+const currentPath = Astro.url.pathname;
 ---
 
 <!doctype html>
@@ -46,7 +79,7 @@ const otherLocales = locales.filter((l) => l !== locale);
           <div class="hidden sm:flex items-center gap-1 text-xs">
             {otherLocales.map((l) => (
               <a
-                href={l === defaultLocale ? '/' : `/${l}`}
+                href={localePathFor(l, currentPath)}
                 aria-label={`Switch language to ${l}`}
                 class="px-2 py-1 rounded text-ink-light hover:text-rose hover:bg-rose/5 transition-colors uppercase"
               >

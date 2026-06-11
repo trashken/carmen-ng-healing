@@ -1,25 +1,29 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
-import { posts, getBodyForLocale, getTitleForLocale } from '../../../data/posts';
+import { getCollection, type CollectionEntry } from 'astro:content';
 import { getDictionary, type Locale } from '../../../i18n';
 
 export async function getStaticPaths() {
+  const posts = await getCollection('blog');
   return posts.map((post) => ({
-    params: { slug: post.slug },
+    params: { slug: post.data.slug },
     props: { post },
   }));
 }
 
+type Props = { post: CollectionEntry<'blog'> };
 const { post } = Astro.props;
 const locale: Locale = 'zh';
 const t = getDictionary(locale);
-const { title, isFallback: titleFallback } = getTitleForLocale(post, locale);
-const { body, isFallback: bodyFallback } = getBodyForLocale(post, locale);
 
-const formatDate = (iso: string) =>
-  new Date(iso).toLocaleDateString('zh-Hant', { year: 'numeric', month: 'long', day: 'numeric' });
+const titleFallback = !post.data.title_zh;
+const bodyFallback = !post.data.body_zh;
+const title = post.data.title_zh || post.data.title_jp;
+const body = post.data.body_zh || post.data.body_jp;
+const bodyParagraphs = body.split('\n').map((p: string) => p.trim()).filter(Boolean);
 
-const bodyParagraphs = body.split('\n').map((p) => p.trim()).filter(Boolean);
+const formatDate = (iso: Date) =>
+  iso.toLocaleDateString('zh-Hant', { year: 'numeric', month: 'long', day: 'numeric' });
 ---
 
 <Layout title={`${title} | ${t.meta.siteName}`} description={bodyParagraphs[0]?.slice(0, 160)} locale={locale}>
@@ -27,16 +31,16 @@ const bodyParagraphs = body.split('\n').map((p) => p.trim()).filter(Boolean);
     <div class="max-w-3xl mx-auto px-6">
       <a href="/zh/blog" class="inline-flex items-center text-sm text-rose hover:underline mb-8">← 返回網誌</a>
 
-      {post.cover && (
+      {post.data.cover && (
         <div class="mb-8 rounded-2xl overflow-hidden shadow-lg">
-          <img src={post.cover} alt="" class="w-full h-auto" />
+          <img src={post.data.cover} alt="" class="w-full h-auto" />
         </div>
       )}
 
-      {post.video && (
+      {post.data.video && (
         <div class="mb-8 rounded-2xl overflow-hidden shadow-lg bg-ink">
-          <video controls class="w-full" preload="metadata" poster={post.cover ?? '/favicon.svg'}>
-            <source src={post.video} type="video/mp4" />
+          <video controls class="w-full" preload="metadata" poster={post.data.cover ?? '/favicon.svg'}>
+            <source src={post.data.video} type="video/mp4" />
             您的瀏覽器不支援影片播放。
           </video>
         </div>
@@ -44,7 +48,7 @@ const bodyParagraphs = body.split('\n').map((p) => p.trim()).filter(Boolean);
 
       <header class="mb-10">
         <p class="text-xs text-rose tracking-wider uppercase mb-3">
-          {post.category === 'news' ? '最新消息' : '文章'}
+          {post.data.category === 'news' ? '最新消息' : '文章'}
         </p>
         <h1 class="font-serif text-3xl md:text-5xl text-ink mb-4 leading-tight">{title}</h1>
         {titleFallback && (
@@ -53,12 +57,12 @@ const bodyParagraphs = body.split('\n').map((p) => p.trim()).filter(Boolean);
           </p>
         )}
         <p class="text-sm text-ink-light/70">
-          <time datetime={post.date}>{formatDate(post.date)}</time>
+          <time datetime={post.data.date.toISOString()}>{formatDate(post.data.date)}</time>
         </p>
       </header>
 
-      <div class="prose prose-lg max-w-none text-ink-light leading-relaxed space-y-5">
-        {bodyParagraphs.map((p) => <p>{p}</p>)}
+      <div class="prose prose-lg max-w-none text-ink-light leading-relaxed space-y-5 whitespace-pre-line">
+        {body}
       </div>
 
       {bodyFallback && (
@@ -70,8 +74,8 @@ const bodyParagraphs = body.split('\n').map((p) => p.trim()).filter(Boolean);
       <div class="mt-16 pt-8 border-t border-rose/20 flex flex-col sm:flex-row gap-3 justify-between items-start sm:items-center">
         <a href="/zh/blog" class="btn-outline text-xs px-6 py-2">全部文章</a>
         <div class="flex gap-2 text-xs">
-          <a href={`/en/blog/${post.slug}`} class="px-3 py-1 rounded-full border border-rose/30 text-ink-light hover:bg-rose/5">English</a>
-          <a href={`/jp/blog/${post.slug}`} class="px-3 py-1 rounded-full border border-rose/30 text-ink-light hover:bg-rose/5">日本語</a>
+          <a href={`/en/blog/${post.data.slug}`} class="px-3 py-1 rounded-full border border-rose/30 text-ink-light hover:bg-rose/5">English</a>
+          <a href={`/jp/blog/${post.data.slug}`} class="px-3 py-1 rounded-full border border-rose/30 text-ink-light hover:bg-rose/5">日本語</a>
         </div>
       </div>
     </div>

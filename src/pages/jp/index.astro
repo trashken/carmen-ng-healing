@@ -1,0 +1,12 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import HomeContentEast from '../../components/HomeContentEast.astro';
+import { getDictionary, type Locale } from '../../i18n';
+
+const locale: Locale = 'jp';
+const t = getDictionary(locale);
+---
+
+<Layout title={`${t.meta.homeTitle} | ${t.meta.siteName}`} description={t.meta.defaultDescription} locale={locale}>
+  <HomeContentEast locale="jp" />
+</Layout>

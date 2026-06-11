@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "slug": {
+      "type": "string"
+    },
+    "title_en": {
+      "type": "string"
+    },
+    "title_jp": {
+      "type": "string"
+    },
+    "title_zh": {
+      "default": "",
+      "type": "string"
+    },
+    "date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "article",
+        "news"
+      ]
+    },
+    "cover": {
+      "type": "string"
+    },
+    "video": {
+      "type": "string"
+    },
+    "body_en": {
+      "default": "",
+      "type": "string"
+    },
+    "body_jp": {
+      "type": "string"
+    },
+    "body_zh": {
+      "default": "",
+      "type": "string"
+    },
+    "$schema": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "slug",
+    "title_en",
+    "title_jp",
+    "date",
+    "category",
+    "body_jp"
+  ]
+}

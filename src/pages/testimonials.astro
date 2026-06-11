@@ -1,81 +1,19 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getCollection, render } from 'astro:content';
 
-interface Testimonial {
-  name: string;
-  service: string; // e.g. "Spiritual Guidance & Healing", "Body Scan Workshop"
-  text: string;
-  rating: number;
-  lang: 'jp' | 'en' | 'zh';
-}
+const allTestimonials = await getCollection('testimonials');
+// Render each entry's Markdown body to HTML.
+const rendered = await Promise.all(
+  allTestimonials.map(async (entry) => {
+    const { Content } = await render(entry);
+    return { entry, Content };
+  }),
+);
 
-const testimonials: Testimonial[] = [
-  {
-    name: 'kao',
-    service: 'Spiritual Guidance & Healing',
-    text: '体の不調と悩みがあり、スピリチュアルガイダンス＋ヒーリングを受けました。\nカーメン先生は私の悩みをしっかり聞いてくださり、ハイヤーセルフに丁寧にさまざまなことを尋ねてくださいました。\nいただいたメッセージは的確で核心を突いた内容であり、またとても愛にあふれていました。\nその後、今の私に必要なワークと、ヒーリングによるエネルギー調整もしてくださいました。\n心も体も軽くなり、自分の進みたい方向もはっきりして、とても安心しました。\nセッションではいつも深い気づきと学びがあります。\nいつもありがとうございます😊',
-    rating: 5,
-    lang: 'jp',
-  },
-  {
-    name: 'もん',
-    service: 'Body Scan Workshop',
-    text: '最初の何回かはボディスキャンしようとしてもいつの間にか寝ていました。今日の夕方に始めて寝ずにボディスキャンできました。視聴期間が長くて助かりました。実際の誘導以外の説明やアフターケアを絵や文字で示してくださり、どんな視聴環境でも確認しやすかったです。ありがとうございます。今、家のリフォーム計画中なので、終わったころに家のエネルギーを整えるプログラムをお願いしたいと思います。',
-    rating: 5,
-    lang: 'jp',
-  },
-  {
-    name: 'おゆ',
-    service: 'Home Cleansing R.A.A.H.',
-    text: 'Carmenさんに個人RAAH霊気セッションをしてもらって以来、自分の思考の課題や手放したい癖を一つ一つ解決していける状況が続き、今回は家の浄化もお願いしました。セッション中にリビングで休んでいると、部屋の空気が優しくクリアになっていく感覚がありました。セッション後に、快適なこの家に住めることに感謝の気持ちが湧いてきました。家で過ごす日常を、もっと楽しく幸せな時間にしていきたいです。ありがとうございました！',
-    rating: 5,
-    lang: 'jp',
-  },
-  {
-    name: 'おゆ',
-    service: 'Body Scan Workshop',
-    text: '初めてボディスキャン瞑想をしました。体を整えるだけでなく、自分の心のトラウマのような、不要になったネガティブな感情と記憶に向き合い、一つ一つ手放していく流れが心地よかったです！\nレコーディングを見ながら再度やってみたら、初回よりも上手くできた感覚があり、気持ちもすっきりました。\n感謝と愛をたくさん感じることができる時間は改めて幸せだなあと思い、またボディスキャン瞑想の時間を自分のためにちゃんと作りたいです。Carmenさんからの優しさと愛のエネルギーもたくさん受け取ったと感じました！心と体のヒーリングの時間をありがとうございます:)',
-    rating: 5,
-    lang: 'jp',
-  },
-  {
-    name: 'mimo',
-    service: 'Body Scan Workshop',
-    text: 'sessionで深く呼吸をして、ゆっくり1時間自分と向き合った上で、レイキをしていただいたことが自分には合っていたようです。 レイキの際には、からだの中に渦のようなエネルギーが巻いて流れ、ぴりっとした稲妻のようなものが流れました。そのあとは、白い穏やかなエネルギーでおおわれて、静かに流れたようなイメージがしました。 午後、仕事を職場でしましたが、驚くくらいにサクサク進みました！ そして、夜はぐっすり休むことができました。 自分も周りも許して、愛することを取り戻させてくださり、本当にありがとうございます！ これからも自分と周りを大事にして、自分のMISSIONを続けていきます。',
-    rating: 5,
-    lang: 'jp',
-  },
-  {
-    name: 'おさと',
-    service: 'Home Cleansing R.A.A.H.',
-    text: '家の浄化をしていただいたのですが、セッション中からもう清浄な空気に変化していたのが感じられました。セッション後に、それまで親しくしていた知人との間に距離を感じてしまい、感謝して手放すということが罪悪感なくできるようになっていて、これも浄化してもらったおかげだと思っています。ありがとうございました！',
-    rating: 5,
-    lang: 'jp',
-  },
-  {
-    name: 'Chunling',
-    service: 'Pet R.A.A.H. Reiki Session',
-    text: 'We had a reiki session for my cat who has diabetes. He had been receiving insulin but it did not lower his blood glucose, even with gradually increased dosage.\n\nCarmen was able to communicate with Bob to find out how he feels, what are the negative forces impacting his health, and what he wanted to tell me. Carmen addressed the issues thoroughly and made a recommendation on the diet and on my own stress levels (because pets always pick up the energy from the owners).\n\nWe came off the insulin and started introducing real food in his diet. The blood glucose stayed high in the first 12 hours (without the insulin), and then it gradually lowered. over a course of 1 week, the average went from 22 - 27mmol/L to 12-14 mmol/L (bearing in mind a non-diabetic cat\'s glucose should read 2-7mmol/L).\n\nI feel very confident and relieved to see this improvement, and to see my cat\'s energy level improving. Carmen is really a miracle worker. Thank you!!!',
-    rating: 5,
-    lang: 'en',
-  },
-  {
-    name: '清水',
-    service: 'Body Scan Workshop',
-    text: '今回はボディスキャンのグループワークに参加しました。 初めてのボディスキャンでしたが、実際にやる前にフリップを使ってポイントを解説してもらったのでわかりやすくて良かったです。 今後続けていき、より良い自分を目指します。ありがとうございました。',
-    rating: 5,
-    lang: 'jp',
-  },
-  {
-    name: 'crystal123',
-    service: 'Wellness Workshop',
-    text: '覺得整體好舒服，希望有多些這類型的工作坊',
-    rating: 5,
-    lang: 'zh',
-  },
-];
-
-const langBadge: Record<Testimonial['lang'], string> = {
+// Order: same as the original page (alphabetical by name within the
+// original grouping was the source's order; we'll just keep file order).
+const langBadge: Record<'jp' | 'en' | 'zh', string> = {
   jp: '日本語',
   en: 'English',
   zh: '中文',
@@ -90,21 +28,23 @@ const langBadge: Record<Testimonial['lang'], string> = {
       <p class="section-subtitle">The greatest honour of this work is witnessing transformation. Here are some words from those who've walked this path.</p>
 
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {testimonials.map((t) => (
+        {rendered.map(({ entry, Content }) => (
           <div class="card">
             <div class="flex items-center justify-between mb-3">
               <span class="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full bg-rose/10 text-rose">
-                {t.service}
+                {entry.data.service}
               </span>
               <span class="text-[10px] uppercase tracking-wider text-ink-light/50">
-                {langBadge[t.lang]}
+                {langBadge[entry.data.lang]}
               </span>
             </div>
             <div class="text-rose/30 text-4xl font-serif leading-none mb-2">"</div>
-            <div class="text-ink-light text-sm leading-relaxed mb-6 italic whitespace-pre-line">"{t.text}"</div>
+            <div class="text-ink-light text-sm leading-relaxed mb-6 italic whitespace-pre-line">
+              <Content />
+            </div>
             <div class="flex items-center justify-between mt-auto border-t border-rose/10 pt-4">
-              <span class="text-sm font-medium">— {t.name}</span>
-              <div class="flex gap-0.5 text-rose text-xs">{'★'.repeat(t.rating)}{'☆'.repeat(5 - t.rating)}</div>
+              <span class="text-sm font-medium">— {entry.data.name}</span>
+              <div class="flex gap-0.5 text-rose text-xs">{'★'.repeat(entry.data.rating)}{'☆'.repeat(5 - entry.data.rating)}</div>
             </div>
           </div>
         ))}

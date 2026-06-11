@@ -71,7 +71,7 @@ content:
           - value: article
             label: Article
           - value: news
-            label: News & Events
+            label: "News & Events"
 
       - name: cover
         type: image
@@ -131,7 +131,7 @@ content:
 
       - name: service
         type: string
-        label: Service / workshop
+        label: "Service / workshop"
         description: >-
           Which session or workshop the testimonial is for (e.g. "Spiritual
           Guidance & Healing", "Body Scan Workshop", "Home Cleansing R.A.A.H.").
