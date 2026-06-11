@@ -29,4 +29,22 @@ const testimonials = defineCollection({
   }),
 });
 
-export const collections = { blog, testimonials };
+const services = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/services' }),
+  schema: z.object({
+    title_en: z.string(),
+    title_jp: z.string(),
+    title_zh: z.string().optional().default(''),
+    subtitle_en: z.string(),
+    subtitle_jp: z.string(),
+    subtitle_zh: z.string().optional().default(''),
+    desc_en: z.string(),
+    desc_jp: z.string(),
+    desc_zh: z.string().optional().default(''),
+    icon: z.string(),
+    color: z.enum(['rose', 'lavender', 'sky', 'peach']),
+    order: z.number().default(100),
+  }),
+});
+
+export const collections = { blog, testimonials, services };

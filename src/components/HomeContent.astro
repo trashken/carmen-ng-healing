@@ -8,43 +8,27 @@ export interface Props {
 
 const { locale } = Astro.props;
 
-const services = [
-  {
-    title: 'Energy Healing',
-    subtitle: 'Reiki & Pranic Healing',
-    description: "Restore the flow of vital energy through gentle hands-on techniques. Release blockages and rebalance your body's natural energy field.",
-    icon: '✦',
-    color: 'rose',
-  },
-  {
-    title: 'Sound Therapy',
-    subtitle: 'Singing Bowls & Tuning Forks',
-    description: 'Immerse in healing vibrations that realign your chakras and promote deep cellular relaxation. Sound frequencies for profound inner peace.',
-    icon: '♯',
-    color: 'lavender',
-  },
-  {
-    title: 'Meditation Guidance',
-    subtitle: 'One-on-One & Group',
-    description: 'Learn to quiet the mind and connect with your inner wisdom. Guided sessions tailored to your experience level and intentions.',
-    icon: '○',
-    color: 'sky',
-  },
-  {
-    title: 'Spiritual Coaching',
-    subtitle: 'Life Path & Purpose',
-    description: 'Clarity and direction through intuitive guidance. Navigate life transitions with confidence and reconnect with your soul\'s purpose.',
-    icon: '☆',
-    color: 'peach',
-  },
-  {
-    title: 'Chakra Alignment',
-    subtitle: 'Aura Cleansing & Balancing',
-    description: 'Harmonize your seven energy centers. Restore balance to your physical, emotional, and spiritual bodies through targeted energy work.',
-    icon: '◈',
-    color: 'rose',
-  },
-];
+const allServices = await getCollection('services');
+const services = allServices
+  .sort((a, b) => a.data.order - b.data.order)
+  .map((entry) => ({
+    icon: entry.data.icon,
+    color: entry.data.color,
+    title: locale === 'en' ? entry.data.title_en : (locale === 'jp' ? entry.data.title_jp : (entry.data.title_zh || entry.data.title_jp)),
+    subtitle: locale === 'en' ? entry.data.subtitle_en : (locale === 'jp' ? entry.data.subtitle_jp : (entry.data.subtitle_zh || entry.data.subtitle_jp)),
+    description: locale === 'en' ? entry.data.desc_en : (locale === 'jp' ? entry.data.desc_jp : (entry.data.desc_zh || entry.data.desc_jp)),
+  }));
+
+// Map color name -> Tailwind classes. Static keys (not template
+// interpolation) so Tailwind v4's scanner can detect them at build time.
+// Add a new color here AND in the content.config.ts z.enum(...) list
+// AND in .pages.yml's color select field — three places, on purpose.
+const colorClasses: Record<'rose' | 'lavender' | 'sky' | 'peach', { bg: string; text: string }> = {
+  rose:     { bg: 'bg-rose/10',     text: 'text-rose' },
+  lavender: { bg: 'bg-lavender/10', text: 'text-lavender' },
+  sky:      { bg: 'bg-sky/10',      text: 'text-sky' },
+  peach:    { bg: 'bg-peach/10',    text: 'text-peach' },
+};
 
 const allPosts = await getCollection('blog');
 const topPosts = allPosts
@@ -226,16 +210,19 @@ const blogIndexPath = locale === 'en' ? '/en/blog' : `/${locale}/blog`;
       </p>
 
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {services.map((s) => (
-          <div class="card group hover:-translate-y-1 cursor-default">
-            <div class={`w-12 h-12 rounded-xl bg-${s.color}/10 flex items-center justify-center text-${s.color} text-xl mb-5 group-hover:scale-110 transition-transform`}>
-              {s.icon}
+        {services.map((s) => {
+          const cc = colorClasses[s.color];
+          return (
+            <div class="card group hover:-translate-y-1 cursor-default">
+              <div class={`w-12 h-12 rounded-xl ${cc.bg} flex items-center justify-center ${cc.text} text-xl mb-5 group-hover:scale-110 transition-transform`}>
+                {s.icon}
+              </div>
+              <h3 class="font-serif text-xl mb-1">{s.title}</h3>
+              <p class="text-rose text-xs tracking-widest uppercase mb-3">{s.subtitle}</p>
+              <p class="text-ink-light text-sm leading-relaxed">{s.description}</p>
             </div>
-            <h3 class="font-serif text-xl mb-1">{s.title}</h3>
-            <p class="text-rose text-xs tracking-widest uppercase mb-3">{s.subtitle}</p>
-            <p class="text-ink-light text-sm leading-relaxed">{s.description}</p>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   </section>

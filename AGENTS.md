@@ -32,10 +32,11 @@ src/
     zh/blog/              # /zh/blog and /zh/blog/[slug]
   i18n/                   # one dictionary per locale + index.ts helpers
     en.ts  jp.ts  zh.ts  index.ts
-  content.config.ts       # Astro content collection schema (blog + testimonials)
+  content.config.ts       # Astro content collection schema (blog + testimonials + services)
   content/
     blog/                 # 11 .md files, one per blog post
     testimonials/         # 9 .md files, one per testimonial
+    services/             # 6 .md files, one per service offering
   components/
     HomeContent.astro     # EN homepage body: breathable, 3-up grids, large
                           # hero, generous padding. Used by /, /en/.
@@ -83,6 +84,13 @@ tsconfig.json             # extends astro/tsconfigs/strict
 - **Schema** (in `src/content.config.ts`): `name`, `service` (string), `lang` (enum: `jp` | `en` | `zh`), `rating` (number 1-5).
 - **The testimonial text lives in the Markdown body**, not in frontmatter. The Astro page renders it via `<Content />` from `astro:content`'s `render()`.
 - **PagesCMS schema mismatch (intentional):** the `.pages.yml` config has a `text` frontmatter field for testimonials, but the Astro side reads the text from the Markdown body instead. PagesCMS will write to the `text` field if used, but the page will display the Markdown body content. To make this fully roundtrip with PagesCMS, move `text` to the Markdown body in the `.pages.yml` schema too (use the rich-text type, not text, and it'll write to the body section). This is documented here for future cleanup.
+
+## Services content
+
+- One Markdown file per service in `src/content/services/{slug}.md`. Currently 6 services (energy-healing, sound-therapy, meditation-guidance, spiritual-coaching, chakra-alignment, workshops).
+- **Schema** (in `src/content.config.ts`): `title_en` / `title_jp` / `title_zh` (per-locale title), `subtitle_*` (same), `desc_*` (per-locale description), `icon` (single emoji/symbol char), `color` (enum: `rose` | `lavender` | `sky` | `peach`), `order` (number, lower = first).
+- **The EN and East homepages share this one collection** but display different fields per locale (EN shows EN fields; JP shows JP fields; ZH shows ZH fields or falls back to JP).
+- **Color map fix:** the `color` field is mapped to Tailwind classes via a `colorClasses` const in `HomeContent.astro:14-19` and `HomeContentEast.astro:21-25`. If you add a new color, update the map in both components AND the `z.enum(...)` in `content.config.ts` AND the `color` select field in `.pages.yml` — three places, on purpose.
 
 ## Styling
 

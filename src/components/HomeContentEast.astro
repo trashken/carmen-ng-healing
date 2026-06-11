@@ -7,44 +7,24 @@ export interface Props {
 
 const { locale } = Astro.props;
 
-const services = [
-  {
-    title: 'Energy Healing',
-    subtitle: 'Reiki & Pranic Healing',
-    description: "Restore the flow of vital energy through gentle hands-on techniques.",
-    icon: '✦',
-  },
-  {
-    title: 'Sound Therapy',
-    subtitle: 'Singing Bowls & Tuning Forks',
-    description: 'Healing vibrations that realign chakras and promote deep cellular relaxation.',
-    icon: '♯',
-  },
-  {
-    title: 'Meditation Guidance',
-    subtitle: 'One-on-One & Group',
-    description: 'Quiet the mind and connect with inner wisdom through guided practice.',
-    icon: '○',
-  },
-  {
-    title: 'Spiritual Coaching',
-    subtitle: 'Life Path & Purpose',
-    description: 'Intuitive guidance for life transitions and reconnecting with soul purpose.',
-    icon: '☆',
-  },
-  {
-    title: 'Chakra Alignment',
-    subtitle: 'Aura Cleansing & Balancing',
-    description: 'Harmonize the seven energy centers for physical, emotional, spiritual balance.',
-    icon: '◈',
-  },
-  {
-    title: 'Workshops',
-    subtitle: 'Group Sessions & Retreats',
-    description: 'Body scan, sound bath, and home cleansing group sessions throughout the year.',
-    icon: '✶',
-  },
-];
+const allServices = await getCollection('services');
+const services = allServices
+  .sort((a, b) => a.data.order - b.data.order)
+  .map((entry) => ({
+    icon: entry.data.icon,
+    color: entry.data.color,
+    title: locale === 'jp' ? entry.data.title_jp : (entry.data.title_zh || entry.data.title_jp),
+    subtitle: locale === 'jp' ? entry.data.subtitle_jp : (entry.data.subtitle_zh || entry.data.subtitle_jp),
+    description: locale === 'jp' ? entry.data.desc_jp : (entry.data.desc_zh || entry.data.desc_jp),
+  }));
+
+// Same color map as HomeContent.astro. Keep in sync if you add a color.
+const colorClasses: Record<'rose' | 'lavender' | 'sky' | 'peach', { text: string }> = {
+  rose:     { text: 'text-rose' },
+  lavender: { text: 'text-lavender' },
+  sky:      { text: 'text-sky' },
+  peach:    { text: 'text-peach' },
+};
 
 const allPosts = await getCollection('blog');
 const topPosts = allPosts
@@ -160,16 +140,19 @@ const blogIndexPath = `/${locale}/blog`;
       </div>
 
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-        {services.map((s) => (
-          <div class="bg-white/80 border border-rose/10 rounded-md p-3 hover:border-rose/30 transition-colors">
-            <div class="flex items-baseline gap-2 mb-1">
-              <span class="text-rose text-base">{s.icon}</span>
-              <h3 class="font-serif text-sm text-ink leading-tight">{s.title}</h3>
+        {services.map((s) => {
+          const cc = colorClasses[s.color];
+          return (
+            <div class="bg-white/80 border border-rose/10 rounded-md p-3 hover:border-rose/30 transition-colors">
+              <div class="flex items-baseline gap-2 mb-1">
+                <span class={`${cc.text} text-base`}>{s.icon}</span>
+                <h3 class="font-serif text-sm text-ink leading-tight">{s.title}</h3>
+              </div>
+              <p class="text-[10px] text-rose tracking-wider uppercase mb-1.5">{s.subtitle}</p>
+              <p class="text-xs text-ink-light leading-snug">{s.description}</p>
             </div>
-            <p class="text-[10px] text-rose tracking-wider uppercase mb-1.5">{s.subtitle}</p>
-            <p class="text-xs text-ink-light leading-snug">{s.description}</p>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   </section>

@@ -162,3 +162,90 @@ content:
         description: >-
           In the original language as Carmen received it. Line breaks are
           preserved.
+
+  # ---------------------------------------------------------------------------
+  # Services
+  # ---------------------------------------------------------------------------
+  # One Markdown file per service, in src/content/services/{slug}.md.
+  # Each service has title/description in EN + JP + ZH (the EN homepage
+  # shows title_en/desc_en; the JP/ZH homepages show title_jp/desc_jp or
+  # title_zh/desc_zh). Display order is controlled by the 'order' field
+  # (lower numbers appear first).
+  # ---------------------------------------------------------------------------
+  - name: services
+    label: Services
+    type: collection
+    path: src/content/services
+    filename: '{slug}.md'
+    format: yaml-frontmatter
+    view:
+      primary: title_en
+      sort: order
+      order: asc
+    fields:
+      - name: title_en
+        type: string
+        label: Title (English)
+      - name: title_jp
+        type: string
+        label: Title (Japanese)
+      - name: title_zh
+        type: string
+        label: Title (Traditional Chinese)
+        description: Leave blank until Carmen provides a Chinese translation.
+
+      - name: subtitle_en
+        type: string
+        label: Subtitle (English)
+      - name: subtitle_jp
+        type: string
+        label: Subtitle (Japanese)
+      - name: subtitle_zh
+        type: string
+        label: Subtitle (Traditional Chinese)
+        description: Leave blank until Carmen provides a Chinese translation.
+
+      - name: desc_en
+        type: text
+        label: Description (English)
+      - name: desc_jp
+        type: text
+        label: Description (Japanese)
+      - name: desc_zh
+        type: text
+        label: Description (Traditional Chinese)
+        description: Leave blank until Carmen provides a Chinese translation.
+
+      - name: icon
+        type: string
+        label: Icon
+        description: >-
+          A single emoji or symbol character shown in the card (e.g. ✦, ♯,
+          ☆, ◈). Rendered as text, so it must be a real Unicode character.
+
+      - name: color
+        type: select
+        label: Accent color
+        description: >-
+          Picks the soft accent color for the card. Limited to the site's
+          existing palette to keep colors consistent.
+        options:
+          values:
+          - name: rose
+            label: Rose
+          - name: lavender
+            label: Lavender
+          - name: sky
+            label: Sky
+          - name: peach
+            label: Peach
+
+      - name: order
+        type: number
+        label: Display order
+        description: >-
+          Lower numbers appear first. Leave at 100 to push to the end.
+        options:
+          min: 1
+          max: 999
+          default: 100

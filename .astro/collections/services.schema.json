@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "title_en": {
+      "type": "string"
+    },
+    "title_jp": {
+      "type": "string"
+    },
+    "title_zh": {
+      "default": "",
+      "type": "string"
+    },
+    "subtitle_en": {
+      "type": "string"
+    },
+    "subtitle_jp": {
+      "type": "string"
+    },
+    "subtitle_zh": {
+      "default": "",
+      "type": "string"
+    },
+    "desc_en": {
+      "type": "string"
+    },
+    "desc_jp": {
+      "type": "string"
+    },
+    "desc_zh": {
+      "default": "",
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "color": {
+      "type": "string",
+      "enum": [
+        "rose",
+        "lavender",
+        "sky",
+        "peach"
+      ]
+    },
+    "order": {
+      "default": 100,
+      "type": "number"
+    },
+    "$schema": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "title_en",
+    "title_jp",
+    "subtitle_en",
+    "subtitle_jp",
+    "desc_en",
+    "desc_jp",
+    "icon",
+    "color"
+  ]
+}
