@@ -1,0 +1,79 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { posts, getBodyForLocale, getTitleForLocale } from '../../../data/posts';
+import { getDictionary, type Locale } from '../../../i18n';
+
+export async function getStaticPaths() {
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const locale: Locale = 'en';
+const t = getDictionary(locale);
+const { title, isFallback: titleFallback } = getTitleForLocale(post, locale);
+const { body, isFallback: bodyFallback } = getBodyForLocale(post, locale);
+
+const formatDate = (iso: string) =>
+  new Date(iso).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+const bodyParagraphs = body.split('\n').map((p) => p.trim()).filter(Boolean);
+---
+
+<Layout title={`${title} | ${t.meta.siteName}`} description={bodyParagraphs[0]?.slice(0, 160)} locale={locale}>
+  <article class="py-20 bg-gradient-to-b from-blush to-warm-white">
+    <div class="max-w-3xl mx-auto px-6">
+      <a href="/en/blog" class="inline-flex items-center text-sm text-rose hover:underline mb-8">← Back to blog</a>
+
+      {post.cover && (
+        <div class="mb-8 rounded-2xl overflow-hidden shadow-lg">
+          <img src={post.cover} alt="" class="w-full h-auto" />
+        </div>
+      )}
+
+      {post.video && (
+        <div class="mb-8 rounded-2xl overflow-hidden shadow-lg bg-ink">
+          <video controls class="w-full" preload="metadata" poster={post.cover ?? '/favicon.svg'}>
+            <source src={post.video} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      )}
+
+      <header class="mb-10">
+        <p class="text-xs text-rose tracking-wider uppercase mb-3">
+          {post.category === 'news' ? 'News & Events' : 'Articles'}
+        </p>
+        <h1 class="font-serif text-3xl md:text-5xl text-ink mb-4 leading-tight">{title}</h1>
+        {titleFallback && (
+          <p class="text-xs text-ink-light/60 italic mb-2">
+            (English translation pending — showing original)
+          </p>
+        )}
+        <p class="text-sm text-ink-light/70">
+          <time datetime={post.date}>{formatDate(post.date)}</time>
+        </p>
+      </header>
+
+      <div class="prose prose-lg max-w-none text-ink-light leading-relaxed space-y-5">
+        {bodyParagraphs.map((p) => <p>{p}</p>)}
+      </div>
+
+      {bodyFallback && (
+        <div class="mt-12 p-4 rounded-xl bg-rose/5 border border-rose/20 text-sm text-ink-light">
+          <strong>Note:</strong> This post is not yet available in English. Showing the original Japanese.
+        </div>
+      )}
+
+      <div class="mt-16 pt-8 border-t border-rose/20 flex flex-col sm:flex-row gap-3 justify-between items-start sm:items-center">
+        <a href="/en/blog" class="btn-outline text-xs px-6 py-2">All Posts</a>
+        <div class="flex gap-2 text-xs">
+          <a href={`/jp/blog/${post.slug}`} class="px-3 py-1 rounded-full border border-rose/30 text-ink-light hover:bg-rose/5">日本語</a>
+          <a href={`/zh/blog/${post.slug}`} class="px-3 py-1 rounded-full border border-rose/30 text-ink-light hover:bg-rose/5">中文</a>
+        </div>
+      </div>
+    </div>
+  </article>
+</Layout>

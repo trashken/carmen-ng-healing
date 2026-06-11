@@ -1,48 +1,65 @@
 ---
 import '../styles/global.css';
+import { getDictionary, defaultLocale, type Locale, locales } from '../i18n';
 
 export interface Props {
   title: string;
   description?: string;
+  locale?: Locale;
 }
 
-const { title, description } = Astro.props;
+const { title, description, locale = defaultLocale } = Astro.props;
+const t = getDictionary(locale);
+const otherLocales = locales.filter((l) => l !== locale);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={t.htmlLang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>{title} | Carmen Ng Healing</title>
-    <meta name="description" content={description || 'Holistic healing and wellness with Carmen Ng — energy healing, sound therapy, and spiritual guidance.'} />
+    <title>{title} | {t.meta.siteName}</title>
+    <meta name="description" content={description || t.meta.defaultDescription} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet" />
   </head>
   <body class="overflow-x-hidden">
+    <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[60] focus:bg-rose focus:text-white focus:px-4 focus:py-2 focus:rounded">
+      {t.switcher.skipToContent}
+    </a>
+
     <nav class="fixed top-0 left-0 right-0 z-50 bg-warm-white/90 backdrop-blur-md border-b border-rose/10">
       <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="/" class="flex items-center gap-3 group">
-          <svg viewBox="0 0 40 50" class="w-8 h-10 text-rose group-hover:scale-105 transition-transform" fill="currentColor">
-            <path d="M20 2L4 16v6l16-14 16 14v-6L20 2z"/>
-            <path d="M12 22v18l8-6 8 6V22H12z" opacity="0.6"/>
-            <path d="M8 38l2 8h20l2-8H8z" opacity="0.3"/>
-          </svg>
+        <a href={locale === defaultLocale ? '/' : `/${locale}`} class="flex items-center gap-3 group">
+          <img src="/assets/logo.png" alt={t.meta.siteName} class="w-10 h-10 rounded-full object-cover group-hover:scale-105 transition-transform" />
           <span class="font-serif text-lg text-ink">Carmen Ng</span>
         </a>
         <div class="hidden md:flex items-center gap-8">
-          <a href="/" class="text-sm text-ink-light hover:text-rose transition-colors">Home</a>
-          <a href="/blog" class="text-sm text-ink-light hover:text-rose transition-colors">Blog</a>
-          <a href="/testimonials" class="text-sm text-ink-light hover:text-rose transition-colors">Testimonials</a>
-          <a href="/contact" class="text-sm text-ink-light hover:text-rose transition-colors">Contact</a>
+          <a href={locale === defaultLocale ? '/' : `/${locale}`} class="text-sm text-ink-light hover:text-rose transition-colors">{t.nav.home}</a>
+          <a href={`/${locale}/blog`} class="text-sm text-ink-light hover:text-rose transition-colors">{t.nav.blog}</a>
+          <a href="/testimonials" class="text-sm text-ink-light hover:text-rose transition-colors">{t.nav.testimonials}</a>
+          <a href="/contact" class="text-sm text-ink-light hover:text-rose transition-colors">{t.nav.contact}</a>
         </div>
-        <a href="/contact" class="btn-primary text-xs px-6 py-2">Book a Session</a>
+        <div class="flex items-center gap-4">
+          <div class="hidden sm:flex items-center gap-1 text-xs">
+            {otherLocales.map((l) => (
+              <a
+                href={l === defaultLocale ? '/' : `/${l}`}
+                aria-label={`Switch language to ${l}`}
+                class="px-2 py-1 rounded text-ink-light hover:text-rose hover:bg-rose/5 transition-colors uppercase"
+              >
+                {l}
+              </a>
+            ))}
+          </div>
+          <a href="/contact" class="btn-primary text-xs px-6 py-2">{t.nav.bookSession}</a>
+        </div>
       </div>
     </nav>
 
-    <main class="pt-16 min-h-screen">
+    <main id="main" class="pt-16 min-h-screen">
       <slot />
     </main>
 
@@ -52,30 +69,41 @@ const { title, description } = Astro.props;
           <div>
             <h3 class="font-serif text-xl mb-4 text-white">Carmen Ng</h3>
             <p class="text-cream/70 text-sm leading-relaxed">
-              Holistic healing through energy work, sound therapy, and spiritual guidance. 
-              Reconnect with your inner harmony.
+              {t.footer.tagline}
             </p>
           </div>
           <div>
-            <h3 class="font-serif text-lg mb-4 text-white">Explore</h3>
+            <h3 class="font-serif text-lg mb-4 text-white">{t.footer.explore}</h3>
             <div class="flex flex-col gap-3">
-              <a href="/" class="text-sm text-cream/60 hover:text-rose transition-colors">Home</a>
-              <a href="/blog" class="text-sm text-cream/60 hover:text-rose transition-colors">Blog</a>
-              <a href="/testimonials" class="text-sm text-cream/60 hover:text-rose transition-colors">Testimonials</a>
-              <a href="/contact" class="text-sm text-cream/60 hover:text-rose transition-colors">Contact</a>
+              <a href={locale === defaultLocale ? '/' : `/${locale}`} class="text-sm text-cream/60 hover:text-rose transition-colors">{t.nav.home}</a>
+              <a href={`/${locale}/blog`} class="text-sm text-cream/60 hover:text-rose transition-colors">{t.nav.blog}</a>
+              <a href="/testimonials" class="text-sm text-cream/60 hover:text-rose transition-colors">{t.nav.testimonials}</a>
+              <a href="/contact" class="text-sm text-cream/60 hover:text-rose transition-colors">{t.nav.contact}</a>
             </div>
           </div>
           <div>
-            <h3 class="font-serif text-lg mb-4 text-white">Newsletter</h3>
-            <p class="text-cream/60 text-sm mb-4">Stay connected with the latest insights and healing practices.</p>
+            <h3 class="font-serif text-lg mb-4 text-white">{t.footer.newsletter}</h3>
+            <p class="text-cream/60 text-sm mb-4">{t.footer.newsletterCopy}</p>
             <form class="flex gap-2">
-              <input type="email" placeholder="Your email" class="flex-1 px-4 py-2.5 rounded-full bg-white/10 border border-white/20 text-sm text-white placeholder:text-cream/40 focus:outline-none focus:border-rose/50" />
-              <button type="submit" class="px-5 py-2.5 bg-rose text-white text-sm rounded-full hover:bg-rose-dark transition-colors whitespace-nowrap">Subscribe</button>
+              <input
+                type="email"
+                placeholder={t.footer.newsletterPlaceholder}
+                aria-label={t.footer.newsletterPlaceholder}
+                class="flex-1 px-4 py-2.5 rounded-full bg-white/10 border border-white/20 text-sm text-white placeholder:text-cream/40 focus:outline-none focus:border-rose/50"
+              />
+              <button type="submit" class="px-5 py-2.5 bg-rose text-white text-sm rounded-full hover:bg-rose-dark transition-colors whitespace-nowrap">
+                {t.footer.newsletterSubmit}
+              </button>
             </form>
           </div>
         </div>
+
+        <div class="border-t border-white/10 pt-6 mb-6 text-xs text-cream/50 leading-relaxed">
+          {t.disclaimer}
+        </div>
+
         <div class="border-t border-white/10 pt-8 text-center text-sm text-cream/50">
-          &copy; {new Date().getFullYear()} Carmen Ng Healing. All rights reserved.
+          {t.footer.copyright(new Date().getFullYear())}
         </div>
       </div>
     </footer>

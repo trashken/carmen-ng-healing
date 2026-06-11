@@ -1,0 +1,156 @@
+# PagesCMS configuration for carmen-ng-healing.
+# Docs: https://pagescms.org/docs/
+#
+# This file is read by app.pagescms.org against the connected GitHub repo.
+# It declares what content editors can edit, where files live, and where
+# uploaded media is stored.
+#
+# Status: config-only. The Astro site still reads from src/data/posts.ts
+# and src/pages/testimonials.astro. Migrating those to content collections
+# is the next step, but is gated on you confirming this config loads
+# correctly in the PagesCMS UI.
+
+media:
+  - name: images
+    label: Blog cover images
+    input: public/uploads
+    output: /uploads
+    categories: [image]
+    extensions: [jpg, jpeg, png, webp]
+
+content:
+  # ---------------------------------------------------------------------------
+  # Blog posts
+  # ---------------------------------------------------------------------------
+  # One Markdown file per post, in src/content/blog/{slug}.md.
+  # Frontmatter holds metadata + 3 body fields (one per locale).
+  # The Markdown body is left empty; PagesCMS edits the body fields directly.
+  # ---------------------------------------------------------------------------
+  - name: blog
+    label: Blog posts
+    type: collection
+    path: src/content/blog
+    filename: '{slug}.md'
+    format: yaml-frontmatter
+    view:
+      primary: title_en
+      sort: date
+      order: desc
+    fields:
+      - name: slug
+        type: string
+        label: URL slug
+        description: >-
+          Lowercase, hyphen-separated. Used as the filename and the post URL
+          (e.g. "ghibli-paper-fortune" → /en/blog/ghibli-paper-fortune).
+        options:
+          maxlength: 80
+        # Slug is also the filename; do not let editors rename freely.
+        # (The PagesCMS filename template uses {slug} so they must match.)
+
+      - name: title_en
+        type: string
+        label: Title (English)
+      - name: title_jp
+        type: string
+        label: Title (Japanese)
+      - name: title_zh
+        type: string
+        label: Title (Traditional Chinese)
+        description: Leave blank until Carmen provides a Chinese translation.
+
+      - name: date
+        type: date
+        label: Publish date
+
+      - name: category
+        type: select
+        label: Category
+        options:
+          - article
+          - news
+
+      - name: cover
+        type: image
+        label: Cover image
+        description: Square 1000×1000 image. Stored in public/uploads/.
+        options:
+          media: images
+          path: public/uploads
+          extensions: [jpg, jpeg, png, webp]
+
+      - name: video
+        type: string
+        label: Cover video path
+        description: >-
+          Public path under /videos/ (e.g. /videos/kwanon-canon.mp4). Leave
+          blank if the post uses a still cover image. Only Kwanon & Canon
+          currently uses a video.
+
+      - name: body_en
+        type: text
+        label: Body (English)
+        description: >-
+          Leave blank if the English translation is not ready. The site
+          will fall back to the Japanese body and show a "translation
+          pending" notice.
+      - name: body_jp
+        type: text
+        label: Body (Japanese)
+        description: The original Japanese. Always required.
+      - name: body_zh
+        type: text
+        label: Body (Traditional Chinese)
+        description: Leave blank until Carmen provides a Chinese translation.
+
+  # ---------------------------------------------------------------------------
+  # Testimonials
+  # ---------------------------------------------------------------------------
+  # One Markdown file per testimonial, in src/content/testimonials/{name}.md.
+  # Filename is the testimonial author's first name (used as a unique id).
+  # ---------------------------------------------------------------------------
+  - name: testimonials
+    label: Testimonials
+    type: collection
+    path: src/content/testimonials
+    filename: '{name}.md'
+    format: yaml-frontmatter
+    view:
+      primary: name
+      sort: name
+      order: asc
+    fields:
+      - name: name
+        type: string
+        label: Author first name
+        options:
+          maxlength: 40
+
+      - name: service
+        type: string
+        label: Service / workshop
+        description: >-
+          Which session or workshop the testimonial is for (e.g. "Spiritual
+          Guidance & Healing", "Body Scan Workshop", "Home Cleansing R.A.A.H.").
+
+      - name: lang
+        type: select
+        label: Original language
+        options:
+          - jp
+          - en
+          - zh
+
+      - name: rating
+        type: number
+        label: Star rating
+        options:
+          min: 1
+          max: 5
+
+      - name: text
+        type: text
+        label: Testimonial text
+        description: >-
+          In the original language as Carmen received it. Line breaks are
+          preserved.

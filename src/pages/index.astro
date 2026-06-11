@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { posts } from '../data/posts';
 
 const services = [
   {
@@ -39,29 +40,12 @@ const services = [
   },
 ];
 
-const blogPosts = [
-  {
-    title: 'The Power of Sound Healing in Modern Life',
-    excerpt: 'How ancient sound frequencies can help us navigate the chaos of our modern world and restore inner balance.',
-    date: 'March 15, 2026',
-    category: 'News',
-    slug: 'power-of-sound-healing',
-  },
-  {
-    title: 'Understanding Your Energy Body',
-    excerpt: 'A beginner\'s guide to the seven chakras and how they influence your physical and emotional wellbeing.',
-    date: 'February 28, 2026',
-    category: 'All Posts',
-    slug: 'understanding-energy-body',
-  },
-  {
-    title: 'Spring Equinox — A Time for Renewal',
-    excerpt: 'Rituals and practices to align with the energy of spring and plant seeds for the season ahead.',
-    date: 'February 10, 2026',
-    category: 'All Posts',
-    slug: 'spring-equinox-renewal',
-  },
-];
+const topPosts = [...posts]
+  .sort((a, b) => b.date.localeCompare(a.date))
+  .slice(0, 3);
+
+const formatDate = (iso: string) =>
+  new Date(iso).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 
 const testimonials = [
   {
@@ -138,24 +122,43 @@ const testimonials = [
       <p class="section-subtitle">Thoughts on healing, spirituality, and living authentically.</p>
 
       <div class="grid md:grid-cols-3 gap-6">
-        {blogPosts.map((post) => (
-          <article class="card group cursor-pointer">
-            <div class="w-full h-48 bg-gradient-to-br from-lavender-light/40 to-sky-light/40 rounded-xl mb-5 flex items-center justify-center">
-              <span class="text-4xl opacity-30">✦</span>
+        {topPosts.map((post) => (
+          <a href={`/en/blog/${post.slug}`} class="card group block">
+            <div class="w-full h-48 rounded-xl mb-5 overflow-hidden bg-gradient-to-br from-lavender-light/40 to-sky-light/40 relative">
+              {post.cover
+                ? <img src={post.cover} alt="" loading="lazy" class="w-full h-full object-cover" />
+                : <div class="w-full h-full flex items-center justify-center">
+                    {post.video
+                      ? <span class="text-4xl opacity-30">▶</span>
+                      : <span class="text-4xl opacity-30">✦</span>
+                    }
+                  </div>
+              }
+              {post.video && (
+                <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  <span class="w-12 h-12 rounded-full bg-ink/60 text-white text-2xl flex items-center justify-center">▶</span>
+                </div>
+              )}
             </div>
-            <p class="text-xs text-rose tracking-wider uppercase mb-2">{post.category}</p>
-            <h3 class="font-serif text-lg mb-2 group-hover:text-rose transition-colors">{post.title}</h3>
-            <p class="text-ink-light text-sm leading-relaxed mb-4">{post.excerpt}</p>
+            <p class="text-xs text-rose tracking-wider uppercase mb-2">
+              {post.category === 'news' ? 'News & Events' : 'Articles'}
+            </p>
+            <h3 class="font-serif text-lg mb-2 group-hover:text-rose transition-colors">
+              {post.title.en ?? post.title.jp}
+            </h3>
+            <p class="text-ink-light text-sm leading-relaxed mb-4 line-clamp-3">
+              {(post.body.en ?? post.body.jp).split('\n')[0].slice(0, 140)}…
+            </p>
             <div class="flex items-center justify-between">
-              <span class="text-xs text-ink-light/60">{post.date}</span>
-              <a href={`/blog/${post.slug}`} class="text-rose text-sm hover:underline">Read more →</a>
+              <span class="text-xs text-ink-light/60">{formatDate(post.date)}</span>
+              <span class="text-rose text-sm group-hover:underline">Read more →</span>
             </div>
-          </article>
+          </a>
         ))}
       </div>
 
       <div class="text-center mt-10">
-        <a href="/blog" class="btn-outline">View All Posts</a>
+        <a href="/en/blog" class="btn-outline">View All Posts</a>
       </div>
     </div>
   </section>
