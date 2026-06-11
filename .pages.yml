@@ -26,17 +26,21 @@ media:
   # Frontmatter holds metadata + 3 body fields (one per locale).
   # The Markdown body is left empty; PagesCMS edits the body fields directly.
   # ---------------------------------------------------------------------------
+
 content:
   - name: blog
-    label: Blog posts
-    type: collection
+    label: Blog Posts
     path: src/content/blog
     filename: '{slug}.md'
     format: yaml-frontmatter
+    type: collection
     view:
+      fields: [title_en, published, date]
       primary: title_en
-      sort: date
-      order: desc
+      sort: [date, title_en]
+      default:
+        sort: date
+        order: desc
     fields:
       - name: slug
         type: string
@@ -48,7 +52,6 @@ content:
           maxlength: 80
         # Slug is also the filename; do not let editors rename freely.
         # (The PagesCMS filename template uses {slug} so they must match.)
-
       - name: title_en
         type: string
         label: Title (English)
@@ -57,22 +60,19 @@ content:
         label: Title (Japanese)
       - name: title_zh
         type: string
-        label: Title (Traditional Chinese)
-        description: Leave blank until Carmen provides a Chinese translation.
-
+        label: Title (Traditional Chinese)        
       - name: date
         type: date
         label: Publish date
-
       - name: category
         type: select
-        label: Category
+        # label: Category
         options:
-          - value: article
+          values: 
+          - name: article
             label: Article
-          - value: news
-            label: "News & Events"
-
+          - name: news
+            label: News & Events
       - name: cover
         type: image
         label: Cover image
@@ -81,7 +81,6 @@ content:
           media: images
           path: public/uploads
           extensions: [jpg, jpeg, png, webp]
-
       - name: video
         type: string
         label: Cover video path
@@ -89,20 +88,19 @@ content:
           Public path under /videos/ (e.g. /videos/kwanon-canon.mp4). Leave
           blank if the post uses a still cover image. Only Kwanon & Canon
           currently uses a video.
-
       - name: body_en
-        type: text
+        type: rich-text
         label: Body (English)
         description: >-
           Leave blank if the English translation is not ready. The site
           will fall back to the Japanese body and show a "translation
           pending" notice.
       - name: body_jp
-        type: text
+        type: rich-text
         label: Body (Japanese)
         description: The original Japanese. Always required.
       - name: body_zh
-        type: text
+        type: rich-text
         label: Body (Traditional Chinese)
         description: Leave blank until Carmen provides a Chinese translation.
 
@@ -112,6 +110,7 @@ content:
   # One Markdown file per testimonial, in src/content/testimonials/{name}.md.
   # Filename is the testimonial author's first name (used as a unique id).
   # ---------------------------------------------------------------------------
+  
   - name: testimonials
     label: Testimonials
     type: collection
@@ -119,43 +118,46 @@ content:
     filename: '{name}.md'
     format: yaml-frontmatter
     view:
-      primary: name
-      sort: name
-      order: asc
-    fields:
+      fields: [title, rating, date]
+      primary: title
+      sort: [date, title]
+      default:
+        sort: date
+        order: desc    
+    fields:     
       - name: name
         type: string
         label: Author first name
         options:
-          maxlength: 40
-
+          maxlength: 40  
       - name: service
         type: string
-        label: "Service / workshop"
+        label: Session / Workshop
         description: >-
           Which session or workshop the testimonial is for (e.g. "Spiritual
           Guidance & Healing", "Body Scan Workshop", "Home Cleansing R.A.A.H.").
-
+      - name: date
+        type: date
+        label: Publish date    
       - name: lang
         type: select
         label: Original language
         options:
-          - value: jp
+          values:
+          - name: jp
             label: 日本語 (Japanese)
-          - value: en
+          - name: en
             label: English
-          - value: zh
+          - name: zh
             label: 中文 (Traditional Chinese)
-
       - name: rating
         type: number
         label: Star rating
         options:
           min: 1
           max: 5
-
       - name: text
-        type: text
+        type: rich-text
         label: Testimonial text
         description: >-
           In the original language as Carmen received it. Line breaks are
