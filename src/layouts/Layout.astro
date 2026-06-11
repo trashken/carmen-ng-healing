@@ -18,15 +18,26 @@ const otherLocales = locales.filter((l) => l !== locale);
 // Rules:
 //   1. Strip any existing locale prefix from the current path.
 //   2. If the current path is /testimonials or /contact (unlocalized),
-//      the switcher goes to that locale's home.
-//   3. Otherwise, prepend the target locale's prefix (or / for default).
+//      the switcher goes to that locale's home (/, /jp, or /zh).
+//   3. For the root path /, the home for EN is / and the homes for
+//      JP/ZH are /jp and /zh respectively.
+//   4. For any other localized path, prepend the target locale's prefix.
+//      EN is treated as /en/<path> to match the rest of the site's URL
+//      scheme (the EN blog lives at /en/blog/... not /blog/...).
 //
-// Examples (current path -> JP link):
-//   /jp/blog/ghibli               -> /jp/blog/ghibli
-//   /en/blog                      -> /jp/blog
-//   /testimonials                 -> /jp          (locale home)
-//   /contact                      -> /jp          (locale home)
+// Examples (current path -> target EN):
+//   /jp/blog/ghibli               -> /en/blog/ghibli
+//   /en/blog                      -> /en/blog
+//   /jp/blog                      -> /en/blog
+//   /jp                           -> /
+//   /testimonials                 -> /
+//   /contact                      -> /
+//
+// Examples (current path -> target JP):
+//   /en/blog/ghibli               -> /jp/blog/ghibli
+//   /jp/blog                      -> /jp/blog
 //   /                             -> /jp
+//   /testimonials                 -> /jp
 function localePathFor(target: Locale, currentPath: string): string {
   // Step 1: strip leading /:en|jp|zh prefix
   const stripped = currentPath.replace(/^\/(en|jp|zh)(?=\/|$)/, '');
@@ -36,11 +47,13 @@ function localePathFor(target: Locale, currentPath: string): string {
     return target === defaultLocale ? '/' : `/${target}`;
   }
 
-  // Step 3: prepend the target locale (or / for default)
-  if (target === defaultLocale) {
-    return stripped === '' ? '/' : stripped;
+  // Step 3: root path goes to the locale home
+  if (stripped === '' || stripped === '/') {
+    return target === defaultLocale ? '/' : `/${target}`;
   }
-  return stripped === '' ? `/${target}` : `/${target}${stripped}`;
+
+  // Step 4: any other localized path gets the target locale prefix
+  return target === defaultLocale ? `/en${stripped}` : `/${target}${stripped}`;
 }
 
 const currentPath = Astro.url.pathname;
