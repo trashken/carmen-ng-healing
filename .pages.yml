@@ -67,8 +67,10 @@ content:
         type: select
         label: Category
         options:
-          - article
-          - news
+          - value: article
+            label: Article
+          - value: news
+            label: News & Events
 
       - name: cover
         type: image
@@ -137,9 +139,12 @@ content:
         type: select
         label: Original language
         options:
-          - jp
-          - en
-          - zh
+          - value: jp
+            label: 日本語 (Japanese)
+          - value: en
+            label: English
+          - value: zh
+            label: 中文 (Traditional Chinese)
 
       - name: rating
         type: number
