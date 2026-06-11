@@ -97,12 +97,10 @@ content:
           pending" notice.
       - name: body_jp
         type: rich-text
-        label: Body (Japanese)
-        description: The original Japanese. Always required.
+        label: Body (Japanese)        
       - name: body_zh
         type: rich-text
-        label: Body (Traditional Chinese)
-        description: Leave blank until Carmen provides a Chinese translation.
+        label: Body (Traditional Chinese)        
 
   # ---------------------------------------------------------------------------
   # Testimonials
