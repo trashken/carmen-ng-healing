@@ -81,7 +81,7 @@ const langBadge: Record<'jp' | 'en' | 'zh', string> = {
       </div>
 
       <p id="result-count" class="text-center text-sm text-ink-light/70 mb-6" aria-live="polite">
-        Showing <span data-result-count>{rendered.length}</span> of {rendered.length} testimonials
+        Showing all <span data-result-count>{rendered.length}</span> testimonials
       </p>
 
       <div id="testimonial-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -178,21 +178,31 @@ const PAGE_SIZE = 12; // also referenced from the client <script> below
     const total = cards.length;
     const summary = document.getElementById('result-count');
     if (summary) {
-      let label: string;
+      // The count appears inside the <span data-result-count> — never
+      // duplicated in the prefix or suffix. The static HTML ships with
+      // a placeholder <span> that we replace via replaceChildren().
+      let prefix: string, count: string, suffix: string;
       if (indices.length === 0) {
-        label = `0 of ${total} testimonials match the current filter`;
+        prefix = 'No testimonials match the current filter (';
+        count = '0';
+        suffix = ` of ${total})`;
       } else if (indices.length === total) {
-        label = `Showing all ${total} testimonials`;
+        prefix = 'Showing all ';
+        count = String(total);
+        suffix = ' testimonials';
       } else {
-        label = `Showing ${indices.length} of ${total} testimonials`;
+        prefix = 'Showing ';
+        count = String(indices.length);
+        suffix = ` of ${total} testimonials`;
       }
-      // Rebuild the element: a static text node, then a span with the count.
-      summary.textContent = label.replace(/\d+/, '');
       const countSpan = document.createElement('span');
       countSpan.setAttribute('data-result-count', '');
-      const match = label.match(/(\d+)/);
-      countSpan.textContent = match ? match[1] : '';
-      summary.appendChild(countSpan);
+      countSpan.textContent = count;
+      summary.replaceChildren(
+        document.createTextNode(prefix),
+        countSpan,
+        document.createTextNode(suffix),
+      );
     }
 
     // Empty state.

@@ -84,7 +84,7 @@ tsconfig.json             # extends astro/tsconfigs/strict
 - **Schema** (in `src/content.config.ts`): `name` (extracted from the `~ Name` signature in the body), `service` (string), `lang` (enum: `jp` | `en` | `zh`), `rating` (number 1-5, defaults to 5).
 - **The testimonial text lives in the Markdown body**, not in frontmatter. The Astro page renders it via `<Content />` from `astro:content`'s `render()`.
 - **PagesCMS schema mismatch (intentional):** the `.pages.yml` config has a `text` frontmatter field for testimonials, but the Astro side reads the text from the Markdown body instead. PagesCMS will write to the `text` field if used, but the page will display the Markdown body content. To make this fully roundtrip with PagesCMS, move `text` to the Markdown body in the `.pages.yml` schema too (use the rich-text type, not text, and it'll write to the body section). This is documented here for future cleanup.
-- **The `/testimonials` page is single-page with 94 cards** (no pagination). If the page becomes too long to scroll, add basic pagination to `testimonials.astro`.
+- **The `/testimonials` page renders 94 cards with client-side filtering and pagination** (12 per page). Filters: language (All / English / 日本語 / 中文) and service (All / top 6 services by count / Other). Filter state is kept in URL query params (`?lang=…&service=…&page=…`) so a filtered view is shareable. Reset to page 1 on filter change. The script is in `testimonials.astro`; top-6 service list is computed at build time from the data. To change the page size, edit `PAGE_SIZE` in the client `<script>` block.
 
 ## Services content
 
