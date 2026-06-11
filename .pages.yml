@@ -26,6 +26,7 @@ content:
   # Frontmatter holds metadata + 3 body fields (one per locale).
   # The Markdown body is left empty; PagesCMS edits the body fields directly.
   # ---------------------------------------------------------------------------
+content:
   - name: blog
     label: Blog posts
     type: collection
