@@ -179,9 +179,9 @@ content:
     filename: '{slug}.md'
     format: yaml-frontmatter
     view:
+      fields: [title_en, title_zh, title_jp ]
       primary: title_en
-      sort: order
-      order: asc
+      sort: [ title_en]      
     fields:
       - name: title_en
         type: string
@@ -192,8 +192,6 @@ content:
       - name: title_zh
         type: string
         label: Title (Traditional Chinese)
-        description: Leave blank until Carmen provides a Chinese translation.
-
       - name: subtitle_en
         type: string
         label: Subtitle (English)
@@ -203,8 +201,6 @@ content:
       - name: subtitle_zh
         type: string
         label: Subtitle (Traditional Chinese)
-        description: Leave blank until Carmen provides a Chinese translation.
-
       - name: desc_en
         type: text
         label: Description (English)
@@ -214,8 +210,6 @@ content:
       - name: desc_zh
         type: text
         label: Description (Traditional Chinese)
-        description: Leave blank until Carmen provides a Chinese translation.
-
       - name: icon
         type: string
         label: Icon
