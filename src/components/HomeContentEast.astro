@@ -110,46 +110,46 @@ const c = copy[locale];
 const blogIndexPath = `/${locale}/blog`;
 ---
 
-  <!-- Hero Section (breathable, but smaller than EN) -->
+  <!-- Hero Section (breathable, sized for CJK legibility: 16px body, 0.1em tracking) -->
   <section class="relative min-h-[55vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-blush via-warm-white to-warm-white bg-[image:linear-gradient(rgba(255,251,247,0.6),rgba(255,251,247,0.6)),url(/uploads/hero-jp.jpg)] bg-cover bg-center border-b border-rose/10">
     <div class="absolute w-72 h-72 rounded-full bg-lavender-light/20 blur-3xl -top-10 -left-10 pointer-events-none"></div>
     <div class="absolute w-60 h-60 rounded-full bg-sky-light/15 blur-3xl bottom-0 right-0 pointer-events-none"></div>
 
     <div class="relative z-10 text-center px-6 max-w-2xl mx-auto py-16">
-      <p class="text-rose font-serif text-sm italic mb-2">{c.heroWelcome}</p>
-      <h1 class="text-3xl md:text-5xl font-serif font-bold text-ink mb-3 leading-tight">
+      <p class="text-rose font-serif text-sm mb-3 tracking-[0.1em]">{c.heroWelcome}</p>
+      <h1 class="text-4xl md:text-6xl font-serif font-bold text-ink mb-4 leading-tight">
         Carmen Ng
       </h1>
-      <p class="text-base md:text-lg font-serif italic text-ink-light mb-5">{c.heroSubtitle}</p>
-      <p class="text-sm md:text-base text-ink-light mb-6 leading-relaxed max-w-xl mx-auto">
+      <p class="text-lg md:text-xl font-serif text-ink-light mb-6 tracking-[0.1em]">{c.heroSubtitle}</p>
+      <p class="text-base md:text-lg text-ink-light mb-8 leading-loose max-w-xl mx-auto tracking-[0.1em]">
         {c.heroDescription}
       </p>
-      <div class="flex flex-col sm:flex-row gap-2 justify-center">
-        <a href="/contact" class="btn-primary text-xs px-6 py-2">{c.bookSession}</a>
-        <a href="#services" class="btn-outline text-xs px-6 py-2">{c.exploreServices}</a>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="/contact" class="btn-primary text-sm px-8 py-3">{c.bookSession}</a>
+        <a href="#services" class="btn-outline text-sm px-8 py-3">{c.exploreServices}</a>
       </div>
     </div>
   </section>
 
-  <!-- Services Section (4-up grid, dense) -->
+  <!-- Services Section (4-up grid, sized for CJK legibility) -->
   <section id="services" class="py-12 bg-cream/40">
     <div class="max-w-6xl mx-auto px-6">
       <div class="flex items-baseline justify-between mb-6 border-b border-rose/20 pb-2">
-        <h2 class="font-serif text-xl text-ink">{c.sectionServices}</h2>
-        <p class="text-xs text-ink-light/70">{c.sectionServicesSub}</p>
+        <h2 class="font-serif text-2xl text-ink tracking-[0.1em]">{c.sectionServices}</h2>
+        <p class="text-sm text-ink-light/70 tracking-[0.1em]">{c.sectionServicesSub}</p>
       </div>
 
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
         {services.map((s) => {
           const cc = colorClasses[s.color];
           return (
-            <div class="bg-white/80 border border-rose/10 rounded-md p-3 hover:border-rose/30 transition-colors">
-              <div class="flex items-baseline gap-2 mb-1">
-                <span class={`${cc.text} text-base`}>{s.icon}</span>
-                <h3 class="font-serif text-sm text-ink leading-tight">{s.title}</h3>
+            <div class="bg-white/80 border border-rose/10 rounded-md p-4 hover:border-rose/30 transition-colors">
+              <div class="flex items-baseline gap-2 mb-1.5">
+                <span class={`${cc.text} text-lg`}>{s.icon}</span>
+                <h3 class="font-serif text-base text-ink leading-snug">{s.title}</h3>
               </div>
-              <p class="text-[10px] text-rose tracking-wider uppercase mb-1.5">{s.subtitle}</p>
-              <p class="text-xs text-ink-light leading-snug">{s.description}</p>
+              <p class="text-[11px] text-rose tracking-wider uppercase mb-2">{s.subtitle}</p>
+              <p class="text-sm text-ink-light leading-relaxed tracking-[0.05em]">{s.description}</p>
             </div>
           );
         })}
@@ -157,17 +157,17 @@ const blogIndexPath = `/${locale}/blog`;
     </div>
   </section>
 
-  <!-- Blog Section (dense 4-up grid) -->
+  <!-- Blog Section (dense 4-up grid, sized for CJK legibility) -->
   <section class="py-12">
     <div class="max-w-6xl mx-auto px-6">
       <div class="flex items-baseline justify-between mb-4 border-b border-rose/20 pb-2">
         <div class="flex items-baseline gap-3">
-          <h2 class="font-serif text-xl text-ink">{c.sectionLatest}</h2>
-          <span class="text-xs text-ink-light/60">{c.sectionLatestSub}</span>
+          <h2 class="font-serif text-2xl text-ink tracking-[0.1em]">{c.sectionLatest}</h2>
+          <span class="text-sm text-ink-light/60 tracking-[0.1em]">{c.sectionLatestSub}</span>
         </div>
-        <a href={blogIndexPath} class="text-xs text-rose hover:underline">{c.viewAll} →</a>
+        <a href={blogIndexPath} class="text-sm text-rose hover:underline">{c.viewAll} →</a>
       </div>
-      <p class="text-xs text-ink-light/70 mb-4">{c.sectionLatestBody}</p>
+      <p class="text-sm text-ink-light/70 mb-5 tracking-[0.1em]">{c.sectionLatestBody}</p>
 
       <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
         {topPosts.map((post) => (
@@ -188,35 +188,35 @@ const blogIndexPath = `/${locale}/blog`;
                 </div>
               )}
             </div>
-            <p class="text-[10px] text-rose tracking-wider uppercase mb-1">
+            <p class="text-[11px] text-rose tracking-wider uppercase mb-1.5">
               {post.data.category === 'news' ? c.newsLabel : c.articleLabel}
             </p>
-            <h3 class="font-serif text-sm text-ink leading-snug mb-1 group-hover:text-rose transition-colors line-clamp-2">
+            <h3 class="font-serif text-base text-ink leading-relaxed mb-1.5 group-hover:text-rose transition-colors line-clamp-2 tracking-[0.05em]">
               {post.data.title_jp}
             </h3>
-            <p class="text-[11px] text-ink-light/60">{formatDate(post.data.date)}</p>
+            <p class="text-xs text-ink-light/60 tracking-[0.05em]">{formatDate(post.data.date)}</p>
           </a>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- Testimonials Section (compact, more like a sidebar pull-quote) -->
+  <!-- Testimonials Section (compact, sized for CJK legibility) -->
   <section class="py-12 bg-gradient-to-b from-warm-white to-blush/30">
     <div class="max-w-6xl mx-auto px-6">
       <div class="flex items-baseline justify-between mb-4 border-b border-rose/20 pb-2">
         <div class="flex items-baseline gap-3">
-          <h2 class="font-serif text-xl text-ink">{c.sectionVoices}</h2>
-          <span class="text-xs text-ink-light/60">{c.sectionVoicesSub}</span>
+          <h2 class="font-serif text-2xl text-ink tracking-[0.1em]">{c.sectionVoices}</h2>
+          <span class="text-sm text-ink-light/60 tracking-[0.1em]">{c.sectionVoicesSub}</span>
         </div>
-        <a href="/testimonials" class="text-xs text-rose hover:underline">{c.readAllVoices} →</a>
+        <a href="/testimonials" class="text-sm text-rose hover:underline">{c.readAllVoices} →</a>
       </div>
 
       <div class="grid md:grid-cols-3 gap-3">
         {testimonials.map((t) => (
-          <div class="bg-white/70 border-l-2 border-rose/40 pl-3 pr-2 py-2 rounded-r-md">
-            <p class="text-xs text-ink-light leading-relaxed mb-2 line-clamp-4">{t.quote}</p>
-            <div class="flex items-center justify-between text-[11px]">
+          <div class="bg-white/70 border-l-2 border-rose/40 pl-4 pr-3 py-3 rounded-r-md">
+            <p class="text-sm text-ink-light leading-relaxed mb-3 line-clamp-4 tracking-[0.05em]">{t.quote}</p>
+            <div class="flex items-center justify-between text-xs">
               <span class="font-medium text-ink">— {t.name}</span>
               <span class="text-ink-light/60">{c.byLine}: {t.service}</span>
             </div>
@@ -226,19 +226,19 @@ const blogIndexPath = `/${locale}/blog`;
     </div>
   </section>
 
-  <!-- About Section (stacked, denser) -->
+  <!-- About Section (stacked, sized for CJK legibility) -->
   <section class="py-12 border-t border-rose/10">
     <div class="max-w-4xl mx-auto px-6">
       <div class="flex items-baseline gap-3 mb-4 border-b border-rose/20 pb-2">
-        <h2 class="font-serif text-xl text-ink">{c.sectionAbout}</h2>
-        <span class="text-xs text-ink-light/60">{c.sectionAboutSub}</span>
+        <h2 class="font-serif text-2xl text-ink tracking-[0.1em]">{c.sectionAbout}</h2>
+        <span class="text-sm text-ink-light/60 tracking-[0.1em]">{c.sectionAboutSub}</span>
       </div>
       <div class="flex items-start gap-6">
         <div class="w-28 h-28 flex-shrink-0 rounded-full bg-gradient-to-br from-lavender-light to-sky-light flex items-center justify-center">
           <span class="text-3xl opacity-40">✦</span>
         </div>
         <div class="flex-1">
-          <div class="text-xs text-ink-light leading-relaxed space-y-2">
+          <div class="text-sm text-ink-light leading-loose space-y-3 tracking-[0.1em]">
             {locale === 'jp' ? (
               <>
                 <p>ヒーリングの旅は十多年前、エネルギー・ワークが私の人生にもたらした深い変容の体験から始まりました。個人 RAAH セッション、ヒーリング、ボディスキャン・ワークショップなどを通し、クライアントの「自分の中にあるギフトや癒しの力を思い出す」お手伝いをしています。</p>
@@ -253,7 +253,7 @@ const blogIndexPath = `/${locale}/blog`;
               </>
             )}
           </div>
-          <a href="/contact" class="inline-block mt-3 text-xs text-rose hover:underline">{c.connectWithMe} →</a>
+          <a href="/contact" class="inline-block mt-4 text-sm text-rose hover:underline tracking-[0.1em]">{c.connectWithMe} →</a>
         </div>
       </div>
     </div>
