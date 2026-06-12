@@ -1,5 +1,5 @@
 ---
-name: "Bun"
+title: "Bun"
 service: "R.A.A.H. Reiki"
 lang: en
 rating: 5

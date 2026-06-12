@@ -1,5 +1,5 @@
 ---
-name: "Constantine Au"
+title: "Constantine Au"
 service: "A.U.R.A. Hypnosis Session"
 lang: en
 rating: 5

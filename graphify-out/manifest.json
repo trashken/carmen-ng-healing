@@ -1,21 +1,21 @@
 {
   ".astro/collections/blog.schema.json": {
-    "mtime": 1781241992.533724,
+    "mtime": 1781252488.1128147,
     "ast_hash": "350b1d86b374cc7c87ffedc83efe3d61",
     "semantic_hash": "350b1d86b374cc7c87ffedc83efe3d61"
   },
   ".astro/collections/services.schema.json": {
-    "mtime": 1781241992.5396242,
+    "mtime": 1781252488.1148145,
     "ast_hash": "69ca576a0c8e97945aba4d8e0e0af2c1",
     "semantic_hash": "69ca576a0c8e97945aba4d8e0e0af2c1"
   },
   ".astro/collections/testimonials.schema.json": {
-    "mtime": 1781241992.5426233,
-    "ast_hash": "667b96d36bf960dbcf085e39abd8bd1d",
-    "semantic_hash": "667b96d36bf960dbcf085e39abd8bd1d"
+    "mtime": 1781252488.1158152,
+    "ast_hash": "f2c19e9c0c4239339f38a642aaa68204",
+    "semantic_hash": ""
   },
   ".astro/content-assets.mjs": {
-    "mtime": 1781235485.7184734,
+    "mtime": 1781252488.1854327,
     "ast_hash": "8aeea624d36ca2b4c7d0e0748b76ba28",
     "semantic_hash": "8aeea624d36ca2b4c7d0e0748b76ba28"
   },
@@ -25,14 +25,14 @@
     "semantic_hash": "8aeea624d36ca2b4c7d0e0748b76ba28"
   },
   ".astro/content.d.ts": {
-    "mtime": 1781235805.0939777,
-    "ast_hash": "c751a8c3a39002a26e3d27aea41e2569",
-    "semantic_hash": "c751a8c3a39002a26e3d27aea41e2569"
+    "mtime": 1781252488.2010155,
+    "ast_hash": "e04adb97471e68207a1737ad01f73c07",
+    "semantic_hash": ""
   },
   ".astro/data-store.json": {
-    "mtime": 1781241125.7643597,
-    "ast_hash": "42d031c2bd3b3fc928325000b99b56ce",
-    "semantic_hash": "42d031c2bd3b3fc928325000b99b56ce"
+    "mtime": 1781252430.735906,
+    "ast_hash": "1c3562af891175d97a8c14d425dceebf",
+    "semantic_hash": ""
   },
   ".astro/settings.json": {
     "mtime": 1781160148.9653673,
@@ -40,7 +40,7 @@
     "semantic_hash": "60ecfa75e15cd8348bcd88051eb58e7c"
   },
   ".astro/types.d.ts": {
-    "mtime": 1781235805.0954838,
+    "mtime": 1781252488.2020173,
     "ast_hash": "f3d48b2aa569815a445d3509aa161559",
     "semantic_hash": "f3d48b2aa569815a445d3509aa161559"
   },
@@ -65,14 +65,14 @@
     "semantic_hash": "dc4418be82a7a0e312a9639c65c7fe5f"
   },
   "src/components/HomeContent.astro": {
-    "mtime": 1781235370.1620088,
-    "ast_hash": "fb0e4da78bc476349ad4e9c5f142331e",
-    "semantic_hash": "fb0e4da78bc476349ad4e9c5f142331e"
+    "mtime": 1781248466.1326559,
+    "ast_hash": "57761068e2d49eacae0b582c9ca1fe1a",
+    "semantic_hash": ""
   },
   "src/components/HomeContentEast.astro": {
-    "mtime": 1781235379.1750207,
-    "ast_hash": "bfc9f27bb81d03ef4d02c3923eed5d11",
-    "semantic_hash": "bfc9f27bb81d03ef4d02c3923eed5d11"
+    "mtime": 1781248467.1864657,
+    "ast_hash": "431a40df40eae211edb2754afabb160c",
+    "semantic_hash": ""
   },
   "src/components/ServiceDetail.astro": {
     "mtime": 1781235697.0101533,
@@ -80,14 +80,14 @@
     "semantic_hash": "a4ea32b966e6de5c3f639d59c09aeb94"
   },
   "src/content.config.ts": {
-    "mtime": 1781235454.0765336,
-    "ast_hash": "c1622d35929aac6ddb4e652f90d7a059",
-    "semantic_hash": "c1622d35929aac6ddb4e652f90d7a059"
+    "mtime": 1781252428.924458,
+    "ast_hash": "161c5b9e14311884616835246f332a70",
+    "semantic_hash": ""
   },
   "src/i18n/en.ts": {
-    "mtime": 1781159671.5551872,
-    "ast_hash": "2365773a62f9005db6fd39f7ca26a126",
-    "semantic_hash": "2365773a62f9005db6fd39f7ca26a126"
+    "mtime": 1781248373.0863805,
+    "ast_hash": "657f47d2752043a1203822f5ff369e38",
+    "semantic_hash": ""
   },
   "src/i18n/index.ts": {
     "mtime": 1781159683.1923733,
@@ -95,19 +95,19 @@
     "semantic_hash": "088d790f6008e96e196cec05e9a9a4b5"
   },
   "src/i18n/jp.ts": {
-    "mtime": 1781159676.4185426,
-    "ast_hash": "a16beddecc830b5fa9e95ef70db36bc2",
-    "semantic_hash": "a16beddecc830b5fa9e95ef70db36bc2"
+    "mtime": 1781248373.643989,
+    "ast_hash": "c8c1cb5d6168fb9b10e3d6c46c9a2551",
+    "semantic_hash": ""
   },
   "src/i18n/zh.ts": {
-    "mtime": 1781159681.2389896,
-    "ast_hash": "10f8e5e0267ec878d8bac488995a6722",
-    "semantic_hash": "10f8e5e0267ec878d8bac488995a6722"
+    "mtime": 1781248374.8566997,
+    "ast_hash": "a563b1cae2aab684d692814558abaccd",
+    "semantic_hash": ""
   },
   "src/layouts/Layout.astro": {
-    "mtime": 1781228829.518946,
-    "ast_hash": "9e1bfe7792ccbb9fe2e877fbd54fcc9d",
-    "semantic_hash": "9e1bfe7792ccbb9fe2e877fbd54fcc9d"
+    "mtime": 1781248417.5574114,
+    "ast_hash": "4237320c4fc62cf0bcfcbe8dde1c4105",
+    "semantic_hash": ""
   },
   "src/pages/contact.astro": {
     "mtime": 1781155351.3855407,
@@ -170,9 +170,9 @@
     "semantic_hash": "e285fd64fa423e52d1f810c0817a317c"
   },
   "src/pages/testimonials.astro": {
-    "mtime": 1781204529.9362328,
-    "ast_hash": "22b0c9ddc00a9b9ece10256fbb268cfc",
-    "semantic_hash": "22b0c9ddc00a9b9ece10256fbb268cfc"
+    "mtime": 1781252430.4808266,
+    "ast_hash": "d3c2f24ab6e70b2e8616009cb70b5eb6",
+    "semantic_hash": ""
   },
   "src/pages/zh/blog/[slug].astro": {
     "mtime": 1781175355.3671231,
@@ -225,8 +225,8 @@
     "semantic_hash": "7ae8d623957dfb13dcf4a70bf007d55f"
   },
   ".opencode/opencode.json": {
-    "mtime": 1781241884.6960366,
-    "ast_hash": "f2ae21510d07365eb2bce8159272c7a0",
+    "mtime": 1781247761.2280054,
+    "ast_hash": "1efe24ecf938911d4f23e4b1c6ec91f7",
     "semantic_hash": ""
   },
   ".opencode/plugins/graphify.js": {
@@ -280,13 +280,13 @@
     "semantic_hash": ""
   },
   ".pages.yml": {
-    "mtime": 1781235760.9624393,
-    "ast_hash": "4b15bf29869a8f2e8849d27e7f14f863",
+    "mtime": 1781252455.4091988,
+    "ast_hash": "b88ea8e4a661293b3cee25a221df8132",
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1781241884.69404,
-    "ast_hash": "2899994d9fa6852e317c40057e5fa84f",
+    "mtime": 1781249242.0676813,
+    "ast_hash": "9792d0c9bc9d5c310776687d776a05d8",
     "semantic_hash": ""
   },
   "README.md": {
@@ -395,473 +395,473 @@
     "semantic_hash": ""
   },
   "src/content/testimonials/break-free-from-mental-blocks.md": {
-    "mtime": 1781202325.7025669,
-    "ast_hash": "f2e01f28d3c9a002e78d0d76374f7856",
+    "mtime": 1781252410.9455273,
+    "ast_hash": "21953d6df2e66bee8a5515c5fda40872",
     "semantic_hash": ""
   },
   "src/content/testimonials/carmen-helped-my-cat-healed.md": {
-    "mtime": 1781202325.6880174,
-    "ast_hash": "6cbc096722cc066f35fd7cf843d2f81a",
+    "mtime": 1781252410.953037,
+    "ast_hash": "7595dda04cf29664e0793a55580b4dc8",
     "semantic_hash": ""
   },
   "src/content/testimonials/confidence-boosted.md": {
-    "mtime": 1781202325.701568,
-    "ast_hash": "682e2e3c0317fce1b0cd536a15e00373",
+    "mtime": 1781252410.9565966,
+    "ast_hash": "fe9597ad883e991ff58eb738e1ff5f25",
     "semantic_hash": ""
   },
   "src/content/testimonials/deep-cleansing-senses-heightened.md": {
-    "mtime": 1781202325.7538178,
-    "ast_hash": "9803cbcebd7b1d6bba653854c2da4710",
+    "mtime": 1781252410.9595976,
+    "ast_hash": "2a1acc1673cd0829e68aa2784cf186eb",
     "semantic_hash": ""
   },
   "src/content/testimonials/deep-sense-of-healing-&-renewal.md": {
-    "mtime": 1781202325.709567,
-    "ast_hash": "bd00f0a4a15d429d26c774bf61886e08",
+    "mtime": 1781252410.9616866,
+    "ast_hash": "726eb4ec534d409eab3ce794d45ac1de",
     "semantic_hash": ""
   },
   "src/content/testimonials/deeply-held,-gently-transformed.md": {
-    "mtime": 1781202325.7055638,
-    "ast_hash": "edbf1381f60136948b72f80187087b97",
+    "mtime": 1781252410.963685,
+    "ast_hash": "bae7daeb73dcb44a0ad6a95fdd212fca",
     "semantic_hash": ""
   },
   "src/content/testimonials/feeling-lighter-and-more-balanced.md": {
-    "mtime": 1781204181.6984904,
-    "ast_hash": "b00857c3d59a1e735cf0af879bb236bd",
+    "mtime": 1781252410.9666927,
+    "ast_hash": "dc8e4d085c0aa1b73ec4e3573e795183",
     "semantic_hash": ""
   },
   "src/content/testimonials/important-13-days-aftercare.md": {
-    "mtime": 1781202325.7508187,
-    "ast_hash": "981f545ec9ed60cfea7953e8ec176177",
+    "mtime": 1781252410.9686937,
+    "ast_hash": "10fa80b3be037b4dca44e890af546bc4",
     "semantic_hash": ""
   },
   "src/content/testimonials/my-questions-solved.md": {
-    "mtime": 1781202325.7309659,
-    "ast_hash": "97104229b273a84108e4c30811a4699d",
+    "mtime": 1781252410.970693,
+    "ast_hash": "3507290c1e8646fcbcd310ca91331497",
     "semantic_hash": ""
   },
   "src/content/testimonials/mysterious-&-nostalgic.md": {
-    "mtime": 1781202325.6890154,
-    "ast_hash": "d39488aa0f1fe2f92909f9f93c21d4d8",
+    "mtime": 1781252410.973694,
+    "ast_hash": "cb6c14b61269d6c2817d4f13658577d1",
     "semantic_hash": ""
   },
   "src/content/testimonials/no-more-headaches.md": {
-    "mtime": 1781202325.6870167,
-    "ast_hash": "1ce6afa71f4769b241123a7be123c795",
+    "mtime": 1781252410.9766932,
+    "ast_hash": "4b9af3a7f4ca87e180a40541a14cfb54",
     "semantic_hash": ""
   },
   "src/content/testimonials/no-more-stool-bleeding.md": {
-    "mtime": 1781202325.6740303,
-    "ast_hash": "7d41dece519fead8df424307588de962",
+    "mtime": 1781252410.9786923,
+    "ast_hash": "abf7e56ec32e4de6b9cad8e96be11527",
     "semantic_hash": ""
   },
   "src/content/testimonials/one-is-all-and-all-is-one.md": {
-    "mtime": 1781202325.7477374,
-    "ast_hash": "bbd1428b9eaca93352c2c5306ddb6f47",
+    "mtime": 1781252410.9822073,
+    "ast_hash": "83094d8f4c1ac4f7491931946a364903",
     "semantic_hash": ""
   },
   "src/content/testimonials/rebooting-bodily-system.md": {
-    "mtime": 1781202325.6995654,
-    "ast_hash": "4be2e2aaa34dce7b7e90cbfc59a80943",
+    "mtime": 1781252410.984718,
+    "ast_hash": "4f58c167ccb9732bd9ebc76595a86d21",
     "semantic_hash": ""
   },
   "src/content/testimonials/shifted-to-a-more-organic-self.md": {
-    "mtime": 1781202325.6796415,
-    "ast_hash": "5fbc720cf005fce72874a3ada2228e3e",
+    "mtime": 1781252410.9872322,
+    "ast_hash": "0d75d80b52d5b24f131b2728a214338d",
     "semantic_hash": ""
   },
   "src/content/testimonials/shoulder-pain-much-lessened.md": {
-    "mtime": 1781202325.7136157,
-    "ast_hash": "9261ccb32432f72f531cd4b2a7078751",
+    "mtime": 1781252411.000753,
+    "ast_hash": "b0565ef9650a9b581dd608dbd8a94e13",
     "semantic_hash": ""
   },
   "src/content/testimonials/shoulder-pain-relieved.md": {
-    "mtime": 1781202325.6774054,
-    "ast_hash": "9fb604880af16a39262a68acc6b0ca27",
+    "mtime": 1781252411.0027535,
+    "ast_hash": "22f39f7d8c668dd068e4a702cc47d71c",
     "semantic_hash": ""
   },
   "src/content/testimonials/transformative-healing-with-masterful-guidance.md": {
-    "mtime": 1781202325.752816,
-    "ast_hash": "2d0b189a6f3546bb29ac9afc68a62262",
+    "mtime": 1781252411.004753,
+    "ast_hash": "3bacb39033971cf14d7cc1cf6faaf62f",
     "semantic_hash": ""
   },
   "src/content/testimonials/vaccine-side-effects-removed.md": {
-    "mtime": 1781202325.6965568,
-    "ast_hash": "e272f968303a9c5a42eeff873f105922",
+    "mtime": 1781252411.0087545,
+    "ast_hash": "912d92e34b4d721792253245b6a791c4",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u200b\u8acb\u8d70\u9748\u9ad4-\u7167\u9867\u81ea\u5df1\u8eab\u5fc3.md": {
-    "mtime": 1781202325.743973,
-    "ast_hash": "57ddc5f689b68e61e2c11c72c5327e51",
+    "mtime": 1781252411.0117526,
+    "ast_hash": "9b6bead193727e348019845ccb077110",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u3088\u308a\u826f\u3044\u81ea\u5206\u3092\u76ee\u6307\u3057\u3066.md": {
-    "mtime": 1781202325.7105658,
-    "ast_hash": "5fbea12833de779aafce3265f700892c",
+    "mtime": 1781252411.0137823,
+    "ast_hash": "0ba06fcd8fd12428be266087ad3ffa74",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u30c8\u30e9\u30a6\u30de\u304c\u89e3\u6d88\u3055\u308c\u305f.md": {
-    "mtime": 1781202325.72745,
-    "ast_hash": "5b6217375892b350f4b239339c938282",
+    "mtime": 1781252411.0193195,
+    "ast_hash": "29506042fb9ffb43d4dada203a569999",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u30e1\u30f3\u30bf\u30eb\u304c\u3059\u3063\u304d\u308a.md": {
-    "mtime": 1781202325.7429743,
-    "ast_hash": "a32f0bf56d3a078c682f52bcc7744670",
+    "mtime": 1781252411.0223205,
+    "ast_hash": "fdb4525c1485ec35d0318feb8a4aba79",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u30e9\u30a4\u30c8\u30b3\u30fc\u30c9\u3067\u6d3b\u529b\u3092\u53d6\u308a\u623b\u3059.md": {
-    "mtime": 1781202325.7389736,
-    "ast_hash": "1df4c1c58d6e7b03086ad1fe239bbb16",
+    "mtime": 1781252411.0308414,
+    "ast_hash": "a890622ac7264bcaaa06d0753ae8e22a",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u30ef\u30f3\u3061\u3083\u3093\u304c\u512a\u3057\u304f\u306a\u3063\u305f.md": {
-    "mtime": 1781202325.7497468,
-    "ast_hash": "fb6c2d483a1a3864d0675c89601d2e62",
+    "mtime": 1781252411.0358398,
+    "ast_hash": "1638537dc8a3cc6cb0bcea6b5a4e56d9",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u4f53\u304c\u30ea\u30d5\u30ec\u30c3\u30b7\u30e5\u3057\u305f.md": {
-    "mtime": 1781202325.7349734,
-    "ast_hash": "5b6a2956eec97e9fff6addfbfc04074f",
+    "mtime": 1781252411.0398405,
+    "ast_hash": "9fc43107cd56f90f8cba3e73b91aa17f",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u4fbf\u79d8\u6c17\u5473\u304c\u6539\u5584\u3055\u308c\u305f.md": {
-    "mtime": 1781202325.743973,
-    "ast_hash": "233b41fc0c95bca1cd7bce959501b3d6",
+    "mtime": 1781252411.0418396,
+    "ast_hash": "4c4141502a85e2b3bdf8657227dafba3",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u512a\u3057\u304f\u529b\u5f37\u3044\u30d2\u30fc\u30ea\u30f3\u30b0\u4f53\u9a13.md": {
-    "mtime": 1781202325.7419739,
-    "ast_hash": "83a80f2906d0325f6ecc5c387b3c762b",
+    "mtime": 1781252411.0443542,
+    "ast_hash": "887c65fa3051083b10b3ad5340574189",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u5145\u5b9f\u611f+\u5b89\u5fc3\u611f.md": {
-    "mtime": 1781202325.7055638,
-    "ast_hash": "dd45570f1b2b6ace76472edbd4f71041",
+    "mtime": 1781252411.0468717,
+    "ast_hash": "7c1b5281a682b4953cfe96bc3829c191",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u5149\u3067\u30b9\u30c6\u30c3\u30d7\u30a2\u30c3\u30d7.md": {
-    "mtime": 1781202325.7449744,
-    "ast_hash": "1bddaa4038b7b54fe8add40e29fa5e1f",
+    "mtime": 1781252411.0508933,
+    "ast_hash": "156973dcaea45b6dac461f4be2fddfea",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u5154\u4ed4\u8178\u80c3\u6bdb\u75c5\u6539\u5584.md": {
-    "mtime": 1781202325.7253568,
-    "ast_hash": "783106c2c1e6a8f31d8060adc23fe3ae",
+    "mtime": 1781252411.0578964,
+    "ast_hash": "c8b40e3e1cab58109bbcbb78308f50a8",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u5167\u5fc3\u5e73\u975c.md": {
-    "mtime": 1781202325.7284596,
-    "ast_hash": "ea3828f2f9179fcb8eb8627e5b271bd7",
+    "mtime": 1781252411.0661664,
+    "ast_hash": "a54019c2484e8dddfe59535028854f75",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u5168\u5c4b\u7a97\u6e05\u6652-\u5c4b\u4f01\u6c23\u6c1b\u548c\u8ae7.md": {
-    "mtime": 1781202325.686017,
-    "ast_hash": "94674f6b73d5fb9e770c302ac266afcf",
+    "mtime": 1781252411.0688264,
+    "ast_hash": "5983e24cd3a78d1fb70e211272b09c1d",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u521d\u6b21\u9023\u63a5\u9ad8\u6211-\u660e\u767d\u81ea\u8eab\u554f\u984c\u6839\u6e90.md": {
-    "mtime": 1781202325.751818,
-    "ast_hash": "4b9006c1ad0cf2dde2629c0472d6b422",
+    "mtime": 1781252411.0709176,
+    "ast_hash": "3979fe83e5b3be6bef44805f4001ca8f",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u524d\u4e16\u3092\u7652\u3057\u65b0\u3057\u3044\u4e00\u6b69.md": {
-    "mtime": 1781202325.6910167,
-    "ast_hash": "4cd52ff142494d89fe6e0f66a9690c8e",
+    "mtime": 1781252411.0760446,
+    "ast_hash": "3d52292d584e06f3606ed87cb7ec61b7",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u540c\u6642\u591a\u767a\u7684\u306a\u9023\u9396\u304c\u751f\u3093\u3060\u76f8\u4e57\u52b9\u679c.md": {
-    "mtime": 1781202325.717317,
-    "ast_hash": "84b8dce8e4c1c47bb3e7a64e96865630",
+    "mtime": 1781252411.0786576,
+    "ast_hash": "aed7d06850de0f5c801bd1c6217b7f6f",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u546a\u7e1b\u3092\u89e3\u304d\u653e\u3061-\u771f\u306e\u81ea\u5206\u3092\u53d6\u308a\u623b\u3059.md": {
-    "mtime": 1781204379.7759604,
-    "ast_hash": "13ba87329c8245865689e83e88c9ac54",
+    "mtime": 1781252411.082657,
+    "ast_hash": "612599bce3e73da49d4926d18525b367",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u5553\u767c\u5c0d\u85dd\u8853\u7684\u8208\u8da3.md": {
-    "mtime": 1781202325.7553253,
-    "ast_hash": "07554828d8fae0d24e5493e24252b136",
+    "mtime": 1781252411.0851715,
+    "ast_hash": "14a740b1b9c66f32f622cf11e9ce41b7",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u555f\u767c\u8c50\u5bcc\u81ea\u5df1.md": {
-    "mtime": 1781202325.721319,
-    "ast_hash": "a65cfa2c3acff47e8677f45bd90a8de3",
+    "mtime": 1781252411.0876842,
+    "ast_hash": "f5928053d4303634b6f5512010daccac",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u56de\u6eaf\u6642\u7a7a-\u679c\u56e0\u95dc\u4fc2.md": {
-    "mtime": 1781202325.736975,
-    "ast_hash": "197829310c14967810adeb5357c12f42",
+    "mtime": 1781252411.0916824,
+    "ast_hash": "79f03b51454b9673bb2be508d90f33cb",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u589e\u5f37\u9748\u6027\u529b\u91cf.md": {
-    "mtime": 1781202325.7548194,
-    "ast_hash": "ab198ec6f2c4b687793679b1473fff0e",
+    "mtime": 1781252411.0957294,
+    "ast_hash": "4c25ecf569dd7cdcdfc037bc7354d486",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u5922\u4e2d\u76f8\u9047.md": {
-    "mtime": 1781202325.7379742,
-    "ast_hash": "865a1c5013698ff43658a346e9ccce15",
+    "mtime": 1781252411.0997305,
+    "ast_hash": "23e7a4f969a902d72bf0cc48c52fce43",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u5947\u5999\u7206\u5149\u6df1\u5c64\u6de8\u5316.md": {
-    "mtime": 1781202325.7243462,
-    "ast_hash": "959ca99fabe9b2087cc6f905cb808b4c",
+    "mtime": 1781252411.1017282,
+    "ast_hash": "ba2b19b71d19c49c98c8450e78f71399",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u5b89\u5fc3\u6709\u529b\u7684\u7642\u7652.md": {
-    "mtime": 1781204379.7779658,
-    "ast_hash": "2c90c71bbf4e0a0c0cc60f7ca9325a45",
+    "mtime": 1781252411.104236,
+    "ast_hash": "3dd8403383b1f2ab8ba9263bf889aba2",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u5bb6\u3078\u306e\u611f\u8b1d\u304c\u751f\u307e\u308c\u305f.md": {
-    "mtime": 1781202325.6811562,
-    "ast_hash": "734e75d4b1ecf69358b3ef637734a5e5",
+    "mtime": 1781252411.109659,
+    "ast_hash": "2de66261f9c75de578a2e380fbd3464f",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u5bb6\u5c45\u6de8\u5316\u503c\u5f97\u505a.md": {
-    "mtime": 1781202325.7349734,
-    "ast_hash": "36ec43c4f26622ff38de0e327d08c136",
+    "mtime": 1781252411.112723,
+    "ast_hash": "87138e0891f0d7941222d43974cb1915",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u5fb9\u5e95\u6de8\u5316-\u8212\u7de9\u810a\u690e\u75db\u695a.md": {
-    "mtime": 1781204379.7809663,
-    "ast_hash": "ea6d5517d4b1208306005abbce6f8a77",
+    "mtime": 1781252411.116398,
+    "ast_hash": "b08e9aacd0e840526ccd6a4a1b451e33",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u5fc3\u304c\u8efd\u304f\u306a\u308b\u30d2\u30fc\u30ea\u30f3\u30b0.md": {
-    "mtime": 1781202325.719319,
-    "ast_hash": "360f4e65359de30f5c2be24e9b3b1f6b",
+    "mtime": 1781252411.119093,
+    "ast_hash": "55639fcbf9d14cc1cd0a458b3be23b64",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u5fc3\u614b\u904b\u7a0b\u6539\u5584.md": {
-    "mtime": 1781204379.783967,
-    "ast_hash": "7a65e767618de4888983506651878159",
+    "mtime": 1781252411.1210923,
+    "ast_hash": "bc3ee626dc6fd748e72dc153def2bb0c",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u601d\u3044\u5207\u3063\u3066\u304a\u9858\u3044\u3057\u3066\u672c\u5f53\u306b\u3088\u304b\u3063\u305f.md": {
-    "mtime": 1781202325.7359748,
-    "ast_hash": "b0ea7f22088a2768e0952af66b6dfb08",
+    "mtime": 1781252411.1281266,
+    "ast_hash": "137f05b2e5d9b4e86d8a4fddf64c90eb",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u611f\u89ba\u6b63\u9762\u4e00\u5207\u5411\u597d.md": {
-    "mtime": 1781202325.7085693,
-    "ast_hash": "8ac7dd82a9388516234653d8a7b94003",
+    "mtime": 1781252411.132128,
+    "ast_hash": "3230802cfef14a1fc49a3e46da2fd38f",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u6539\u5584\u7761\u7720\u53ca\u819d\u982d\u75db.md": {
-    "mtime": 1781202325.6733875,
-    "ast_hash": "d9deec6d5ee0487324a41bf7bd37c156",
+    "mtime": 1781252411.1356435,
+    "ast_hash": "e10029f46c21490fa42eeb6db6c316f7",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u65b9\u5411\u6027\u304c\u660e\u78ba\u306b\u306a\u3063\u305f\u30aa\u30d5\u30a3\u30b9\u6d44\u5316.md": {
-    "mtime": 1781202325.685016,
-    "ast_hash": "e279b11df68b6678ee6fd6817d790223",
+    "mtime": 1781252411.1376436,
+    "ast_hash": "c412e8abd2bf330fe3a75b2fcb3e1959",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u66ae\u3089\u3057\u3068\u5fc3\u306e\u6d44\u5316\u30bb\u30c3\u30b7\u30e7\u30f3.md": {
-    "mtime": 1781202325.6935234,
-    "ast_hash": "f8a5d2d52c86a749b7dc12324000e8fd",
+    "mtime": 1781252411.1416776,
+    "ast_hash": "4a36f08fa02663eddd35df96535325c2",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u672c\u6765\u306e\u30ea\u30ba\u30e0\u3092\u53d6\u308a\u623b\u3059\u7b2c\u4e00\u6b69.md": {
-    "mtime": 1781204379.7879677,
-    "ast_hash": "91bcb2de57415e5771993d9d92728c0c",
+    "mtime": 1781252411.1456792,
+    "ast_hash": "b7ec392f92bae333a053a2b49b3995fb",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u6c17\u3065\u304d\u3068\u7652\u3057\u306e\u53ce\u7a6b.md": {
-    "mtime": 1781202325.6950471,
-    "ast_hash": "cffe696f14842657c47cfaada3c4080c",
+    "mtime": 1781252411.147677,
+    "ast_hash": "75cae53c99097c21814e2e169b07fd93",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u6df1\u3044\u6c17\u3065\u304d\u3068\u6210\u9577\u3092\u5b9f\u611f.md": {
-    "mtime": 1781202325.7329743,
-    "ast_hash": "0cc3cfb44b946fb6bf0a0907ade4f409",
+    "mtime": 1781252411.1521952,
+    "ast_hash": "fabdd42807747b54281c4a7f2b4f9904",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u6df1\u3044\u7652\u3057\u3068\u78ba\u4fe1.md": {
-    "mtime": 1781202325.719319,
-    "ast_hash": "993462e7ea0da38d5bf2edfd8a8f89b2",
+    "mtime": 1781252411.1541934,
+    "ast_hash": "a43a380da09de3f9f152fa30899b6b77",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u6df1\u3044\u7652\u3057\u306e\u6642\u9593.md": {
-    "mtime": 1781202325.7263558,
-    "ast_hash": "988816e5689faa7e4c7ea9eb5bc7950f",
+    "mtime": 1781252411.1597004,
+    "ast_hash": "5d9150d801df760554abf4bbfcb50859",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u751f\u7406\u75db\u7de9\u548c-\u7761\u7720\u6539\u5584.md": {
-    "mtime": 1781202325.714616,
-    "ast_hash": "f18bb1a527fb78eb68a51eef102c269b",
+    "mtime": 1781252411.1622274,
+    "ast_hash": "72f34d779a417d73e034bfa09f6c7262",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u75db\u75c7\u6539\u5584.md": {
-    "mtime": 1781202325.7163103,
-    "ast_hash": "ef6b1ddefcb6b60277e967ebb3bff7a8",
+    "mtime": 1781252411.1647346,
+    "ast_hash": "2638a7dca45a5848ee562e942aef8dde",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u764c\u75c7\u8212\u7de9\u6539\u5584.md": {
-    "mtime": 1781202325.676352,
-    "ast_hash": "05c5aa50d1a8ad4e96ed053de2d169ea",
+    "mtime": 1781252411.1677442,
+    "ast_hash": "ba2c728b863e81a664e65a38dd243563",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u7652\u3055\u308c\u308b\u30dc\u30c7\u30a3\u30b9\u30ad\u30e3\u30f3.md": {
-    "mtime": 1781202325.7399771,
-    "ast_hash": "4e272fd20c52ed317294cb05cc43f2c9",
+    "mtime": 1781252411.1697423,
+    "ast_hash": "2a164965b24d5aa824d843a25a1d1226",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u767c\u5149\u80fd\u91cf\u98c4\u6d6e.md": {
-    "mtime": 1781202325.711564,
-    "ast_hash": "a2844a5b4ce508f1fc2382ecccdea7ed",
+    "mtime": 1781252411.1752186,
+    "ast_hash": "a8244f38838c3275de4dce4f317376ad",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u7684\u78ba\u306a\u30ac\u30a4\u30c0\u30f3\u30b9\u3068\u6df1\u3044\u30d2\u30fc\u30ea\u30f3\u30b0.md": {
-    "mtime": 1781202325.7462301,
-    "ast_hash": "84927292f0fd1a0b3c496add1463e06a",
+    "mtime": 1781252411.1782262,
+    "ast_hash": "d20e8f5c90cf260b4e3c1348eac9bb78",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u76ee\u306b\u898b\u3048\u306a\u3044\u30b5\u30dd\u30fc\u30c8\u3068\u306e\u7e4b\u304c\u308a.md": {
-    "mtime": 1781202325.6940403,
-    "ast_hash": "21484b3c9ba97737115544026580c7bd",
+    "mtime": 1781252411.181229,
+    "ast_hash": "266d3172d7d48d4dde50b0542bf9d0b6",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u7761\u7720\u53ca\u8178\u9053\u6539\u5584.md": {
-    "mtime": 1781202325.6758285,
-    "ast_hash": "f9a72aac54d4181eb2aea44cf0a46bbc",
+    "mtime": 1781252411.18494,
+    "ast_hash": "e8ecb00b968c8a507501a801edc4e4c9",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u7a4f\u3084\u304b\u306a\u6c17\u6301\u3061.md": {
-    "mtime": 1781202325.7045667,
-    "ast_hash": "c1500ee1be757002b156f7126044105c",
+    "mtime": 1781252411.1875458,
+    "ast_hash": "99b2c4e1362bdf96aba2d550e88a810a",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u7a7a\u6c17\u3068\u4eba\u9593\u95a2\u4fc2\u306e\u5909\u5316.md": {
-    "mtime": 1781202325.690017,
-    "ast_hash": "24e35d33fae9c57907be0e9433d41e74",
+    "mtime": 1781252411.1915464,
+    "ast_hash": "273712b33ccdeaaf95f9832022583ac4",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u7a7a\u6c17\u611f\u304c\u9055\u3046.md": {
-    "mtime": 1781202325.6840167,
-    "ast_hash": "23e34557a2de47c0d21d464d9d4ba865",
+    "mtime": 1781252411.1950903,
+    "ast_hash": "cec788abc5cbe1cbb62f5f43df4954e8",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u7b54\u3048\u3092\u898b\u3064\u3051\u305f.md": {
-    "mtime": 1781202325.709567,
-    "ast_hash": "f4dbaa955303e1bff12892c4b5a3269c",
+    "mtime": 1781252411.1990988,
+    "ast_hash": "1558aaed53712330a1628995784edd2e",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u7d30\u80de\u304c\u76ee\u899a\u3081\u305f\u97f3\u306e\u4f53\u9a13.md": {
-    "mtime": 1781202325.681986,
-    "ast_hash": "a124f1b470929dd3dbe151511142114b",
+    "mtime": 1781252411.2031343,
+    "ast_hash": "760684a87baa024e6ac3ff9bc7963fe4",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u80a9\u306e\u75db\u307f\u304c\u697d\u306b\u306a\u3063\u305f.md": {
-    "mtime": 1781202325.686017,
-    "ast_hash": "e82501dc6e26e1f9dc4b64a43b89192e",
+    "mtime": 1781252411.2051413,
+    "ast_hash": "621ea4cbc93672888173d717e7ff5e62",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u8166\u888b\u8f15\u4e86-\u7169\u60f1\u5fd8\u8a18\u4e86.md": {
-    "mtime": 1781202325.6830077,
-    "ast_hash": "a7ca6fe4f71ea396ce22beeae0e343f5",
+    "mtime": 1781252411.2101414,
+    "ast_hash": "8993feb662554885065b19e505dc316e",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u8173\u9ebb\u75fa\u5373\u6642\u6539\u5584-\u795e\u5947\u9ad4\u9a57.md": {
-    "mtime": 1781202325.7183182,
-    "ast_hash": "39d364b0a802e373caebadbdf85a9b10",
+    "mtime": 1781252411.2121408,
+    "ast_hash": "d72e31b42e8b0f3515a974131100b1ca",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u819d\u306e\u9055\u548c\u611f\u304c\u6539\u5584\u3055\u308c\u305f.md": {
-    "mtime": 1781202325.7419739,
-    "ast_hash": "db58f20229c39d9e7c4899ef0d532544",
+    "mtime": 1781252411.215706,
+    "ast_hash": "61744ee44e5a7a9893f79f703ecb615d",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u81ea\u5206\u306b\u623b\u308b\u3001\u5927\u304d\u306a\u4e00\u6b69.md": {
-    "mtime": 1781202325.703567,
-    "ast_hash": "65c0a6dfd7bd5dab0cd4146814032bce",
+    "mtime": 1781252411.218215,
+    "ast_hash": "7850dcaa743097e280e6b1e922a51ef1",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u81ea\u5206\u306e\u30da\u30fc\u30b9\u3067\u7df4\u7fd2\u3067\u304d\u305f.md": {
-    "mtime": 1781202325.7085693,
-    "ast_hash": "df20955895a1f10c9e7b305409efd71b",
+    "mtime": 1781252411.2202587,
+    "ast_hash": "97e85e69efa81c7b285fd7b5e4497522",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u81ea\u5206\u3092\u53d6\u308a\u623b\u3059\u304d\u3063\u304b\u3051\u306b.md": {
-    "mtime": 1781204379.790966,
-    "ast_hash": "854430dec5b81b3b4072e2d9ad7d6067",
+    "mtime": 1781252411.2242587,
+    "ast_hash": "60f3d89b56c837a6ba9f5d77d85008db",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u81ea\u5b85\u5168\u4f53\u304c\u8efd\u304f\u306a\u308a\u307e\u3057\u305f.md": {
-    "mtime": 1781202325.714616,
-    "ast_hash": "a21425b84868370a55e973729280007c",
+    "mtime": 1781252411.2267892,
+    "ast_hash": "b50c1b929c6621d4258dcd62009fa6db",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u8212\u670d\uff01.md": {
-    "mtime": 1781202325.7223172,
-    "ast_hash": "b1438555568afdf95d03544d5de412c3",
+    "mtime": 1781252411.2297988,
+    "ast_hash": "59832c7f9f89bd96ea33f4865c0f5136",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u8df3\u9032\u66f4\u4f73\u6642\u9593\u7dda.md": {
-    "mtime": 1781202325.6910167,
-    "ast_hash": "2095e2aaff1e25da28aa0d21e9aa34bf",
+    "mtime": 1781252411.2333148,
+    "ast_hash": "d0aa00f57acf5419c391c3523bbf3bcf",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u8f15\u6652\u3001\u91cd\u6574\u3001let-go.md": {
-    "mtime": 1781202325.7065656,
-    "ast_hash": "0cdba0dec2dd081fc8bb5f4487701117",
+    "mtime": 1781252411.2363157,
+    "ast_hash": "9d4a7e58eb402ca895b6f1586eca139c",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u91cb\u653e\u8ca0\u9762\u60c5\u7dd2.md": {
-    "mtime": 1781202325.740975,
-    "ast_hash": "dbfc5862d78751c65ee76d587c9c3961",
+    "mtime": 1781252411.2393243,
+    "ast_hash": "79ff73cab940902ced9273f4d952d924",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u91cd\u56de\u521d\u5fc3.md": {
-    "mtime": 1781202325.731975,
-    "ast_hash": "95b20914f12419f2fad7314fc26947b6",
+    "mtime": 1781252411.242323,
+    "ast_hash": "71adb8cdc292c9af33f20a9a9c82f46d",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u96a8\u6642\u7684\u5e6b\u52a9.md": {
-    "mtime": 1781202325.700566,
-    "ast_hash": "be5818c81cb320b3d87da0c7e9ada1a5",
+    "mtime": 1781252411.245324,
+    "ast_hash": "e057b05a89bda872f4e3993ead43b990",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u9748\u6027\u63d0\u5347-\u5929\u8ce6\u624d\u80fd\u986f\u73fe.md": {
-    "mtime": 1781202325.7136157,
-    "ast_hash": "520bf9bbb6a834f5354b02ecdb313297",
+    "mtime": 1781252411.2493236,
+    "ast_hash": "24ec4821c48a89fc756297822218c001",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u9759\u3051\u3055\u3068\u8abf\u548c\u3092\u53d6\u308a\u623b\u3059.md": {
-    "mtime": 1781204379.7922294,
-    "ast_hash": "b5b49862c8c5612e32968fce1fd6ed89",
+    "mtime": 1781252411.2518294,
+    "ast_hash": "010c48ce652ddb778fc2689cf59d895f",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u9762\u9ebb\u75fa\u819d\u982d\u75db\u5fc3\u60c5\u5168\u6539\u5584.md": {
-    "mtime": 1781204379.793231,
-    "ast_hash": "b87939c7fb30a92a0655dee2f256dab9",
+    "mtime": 1781252411.253839,
+    "ast_hash": "c85962d8a103ffa87655a64c80f14f2c",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u982d\u304c\u30af\u30ea\u30a2\u306b\u306a\u3063\u305f.md": {
-    "mtime": 1781202325.692017,
-    "ast_hash": "2e21ce8ee770e678d01915328d6b84da",
+    "mtime": 1781252411.2583542,
+    "ast_hash": "0f59ddc1f625ba7324c61ab615cf5843",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u982d\u30b9\u30c3\u30ad\u30ea.md": {
-    "mtime": 1781202325.717317,
-    "ast_hash": "d5fae969bcb4706be194109109f1ab74",
+    "mtime": 1781252411.2614813,
+    "ast_hash": "75b99656070e8ef8fac4bbabaf422c6f",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u982d\u91cd\u91cd\u611f\u89ba\u8f15\u6652.md": {
-    "mtime": 1781202325.7223172,
-    "ast_hash": "77368de49e816e2c8bd5b8148d6850ae",
+    "mtime": 1781252411.2640302,
+    "ast_hash": "5428ba79d8712c1a3e027bff4723bf9d",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u9f8d\u795e\u30d2\u30fc\u30ea\u30f3\u30b0\u3067\u76ee\u899a\u3081\u305f\u771f\u5b9f.md": {
-    "mtime": 1781202325.7508187,
-    "ast_hash": "fc22f5210d582190f784b3fdf4d19873",
+    "mtime": 1781252411.2682312,
+    "ast_hash": "b4214098200bc80893e5656f6c8b821d",
     "semantic_hash": ""
   },
   "src/content/testimonials/\u9f8d\u795e\u69d8\u306e\u304a\u8a00\u8449.md": {
-    "mtime": 1781202325.692017,
-    "ast_hash": "6cba2193f1ffe11b9f6dd4eb13a4b97e",
+    "mtime": 1781252411.2711089,
+    "ast_hash": "8cac0199688b3110c5ced2a6c1ed2961",
     "semantic_hash": ""
   },
   "public/assets/logo.png": {
@@ -1512,6 +1512,46 @@
   "staging/uploads/\u8eab\u9ad4\u6383\u63cf.png": {
     "mtime": 1781157298.7802248,
     "ast_hash": "4b040350bf7488ce061a108dfb1f2627",
+    "semantic_hash": ""
+  },
+  ".astro/collections/about.schema.json": {
+    "mtime": 1781252488.111816,
+    "ast_hash": "6beac9a72a8a36852ca6faa35f238cbd",
+    "semantic_hash": ""
+  },
+  "src/components/AboutContent.astro": {
+    "mtime": 1781248322.8914723,
+    "ast_hash": "08586bbd57000b1520e7002fa79dba19",
+    "semantic_hash": ""
+  },
+  "src/pages/en/about.astro": {
+    "mtime": 1781248525.6727698,
+    "ast_hash": "1a83aa63369ea322ee5270cdb4626a44",
+    "semantic_hash": ""
+  },
+  "src/pages/jp/about.astro": {
+    "mtime": 1781248526.2317703,
+    "ast_hash": "ac2665087f9957a5e23cef27d4aed58e",
+    "semantic_hash": ""
+  },
+  "src/pages/zh/about.astro": {
+    "mtime": 1781248527.5016446,
+    "ast_hash": "55546598ca37e134cd7a2d917e894878",
+    "semantic_hash": ""
+  },
+  "src/content/about/main.md": {
+    "mtime": 1781248252.7785397,
+    "ast_hash": "6f2fc7786442ff18f151c3b1b2416b11",
+    "semantic_hash": ""
+  },
+  "public/uploads/about-hands.jpg": {
+    "mtime": 1781248122.1142132,
+    "ast_hash": "fe1bdd55d2705b12ab43faf66be53a99",
+    "semantic_hash": ""
+  },
+  "public/uploads/about-portrait.jpg": {
+    "mtime": 1781248123.124816,
+    "ast_hash": "231dc6f4be35019c4cfc2f30194914fe",
     "semantic_hash": ""
   }
 }

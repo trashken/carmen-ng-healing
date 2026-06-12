@@ -1,5 +1,5 @@
 ---
-name: "Cary"
+title: "Cary"
 service: "A.U.R.A. Hypnosis Session"
 lang: en
 rating: 5

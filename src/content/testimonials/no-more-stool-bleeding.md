@@ -1,5 +1,5 @@
 ---
-name: "Mat"
+title: "Mat"
 service: "Pet R.A.A.H. Reiki Session"
 lang: en
 rating: 5

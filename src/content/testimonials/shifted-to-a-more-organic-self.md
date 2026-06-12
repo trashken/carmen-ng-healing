@@ -1,5 +1,5 @@
 ---
-name: "BL"
+title: "BL"
 service: "R.A.A.H. Reiki Session"
 lang: en
 rating: 5

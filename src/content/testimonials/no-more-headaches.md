@@ -1,5 +1,5 @@
 ---
-name: "Ling Ling"
+title: "Ling Ling"
 service: "A.U.R.A. Hypnosis Session"
 lang: en
 rating: 5

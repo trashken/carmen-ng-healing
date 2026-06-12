@@ -1,5 +1,5 @@
 ---
-name: "Jose C."
+title: "Jose C."
 service: "A.U.R.A. Hypnosis Session"
 lang: en
 rating: 5

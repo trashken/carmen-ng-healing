@@ -22,7 +22,7 @@ const blog = defineCollection({
 const testimonials = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/testimonials' }),
   schema: z.object({
-    name: z.string(),
+    title: z.string(),
     service: z.string(),
     lang: z.enum(['jp', 'en', 'zh']),
     // Carmen's Wix CSV/JSON export doesn't include a star rating, so we

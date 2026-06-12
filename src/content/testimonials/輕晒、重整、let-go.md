@@ -1,5 +1,5 @@
 ---
-name: "KT"
+title: "KT"
 service: "A.U.R.A. Hypnosis Session"
 lang: zh
 rating: 5

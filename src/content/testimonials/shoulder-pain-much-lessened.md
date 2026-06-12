@@ -1,5 +1,5 @@
 ---
-name: "Chun Ling"
+title: "Chun Ling"
 service: "Lemurian Rose Light Code Healing"
 lang: en
 rating: 5

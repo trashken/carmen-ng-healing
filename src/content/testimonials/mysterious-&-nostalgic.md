@@ -1,5 +1,5 @@
 ---
-name: "Masumi"
+title: "Masumi"
 service: "Light Code Healing"
 lang: en
 rating: 5

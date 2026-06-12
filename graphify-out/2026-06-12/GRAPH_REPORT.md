@@ -1,15 +1,16 @@
-# Graph Report - .  (2026-06-12)
+# Graph Report - carmen-ng-healing  (2026-06-12)
 
 ## Corpus Check
-- cluster-only mode — file stats not available
+- 168 files · ~4,592,676 words
+- Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 552 nodes · 621 edges · 133 communities (58 shown, 75 thin omitted)
-- Extraction: 91% EXTRACTED · 9% INFERRED · 0% AMBIGUOUS · INFERRED: 55 edges (avg confidence: 0.92)
+- 739 nodes · 684 edges · 256 communities (178 shown, 78 thin omitted)
+- Extraction: 92% EXTRACTED · 8% INFERRED · 0% AMBIGUOUS · INFERRED: 55 edges (avg confidence: 0.92)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `85032446`
+- Built from commit: `22b5bf3b`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -132,6 +133,7 @@
 - [[_COMMUNITY_Workshop Main Image|Workshop Main Image]]
 - [[_COMMUNITY_Workshop Image 1|Workshop Image 1]]
 - [[_COMMUNITY_Workshop Image Edited|Workshop Image Edited]]
+- [[_COMMUNITY_README File|README File]]
 - [[_COMMUNITY_Screenshot Image|Screenshot Image]]
 - [[_COMMUNITY_Screenshot Image|Screenshot Image]]
 - [[_COMMUNITY_Screenshot Image|Screenshot Image]]
@@ -141,20 +143,30 @@
 - [[_COMMUNITY_Soothing Bamboo Image|Soothing Bamboo Image]]
 - [[_COMMUNITY_Untitled Design 2|Untitled Design 2]]
 - [[_COMMUNITY_Untitled Design Copy|Untitled Design Copy]]
+- [[_COMMUNITY_Community 133|Community 133]]
+- [[_COMMUNITY_Community 134|Community 134]]
+- [[_COMMUNITY_Community 135|Community 135]]
+- [[_COMMUNITY_Community 136|Community 136]]
+- [[_COMMUNITY_Community 137|Community 137]]
+- [[_COMMUNITY_Community 138|Community 138]]
+- [[_COMMUNITY_Community 139|Community 139]]
+- [[_COMMUNITY_Community 141|Community 141]]
 
 ## God Nodes (most connected - your core abstractions)
-1. `Testimonials content collection` - 18 edges
-2. `getDictionary()` - 17 edges
-3. `Locale` - 13 edges
-4. `Blog content collection` - 13 edges
-5. `Services content collection` - 11 edges
-6. `price_en` - 5 edges
-7. `price_jp` - 5 edges
-8. `price_zh` - 5 edges
-9. `rating` - 5 edges
-10. `scripts` - 5 edges
+1. `../../../layouts/Layout.astro` - 31 edges
+2. `Testimonials content collection` - 18 edges
+3. `getDictionary()` - 17 edges
+4. `Locale` - 13 edges
+5. `Blog content collection` - 13 edges
+6. `What You Must Do When Invoked` - 11 edges
+7. `Services content collection` - 11 edges
+8. `/graphify` - 10 edges
+9. `../../../components/ServiceDetail.astro` - 8 edges
+10. `../components/HomeContent.astro` - 7 edges
 
 ## Surprising Connections (you probably didn't know these)
+- `Logo (torii mark)` --used_by--> `../../../layouts/Layout.astro`  [INFERRED]
+  public/assets/logo.png → src/layouts/Layout.astro
 - `index.astro (EN home)` --references--> `Homepage hero background`  [INFERRED]
   src/pages/index.astro → public/uploads/hero-jp.jpg
 - `Detach to Connect` --belongs_to--> `Blog content collection`  [INFERRED]
@@ -163,21 +175,19 @@
   src/content/blog/detach-to-connect.md → public/uploads/detach-to-connect.jpg
 - `Energy Portal Opening` --belongs_to--> `Blog content collection`  [INFERRED]
   src/content/blog/energy-portal-opening.md → .pages.yml
-- `Energy Portal Opening` --references--> `Cover: Energy Portal Opening`  [EXTRACTED]
-  src/content/blog/energy-portal-opening.md → public/uploads/energy-portal-opening.jpg
 
 ## Import Cycles
 - None detected.
 
-## Communities (133 total, 75 thin omitted)
+## Communities (256 total, 78 thin omitted)
 
 ### Community 0 - "Internationalization & Home"
 Cohesion: 0.06
-Nodes (33): ../i18n, ../styles/global.css, Carmen Ng Healing Website, t, Dictionary, dictionaries, getDictionary(), Locale (+25 more)
+Nodes (37): ../../../i18n, ../styles/global.css, Carmen Ng Healing Website, ../components/HomeContent.astro, ../../components/HomeContentEast.astro, ../../../components/ServiceDetail.astro, t, Dictionary (+29 more)
 
 ### Community 1 - "Spiritual Services Content"
-Cohesion: 0.05
-Nodes (44): A.U.R.A. Quantum Hypnosis, Chakra Alignment, Blog content collection, Canon camera brand, Dolores Cannon, Ise Shrine, Ivan Hui (lyricist), Goddess Kuan Yin (Avalokiteshvara) (+36 more)
+Cohesion: 0.11
+Nodes (17): Blog content collection, Ise Shrine, Reikado (Miyajima), Detach to Connect, Energy Portal Opening, Ghibli Paper Fortune, Plasmic Crystalline Water, Rainbow Bridging the Worlds (+9 more)
 
 ### Community 2 - "Blog Schema Fields"
 Cohesion: 0.06
@@ -212,8 +222,8 @@ Cohesion: 0.18
 Nodes (11): A.U.R.A. Hypnosis Session, Kylie, Hide, Steven Tsoi, Terry, Carmen Chan, Jennifer#身心靈療癒 #治療之旅 #感恩的心, Shirley (+3 more)
 
 ### Community 10 - "Icon Subtitle Schema"
-Cohesion: 0.22
-Nodes (9): type, properties, icon, $schema, subtitle_en, subtitle_jp, type, type (+1 more)
+Cohesion: 0.11
+Nodes (18): type, properties, icon, $schema, subtitle_en, subtitle_jp, tagline_zh, through_session_jp (+10 more)
 
 ### Community 11 - "Home Cleansing Reiki"
 Cohesion: 0.25
@@ -232,8 +242,8 @@ Cohesion: 0.40
 Nodes (5): Body Scan Workshop, Body Scan Workshop Graphic, mimo, おゆ, もん
 
 ### Community 15 - "Title Schema"
-Cohesion: 0.40
-Nodes (5): properties, title_en, title_jp, type, type
+Cohesion: 0.11
+Nodes (19): default, type, default, type, default, type, properties, default (+11 more)
 
 ### Community 16 - "Price English Fields"
 Cohesion: 0.40
@@ -244,8 +254,8 @@ Cohesion: 0.40
 Nodes (5): default, maximum, minimum, type, price_jp
 
 ### Community 18 - "Price Chinese Fields"
-Cohesion: 0.40
-Nodes (5): default, maximum, minimum, type, price_zh
+Cohesion: 0.08
+Nodes (23): For /graphify add and --watch, For /graphify query, For the commit hook and native CLAUDE.md integration, For --update and --cluster-only, /graphify, Honesty Rules, Interpreter guard for subcommands, Part A - Structural extraction for code files (+15 more)
 
 ### Community 19 - "Inner Sanctuary Photo"
 Cohesion: 0.40
@@ -276,20 +286,20 @@ Cohesion: 0.67
 Nodes (3): enum, type, color
 
 ### Community 26 - "Currency English"
-Cohesion: 0.67
-Nodes (3): default, type, currency_en
+Cohesion: 0.17
+Nodes (12): A.U.R.A. Quantum Hypnosis, Chakra Alignment, Services content collection, Energy Healing, Meditation Guidance, R.A.A.H. Reiki, Sound Therapy, Spiritual Guidance & Healing (+4 more)
 
 ### Community 27 - "Currency Japanese"
-Cohesion: 0.67
-Nodes (3): default, type, currency_jp
+Cohesion: 0.18
+Nodes (10): Blog content, Commands, Conventions, graphify, i18n, Layout, Services content, Styling (+2 more)
 
 ### Community 28 - "Currency Chinese"
 Cohesion: 0.67
 Nodes (3): default, type, currency_zh
 
 ### Community 29 - "Description English"
-Cohesion: 0.67
-Nodes (3): default, type, desc_en
+Cohesion: 0.25
+Nodes (7): graphify reference: extra exports and benchmark, Step 6b - Wiki (only if --wiki flag), Step 7 - Neo4j export (only if --neo4j or --neo4j-push flag), Step 7b - SVG export (only if --svg flag), Step 7c - GraphML export (only if --graphml flag), Step 7d - MCP server (only if --mcp flag), Step 8 - Token reduction benchmark (only if total_words > 5000)
 
 ### Community 30 - "Description Japanese"
 Cohesion: 0.67
@@ -340,20 +350,20 @@ Cohesion: 0.67
 Nodes (3): tagline_jp, default, type
 
 ### Community 42 - "Tagline Chinese"
-Cohesion: 0.67
-Nodes (3): tagline_zh, default, type
+Cohesion: 0.40
+Nodes (5): Canon camera brand, Dolores Cannon, Goddess Kuan Yin (Avalokiteshvara), Kwanon & Canon, Kwanon & Canon video cover
 
 ### Community 43 - "Through Session English"
 Cohesion: 0.67
 Nodes (3): through_session_en, default, type
 
 ### Community 44 - "Through Session Japanese"
-Cohesion: 0.67
-Nodes (3): through_session_jp, default, type
+Cohesion: 0.40
+Nodes (4): Astro Starter Kit: Basics, 🧞 Commands, 🚀 Project Structure, 👀 Want to learn more?
 
 ### Community 45 - "Through Session Chinese"
-Cohesion: 0.67
-Nodes (3): through_session_zh, default, type
+Cohesion: 0.40
+Nodes (4): blog, collections, services, testimonials
 
 ### Community 46 - "Title Chinese"
 Cohesion: 0.67
@@ -379,25 +389,49 @@ Nodes (3): Group Light Code Healing, 夏色, masumi
 Cohesion: 0.67
 Nodes (3): Photo, Screenshot, Workshop Trailer
 
+### Community 123 - "README File"
+Cohesion: 0.50
+Nodes (3): For /graphify add, For --watch, graphify reference: add a URL and watch a folder
+
+### Community 133 - "Community 133"
+Cohesion: 0.50
+Nodes (3): For git commit hook, For native CLAUDE.md integration, graphify reference: commit hook and native CLAUDE.md integration
+
+### Community 134 - "Community 134"
+Cohesion: 0.50
+Nodes (3): For /graphify explain, For /graphify path, graphify reference: query, path, explain
+
+### Community 135 - "Community 135"
+Cohesion: 0.50
+Nodes (3): For --cluster-only, For --update (incremental re-extraction), graphify reference: incremental update and cluster-only
+
+### Community 136 - "Community 136"
+Cohesion: 0.67
+Nodes (3): Ivan Hui (lyricist), My Pace 2026, Cover: My Pace 2026
+
+### Community 137 - "Community 137"
+Cohesion: 0.67
+Nodes (3): Ra (Egyptian Sun deity), Sakura, Cover: Sakura
+
 ## Knowledge Gaps
-- **308 isolated node(s):** `$schema`, `type`, `type`, `type`, `type` (+303 more)
+- **358 isolated node(s):** `$schema`, `type`, `type`, `type`, `type` (+353 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **75 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **78 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `properties` connect `Icon Subtitle Schema` to `Offering Schema Fields`, `Title Schema`, `Services Schema`, `Color Enum`, `Description English`, `Description Japanese`, `Description Chinese`, `Intro English`, `Intro Japanese`, `Intro Chinese`, `Order Field`, `Subtitle Chinese`, `Tagline English`, `Tagline Japanese`, `Tagline Chinese`, `Through Session English`, `Through Session Japanese`, `Through Session Chinese`, `Title Chinese`, `What We Do English`, `What We Do Japanese`, `What We Do Chinese`?**
-  _High betweenness centrality (0.045) - this node is a cross-community bridge._
-- **Why does `properties` connect `Title Schema` to `Duration English`, `Duration Japanese`, `Duration Chinese`, `Offering Schema Fields`, `Title Chinese`, `Price English Fields`, `Price Japanese Fields`, `Price Chinese Fields`, `Currency English`, `Currency Japanese`, `Currency Chinese`, `Description English`, `Description Japanese`, `Description Chinese`?**
-  _High betweenness centrality (0.033) - this node is a cross-community bridge._
-- **Are the 17 inferred relationships involving `Testimonials content collection` (e.g. with `Testimonial by Kenneth` and `Testimonial by Chunling`) actually correct?**
-  _`Testimonials content collection` has 17 INFERRED edges - model-reasoned connections that need verification._
+- **Why does `properties` connect `Icon Subtitle Schema` to `Intro English`, `Intro Japanese`, `Intro Chinese`, `Offering Schema Fields`, `Order Field`, `Subtitle Chinese`, `Tagline English`, `Tagline Japanese`, `Through Session English`, `Title Chinese`, `Title Schema`, `What We Do English`, `What We Do Japanese`, `What We Do Chinese`, `Services Schema`, `Color Enum`, `Description Japanese`, `Description Chinese`?**
+  _High betweenness centrality (0.025) - this node is a cross-community bridge._
+- **Why does `properties` connect `Title Schema` to `Duration English`, `Duration Japanese`, `Duration Chinese`, `Offering Schema Fields`, `Title Chinese`, `Price English Fields`, `Price Japanese Fields`, `Currency Chinese`, `Description Japanese`, `Description Chinese`?**
+  _High betweenness centrality (0.018) - this node is a cross-community bridge._
+- **Why does `Blog content collection` connect `Spiritual Services Content` to `Community 136`, `Community 137`, `Tagline Chinese`, `Through Session Chinese`, `Currency English`?**
+  _High betweenness centrality (0.014) - this node is a cross-community bridge._
+- **Are the 2 inferred relationships involving `../../../layouts/Layout.astro` (e.g. with `index.astro (EN home)` and `Logo (torii mark)`) actually correct?**
+  _`../../../layouts/Layout.astro` has 2 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `$schema`, `type`, `type` to the rest of the system?**
-  _308 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _358 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Internationalization & Home` be split into smaller, more focused modules?**
   _Cohesion score 0.05527805527805528 - nodes in this community are weakly interconnected._
 - **Should `Spiritual Services Content` be split into smaller, more focused modules?**
-  _Cohesion score 0.04541062801932367 - nodes in this community are weakly interconnected._
-- **Should `Blog Schema Fields` be split into smaller, more focused modules?**
-  _Cohesion score 0.058823529411764705 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.1111111111111111 - nodes in this community are weakly interconnected._

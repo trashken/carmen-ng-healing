@@ -1,5 +1,5 @@
 ---
-name: "Monika"
+title: "Monika"
 service: "Light Code Healing"
 lang: en
 rating: 5

@@ -128,17 +128,17 @@ content:
     label: Testimonials
     type: collection
     path: src/content/testimonials
-    filename: '{name}.md'
+    filename: '{title}.md'
     format: yaml-frontmatter
     view:
-      fields: [ name, service, rating, date]
-      primary: name
-      sort: [date, name]
+      fields: [ title, service, rating, date]
+      primary: title
+      sort: [date, title]
       default:
         sort: date
         order: desc    
     fields:     
-      - name: name
+      - name: title
         type: string
         label: Author first name
         options:

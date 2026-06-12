@@ -1,5 +1,5 @@
 ---
-name: "Queenie"
+title: "Queenie"
 service: "R.A.A.H. Reiki Session"
 lang: en
 rating: 5

@@ -1,5 +1,5 @@
 ---
-name: "Carmen T."
+title: "Carmen T."
 service: "R.A.A.H. Reiki Session"
 lang: en
 rating: 5

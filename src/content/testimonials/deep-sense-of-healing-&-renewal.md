@@ -1,5 +1,5 @@
 ---
-name: "Cindy"
+title: "Cindy"
 service: "Kuan Qi Light Codes"
 lang: en
 rating: 5

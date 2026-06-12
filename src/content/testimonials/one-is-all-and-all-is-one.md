@@ -1,5 +1,5 @@
 ---
-name: "masumi terayama"
+title: "masumi terayama"
 service: "Kuan Qi Light Codes"
 lang: en
 rating: 5
