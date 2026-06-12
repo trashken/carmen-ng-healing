@@ -1,8 +1,8 @@
 ---
-import Layout from '../../../layouts/Layout.astro';
+import Layout from '../../layouts/Layout.astro';
 import { getEntry } from 'astro:content';
-import AboutContent from '../../../components/AboutContent.astro';
-import { getDictionary } from '../../../i18n';
+import AboutContent from '../../components/AboutContent.astro';
+import { getDictionary } from '../../i18n';
 
 const t = getDictionary('zh');
 const entry = (await getEntry('about', 'main'))!;

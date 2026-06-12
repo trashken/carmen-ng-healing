@@ -33,6 +33,9 @@ src/
     en/services/          # /en/services (index) and /en/services/[slug]
     jp/services/          # /jp/services (index) and /jp/services/[slug]
     zh/services/          # /zh/services (index) and /zh/services/[slug]
+    en/about.astro        # /en/about
+    jp/about.astro        # /jp/about
+    zh/about.astro        # /zh/about
   i18n/                   # one dictionary per locale + index.ts helpers
     en.ts  jp.ts  zh.ts  index.ts
   content.config.ts       # Astro content collection schema (blog + testimonials + services)
@@ -43,6 +46,9 @@ src/
                           # (spiritual-guidance, r-a-a-h-reiki,
                           # a-u-r-a-quantum-hypnosis). The 3 Wix entries
                           # have detail-page content (offerings / pricing).
+    about/                # 1 .md file (main.md) for the About Me page.
+                          # Single-entry collection fetched via
+                          # getEntry('about', 'main').
   components/
     HomeContent.astro     # EN homepage body: breathable, 3-up grids, large
                           # hero, generous padding. Used by /, /en/.
@@ -55,6 +61,10 @@ src/
                           # session, recommended-for, and a grid of
                           # sub-offerings (each with bullets / duration /
                           # price). Takes locale + a `services` entry.
+    AboutContent.astro    # Shared body for /[locale]/about pages. Renders
+                          # the about hero (portrait + hands images), per-
+                          # locale body text, sign-off, languages note,
+                          # and a list of training/certification schools.
   styles/global.css       # Tailwind import + @theme tokens + component classes
 public/
   assets/logo.png         # torii mark in the nav (AI-generated per Carmen)
@@ -96,7 +106,8 @@ tsconfig.json             # extends astro/tsconfigs/strict
 - One Markdown file per testimonial in `src/content/testimonials/`. 94 entries, filenames are slugified titles (Unicode-preserving, so Japanese names like `改善睡眠及膝頭痛.md` are valid).
 - **Schema** (in `src/content.config.ts`): `name` (extracted from the `~ Name` signature in the body), `service` (string), `lang` (enum: `jp` | `en` | `zh`), `rating` (number 1-5, defaults to 5).
 - **The testimonial text lives in the Markdown body**, not in frontmatter. The Astro page renders it via `<Content />` from `astro:content`'s `render()`.
-- **PagesCMS schema mismatch (intentional):** the `.pages.yml` config has a `text` frontmatter field for testimonials, but the Astro side reads the text from the Markdown body instead. PagesCMS will write to the `text` field if used, but the page will display the Markdown body content. To make this fully roundtrip with PagesCMS, move `text` to the Markdown body in the `.pages.yml` schema too (use the rich-text type, not text, and it'll write to the body section). This is documented here for future cleanup.
+- **PagesCMS testimonial text:** the Astro side reads the text from the Markdown body (via `render()` + `<Content />`). The `.pages.yml` schema field is named `body` (was previously `text`) so PagesCMS writes to the body section, which the page actually renders. Field type is `rich-text` with `format: markdown`.
+- **PagesCMS blog body_* fields:** declared as `type: rich-text` with `format: markdown` and `switcher: true`. Stored in YAML frontmatter as `|` block scalars (PagesCMS handles this for any non-`body` field name on a `yaml-frontmatter` collection). If a field shows empty in the editor despite a value in frontmatter, the frontmatter YAML may be malformed — re-paste the Markdown content into the editor.
 - **The `/testimonials` page renders 94 cards with client-side filtering and pagination** (12 per page). Filters: language (All / English / 日本語 / 中文) and service (All / top 6 services by count / Other). Filter state is kept in URL query params (`?lang=…&service=…&page=…`) so a filtered view is shareable. Reset to page 1 on filter change. The script is in `testimonials.astro`; top-6 service list is computed at build time from the data. To change the page size, edit `PAGE_SIZE` in the client `<script>` block.
 
 ## Services content

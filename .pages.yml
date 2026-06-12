@@ -92,15 +92,30 @@ content:
         type: rich-text
         label: Body (English)
         description: >-
-          Leave blank if the English translation is not ready. The site
-          will fall back to the Japanese body and show a "translation
-          pending" notice.
+          Markdown body. Leave blank if the English translation is not
+          ready; the site will fall back to the Japanese body and show a
+          "translation pending" notice.
+        options:
+          format: markdown
+          switcher: true
       - name: body_jp
         type: rich-text
-        label: Body (Japanese)        
+        label: Body (Japanese)
+        description: >-
+          Markdown body. Required. JP is the canonical version — EN and
+          ZH fall back to this when empty.
+        options:
+          format: markdown
+          switcher: true
       - name: body_zh
         type: rich-text
-        label: Body (Traditional Chinese)        
+        label: Body (Traditional Chinese)
+        description: >-
+          Markdown body. Leave blank to fall back to the Japanese body
+          with a "中文翻譯準備中" notice.
+        options:
+          format: markdown
+          switcher: true
 
   # ---------------------------------------------------------------------------
   # Testimonials
@@ -154,12 +169,14 @@ content:
         options:
           min: 1
           max: 5
-      - name: text
+      - name: body
         type: rich-text
         label: Testimonial text
         description: >-
           In the original language as Carmen received it. Line breaks are
-          preserved.
+          preserved. The field is named `body` so PagesCMS writes to
+          the Markdown body (not frontmatter), which is what the
+          testimonials page renders.
 
   # ---------------------------------------------------------------------------
   # Services
@@ -412,3 +429,116 @@ content:
           Lowercase, hyphen-separated. Used as the filename and the
           service detail URL (e.g. "spiritual-guidance" →
           /en/services/spiritual-guidance).
+
+  # ---------------------------------------------------------------------------
+  # About Me
+  # ---------------------------------------------------------------------------
+  # Single-entry collection. There is only one About page; it's always
+  # fetched with `getEntry('about', 'main')`. Body content is per-locale
+  # (JP body is always required; EN and ZH optional, fall back to JP
+  # on the page). The "main" filename is fixed — do not rename.
+  # ---------------------------------------------------------------------------
+  - name: about
+    label: About Me
+    type: collection
+    path: src/content/about
+    filename: 'main.md'
+    format: yaml-frontmatter
+    view:
+      fields: [title_en, title_jp, title_zh]
+      primary: title_en
+    fields:
+      - name: title_en
+        type: string
+        label: Page title (English)
+      - name: title_jp
+        type: string
+        label: Page title (Japanese)
+      - name: title_zh
+        type: string
+        label: Page title (Traditional Chinese)
+      - name: body_en
+        type: text
+        label: Body (English)
+        description: >-
+          Long-form bio, paragraph breaks preserved. Falls back to
+          the Japanese body on /en/about if empty.
+      - name: body_jp
+        type: text
+        label: Body (Japanese)
+      - name: body_zh
+        type: text
+        label: Body (Traditional Chinese)
+      - name: signoff_en
+        type: text
+        label: Sign-off (English)
+        description: >-
+          Closing line, e.g. "Love Light,\nCarmen". Line breaks
+          preserved.
+      - name: signoff_jp
+        type: text
+        label: Sign-off (Japanese)
+      - name: signoff_zh
+        type: text
+        label: Sign-off (Traditional Chinese)
+      - name: portrait
+        type: string
+        label: Portrait image path
+        description: >-
+          Public path under /uploads/ (e.g. /uploads/about-portrait.jpg).
+          Shown in the left column of the about page hero.
+      - name: hands
+        type: string
+        label: Hands / second image path
+        description: >-
+          Public path under /uploads/. Shown in the right column of
+          the about page hero.
+      - name: languages_en
+        type: text
+        label: 'Languages note (English)'
+        description: >-
+          Optional footnote, e.g. "I work in English, Cantonese,
+          and Japanese." Leave empty to hide.
+      - name: languages_jp
+        type: text
+        label: 'Languages note (Japanese)'
+      - name: languages_zh
+        type: text
+        label: 'Languages note (Traditional Chinese)'
+      - name: certifications
+        type: list
+        label: Training & Certifications
+        description: >-
+          One entry per school. Each school has a per-locale name +
+          a list of completed programs.
+        options:
+          item:
+            type: object
+            fields:
+              - name: school_en
+                type: string
+                label: School name (English)
+              - name: school_jp
+                type: string
+                label: School name (Japanese)
+              - name: school_zh
+                type: string
+                label: School name (Traditional Chinese)
+              - name: items_en
+                type: list
+                label: Programs (English)
+                options:
+                  item:
+                    type: string
+              - name: items_jp
+                type: list
+                label: Programs (Japanese)
+                options:
+                  item:
+                    type: string
+              - name: items_zh
+                type: list
+                label: Programs (Traditional Chinese)
+                options:
+                  item:
+                    type: string
