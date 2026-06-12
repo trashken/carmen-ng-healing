@@ -241,3 +241,174 @@ content:
           min: 1
           max: 999
           default: 100
+
+      # --- Detail page content (used by /[locale]/services/[slug] pages) ---
+      # Tagline shown on the service detail page directly below the H1.
+      - name: tagline_en
+        type: text
+        label: Tagline (English)
+        description: >-
+          Short line shown below the service title on the detail page.
+      - name: tagline_jp
+        type: text
+        label: Tagline (Japanese)
+      - name: tagline_zh
+        type: text
+        label: Tagline (Traditional Chinese)
+
+      # Overview / intro paragraph at the top of the detail page.
+      - name: intro_en
+        type: text
+        label: Overview (English)
+      - name: intro_jp
+        type: text
+        label: Overview (Japanese)
+      - name: intro_zh
+        type: text
+        label: Overview (Traditional Chinese)
+
+      # "What we do in the session" body block.
+      - name: what_we_do_en
+        type: text
+        label: 'What we do (English)'
+      - name: what_we_do_jp
+        type: text
+        label: 'What we do (Japanese)'
+      - name: what_we_do_zh
+        type: text
+        label: 'What we do (Traditional Chinese)'
+
+      # "Through the session" body block.
+      - name: through_session_en
+        type: text
+        label: 'Through the session (English)'
+      - name: through_session_jp
+        type: text
+        label: 'Through the session (Japanese)'
+      - name: through_session_zh
+        type: text
+        label: 'Through the session (Traditional Chinese)'
+
+      # "Recommended for" bullet list.
+      - name: recommended_en
+        type: list
+        label: 'Recommended for (English)'
+        description: >-
+          One bullet per line. Leave empty to hide this section.
+        options:
+          item:
+            type: string
+      - name: recommended_jp
+        type: list
+        label: 'Recommended for (Japanese)'
+        options:
+          item:
+            type: string
+      - name: recommended_zh
+        type: list
+        label: 'Recommended for (Traditional Chinese)'
+        options:
+          item:
+            type: string
+
+      # Sub-offerings: each becomes its own card on the detail page with
+      # its own price + duration. Leave empty to keep this entry as a
+      # homepage card only (no detail page).
+      - name: offerings
+        type: list
+        label: Session offerings & pricing
+        description: >-
+          Each entry becomes a card on the service detail page. Add the
+          first one for the initial session, then follow-ups, packages, etc.
+        options:
+          item:
+            type: object
+            fields:
+              - name: title_en
+                type: string
+                label: Title (English)
+              - name: title_jp
+                type: string
+                label: Title (Japanese)
+              - name: title_zh
+                type: string
+                label: Title (Traditional Chinese)
+              - name: desc_en
+                type: text
+                label: Description (English)
+              - name: desc_jp
+                type: text
+                label: Description (Japanese)
+              - name: desc_zh
+                type: text
+                label: Description (Traditional Chinese)
+              - name: bullets_en
+                type: list
+                label: Bullet list (English)
+                options:
+                  item:
+                    type: string
+              - name: bullets_jp
+                type: list
+                label: Bullet list (Japanese)
+                options:
+                  item:
+                    type: string
+              - name: bullets_zh
+                type: list
+                label: Bullet list (Traditional Chinese)
+                options:
+                  item:
+                    type: string
+              - name: duration_en
+                type: string
+                label: Duration (English, e.g. "120 min")
+              - name: duration_jp
+                type: string
+                label: Duration (Japanese, e.g. "120分")
+              - name: duration_zh
+                type: string
+                label: Duration (Traditional Chinese, e.g. "120分鐘")
+              - name: price_en
+                type: number
+                label: Price (USD, English)
+                description: >-
+                  Integer. Set to 0 to show "Contact for pricing".
+                options:
+                  min: 0
+              - name: price_jp
+                type: number
+                label: Price (JPY, Japanese)
+                description: >-
+                  Integer. Set to 0 to show "Contact for pricing".
+                options:
+                  min: 0
+              - name: price_zh
+                type: number
+                label: Price (HKD, Traditional Chinese)
+                description: >-
+                  Integer. Set to 0 to show "Contact for pricing".
+                options:
+                  min: 0
+              - name: currency_en
+                type: string
+                label: Currency prefix (English)
+                description: >-
+                  Text prefix shown before the EN price. Default "US$".
+              - name: currency_jp
+                type: string
+                label: Currency prefix (Japanese)
+                description: >-
+                  Text prefix shown before the JP price. Default "¥".
+              - name: currency_zh
+                type: string
+                label: Currency prefix (Traditional Chinese)
+                description: >-
+                  Text prefix shown before the ZH price. Default "HK$".
+      - name: slug
+        type: string
+        label: URL slug
+        description: >-
+          Lowercase, hyphen-separated. Used as the filename and the
+          service detail URL (e.g. "spiritual-guidance" →
+          /en/services/spiritual-guidance).

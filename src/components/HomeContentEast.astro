@@ -11,11 +11,13 @@ const allServices = await getCollection('services');
 const services = allServices
   .sort((a, b) => a.data.order - b.data.order)
   .map((entry) => ({
+    slug: entry.id.replace(/\.md$/, ''),
     icon: entry.data.icon,
     color: entry.data.color,
     title: locale === 'jp' ? entry.data.title_jp : (entry.data.title_zh || entry.data.title_jp),
     subtitle: locale === 'jp' ? entry.data.subtitle_jp : (entry.data.subtitle_zh || entry.data.subtitle_jp),
     description: locale === 'jp' ? entry.data.desc_jp : (entry.data.desc_zh || entry.data.desc_jp),
+    hasDetail: (entry.data.offerings?.length ?? 0) > 0,
   }));
 
 // Same color map as HomeContent.astro. Keep in sync if you add a color.
@@ -142,14 +144,27 @@ const blogIndexPath = `/${locale}/blog`;
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
         {services.map((s) => {
           const cc = colorClasses[s.color];
-          return (
-            <div class="bg-white/80 border border-rose/10 rounded-md p-4 hover:border-rose/30 transition-colors">
+          const detailHref = `/${locale}/services/${s.slug}`;
+          const inner = (
+            <>
               <div class="flex items-baseline gap-2 mb-1.5">
                 <span class={`${cc.text} text-lg`}>{s.icon}</span>
                 <h3 class="font-serif text-base text-ink leading-snug">{s.title}</h3>
               </div>
               <p class="text-[11px] text-rose tracking-wider uppercase mb-2">{s.subtitle}</p>
               <p class="text-sm text-ink-light leading-relaxed tracking-[0.05em]">{s.description}</p>
+              {s.hasDetail && (
+                <p class={`mt-2 text-xs ${cc.text}`}>詳しく →</p>
+              )}
+            </>
+          );
+          return s.hasDetail ? (
+            <a href={detailHref} class="block bg-white/80 border border-rose/10 rounded-md p-4 hover:border-rose/40 transition-colors">
+              {inner}
+            </a>
+          ) : (
+            <div class="bg-white/80 border border-rose/10 rounded-md p-4">
+              {inner}
             </div>
           );
         })}

@@ -12,11 +12,13 @@ const allServices = await getCollection('services');
 const services = allServices
   .sort((a, b) => a.data.order - b.data.order)
   .map((entry) => ({
+    slug: entry.id.replace(/\.md$/, ''),
     icon: entry.data.icon,
     color: entry.data.color,
     title: locale === 'en' ? entry.data.title_en : (locale === 'jp' ? entry.data.title_jp : (entry.data.title_zh || entry.data.title_jp)),
     subtitle: locale === 'en' ? entry.data.subtitle_en : (locale === 'jp' ? entry.data.subtitle_jp : (entry.data.subtitle_zh || entry.data.subtitle_jp)),
     description: locale === 'en' ? entry.data.desc_en : (locale === 'jp' ? entry.data.desc_jp : (entry.data.desc_zh || entry.data.desc_jp)),
+    hasDetail: (entry.data.offerings?.length ?? 0) > 0,
   }));
 
 // Map color name -> Tailwind classes. Static keys (not template
@@ -212,14 +214,27 @@ const blogIndexPath = locale === 'en' ? '/en/blog' : `/${locale}/blog`;
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {services.map((s) => {
           const cc = colorClasses[s.color];
-          return (
-            <div class="card group hover:-translate-y-1 cursor-default">
-              <div class={`w-12 h-12 rounded-xl ${cc.bg} flex items-center justify-center ${cc.text} text-xl mb-5 group-hover:scale-110 transition-transform`}>
+          const detailHref = `/${locale}/services/${s.slug}`;
+          const inner = (
+            <>
+              <div class={`w-12 h-12 rounded-xl ${cc.bg} flex items-center justify-center ${cc.text} text-xl mb-5 ${s.hasDetail ? 'group-hover:scale-110' : ''} transition-transform`}>
                 {s.icon}
               </div>
               <h3 class="font-serif text-xl mb-1">{s.title}</h3>
               <p class="text-rose text-xs tracking-widest uppercase mb-3">{s.subtitle}</p>
               <p class="text-ink-light text-sm leading-relaxed">{s.description}</p>
+              {s.hasDetail && (
+                <p class={`mt-4 text-xs ${cc.text} group-hover:underline`}>Learn more →</p>
+              )}
+            </>
+          );
+          return s.hasDetail ? (
+            <a href={detailHref} class="card group hover:-translate-y-1 block">
+              {inner}
+            </a>
+          ) : (
+            <div class="card">
+              {inner}
             </div>
           );
         })}

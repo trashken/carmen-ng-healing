@@ -48,6 +48,173 @@
       "default": 100,
       "type": "number"
     },
+    "tagline_en": {
+      "default": "",
+      "type": "string"
+    },
+    "tagline_jp": {
+      "default": "",
+      "type": "string"
+    },
+    "tagline_zh": {
+      "default": "",
+      "type": "string"
+    },
+    "intro_en": {
+      "default": "",
+      "type": "string"
+    },
+    "intro_jp": {
+      "default": "",
+      "type": "string"
+    },
+    "intro_zh": {
+      "default": "",
+      "type": "string"
+    },
+    "what_we_do_en": {
+      "default": "",
+      "type": "string"
+    },
+    "what_we_do_jp": {
+      "default": "",
+      "type": "string"
+    },
+    "what_we_do_zh": {
+      "default": "",
+      "type": "string"
+    },
+    "through_session_en": {
+      "default": "",
+      "type": "string"
+    },
+    "through_session_jp": {
+      "default": "",
+      "type": "string"
+    },
+    "through_session_zh": {
+      "default": "",
+      "type": "string"
+    },
+    "recommended_en": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "recommended_jp": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "recommended_zh": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "offerings": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title_en": {
+            "type": "string"
+          },
+          "title_jp": {
+            "type": "string"
+          },
+          "title_zh": {
+            "default": "",
+            "type": "string"
+          },
+          "desc_en": {
+            "default": "",
+            "type": "string"
+          },
+          "desc_jp": {
+            "default": "",
+            "type": "string"
+          },
+          "desc_zh": {
+            "default": "",
+            "type": "string"
+          },
+          "bullets_en": {
+            "default": [],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "bullets_jp": {
+            "default": [],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "bullets_zh": {
+            "default": [],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "duration_en": {
+            "default": "",
+            "type": "string"
+          },
+          "duration_jp": {
+            "default": "",
+            "type": "string"
+          },
+          "duration_zh": {
+            "default": "",
+            "type": "string"
+          },
+          "price_en": {
+            "default": 0,
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "price_jp": {
+            "default": 0,
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "price_zh": {
+            "default": 0,
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "currency_en": {
+            "default": "US$",
+            "type": "string"
+          },
+          "currency_jp": {
+            "default": "¥",
+            "type": "string"
+          },
+          "currency_zh": {
+            "default": "HK$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "title_en",
+          "title_jp"
+        ]
+      }
+    },
     "$schema": {
       "type": "string"
     }

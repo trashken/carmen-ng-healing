@@ -30,13 +30,19 @@ src/
     en/blog/              # /en/blog and /en/blog/[slug]
     jp/blog/              # /jp/blog and /jp/blog/[slug]
     zh/blog/              # /zh/blog and /zh/blog/[slug]
+    en/services/          # /en/services (index) and /en/services/[slug]
+    jp/services/          # /jp/services (index) and /jp/services/[slug]
+    zh/services/          # /zh/services (index) and /zh/services/[slug]
   i18n/                   # one dictionary per locale + index.ts helpers
     en.ts  jp.ts  zh.ts  index.ts
   content.config.ts       # Astro content collection schema (blog + testimonials + services)
   content/
     blog/                 # 11 .md files, one per blog post
     testimonials/         # 94 .md files, one per testimonial (imported from Wix export)
-    services/             # 6 .md files, one per service offering
+    services/             # 9 .md files: 6 generic + 3 Wix-modalities
+                          # (spiritual-guidance, r-a-a-h-reiki,
+                          # a-u-r-a-quantum-hypnosis). The 3 Wix entries
+                          # have detail-page content (offerings / pricing).
   components/
     HomeContent.astro     # EN homepage body: breathable, 3-up grids, large
                           # hero, generous padding. Used by /, /en/.
@@ -44,6 +50,11 @@ src/
                           # (breathable hero, dense article lists), 4-up
                           # grids, smaller fonts, tight spacing. Used by
                           # /jp/, /zh/. Edit the JP/ZH homepage here.
+    ServiceDetail.astro   # Shared body for /[locale]/services/[slug] pages.
+                          # Renders tagline, intro, what-we-do, through-the-
+                          # session, recommended-for, and a grid of
+                          # sub-offerings (each with bullets / duration /
+                          # price). Takes locale + a `services` entry.
   styles/global.css       # Tailwind import + @theme tokens + component classes
 public/
   assets/logo.png         # torii mark in the nav (AI-generated per Carmen)
@@ -90,10 +101,14 @@ tsconfig.json             # extends astro/tsconfigs/strict
 
 ## Services content
 
-- One Markdown file per service in `src/content/services/{slug}.md`. Currently 6 services (energy-healing, sound-therapy, meditation-guidance, spiritual-coaching, chakra-alignment, workshops).
-- **Schema** (in `src/content.config.ts`): `title_en` / `title_jp` / `title_zh` (per-locale title), `subtitle_*` (same), `desc_*` (per-locale description), `icon` (single emoji/symbol char), `color` (enum: `rose` | `lavender` | `sky` | `peach`), `order` (number, lower = first).
+- One Markdown file per service in `src/content/services/{slug}.md`. Currently 9 services: 6 generic (energy-healing, sound-therapy, meditation-guidance, spiritual-coaching, chakra-alignment, workshops) + 3 Wix-modalities (spiritual-guidance, r-a-a-h-reiki, a-u-r-a-quantum-hypnosis) which have full detail-page content.
+- **Schema** (in `src/content.config.ts`): `title_en` / `title_jp` / `title_zh` (per-locale title), `subtitle_*` (same), `desc_*` (per-locale description), `icon` (single emoji/symbol char), `color` (enum: `rose` | `lavender` | `sky` | `peach`), `order` (number, lower = first), `slug` (string, matches filename).
+- **Detail page content** (only on the 3 Wix entries): `tagline_*`, `intro_*`, `what_we_do_*`, `through_session_*`, `recommended_*` (array of strings), `offerings` (array of objects — each with per-locale title / desc / bullets / duration / price + currency per locale).
 - **The EN and East homepages share this one collection** but display different fields per locale (EN shows EN fields; JP shows JP fields; ZH shows ZH fields or falls back to JP).
-- **Color map fix:** the `color` field is mapped to Tailwind classes via a `colorClasses` const in `HomeContent.astro:14-19` and `HomeContentEast.astro:21-25`. If you add a new color, update the map in both components AND the `z.enum(...)` in `content.config.ts` AND the `color` select field in `.pages.yml` — three places, on purpose.
+- **The 3 Wix entries also render at `/[locale]/services/[slug]`** (12 pages: 3 services × 3 locales + 3 index pages at `/[locale]/services`). The 6 generic services only render on the homepage card grid.
+- **Pricing is per-locale**, not USD-only: the Wix site itself shows US$ on EN, ¥ on JP, HK$ on ZH. Use `price_en` / `price_jp` / `price_zh` and `currency_en` / `currency_jp` / `currency_zh` (defaults: `US$` / `¥` / `HK$`). Set a price to `0` to show "Contact for pricing" instead.
+- **JP/ZH body fallback:** detail page intro / what-we-do / through-session / recommended fields are English-only on the Wix page. JP/ZH pages fall back to EN and show a "translation in progress" notice if the locale-specific field is empty. Carmen can add JP/ZH translations later via PagesCMS.
+- **Color map fix:** the `color` field is mapped to Tailwind classes via a `colorClasses` const in `HomeContent.astro:14-19`, `HomeContentEast.astro:21-25`, and `ServiceDetail.astro:30-34`. If you add a new color, update the map in all 3 components AND the `z.enum(...)` in `content.config.ts` AND the `color` select field in `.pages.yml` — five places total, on purpose.
 
 ## Styling
 

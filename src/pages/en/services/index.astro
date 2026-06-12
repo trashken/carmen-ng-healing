@@ -1,0 +1,54 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import { getDictionary } from '../../../i18n';
+
+const t = getDictionary('en');
+const services = (await getCollection('services'))
+  .filter((e) => (e.data.offerings?.length ?? 0) > 0)
+  .sort((a, b) => a.data.order - b.data.order);
+
+const colorClasses: Record<'rose' | 'lavender' | 'sky' | 'peach', { bg: string; text: string }> = {
+  rose:     { bg: 'bg-rose/10',     text: 'text-rose' },
+  lavender: { bg: 'bg-lavender/10', text: 'text-lavender' },
+  sky:      { bg: 'bg-sky/10',      text: 'text-sky' },
+  peach:    { bg: 'bg-peach/10',    text: 'text-peach' },
+};
+---
+
+<Layout title={`Services | ${t.meta.siteName}`} description={t.meta.defaultDescription} locale="en">
+  <article class="max-w-6xl mx-auto px-6 py-16">
+    <header class="mb-12 max-w-3xl">
+      <p class="text-rose font-serif text-lg italic mb-2">Healing modalities</p>
+      <h1 class="font-serif text-4xl md:text-5xl font-bold text-ink mb-4">Services & Sessions</h1>
+      <p class="text-lg text-ink-light leading-relaxed">
+        Each session is a co-created space — tailored to where you are today, and where you're ready to go. Browse the modalities below for details and pricing.
+      </p>
+    </header>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {services.map((entry) => {
+        const s = {
+          slug: entry.id.replace(/\.md$/, ''),
+          icon: entry.data.icon,
+          color: entry.data.color,
+          title: entry.data.title_en,
+          subtitle: entry.data.subtitle_en,
+          description: entry.data.desc_en,
+        };
+        const cc = colorClasses[s.color];
+        return (
+          <a href={`/en/services/${s.slug}`} class="card group hover:-translate-y-1 block">
+            <div class={`w-12 h-12 rounded-xl ${cc.bg} flex items-center justify-center ${cc.text} text-xl mb-5 group-hover:scale-110 transition-transform`}>
+              {s.icon}
+            </div>
+            <h2 class="font-serif text-xl mb-1">{s.title}</h2>
+            <p class="text-rose text-xs tracking-widest uppercase mb-3">{s.subtitle}</p>
+            <p class="text-ink-light text-sm leading-relaxed">{s.description}</p>
+            <p class={`mt-4 text-xs ${cc.text} group-hover:underline`}>View details & pricing →</p>
+          </a>
+        );
+      })}
+    </div>
+  </article>
+</Layout>

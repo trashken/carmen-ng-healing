@@ -1,0 +1,59 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import { getDictionary } from '../../../i18n';
+
+const t = getDictionary('jp');
+const services = (await getCollection('services'))
+  .filter((e) => (e.data.offerings?.length ?? 0) > 0)
+  .sort((a, b) => a.data.order - b.data.order);
+
+const colorClasses: Record<'rose' | 'lavender' | 'sky' | 'peach', { text: string }> = {
+  rose:     { text: 'text-rose' },
+  lavender: { text: 'text-lavender' },
+  sky:      { text: 'text-sky' },
+  peach:    { text: 'text-peach' },
+};
+
+const copy = {
+  sectionLabel: 'セッション',
+  h1: 'サービス・セッション',
+  intro: '各セッションは「今」あなたのいる場所と、進みたい方向に合わせて丁寧に進めていきます。下のメニューから、詳細・料金をご確認ください。',
+  cta: '詳細・料金を見る',
+};
+---
+
+<Layout title={`サービス | ${t.meta.siteName}`} description={t.meta.defaultDescription} locale="jp">
+  <article class="max-w-6xl mx-auto px-6 py-12">
+    <header class="mb-10 max-w-3xl">
+      <p class="text-rose font-serif text-base mb-3 tracking-[0.1em]">{copy.sectionLabel}</p>
+      <h1 class="font-serif text-3xl md:text-5xl font-bold text-ink mb-4 leading-tight">{copy.h1}</h1>
+      <p class="text-base text-ink-light leading-loose tracking-[0.1em]">{copy.intro}</p>
+    </header>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+      {services.map((entry) => {
+        const s = {
+          slug: entry.id.replace(/\.md$/, ''),
+          icon: entry.data.icon,
+          color: entry.data.color,
+          title: entry.data.title_jp,
+          subtitle: entry.data.subtitle_jp,
+          description: entry.data.desc_jp,
+        };
+        const cc = colorClasses[s.color];
+        return (
+          <a href={`/jp/services/${s.slug}`} class="block bg-white/80 border border-rose/10 rounded-md p-4 hover:border-rose/40 transition-colors">
+            <div class="flex items-baseline gap-2 mb-1.5">
+              <span class={`${cc.text} text-lg`}>{s.icon}</span>
+              <h2 class="font-serif text-base text-ink leading-snug">{s.title}</h2>
+            </div>
+            <p class="text-[11px] text-rose tracking-wider uppercase mb-2">{s.subtitle}</p>
+            <p class="text-sm text-ink-light leading-relaxed tracking-[0.05em]">{s.description}</p>
+            <p class={`mt-2 text-xs ${cc.text}`}>{copy.cta} →</p>
+          </a>
+        );
+      })}
+    </div>
+  </article>
+</Layout>
