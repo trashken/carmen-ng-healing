@@ -102,12 +102,14 @@ const langBadge: Record<'jp' | 'en' | 'zh', string> = {
                 {langBadge[entry.data.lang]}
               </span>
             </div>
+            <h3 class="font-serif text-base text-ink leading-snug mb-3">
+              {entry.data.title}
+            </h3>
             <div class="text-rose/30 text-4xl font-serif leading-none mb-2">"</div>
             <div class="text-ink-light text-sm leading-relaxed mb-6 italic whitespace-pre-line">
-              <Content />              
+              <Content />
             </div>
-            <div class="flex items-center justify-between mt-auto border-t border-rose/10 pt-4">
-              <span class="text-sm font-medium">— {entry.data.title}</span>
+            <div class="flex items-center justify-end mt-auto border-t border-rose/10 pt-4">
               <div class="flex gap-0.5 text-rose text-xs">{'★'.repeat(entry.data.rating)}{'☆'.repeat(5 - entry.data.rating)}</div>
             </div>            
           </article>

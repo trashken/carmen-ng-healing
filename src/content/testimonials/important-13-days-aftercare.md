@@ -1,8 +1,51 @@
 ---
-title: "Carmen T."
+id: "efa43546-eb9b-451f-9519-0ab37b1f220d"
+title: "Important 13 days Aftercare"
 service: "R.A.A.H. Reiki Session"
 lang: en
 rating: 5
+created: "2024-07-12T00:24:15Z"
+updated: "2025-10-20T00:40:44Z"
 ---
 
-I was tired, confused and anxious before I tried the R.A.A.H. healing session with Carmen. Carmen explained every step of the process clearly and it was easy to follow.  She conducted the session with tremendous energy and enthusiasm.  The session allowed me to slow down and gave me the time and space to reflect and listen to my inner self. The process was surprisingly relaxing and I fell asleep towards the end of the session!    I was most impressed by the improvements I noticed in the next 24-48 hours to 13 days (during after care) and beyond.Physically, I had been bothered by a bloated neck discomfort (for two months), itchy scalp during sleep whenever I stress and occasionally and randomly dry mouth in the early mornings.  While these symptoms could not be helped medically, they slowly faded in the next few days/weeks after the session. Mentally, it feels like my worrying and negative thoughts had been released during the session and it freed me psychologically.  I can think more clearly, like a cloud has been removed from my head.  I generally feel more energized and positive - more grounded and stronger emotionally to manage the ups and downs of my day-to-days. The after care was an important process for the 13 days after the session.  It helped to break my poor eating habits and "restart" my body with new settings. I started to eat less meats and more fresh foods and vegetables and I generally feel more energetic.  It was amazing how my body reacted positively to the changes: my binge eating (potato chips) and drinking habit stopped, my cravings and tastes also changed as a result.  The awareness helped me eat more healthily and I feel better overall.   All in all, the healing session awakened and enlightened my mind and body! Thank you Carmen for your wholehearted support and hard work before, during and after the session.  I am very grateful for your healing.  🙏🏻
+I was tired, confused and anxious before I tried the R.A.A.H.
+
+healing session with Carmen.
+
+Carmen explained every step of the process clearly and it was easy to follow.
+
+She conducted the session with tremendous energy and enthusiasm.
+
+The session allowed me to slow down and gave me the time and space to reflect and listen to my inner self.
+
+The process was surprisingly relaxing and I fell asleep towards the end of the session!
+
+I was most impressed by the improvements I noticed in the next 24-48 hours to 13 days (during after care) and beyond.Physically, I had been bothered by a bloated neck discomfort (for two months), itchy scalp during sleep whenever I stress and occasionally and randomly dry mouth in the early mornings.
+
+While these symptoms could not be helped medically, they slowly faded in the next few days/weeks after the session.
+
+Mentally, it feels like my worrying and negative thoughts had been released during the session and it freed me psychologically.
+
+I can think more clearly, like a cloud has been removed from my head.
+
+I generally feel more energized and positive - more grounded and stronger emotionally to manage the ups and downs of my day-to-days.
+
+The after care was an important process for the 13 days after the session.
+
+It helped to break my poor eating habits and "restart" my body with new settings.
+
+I started to eat less meats and more fresh foods and vegetables and I generally feel more energetic.
+
+It was amazing how my body reacted positively to the changes: my binge eating (potato chips) and drinking habit stopped, my cravings and tastes also changed as a result.
+
+The awareness helped me eat more healthily and I feel better overall.
+
+All in all, the healing session awakened and enlightened my mind and body!
+
+Thank you Carmen for your wholehearted support and hard work before, during and after the session.
+
+I am very grateful for your healing.
+
+🙏🏻
+
+~ Carmen T.

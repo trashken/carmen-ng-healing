@@ -22,6 +22,10 @@ const blog = defineCollection({
 const testimonials = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/testimonials' }),
   schema: z.object({
+    // Wix UUID, kept for stable cross-referencing. Some entries (added via
+    // PagesCMS) may not have one; fall back to ''.
+    id: z.string().optional().default(''),
+    // Post title (e.g. "Break Free from Mental Blocks" or "改善睡眠及膝頭痛").
     title: z.string(),
     service: z.string(),
     lang: z.enum(['jp', 'en', 'zh']),
@@ -29,9 +33,11 @@ const testimonials = defineCollection({
     // default to 5. The rating field is rendered in the card; if you
     // want lower ratings for some entries, override in the .md file.
     rating: z.number().min(1).max(5).default(5),
-    // Optional "updated" timestamp from the Wix export. Used as a
-    // secondary sort key for the testimonials page; missing on entries
-    // created via PagesCMS so we fall back to insertion order.
+    // Wix "created" timestamp (ISO 8601 string in the export, coerced to Date).
+    created: z.coerce.date().optional(),
+    // Wix "updated" timestamp. Used as the primary sort key on the
+    // testimonials page; missing on entries created via PagesCMS so we
+    // fall back to insertion order.
     updated: z.coerce.date().optional(),
   }),
 });
