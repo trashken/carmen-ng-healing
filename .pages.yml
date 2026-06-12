@@ -131,9 +131,9 @@ content:
     filename: '{name}.md'
     format: yaml-frontmatter
     view:
-      fields: [ name, service, rating, date]
+      fields: [ title, service, updated]
       primary: name
-      sort: [date, name]
+      sort: [ updated ]
       default:
         sort: date
         order: desc    
