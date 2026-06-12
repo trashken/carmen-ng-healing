@@ -154,9 +154,13 @@ content:
       - name: created
         type: date
         label: Created Date    
+        options:          
+          format: yyyy-MM-dd
       - name: updated
         type: date
-        label: Modified Date    
+        label: Modified Date
+        options:          
+          format: yyyy-MM-dd
       - name: lang
         type: select
         label: Original language
