@@ -88,7 +88,7 @@ const currentPath = Astro.url.pathname;
           <a href="/testimonials" class="text-sm text-ink-light hover:text-rose transition-colors">{t.nav.testimonials}</a>
           <a href="/contact" class="text-sm text-ink-light hover:text-rose transition-colors">{t.nav.contact}</a>
         </div>
-        <div class="flex items-center gap-4">
+        <div class="flex items-center gap-3">
           <div class="hidden sm:flex items-center gap-1 text-xs">
             {otherLocales.map((l) => (
               <a
@@ -100,10 +100,111 @@ const currentPath = Astro.url.pathname;
               </a>
             ))}
           </div>
-          <a href="/contact" class="btn-primary text-xs px-6 py-2">{t.nav.bookSession}</a>
+          <a href="/contact" class="btn-primary text-xs px-6 py-2 hidden sm:inline-flex">{t.nav.bookSession}</a>
+          <button
+            type="button"
+            data-menu-toggle
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+            class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-md text-ink-light hover:text-rose hover:bg-rose/5 transition-colors"
+          >
+            <svg data-menu-icon-open xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="4" y1="6" x2="20" y2="6"></line>
+              <line x1="4" y1="12" x2="20" y2="12"></line>
+              <line x1="4" y1="18" x2="20" y2="18"></line>
+            </svg>
+            <svg data-menu-icon-close xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden" aria-hidden="true">
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+              <line x1="6" y1="18" x2="18" y2="6"></line>
+            </svg>
+          </button>
         </div>
       </div>
     </nav>
+
+    <div
+      id="mobile-menu-backdrop"
+      data-menu-backdrop
+      class="md:hidden fixed inset-0 z-40 bg-ink/40 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-200"
+      aria-hidden="true"
+    ></div>
+
+    <aside
+      id="mobile-menu"
+      data-menu-panel
+      aria-label="Mobile menu"
+      class="md:hidden fixed top-0 right-0 z-50 h-full w-72 max-w-[85vw] bg-warm-white border-l border-rose/10 shadow-xl translate-x-full transition-transform duration-300 ease-out flex flex-col"
+    >
+      <div class="flex items-center justify-between px-6 h-16 border-b border-rose/10">
+        <span class="font-serif text-base text-ink">Menu</span>
+        <button
+          type="button"
+          data-menu-close
+          aria-label="Close menu"
+          class="inline-flex items-center justify-center w-10 h-10 rounded-md text-ink-light hover:text-rose hover:bg-rose/5 transition-colors"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+            <line x1="6" y1="18" x2="18" y2="6"></line>
+          </svg>
+        </button>
+      </div>
+      <nav class="flex flex-col px-6 py-6 gap-1 text-base">
+        <a href={locale === defaultLocale ? '/' : `/${locale}`} class="py-3 text-ink hover:text-rose transition-colors border-b border-rose/5">{t.nav.home}</a>
+        <a href={`/${locale}/blog`} class="py-3 text-ink hover:text-rose transition-colors border-b border-rose/5">{t.nav.blog}</a>
+        <a href="/testimonials" class="py-3 text-ink hover:text-rose transition-colors border-b border-rose/5">{t.nav.testimonials}</a>
+        <a href="/contact" class="py-3 text-ink hover:text-rose transition-colors border-b border-rose/5">{t.nav.contact}</a>
+        <a href="/contact" class="btn-primary mt-6 text-center">{t.nav.bookSession}</a>
+      </nav>
+      <div class="mt-auto px-6 py-6 border-t border-rose/10">
+        <p class="text-[10px] uppercase tracking-widest text-ink-light/50 mb-3">Language</p>
+        <div class="flex items-center gap-2 text-xs">
+          {otherLocales.map((l) => (
+            <a
+              href={localePathFor(l, currentPath)}
+              aria-label={`Switch language to ${l}`}
+              class="px-3 py-1.5 rounded-full border border-rose/20 text-ink-light hover:text-rose hover:border-rose/40 transition-colors uppercase"
+            >
+              {l}
+            </a>
+          ))}
+        </div>
+      </div>
+    </aside>
+
+    <script>
+      const toggle = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
+      const panel = document.querySelector<HTMLElement>('[data-menu-panel]');
+      const backdrop = document.querySelector<HTMLElement>('[data-menu-backdrop]');
+      const closeBtn = document.querySelector<HTMLButtonElement>('[data-menu-close]');
+      const iconOpen = document.querySelector<HTMLElement>('[data-menu-icon-open]');
+      const iconClose = document.querySelector<HTMLElement>('[data-menu-icon-close]');
+
+      function setOpen(open: boolean) {
+        if (!toggle || !panel || !backdrop) return;
+        panel.classList.toggle('translate-x-full', !open);
+        panel.classList.toggle('translate-x-0', open);
+        backdrop.classList.toggle('opacity-0', !open);
+        backdrop.classList.toggle('pointer-events-none', !open);
+        backdrop.classList.toggle('opacity-100', open);
+        backdrop.classList.toggle('pointer-events-auto', open);
+        toggle.setAttribute('aria-expanded', String(open));
+        toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        document.body.classList.toggle('overflow-hidden', open);
+        iconOpen?.classList.toggle('hidden', open);
+        iconClose?.classList.toggle('hidden', !open);
+      }
+
+      toggle?.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
+      closeBtn?.addEventListener('click', () => setOpen(false));
+      backdrop?.addEventListener('click', () => setOpen(false));
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && toggle?.getAttribute('aria-expanded') === 'true') setOpen(false);
+      });
+      // Close panel after navigating so SPA-ish transitions don't strand it open
+      panel?.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setOpen(false)));
+    </script>
 
     <main id="main" class="pt-16 min-h-screen">
       <slot />

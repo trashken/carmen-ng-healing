@@ -47,7 +47,9 @@ src/
   styles/global.css       # Tailwind import + @theme tokens + component classes
 public/
   assets/logo.png         # torii mark in the nav (AI-generated per Carmen)
-  uploads/                # 10 cover images re-hosted from Wix CDN, by slug
+  uploads/                # cover images re-hosted from Wix CDN, by slug
+                          # + hero-jp.jpg (homepage hero bg, soft watercolor
+                          # pastels from the original Wix JP page)
   videos/kwanon-canon.mp4 # Kwanon & Canon post cover (downloaded from Wix)
   favicon.ico  favicon.svg
 staging/
@@ -104,6 +106,8 @@ tsconfig.json             # extends astro/tsconfigs/strict
 ## Conventions
 
 - All pages wrap their content in `<Layout title="..." description="..." locale="...">` from `src/layouts/Layout.astro`. The layout appends ` | ${siteName}` to the title and falls back to a default description per locale. Layout.astro is shared across all locales; the locale-specific homepage density is handled in `HomeContent.astro` (EN) vs `HomeContentEast.astro` (JP/ZH), picked by each locale's `index.astro`.
+- **Mobile nav:** `Layout.astro` has a hamburger toggle (visible `<md`) that opens a slide-in panel from the right (id `mobile-menu`) with a backdrop (`mobile-menu-backdrop`). All 4 nav links + the Book-a-Session CTA + the language switcher live in the panel. The desktop Book-a-Session button (`btn-primary` in the top nav) is hidden on mobile (`<sm`) so the hamburger isn't crowded. Toggling is handled by a small inline `<script>` at the bottom of `Layout.astro` (Escape, outside-click, and link-click all close it). Keep that script in sync if you add new menu triggers.
+- **Homepage hero bg:** all 3 homepages (`/`, `/en/`, `/jp/`, `/zh/`) use `/uploads/hero-jp.jpg` as a `bg-cover` background with a 55–60% white-to-cream scrim (`bg-[image:linear-gradient(...,url(...))]`) so the soft watercolor stays decorative while text remains readable. The original Wix JP page is the source of the asset.
 - The logo (`public/assets/logo.png`) is shown in the nav on all pages via `Layout.astro`.
 - The medical disclaimer ("Carmen is not a licensed physician...") is rendered in the footer of every page, in the active locale. Update the matching `src/i18n/*.ts` file if it changes.
 - Post pages render a `<video>` player at the top when `post.data.video` is set (currently only `kwanon-canon`). The video file lives at `public/videos/<file>` and is referenced as `/videos/<file>`.
