@@ -138,20 +138,25 @@ content:
         sort: date
         order: desc    
     fields:     
-      - name: name
-        type: string
-        label: Author first name
+      - name: id
+        type: uuid
         options:
-          maxlength: 40  
+          editable: false        
+      - name: title
+        type: string
+        label: Title 
       - name: service
         type: string
         label: Session / Workshop
         description: >-
           Which session or workshop the testimonial is for (e.g. "Spiritual
           Guidance & Healing", "Body Scan Workshop", "Home Cleansing R.A.A.H.").
-      - name: date
+      - name: created
         type: date
-        label: Publish date    
+        label: Created Date    
+      - name: updated
+        type: date
+        label: Modified Date    
       - name: lang
         type: select
         label: Original language
@@ -162,21 +167,10 @@ content:
           - name: en
             label: English
           - name: zh
-            label: 中文 (Traditional Chinese)
-      - name: rating
-        type: number
-        label: Star rating
-        options:
-          min: 1
-          max: 5
-      - name: body
+            label: 中文 (Traditional Chinese)      
+      - name: content
         type: rich-text
-        label: Testimonial text
-        description: >-
-          In the original language as Carmen received it. Line breaks are
-          preserved. The field is named `body` so PagesCMS writes to
-          the Markdown body (not frontmatter), which is what the
-          testimonials page renders.
+        label: Testimonial text        
 
   # ---------------------------------------------------------------------------
   # Services
