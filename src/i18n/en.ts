@@ -13,6 +13,7 @@ export default {
   nav: {
     home: 'Home',
     blog: 'Blog',
+    about: 'About',
     testimonials: 'Testimonials',
     contact: 'Contact',
     bookSession: 'Book a Session',

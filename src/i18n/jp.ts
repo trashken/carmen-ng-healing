@@ -13,6 +13,7 @@ export default {
   nav: {
     home: 'ホーム',
     blog: 'ブログ',
+    about: 'プロフィール',
     testimonials: 'お客様の声',
     contact: 'お問い合わせ',
     bookSession: 'セッションを予約',

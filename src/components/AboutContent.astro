@@ -1,0 +1,95 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { type Locale } from '../i18n';
+
+export interface Props {
+  locale: Locale;
+  entry: CollectionEntry<'about'>;
+}
+
+const { locale, entry } = Astro.props;
+const d = entry.data;
+
+function pickLocalised<T>(en: T, jp: T, zh: T | undefined): T {
+  if (locale === 'jp') return jp;
+  if (locale === 'zh') return zh ?? jp;
+  return en;
+}
+
+const contactPath = locale === 'en' ? '/contact' : `/${locale}/contact`;
+const servicesPath = locale === 'en' ? '/en/services' : `/${locale}/services`;
+
+const copy = {
+  en: {
+    certifications: 'Training & Certifications',
+    connect: 'Connect with me',
+    viewServices: 'View my services',
+  },
+  jp: {
+    certifications: '修了した国際認定プログラム',
+    connect: 'お問い合わせ',
+    viewServices: 'サービス一覧',
+  },
+  zh: {
+    certifications: '國際認可資歷',
+    connect: '與我聯絡',
+    viewServices: '服務總覽',
+  },
+}[locale];
+---
+
+<header class="mb-16 max-w-3xl">
+  <p class="text-rose font-serif text-lg mb-2">{locale === 'jp' ? 'プロフィール' : (locale === 'zh' ? '關於我' : 'About')}</p>
+  <h1 class="text-5xl md:text-7xl font-serif font-bold text-ink mb-6 leading-tight">{pickLocalised(d.title_en, d.title_jp, d.title_zh)}</h1>
+</header>
+
+<section class="grid md:grid-cols-2 gap-8 mb-16 items-start">
+  <div class="rounded-2xl overflow-hidden bg-gradient-to-br from-lavender-light to-sky-light aspect-[3/4]">
+    <img src={d.portrait} alt="Carmen Ng" loading="lazy" class="w-full h-full object-cover" />
+  </div>
+  <div class="rounded-2xl overflow-hidden bg-gradient-to-br from-blush to-peach-light aspect-[4/3] md:aspect-[3/4]">
+    <img src={d.hands} alt="" loading="lazy" class="w-full h-full object-cover" />
+  </div>
+</section>
+
+<section class="max-w-3xl mx-auto">
+  <div class="text-ink-light leading-relaxed whitespace-pre-line text-lg">{pickLocalised(d.body_en, d.body_jp, d.body_zh)}</div>
+
+  {pickLocalised(d.signoff_en, d.signoff_jp, d.signoff_zh) && (
+    <p class="mt-10 text-ink font-serif text-xl whitespace-pre-line">{pickLocalised(d.signoff_en, d.signoff_jp, d.signoff_zh)}</p>
+  )}
+
+  {pickLocalised(d.languages_en, d.languages_jp, d.languages_zh) && (
+    <p class="mt-6 text-sm text-ink-light/80 italic whitespace-pre-line">{pickLocalised(d.languages_en, d.languages_jp, d.languages_zh)}</p>
+  )}
+</section>
+
+{d.certifications && d.certifications.length > 0 && (
+  <section class="mt-20 max-w-3xl mx-auto">
+    <h2 class="font-serif text-3xl text-ink mb-8 text-center">{copy.certifications}</h2>
+    <div class="space-y-8">
+      {d.certifications.map((c) => {
+        const school = pickLocalised(c.school_en, c.school_jp, c.school_zh);
+        const items = pickLocalised(c.items_en, c.items_jp, c.items_zh);
+        return (
+          <div>
+            <h3 class="font-serif text-lg text-rose mb-2">{school}</h3>
+            <ul class="text-sm text-ink-light space-y-1">
+              {items.map((item) => (
+                <li class="flex gap-2">
+                  <span class="text-rose/60 flex-shrink-0">·</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        );
+      })}
+    </div>
+  </section>
+)}
+
+<div class="mt-16 flex flex-col sm:flex-row gap-4 justify-center">
+  <a href={contactPath} class="btn-primary text-base px-10 py-4">{copy.connect}</a>
+  <a href={servicesPath} class="btn-outline text-base px-10 py-4">{copy.viewServices}</a>
+</div>

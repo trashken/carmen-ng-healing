@@ -13,6 +13,7 @@ export default {
   nav: {
     home: '首頁',
     blog: '網誌',
+    about: '關於我',
     testimonials: '客戶分享',
     contact: '聯絡',
     bookSession: '預約療程',

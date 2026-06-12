@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "title_en": {
+      "type": "string"
+    },
+    "title_jp": {
+      "type": "string"
+    },
+    "title_zh": {
+      "default": "",
+      "type": "string"
+    },
+    "body_en": {
+      "type": "string"
+    },
+    "body_jp": {
+      "type": "string"
+    },
+    "body_zh": {
+      "default": "",
+      "type": "string"
+    },
+    "portrait": {
+      "type": "string"
+    },
+    "hands": {
+      "type": "string"
+    },
+    "signoff_en": {
+      "default": "",
+      "type": "string"
+    },
+    "signoff_jp": {
+      "default": "",
+      "type": "string"
+    },
+    "signoff_zh": {
+      "default": "",
+      "type": "string"
+    },
+    "certifications": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "school_en": {
+            "type": "string"
+          },
+          "school_jp": {
+            "type": "string"
+          },
+          "school_zh": {
+            "default": "",
+            "type": "string"
+          },
+          "items_en": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "items_jp": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "items_zh": {
+            "default": [],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "school_en",
+          "school_jp",
+          "items_en",
+          "items_jp"
+        ]
+      }
+    },
+    "languages_en": {
+      "default": "",
+      "type": "string"
+    },
+    "languages_jp": {
+      "default": "",
+      "type": "string"
+    },
+    "languages_zh": {
+      "default": "",
+      "type": "string"
+    },
+    "$schema": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "title_en",
+    "title_jp",
+    "body_en",
+    "body_jp",
+    "portrait",
+    "hands"
+  ]
+}

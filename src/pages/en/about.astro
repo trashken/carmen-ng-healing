@@ -1,0 +1,17 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { getEntry } from 'astro:content';
+import AboutContent from '../../../components/AboutContent.astro';
+import { getDictionary } from '../../../i18n';
+
+const t = getDictionary('en');
+const entry = (await getEntry('about', 'main'))!;
+const title = entry.data.title_en;
+const description = entry.data.body_en.split('\n')[0].slice(0, 160);
+---
+
+<Layout title={`${title} | ${t.meta.siteName}`} description={description} locale="en">
+  <article class="max-w-6xl mx-auto px-6 py-16">
+    <AboutContent locale="en" entry={entry} />
+  </article>
+</Layout>

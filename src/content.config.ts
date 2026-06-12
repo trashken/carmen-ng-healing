@@ -102,4 +102,43 @@ const services = defineCollection({
   }),
 });
 
-export const collections = { blog, testimonials, services };
+// Single-entry collection. There is only one About Me page. Fetch it
+// with `getEntry('about', 'main')`. Body content is a per-locale text
+// block (YAML literal block scalar) + a list of certification schools
+// (each with a per-locale name + per-locale list of items).
+const about = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/about' }),
+  schema: z.object({
+    title_en: z.string(),
+    title_jp: z.string(),
+    title_zh: z.string().optional().default(''),
+    body_en: z.string(),
+    body_jp: z.string(),
+    body_zh: z.string().optional().default(''),
+    // Two images used in the about hero: portrait (left) + hands (right).
+    portrait: z.string(),
+    hands: z.string(),
+    // Sign-off line shown at the end of the body ("Love Light, Carmen"
+    // on Wix — but in Carmen's voice, optional).
+    signoff_en: z.string().optional().default(''),
+    signoff_jp: z.string().optional().default(''),
+    signoff_zh: z.string().optional().default(''),
+    // Training & certifications. Each school is one section with a
+    // per-locale name + a list of items.
+    certifications: z.array(z.object({
+      school_en: z.string(),
+      school_jp: z.string(),
+      school_zh: z.string().optional().default(''),
+      items_en: z.array(z.string()),
+      items_jp: z.array(z.string()),
+      items_zh: z.array(z.string()).optional().default([]),
+    })).optional().default([]),
+    // Languages Carmen works in (per-locale line, shown as a small
+    // "I also work in..." footnote under the body).
+    languages_en: z.string().optional().default(''),
+    languages_jp: z.string().optional().default(''),
+    languages_zh: z.string().optional().default(''),
+  }),
+});
+
+export const collections = { blog, testimonials, services, about };

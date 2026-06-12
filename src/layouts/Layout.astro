@@ -84,6 +84,7 @@ const currentPath = Astro.url.pathname;
         </a>
         <div class="hidden md:flex items-center gap-8">
           <a href={locale === defaultLocale ? '/' : `/${locale}`} class="text-sm text-ink-light hover:text-rose transition-colors">{t.nav.home}</a>
+          <a href={`/${locale}/about`} class="text-sm text-ink-light hover:text-rose transition-colors">{t.nav.about}</a>
           <a href={`/${locale}/blog`} class="text-sm text-ink-light hover:text-rose transition-colors">{t.nav.blog}</a>
           <a href="/testimonials" class="text-sm text-ink-light hover:text-rose transition-colors">{t.nav.testimonials}</a>
           <a href="/contact" class="text-sm text-ink-light hover:text-rose transition-colors">{t.nav.contact}</a>
@@ -152,6 +153,7 @@ const currentPath = Astro.url.pathname;
       </div>
       <nav class="flex flex-col px-6 py-6 gap-1 text-base">
         <a href={locale === defaultLocale ? '/' : `/${locale}`} class="py-3 text-ink hover:text-rose transition-colors border-b border-rose/5">{t.nav.home}</a>
+        <a href={`/${locale}/about`} class="py-3 text-ink hover:text-rose transition-colors border-b border-rose/5">{t.nav.about}</a>
         <a href={`/${locale}/blog`} class="py-3 text-ink hover:text-rose transition-colors border-b border-rose/5">{t.nav.blog}</a>
         <a href="/testimonials" class="py-3 text-ink hover:text-rose transition-colors border-b border-rose/5">{t.nav.testimonials}</a>
         <a href="/contact" class="py-3 text-ink hover:text-rose transition-colors border-b border-rose/5">{t.nav.contact}</a>
@@ -223,6 +225,7 @@ const currentPath = Astro.url.pathname;
             <h3 class="font-serif text-lg mb-4 text-white">{t.footer.explore}</h3>
             <div class="flex flex-col gap-3">
               <a href={locale === defaultLocale ? '/' : `/${locale}`} class="text-sm text-cream/60 hover:text-rose transition-colors">{t.nav.home}</a>
+              <a href={`/${locale}/about`} class="text-sm text-cream/60 hover:text-rose transition-colors">{t.nav.about}</a>
               <a href={`/${locale}/blog`} class="text-sm text-cream/60 hover:text-rose transition-colors">{t.nav.blog}</a>
               <a href="/testimonials" class="text-sm text-cream/60 hover:text-rose transition-colors">{t.nav.testimonials}</a>
               <a href="/contact" class="text-sm text-cream/60 hover:text-rose transition-colors">{t.nav.contact}</a>
