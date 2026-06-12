@@ -133,10 +133,7 @@ content:
     view:
       fields: [ title, service, updated]
       primary: name
-      sort: [ updated ]
-      fields: [ title, service, rating, date]
-      primary: title
-      sort: [date, title]
+      sort: [ updated ]      
       default:
         sort: date
         order: desc    
@@ -144,8 +141,7 @@ content:
       - name: id
         type: uuid
         options:
-          editable: false        
-      - name: title
+          editable: false              
       - name: title
         type: string
         label: Title 
