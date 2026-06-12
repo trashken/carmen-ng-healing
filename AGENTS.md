@@ -137,3 +137,16 @@ tsconfig.json             # extends astro/tsconfigs/strict
 - Newsletter form in the footer is a static `<form>` with no handler.
 - All 11 post bodies have `body_zh: ""`; `/zh/blog/...` pages render the Japanese original with a "中文翻譯準備中" note until Carmen provides Chinese translations.
 - Post #2 (`my-pace-2026`) has no English body — its content is JP-only on the original Wix site, including the song lyrics credited to Carmen (composer) and Ivan Hui (lyricist). Confirm Carmen has rights to publish Ivan's lyrics before any external distribution.
+
+## graphify
+
+This project has a knowledge graph at graphify-out/ with god nodes, community structure, and cross-file relationships.
+
+When the user types `/graphify`, invoke the `skill` tool with `skill: "graphify"` before doing anything else.
+
+Rules:
+- For codebase questions, first run `graphify query "<question>"` when graphify-out/graph.json exists. Use `graphify path "<A>" "<B>"` for relationships and `graphify explain "<concept>"` for focused concepts. These return a scoped subgraph, usually much smaller than GRAPH_REPORT.md or raw grep output.
+- Dirty graphify-out/ files are expected after hooks or incremental updates; dirty graph files are not a reason to skip graphify. Only skip graphify if the task is about stale or incorrect graph output, or the user explicitly says not to use it.
+- If graphify-out/wiki/index.md exists, use it for broad navigation instead of raw source browsing.
+- Read graphify-out/GRAPH_REPORT.md only for broad architecture review or when query/path/explain do not surface enough context.
+- After modifying code, run `graphify update .` to keep the graph current (AST-only, no API cost).
