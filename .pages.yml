@@ -168,7 +168,7 @@ content:
             label: English
           - name: zh
             label: 中文 (Traditional Chinese)      
-      - name: content
+      - name: body
         type: rich-text
         label: Testimonial text        
 
