@@ -1,0 +1,1070 @@
+{
+  "communities": {
+    "0": [
+      "agents_md",
+      "astro_content",
+      "c_development_carmen_ng_healing_src_i18n",
+      "c_development_carmen_ng_healing_src_styles_global_css",
+      "carmen_ng_healing",
+      "components_homecontent",
+      "components_homecontenteast",
+      "components_servicedetail",
+      "en_index",
+      "en_index_t",
+      "global_css",
+      "i18n_en",
+      "i18n_en_dictionary",
+      "i18n_index",
+      "i18n_index_dictionaries",
+      "i18n_index_getdictionary",
+      "i18n_index_islocale",
+      "i18n_index_locale",
+      "i18n_index_locales",
+      "i18n_jp",
+      "i18n_zh",
+      "jp_index",
+      "jp_index_t",
+      "layouts_layout",
+      "layouts_layout_localepathfor",
+      "layouts_layout_otherlocales",
+      "layouts_layout_setopen",
+      "layouts_layout_t",
+      "page_index_astro",
+      "pages_contact",
+      "pages_index",
+      "pages_testimonials",
+      "pages_testimonials_repeat",
+      "public_assets_logo_image",
+      "src_pages_en_blog_index_astro_blog_index",
+      "src_pages_en_blog_index_astro_blog_index_if",
+      "src_pages_en_blog_slug_astro_blog_slug",
+      "src_pages_en_blog_slug_astro_blog_slug_bodyparagraphs",
+      "src_pages_en_blog_slug_astro_blog_slug_formatdate",
+      "src_pages_en_blog_slug_astro_blog_slug_getstaticpaths",
+      "src_pages_en_blog_slug_astro_blog_slug_t",
+      "src_pages_en_services_index_astro_services_index",
+      "src_pages_en_services_index_astro_services_index_services",
+      "src_pages_en_services_index_astro_services_index_t",
+      "src_pages_en_services_slug_astro_services_slug",
+      "src_pages_en_services_slug_astro_services_slug_getstaticpaths",
+      "src_pages_en_services_slug_astro_services_slug_t",
+      "src_pages_jp_blog_index_astro_blog_index",
+      "src_pages_jp_blog_index_astro_blog_index_if",
+      "src_pages_jp_blog_slug_astro_blog_slug",
+      "src_pages_jp_blog_slug_astro_blog_slug_bodyparagraphs",
+      "src_pages_jp_blog_slug_astro_blog_slug_formatdate",
+      "src_pages_jp_blog_slug_astro_blog_slug_getstaticpaths",
+      "src_pages_jp_blog_slug_astro_blog_slug_t",
+      "src_pages_jp_services_index_astro_services_index",
+      "src_pages_jp_services_index_astro_services_index_copy",
+      "src_pages_jp_services_index_astro_services_index_services",
+      "src_pages_jp_services_index_astro_services_index_t",
+      "src_pages_jp_services_slug_astro_services_slug",
+      "src_pages_jp_services_slug_astro_services_slug_getstaticpaths",
+      "src_pages_jp_services_slug_astro_services_slug_t",
+      "src_pages_zh_blog_index_astro_blog_index",
+      "src_pages_zh_blog_index_astro_blog_index_if",
+      "src_pages_zh_blog_slug_astro_blog_slug",
+      "src_pages_zh_blog_slug_astro_blog_slug_bodyparagraphs",
+      "src_pages_zh_blog_slug_astro_blog_slug_formatdate",
+      "src_pages_zh_blog_slug_astro_blog_slug_getstaticpaths",
+      "src_pages_zh_blog_slug_astro_blog_slug_t",
+      "src_pages_zh_services_index_astro_services_index",
+      "src_pages_zh_services_index_astro_services_index_copy",
+      "src_pages_zh_services_index_astro_services_index_services",
+      "src_pages_zh_services_index_astro_services_index_t",
+      "src_pages_zh_services_slug_astro_services_slug",
+      "src_pages_zh_services_slug_astro_services_slug_getstaticpaths",
+      "src_pages_zh_services_slug_astro_services_slug_t",
+      "uploads_hero_jp_image",
+      "zh_index",
+      "zh_index_t"
+    ],
+    "1": [
+      "a_u_r_a_quantum_hypnosis_service",
+      "chakra_alignment_service",
+      "concept_blog_collection",
+      "concept_canon_brand",
+      "concept_dolores_cannon",
+      "concept_ise_shrine",
+      "concept_ivan_hui",
+      "concept_kuan_yin",
+      "concept_ra",
+      "concept_reikado",
+      "concept_services_collection",
+      "detach_to_connect_post",
+      "energy_healing_service",
+      "energy_portal_opening_post",
+      "ghibli_paper_fortune_post",
+      "kwanon_canon_post",
+      "meditation_guidance_service",
+      "my_pace_2026_post",
+      "pages_yml",
+      "plasmic_crystalline_water_post",
+      "r_a_a_h_reiki_service",
+      "rainbow_bridging_the_worlds_post",
+      "sakura_post",
+      "sound_therapy_service",
+      "spiritual_coaching_service",
+      "spiritual_guidance_service",
+      "src_content_config",
+      "src_content_config_blog",
+      "src_content_config_collections",
+      "src_content_config_services",
+      "src_content_config_testimonials",
+      "the_phoenix_flame_post",
+      "torii_gates_of_activation_post",
+      "uploads_detach_to_connect_image",
+      "uploads_energy_portal_opening_image",
+      "uploads_ghibli_paper_fortune_image",
+      "uploads_my_pace_2026_image",
+      "uploads_plasmic_crystalline_water_image",
+      "uploads_rainbow_bridging_the_worlds_image",
+      "uploads_sakura_image",
+      "uploads_the_phoenix_flame_image",
+      "uploads_torii_gates_of_activation_image",
+      "uploads_website_brush_up_image",
+      "videos_kwanon_canon_video",
+      "website_brush_up_post",
+      "workshops_service"
+    ],
+    "2": [
+      "collections_blog_schema",
+      "collections_blog_schema_body_en_default",
+      "collections_blog_schema_body_en_type",
+      "collections_blog_schema_body_jp_type",
+      "collections_blog_schema_body_zh_default",
+      "collections_blog_schema_body_zh_type",
+      "collections_blog_schema_category_enum",
+      "collections_blog_schema_category_type",
+      "collections_blog_schema_cover_type",
+      "collections_blog_schema_date_format",
+      "collections_blog_schema_date_type",
+      "collections_blog_schema_properties",
+      "collections_blog_schema_properties_body_en",
+      "collections_blog_schema_properties_body_jp",
+      "collections_blog_schema_properties_body_zh",
+      "collections_blog_schema_properties_category",
+      "collections_blog_schema_properties_cover",
+      "collections_blog_schema_properties_date",
+      "collections_blog_schema_properties_schema",
+      "collections_blog_schema_properties_slug",
+      "collections_blog_schema_properties_title_en",
+      "collections_blog_schema_properties_title_jp",
+      "collections_blog_schema_properties_title_zh",
+      "collections_blog_schema_properties_video",
+      "collections_blog_schema_required",
+      "collections_blog_schema_schema",
+      "collections_blog_schema_schema_type",
+      "collections_blog_schema_slug_type",
+      "collections_blog_schema_title_en_type",
+      "collections_blog_schema_title_jp_type",
+      "collections_blog_schema_title_zh_default",
+      "collections_blog_schema_title_zh_type",
+      "collections_blog_schema_type",
+      "collections_blog_schema_video_type"
+    ],
+    "3": [
+      "collections_services_schema_bullets_en_default",
+      "collections_services_schema_bullets_en_items",
+      "collections_services_schema_bullets_en_type",
+      "collections_services_schema_bullets_jp_default",
+      "collections_services_schema_bullets_jp_items",
+      "collections_services_schema_bullets_jp_type",
+      "collections_services_schema_bullets_zh_default",
+      "collections_services_schema_bullets_zh_items",
+      "collections_services_schema_bullets_zh_type",
+      "collections_services_schema_items_required",
+      "collections_services_schema_items_type",
+      "collections_services_schema_offerings_default",
+      "collections_services_schema_offerings_items",
+      "collections_services_schema_offerings_type",
+      "collections_services_schema_properties_bullets_en",
+      "collections_services_schema_properties_bullets_jp",
+      "collections_services_schema_properties_bullets_zh",
+      "collections_services_schema_properties_offerings",
+      "collections_services_schema_properties_recommended_en",
+      "collections_services_schema_properties_recommended_jp",
+      "collections_services_schema_properties_recommended_zh",
+      "collections_services_schema_recommended_en_default",
+      "collections_services_schema_recommended_en_items",
+      "collections_services_schema_recommended_en_type",
+      "collections_services_schema_recommended_jp_default",
+      "collections_services_schema_recommended_jp_items",
+      "collections_services_schema_recommended_jp_type",
+      "collections_services_schema_recommended_zh_default",
+      "collections_services_schema_recommended_zh_items",
+      "collections_services_schema_recommended_zh_type"
+    ],
+    "4": [
+      "astro_content_d",
+      "astro_content_d_allvaluesof",
+      "astro_content_d_collectionentry",
+      "astro_content_d_collectionkey",
+      "astro_content_d_contentconfig",
+      "astro_content_d_dataentrymap",
+      "astro_content_d_extractcollectionfiltertype",
+      "astro_content_d_extractdatatype",
+      "astro_content_d_extractentryfiltertype",
+      "astro_content_d_extracterrortype",
+      "astro_content_d_extractloaderconfig",
+      "astro_content_d_extractloadertypes",
+      "astro_content_d_flatten",
+      "astro_content_d_inferentryschema",
+      "astro_content_d_inferloaderschema",
+      "astro_content_d_livecontentconfig",
+      "astro_content_d_liveloadercollectionfiltertype",
+      "astro_content_d_liveloaderdatatype",
+      "astro_content_d_liveloaderentryfiltertype",
+      "astro_content_d_liveloadererrortype",
+      "astro_content_d_referencedataentry",
+      "astro_content_d_referenceliveentry",
+      "astro_content_d_render",
+      "astro_content_d_renderedcontent",
+      "astro_content_d_renderresult"
+    ],
+    "5": [
+      "collections_testimonials_schema",
+      "collections_testimonials_schema_lang_enum",
+      "collections_testimonials_schema_lang_type",
+      "collections_testimonials_schema_name_type",
+      "collections_testimonials_schema_properties",
+      "collections_testimonials_schema_properties_lang",
+      "collections_testimonials_schema_properties_name",
+      "collections_testimonials_schema_properties_rating",
+      "collections_testimonials_schema_properties_schema",
+      "collections_testimonials_schema_properties_service",
+      "collections_testimonials_schema_properties_updated",
+      "collections_testimonials_schema_rating_default",
+      "collections_testimonials_schema_rating_maximum",
+      "collections_testimonials_schema_rating_minimum",
+      "collections_testimonials_schema_rating_type",
+      "collections_testimonials_schema_required",
+      "collections_testimonials_schema_schema",
+      "collections_testimonials_schema_schema_type",
+      "collections_testimonials_schema_service_type",
+      "collections_testimonials_schema_type",
+      "collections_testimonials_schema_updated_format",
+      "collections_testimonials_schema_updated_type"
+    ],
+    "6": [
+      "package",
+      "package_dependencies",
+      "package_dependencies_astro",
+      "package_dependencies_tailwindcss",
+      "package_dependencies_tailwindcss_vite",
+      "package_devdependencies",
+      "package_devdependencies_astrojs_check",
+      "package_devdependencies_typescript",
+      "package_engines",
+      "package_engines_node",
+      "package_name",
+      "package_scripts",
+      "package_scripts_astro",
+      "package_scripts_build",
+      "package_scripts_dev",
+      "package_scripts_preview",
+      "package_type",
+      "package_version"
+    ],
+    "7": [
+      "break_free_from_mental_blocks_testimonial",
+      "carmen_helped_my_cat_healed_testimonial",
+      "concept_testimonials_collection",
+      "feeling_lighter_and_more_balanced_testimonial",
+      "hikari_de_suteppu_appu_testimonial",
+      "juuitsu_kan_anshin_kan_testimonial",
+      "mentaru_ga_sukkiri_testimonial",
+      "my_questions_solved_testimonial",
+      "no_more_headaches_testimonial",
+      "one_is_all_and_all_is_one_testimonial",
+      "qing_zou_ling_ti_zhao_gu_zi_ji_shen_xin_testimonial",
+      "raito_kodo_de_katsuryoku_wo_torimodosu_testimonial",
+      "shoulder_pain_relieved_testimonial",
+      "ta_ga_rifuresshita_testimonial",
+      "transformative_healing_with_masterful_guidance_testimonial",
+      "vaccine_side_effects_removed_testimonial",
+      "yashashiku_tsuyoi_hiiringu_taiken_testimonial"
+    ],
+    "8": [
+      "carmen_ng",
+      "raah_reiki_session",
+      "t_07",
+      "t_14",
+      "t_17",
+      "t_19",
+      "t_22",
+      "t_25",
+      "t_30",
+      "t_43",
+      "t_47",
+      "t_49",
+      "t_58",
+      "t_59",
+      "t_60",
+      "t_61"
+    ],
+    "9": [
+      "aura_hypnosis_session",
+      "t_04",
+      "t_08",
+      "t_10",
+      "t_31",
+      "t_32",
+      "t_37",
+      "t_45",
+      "t_53",
+      "t_54",
+      "t_57"
+    ],
+    "10": [
+      "collections_services_schema_icon_type",
+      "collections_services_schema_properties",
+      "collections_services_schema_properties_icon",
+      "collections_services_schema_properties_schema",
+      "collections_services_schema_properties_subtitle_en",
+      "collections_services_schema_properties_subtitle_jp",
+      "collections_services_schema_schema_type",
+      "collections_services_schema_subtitle_en_type",
+      "collections_services_schema_subtitle_jp_type"
+    ],
+    "11": [
+      "home_cleansing_raah",
+      "t_03",
+      "t_15",
+      "t_16",
+      "t_24",
+      "t_39",
+      "t_40",
+      "t_50"
+    ],
+    "12": [
+      "group_healing",
+      "t_02",
+      "t_09",
+      "t_12",
+      "t_44",
+      "t_55",
+      "t_56"
+    ],
+    "13": [
+      "light_code_healing",
+      "t_18",
+      "t_27",
+      "t_36",
+      "t_38",
+      "t_42"
+    ],
+    "14": [
+      "body_scan_workshop",
+      "img_06",
+      "t_29",
+      "t_33",
+      "t_48"
+    ],
+    "15": [
+      "collections_services_schema_items_properties",
+      "collections_services_schema_properties_title_en",
+      "collections_services_schema_properties_title_jp",
+      "collections_services_schema_title_en_type",
+      "collections_services_schema_title_jp_type"
+    ],
+    "16": [
+      "collections_services_schema_price_en_default",
+      "collections_services_schema_price_en_maximum",
+      "collections_services_schema_price_en_minimum",
+      "collections_services_schema_price_en_type",
+      "collections_services_schema_properties_price_en"
+    ],
+    "17": [
+      "collections_services_schema_price_jp_default",
+      "collections_services_schema_price_jp_maximum",
+      "collections_services_schema_price_jp_minimum",
+      "collections_services_schema_price_jp_type",
+      "collections_services_schema_properties_price_jp"
+    ],
+    "18": [
+      "collections_services_schema_price_zh_default",
+      "collections_services_schema_price_zh_maximum",
+      "collections_services_schema_price_zh_minimum",
+      "collections_services_schema_price_zh_type",
+      "collections_services_schema_properties_price_zh"
+    ],
+    "19": [
+      "img_10",
+      "img_11",
+      "img_12",
+      "img_13",
+      "inner_sanctuary"
+    ],
+    "20": [
+      "cantonese_workshop",
+      "img_14",
+      "img_15",
+      "img_16"
+    ],
+    "21": [
+      "collections_services_schema",
+      "collections_services_schema_required",
+      "collections_services_schema_schema",
+      "collections_services_schema_type"
+    ],
+    "22": [
+      "dragon_light_codes",
+      "t_11",
+      "t_63",
+      "t_64"
+    ],
+    "23": [
+      "kuan_qi_light_codes",
+      "t_46",
+      "t_52",
+      "t_62"
+    ],
+    "24": [
+      "tsconfig",
+      "tsconfig_exclude",
+      "tsconfig_extends",
+      "tsconfig_include"
+    ],
+    "25": [
+      "collections_services_schema_color_enum",
+      "collections_services_schema_color_type",
+      "collections_services_schema_properties_color"
+    ],
+    "26": [
+      "collections_services_schema_currency_en_default",
+      "collections_services_schema_currency_en_type",
+      "collections_services_schema_properties_currency_en"
+    ],
+    "27": [
+      "collections_services_schema_currency_jp_default",
+      "collections_services_schema_currency_jp_type",
+      "collections_services_schema_properties_currency_jp"
+    ],
+    "28": [
+      "collections_services_schema_currency_zh_default",
+      "collections_services_schema_currency_zh_type",
+      "collections_services_schema_properties_currency_zh"
+    ],
+    "29": [
+      "collections_services_schema_desc_en_default",
+      "collections_services_schema_desc_en_type",
+      "collections_services_schema_properties_desc_en"
+    ],
+    "30": [
+      "collections_services_schema_desc_jp_default",
+      "collections_services_schema_desc_jp_type",
+      "collections_services_schema_properties_desc_jp"
+    ],
+    "31": [
+      "collections_services_schema_desc_zh_default",
+      "collections_services_schema_desc_zh_type",
+      "collections_services_schema_properties_desc_zh"
+    ],
+    "32": [
+      "collections_services_schema_duration_en_default",
+      "collections_services_schema_duration_en_type",
+      "collections_services_schema_properties_duration_en"
+    ],
+    "33": [
+      "collections_services_schema_duration_jp_default",
+      "collections_services_schema_duration_jp_type",
+      "collections_services_schema_properties_duration_jp"
+    ],
+    "34": [
+      "collections_services_schema_duration_zh_default",
+      "collections_services_schema_duration_zh_type",
+      "collections_services_schema_properties_duration_zh"
+    ],
+    "35": [
+      "collections_services_schema_intro_en_default",
+      "collections_services_schema_intro_en_type",
+      "collections_services_schema_properties_intro_en"
+    ],
+    "36": [
+      "collections_services_schema_intro_jp_default",
+      "collections_services_schema_intro_jp_type",
+      "collections_services_schema_properties_intro_jp"
+    ],
+    "37": [
+      "collections_services_schema_intro_zh_default",
+      "collections_services_schema_intro_zh_type",
+      "collections_services_schema_properties_intro_zh"
+    ],
+    "38": [
+      "collections_services_schema_order_default",
+      "collections_services_schema_order_type",
+      "collections_services_schema_properties_order"
+    ],
+    "39": [
+      "collections_services_schema_properties_subtitle_zh",
+      "collections_services_schema_subtitle_zh_default",
+      "collections_services_schema_subtitle_zh_type"
+    ],
+    "40": [
+      "collections_services_schema_properties_tagline_en",
+      "collections_services_schema_tagline_en_default",
+      "collections_services_schema_tagline_en_type"
+    ],
+    "41": [
+      "collections_services_schema_properties_tagline_jp",
+      "collections_services_schema_tagline_jp_default",
+      "collections_services_schema_tagline_jp_type"
+    ],
+    "42": [
+      "collections_services_schema_properties_tagline_zh",
+      "collections_services_schema_tagline_zh_default",
+      "collections_services_schema_tagline_zh_type"
+    ],
+    "43": [
+      "collections_services_schema_properties_through_session_en",
+      "collections_services_schema_through_session_en_default",
+      "collections_services_schema_through_session_en_type"
+    ],
+    "44": [
+      "collections_services_schema_properties_through_session_jp",
+      "collections_services_schema_through_session_jp_default",
+      "collections_services_schema_through_session_jp_type"
+    ],
+    "45": [
+      "collections_services_schema_properties_through_session_zh",
+      "collections_services_schema_through_session_zh_default",
+      "collections_services_schema_through_session_zh_type"
+    ],
+    "46": [
+      "collections_services_schema_properties_title_zh",
+      "collections_services_schema_title_zh_default",
+      "collections_services_schema_title_zh_type"
+    ],
+    "47": [
+      "collections_services_schema_properties_what_we_do_en",
+      "collections_services_schema_what_we_do_en_default",
+      "collections_services_schema_what_we_do_en_type"
+    ],
+    "48": [
+      "collections_services_schema_properties_what_we_do_jp",
+      "collections_services_schema_what_we_do_jp_default",
+      "collections_services_schema_what_we_do_jp_type"
+    ],
+    "49": [
+      "collections_services_schema_properties_what_we_do_zh",
+      "collections_services_schema_what_we_do_zh_default",
+      "collections_services_schema_what_we_do_zh_type"
+    ],
+    "50": [
+      "group_light_code_healing",
+      "t_05",
+      "t_06"
+    ],
+    "51": [
+      "img_18",
+      "img_19",
+      "workshop_trailer"
+    ],
+    "52": [
+      "aura_hypnosis_home_cleansing_raah_reiki_sessions",
+      "t_13"
+    ],
+    "53": [
+      "chakra_healing",
+      "img_08"
+    ],
+    "54": [
+      "fifteen_min_free_consultation",
+      "t_21"
+    ],
+    "55": [
+      "img_17",
+      "release_transformation_workshop"
+    ],
+    "56": [
+      "kuan_yi_light_codes",
+      "t_41"
+    ],
+    "57": [
+      "kuan_yin_light_code_healing",
+      "t_28"
+    ],
+    "58": [
+      "land_cleansing_raah_reiki",
+      "t_20"
+    ],
+    "59": [
+      "light_code_emotion_code",
+      "t_26"
+    ],
+    "60": [
+      "office_cleansing_raah",
+      "t_23"
+    ],
+    "61": [
+      "pet_raah_reiki_session",
+      "t_01"
+    ],
+    "62": [
+      "raah_reiki_home_cleansing_sessions",
+      "t_34"
+    ],
+    "63": [
+      "spiritual_guidance_healing",
+      "t_35"
+    ],
+    "64": [
+      "t_51",
+      "wellness_workshop"
+    ],
+    "65": [
+      "_995740d0_95c5_4af9_a1e4_14cae1ae786f"
+    ],
+    "66": [
+      "astro_config"
+    ],
+    "67": [
+      "astro_content_assets"
+    ],
+    "68": [
+      "astro_content_modules"
+    ],
+    "69": [
+      "astro_types_d"
+    ],
+    "70": [
+      "catdog"
+    ],
+    "71": [
+      "en_tec_practitioner_badge"
+    ],
+    "72": [
+      "fantasy_pastel_background_with_some_beige"
+    ],
+    "73": [
+      "fantasy_pastel_background_with_some_beige_edited"
+    ],
+    "74": [
+      "favicon_svg"
+    ],
+    "75": [
+      "fit_cover_w_800_h_800"
+    ],
+    "76": [
+      "hands22_edited"
+    ],
+    "77": [
+      "hands22_edited_edited"
+    ],
+    "78": [
+      "happiness_1_1_800x"
+    ],
+    "79": [
+      "img_001"
+    ],
+    "80": [
+      "img_002"
+    ],
+    "81": [
+      "img_003"
+    ],
+    "82": [
+      "img_004"
+    ],
+    "83": [
+      "img_005"
+    ],
+    "84": [
+      "img_006"
+    ],
+    "85": [
+      "img_007"
+    ],
+    "86": [
+      "img_008"
+    ],
+    "87": [
+      "img_009"
+    ],
+    "88": [
+      "img_01"
+    ],
+    "89": [
+      "img_010"
+    ],
+    "90": [
+      "img_011"
+    ],
+    "91": [
+      "img_012"
+    ],
+    "92": [
+      "img_013"
+    ],
+    "93": [
+      "img_014"
+    ],
+    "94": [
+      "img_015"
+    ],
+    "95": [
+      "img_016"
+    ],
+    "96": [
+      "img_017"
+    ],
+    "97": [
+      "img_018"
+    ],
+    "98": [
+      "img_019"
+    ],
+    "99": [
+      "img_02"
+    ],
+    "100": [
+      "img_020"
+    ],
+    "101": [
+      "img_03"
+    ],
+    "102": [
+      "img_04"
+    ],
+    "103": [
+      "img_05"
+    ],
+    "104": [
+      "img_07"
+    ],
+    "105": [
+      "img_09"
+    ],
+    "106": [
+      "img_1"
+    ],
+    "107": [
+      "img_2"
+    ],
+    "108": [
+      "img_20"
+    ],
+    "109": [
+      "img_3"
+    ],
+    "110": [
+      "img_4"
+    ],
+    "111": [
+      "img_5"
+    ],
+    "112": [
+      "img_6"
+    ],
+    "113": [
+      "img_7"
+    ],
+    "114": [
+      "img_8"
+    ],
+    "115": [
+      "img_9"
+    ],
+    "116": [
+      "insight_timer_logo"
+    ],
+    "117": [
+      "kofi_bg_tag_white"
+    ],
+    "118": [
+      "kofi_s_logo_nolabel"
+    ],
+    "119": [
+      "prosperity_1_1"
+    ],
+    "120": [
+      "purification_liberation_workshop"
+    ],
+    "121": [
+      "purification_liberation_workshop_1"
+    ],
+    "122": [
+      "purification_liberation_workshop_6_edited"
+    ],
+    "123": [
+      "readme_md"
+    ],
+    "124": [
+      "screenshot_2024_05_13_at_16_30_20"
+    ],
+    "125": [
+      "screenshot_2024_05_13_at_16_30_edited"
+    ],
+    "126": [
+      "screenshot_2024_05_13_at_16_edited"
+    ],
+    "127": [
+      "screenshot_2024_05_14_at_08_48_10"
+    ],
+    "128": [
+      "screenshot_2024_05_14_at_09_04_21"
+    ],
+    "129": [
+      "screenshot_2026_04_07_at_9_40_02_am"
+    ],
+    "130": [
+      "soothing_bamboo_person_1"
+    ],
+    "131": [
+      "untitled_design_2"
+    ],
+    "132": [
+      "untitleddesign_4copy2_1000x1000"
+    ]
+  },
+  "cohesion": {
+    "0": 0.05527805527805528,
+    "1": 0.04541062801932367,
+    "2": 0.058823529411764705,
+    "3": 0.06666666666666667,
+    "4": 0.08,
+    "5": 0.09090909090909091,
+    "6": 0.1111111111111111,
+    "7": 0.11764705882352941,
+    "8": 0.23333333333333334,
+    "9": 0.18181818181818182,
+    "10": 0.2222222222222222,
+    "11": 0.25,
+    "12": 0.2857142857142857,
+    "13": 0.3333333333333333,
+    "14": 0.4,
+    "15": 0.4,
+    "16": 0.4,
+    "17": 0.4,
+    "18": 0.4,
+    "19": 0.4,
+    "20": 0.5,
+    "21": 0.5,
+    "22": 0.5,
+    "23": 0.5,
+    "24": 0.5,
+    "25": 0.6666666666666666,
+    "26": 0.6666666666666666,
+    "27": 0.6666666666666666,
+    "28": 0.6666666666666666,
+    "29": 0.6666666666666666,
+    "30": 0.6666666666666666,
+    "31": 0.6666666666666666,
+    "32": 0.6666666666666666,
+    "33": 0.6666666666666666,
+    "34": 0.6666666666666666,
+    "35": 0.6666666666666666,
+    "36": 0.6666666666666666,
+    "37": 0.6666666666666666,
+    "38": 0.6666666666666666,
+    "39": 0.6666666666666666,
+    "40": 0.6666666666666666,
+    "41": 0.6666666666666666,
+    "42": 0.6666666666666666,
+    "43": 0.6666666666666666,
+    "44": 0.6666666666666666,
+    "45": 0.6666666666666666,
+    "46": 0.6666666666666666,
+    "47": 0.6666666666666666,
+    "48": 0.6666666666666666,
+    "49": 0.6666666666666666,
+    "50": 0.6666666666666666,
+    "51": 0.6666666666666666,
+    "52": 1.0,
+    "53": 1.0,
+    "54": 1.0,
+    "55": 1.0,
+    "56": 1.0,
+    "57": 1.0,
+    "58": 1.0,
+    "59": 1.0,
+    "60": 1.0,
+    "61": 1.0,
+    "62": 1.0,
+    "63": 1.0,
+    "64": 1.0,
+    "65": 1.0,
+    "66": 1.0,
+    "67": 1.0,
+    "68": 1.0,
+    "69": 1.0,
+    "70": 1.0,
+    "71": 1.0,
+    "72": 1.0,
+    "73": 1.0,
+    "74": 1.0,
+    "75": 1.0,
+    "76": 1.0,
+    "77": 1.0,
+    "78": 1.0,
+    "79": 1.0,
+    "80": 1.0,
+    "81": 1.0,
+    "82": 1.0,
+    "83": 1.0,
+    "84": 1.0,
+    "85": 1.0,
+    "86": 1.0,
+    "87": 1.0,
+    "88": 1.0,
+    "89": 1.0,
+    "90": 1.0,
+    "91": 1.0,
+    "92": 1.0,
+    "93": 1.0,
+    "94": 1.0,
+    "95": 1.0,
+    "96": 1.0,
+    "97": 1.0,
+    "98": 1.0,
+    "99": 1.0,
+    "100": 1.0,
+    "101": 1.0,
+    "102": 1.0,
+    "103": 1.0,
+    "104": 1.0,
+    "105": 1.0,
+    "106": 1.0,
+    "107": 1.0,
+    "108": 1.0,
+    "109": 1.0,
+    "110": 1.0,
+    "111": 1.0,
+    "112": 1.0,
+    "113": 1.0,
+    "114": 1.0,
+    "115": 1.0,
+    "116": 1.0,
+    "117": 1.0,
+    "118": 1.0,
+    "119": 1.0,
+    "120": 1.0,
+    "121": 1.0,
+    "122": 1.0,
+    "123": 1.0,
+    "124": 1.0,
+    "125": 1.0,
+    "126": 1.0,
+    "127": 1.0,
+    "128": 1.0,
+    "129": 1.0,
+    "130": 1.0,
+    "131": 1.0,
+    "132": 1.0
+  },
+  "gods": [
+    {
+      "id": "concept_testimonials_collection",
+      "label": "Testimonials content collection",
+      "degree": 18
+    },
+    {
+      "id": "i18n_index_getdictionary",
+      "label": "getDictionary()",
+      "degree": 17
+    },
+    {
+      "id": "i18n_index_locale",
+      "label": "Locale",
+      "degree": 13
+    },
+    {
+      "id": "concept_blog_collection",
+      "label": "Blog content collection",
+      "degree": 13
+    },
+    {
+      "id": "concept_services_collection",
+      "label": "Services content collection",
+      "degree": 11
+    },
+    {
+      "id": "collections_services_schema_properties_price_en",
+      "label": "price_en",
+      "degree": 5
+    },
+    {
+      "id": "collections_services_schema_properties_price_jp",
+      "label": "price_jp",
+      "degree": 5
+    },
+    {
+      "id": "collections_services_schema_properties_price_zh",
+      "label": "price_zh",
+      "degree": 5
+    },
+    {
+      "id": "collections_testimonials_schema_properties_rating",
+      "label": "rating",
+      "degree": 5
+    },
+    {
+      "id": "package_scripts",
+      "label": "scripts",
+      "degree": 5
+    }
+  ],
+  "surprises": [
+    {
+      "source": "index.astro (EN home)",
+      "target": "Homepage hero background",
+      "source_files": [
+        "src/pages/index.astro",
+        "public/uploads/hero-jp.jpg"
+      ],
+      "confidence": "INFERRED",
+      "relation": "references",
+      "why": "inferred connection - not explicitly stated in source; crosses file types (code \u2194 image); connects across different repos/directories"
+    },
+    {
+      "source": "Detach to Connect",
+      "target": "Blog content collection",
+      "source_files": [
+        "src/content/blog/detach-to-connect.md",
+        ".pages.yml"
+      ],
+      "confidence": "INFERRED",
+      "relation": "belongs_to",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories; peripheral node `Detach to Connect` unexpectedly reaches hub `Blog content collection`"
+    },
+    {
+      "source": "Detach to Connect",
+      "target": "Cover: Detach to Connect",
+      "source_files": [
+        "src/content/blog/detach-to-connect.md",
+        "public/uploads/detach-to-connect.jpg"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "crosses file types (doc \u2194 image); connects across different repos/directories"
+    },
+    {
+      "source": "Energy Portal Opening",
+      "target": "Blog content collection",
+      "source_files": [
+        "src/content/blog/energy-portal-opening.md",
+        ".pages.yml"
+      ],
+      "confidence": "INFERRED",
+      "relation": "belongs_to",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories; peripheral node `Energy Portal Opening` unexpectedly reaches hub `Blog content collection`"
+    },
+    {
+      "source": "Energy Portal Opening",
+      "target": "Cover: Energy Portal Opening",
+      "source_files": [
+        "src/content/blog/energy-portal-opening.md",
+        "public/uploads/energy-portal-opening.jpg"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "crosses file types (doc \u2194 image); connects across different repos/directories"
+    }
+  ],
+  "tokens": {
+    "input": 60010,
+    "output": 65746
+  }
+}
