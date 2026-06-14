@@ -36,6 +36,9 @@ desc_zh: |-
 icon: ✦
 color: lavender
 order: 2
+tagline_en: Realign your soul’s frequency and remember your true self.
+tagline_jp: 魂の周波数を整え、本来の自分へと還る旅。
+tagline_zh: 重整靈魂頻率，回歸最真實的自我。
 recommended_en: >-
   Suitable for everyone, from those experiencing energy healing for the first
   time to seasoned practitioners. 
