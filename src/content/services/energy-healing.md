@@ -11,12 +11,6 @@ desc_en: >-
   and healing to help you live authentically.
 
 
-  Each session is personally customized to deliver the most effective healing,
-  such as clearing energetic blockages, realigning chakras, activating dormant
-  DNA, balancing the ego, retrieving soul fragments, severing negative cords,
-  and awakening your spiritual gifts.
-
-
   Every aspect of this work is performed for your highest good, assisting you in
   shifting back to your most organic timeline. Through this process, we balance
   your body, mind, and soul, strengthening your spiritual path and guiding you
@@ -24,13 +18,9 @@ desc_en: >-
 desc_jp: |-
   自分らしく生きることを妨げている、根深いブロックやトラウマ。それらをエネルギーレベルで紐解き、深い浄化と癒やしをもたらす、専門的なヒーリング・アルケミー・セッションです。
 
-  各セッションは、エネルギーブロックの浄化、チャクラの調整、DNAの活性化、エゴのバランス調整、魂の断片の回収、ネガティブなコードの切断、スピリチュアルなギフトの覚醒など、あなたに最も必要な癒やしを届けるためにカスタマイズされます。
-
   すべてのプロセスは、あなたの最善のために行われ、最も調和のとれたタイムラインへと戻るサポートをします。心・体・魂のバランスを整え、スピリチュアルな道を強化することで、主権を持つ魂としての「本来のあなた」を呼び覚まします。
 desc_zh: |-
   此療程旨在從能量層面抽絲剝繭，解開阻礙活出真我的深層心結與陰影創傷，為您帶來深度淨化與療癒。
-
-  療程為您度身訂造，提供最適切的療癒，包括：清除能量阻塞、平衡脈輪、啟動沉睡的以太DNA、平衡小我、回收靈魂碎片、切斷負面能量線，以及覺醒您的靈性天賦 等。
 
   所有過程皆以您的最高利益為核心，協助回歸最自然的時間線。透過平衡身、心、靈，強化您的靈性道路，並喚醒作為一個擁有自主權的靈魂，最真實的本質。
 icon: ✦
