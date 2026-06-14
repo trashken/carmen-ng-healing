@@ -5,15 +5,52 @@ title_zh: 能量療程
 subtitle_en: "Deep Cleansing, Healing & Integration "
 subtitle_jp: 深層浄化・ヒーリング・統合
 subtitle_zh: 深層淨化、療癒與整合
-desc_en: >
-  This healing sesion is dedicated to advanced energetic alchemy, including past
-  life healing and the transformation of deep-rooted core blocks.
-desc_jp: |
-  R.A.A.H.錬金術レイキは、過去世の癒しや根源的なブロックの変容など、より専門的な「エネルギーの錬金術」に特化した集中セッションです。神聖幾何学や錬金術のシンボルを用い、ハイヤーセルフとつながることで、心・体・魂のエネルギーに働きかけ、浄化・変容・バランスの回復をサポートします。
-desc_zh: 深度集中療程，透過神聖幾何與鍊金術符號連結高我，包括前世療癒及轉化能量阻塞等較為專門的範疇。從身心靈各層面介入，淨化、轉化能量，回復平衡。
+desc_en: >-
+  This is a specialized Healing Alchemy session designed to unravel deep-seated
+  blocks and trauma at an energetic level, facilitating profound purification
+  and healing to help you live authentically.
+
+
+  Each session is personally customized to deliver the most effective healing,
+  such as clearing energetic blockages, realigning chakras, activating dormant
+  DNA, balancing the ego, retrieving soul fragments, severing negative cords,
+  and awakening your spiritual gifts.
+
+
+  Every aspect of this work is performed for your highest good, assisting you in
+  shifting back to your most organic timeline. Through this process, we balance
+  your body, mind, and soul, strengthening your spiritual path and guiding you
+  to remember your most authentic self—a sovereign soul.
+desc_jp: |-
+  自分らしく生きることを妨げている、根深いブロックやトラウマ。それらをエネルギーレベルで紐解き、深い浄化と癒やしをもたらす、専門的なヒーリング・アルケミー・セッションです。
+
+  各セッションは、エネルギーブロックの浄化、チャクラの調整、DNAの活性化、エゴのバランス調整、魂の断片の回収、ネガティブなコードの切断、スピリチュアルなギフトの覚醒など、あなたに最も必要な癒やしを届けるためにカスタマイズされます。
+
+  すべてのプロセスは、あなたの最善のために行われ、最も調和のとれたタイムラインへと戻るサポートをします。心・体・魂のバランスを整え、スピリチュアルな道を強化することで、主権を持つ魂としての「本来のあなた」を呼び覚まします。
+desc_zh: |-
+  此療程旨在從能量層面抽絲剝繭，解開阻礙活出真我的深層心結與陰影創傷，為您帶來深度淨化與療癒。
+
+  療程為您度身訂造，提供最適切的療癒，包括：清除能量阻塞、平衡脈輪、啟動沉睡的以太DNA、平衡小我、回收靈魂碎片、切斷負面能量線，以及覺醒您的靈性天賦 等。
+
+  所有過程皆以您的最高利益為核心，協助回歸最自然的時間線。透過平衡身、心、靈，強化您的靈性道路，並喚醒作為一個擁有自主權的靈魂，最真實的本質。
 icon: ✦
 color: lavender
 order: 2
+recommended_en: >-
+  Suitable for everyone, from those experiencing energy healing for the first
+  time to seasoned practitioners. 
+
+
+  I hold a high-vibrational space rooted in Source Love Light, providing the
+  support you need for your deepest levels of cleansing and healing.
+recommended_jp: |-
+  エネルギーヒーリングが初めてという方から、プロのヒーラーの方まで、どなたでも安心してお申し込みいただけます。
+
+  源（ソース）の愛という高い波動の空間を保持し、あなたの深い浄化と癒やしを全力でサポートいたします。
+recommended_zh: |-
+  療程適合所有人士，無論您是第一次接觸能量療癒，還是資深的能量工作者，皆歡迎預約。
+
+  我為您持守源頭愛心光芒的高頻空間，協助您進行最深層的淨化與療癒。
 offerings: >-
   Conducted online via Zoom.
 
