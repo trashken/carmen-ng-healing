@@ -39,6 +39,55 @@ order: 2
 tagline_en: Realign your soul’s frequency and remember your true self.
 tagline_jp: 魂の周波数を整え、本来の自分へと還る旅。
 tagline_zh: 重整靈魂頻率，回歸最真實的自我。
+what_we_do_en: >-
+  Each session is personally customized, with guidance from your Higher Self, to
+  provide the most effective healing for your current needs. Depending on what
+  is required for your highest good, we will work through one or more of the
+  following:
+
+
+  Clearing & Restoration: Removing energetic blockages, low-frequency
+  disturbances, and sealing auric leaks.
+
+
+  Energy Alignment: Realigning your chakras and strengthening your grounding to
+  the Earth.
+
+
+  Soul & DNA Integration: Activating dormant etheric DNA, retrieving soul
+  fragments, and balancing the ego.
+
+
+  Healing & Release: Healing the inner child and severing negative energetic
+  cords.
+
+
+  Spiritual Evolution: Opening your consciousness, strengthening your connection
+  with your Higher Self, and awakening your unique spiritual gifts.
+what_we_do_jp: |-
+  各セッションはハイヤーセルフの導きにより、あなたに必要な癒やしを最適化して提供します。その時々で最適な手法を用い、以下のプロセスを通じてサポートいたします。
+
+  浄化と修復： エネルギーブロックや低周波の乱れをクリアにし、オーラの漏れを修復。
+
+  エネルギー調整： チャクラのバランスを整え、大地とのグラウンディングを強化。
+
+  魂とDNAの統合： エーテル体DNAを活性化し、魂の断片を回収。エゴのバランス調整。
+
+  癒やしと解放： インナーチャイルドを癒やし、ネガティブなエネルギーコードを切断。
+
+  霊性の進化： 意識の拡大、ハイヤーセルフとの繋がりを深め、あなた本来のスピリチュアルな才能を覚醒。
+what_we_do_zh: |-
+  每次療程皆為您度身訂造，以提供最適切的療癒。在高我的指引下，我會透過以下方式為您進行深層調整：
+
+  淨化與修復： 清除能量阻塞與低頻干擾，修補能量場 Aura的漏洞。
+
+  能量調整： 平衡脈輪，並增強與大地的接地連結。
+
+  靈魂與 DNA 整合： 啟動沉睡以太 DNA，回收靈魂碎片，並平衡小我 Ego。
+
+  療癒與釋放： 療癒內在小孩，切斷負面能量束。
+
+  靈性提升： 開啟意識維度，強化與高我的連結，並覺醒您獨特的靈性天賦。
 recommended_en: >-
   Suitable for everyone, from those experiencing energy healing for the first
   time to seasoned practitioners. 
