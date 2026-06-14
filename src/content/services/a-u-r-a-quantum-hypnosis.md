@@ -240,6 +240,7 @@ recommended_en: "It is suitable for people of any age — children, adults,
 recommended_jp: お子様から大人、ご年配の方まで、覚醒の度合いを問わず、どなたでも受けていただけます。
 recommended_zh: 適合任何年齡人士（兒童、成人、長者），亦不論是否已靈性覺醒。
 offerings: |-
+  Conducted online by Zoom
   Each Session 4 hours
   Fees: US$560 
 slug: a-u-r-a-quantum-hypnosis
