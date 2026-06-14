@@ -2,9 +2,9 @@
 title_en: Workshops
 title_jp: ワークショップ
 title_zh: 工作坊
-subtitle_en: "Group Sessions "
-subtitle_jp: "グループセッション "
-subtitle_zh: 集體療程
+subtitle_en: "Wellness Group Sessions "
+subtitle_jp: ウェルネス・グループセッション
+subtitle_zh: 集體療癒身心靈
 desc_en: Offering occasional group sessions featuring body scans and sound
   baths, alongside professional energy healing treatments.
 desc_jp: グループワークショップを不定期開催中。ボディスキャン、音浴、エネルギーヒーリングなどを通して心身を整える体験を提供しています。
