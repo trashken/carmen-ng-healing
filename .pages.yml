@@ -64,7 +64,7 @@ content:
     format: yaml-frontmatter
     type: collection
     view:
-      fields: [title, published, date]
+      fields: [title.en, title.jp, title.zh, published, date]
       primary: title
       sort: [date, title]
       default:
