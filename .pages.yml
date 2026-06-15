@@ -88,7 +88,7 @@ content:
         label: Title (Traditional Chinese)        
       - name: title
         label: Title
-        component: t_text
+        component: t_string
         required: true
       - name: date
         type: date
