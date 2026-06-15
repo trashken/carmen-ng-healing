@@ -78,27 +78,58 @@ through_session_zh: |-
   療程需時: 約 60 分鐘
 
   形式: 透過 Zoom 網上進行（附錄影file）
-recommended_en:
-  - "This session is designed for those who are ready for deeper clarity and alignment, including:"
-  - "Relationship & Family Challenges: Navigating recurring difficulties or tensions in personal and family connections."
-  - "Emotional Instability: Struggling with persistent emotional highs and lows, or feeling trapped in recurring negative life patterns."
-  - "Unexplained Discomfort: Experiencing a lingering sense of being \"off-track,\" unexplained physical/energetic discomfort, or a feeling of misalignment."
-  - "Searching for Answers: Having spent a long time seeking truth and clarity, but feeling that standard approaches haven't provided the depth you need."
-  - "Soul Alignment: Seeking to understand your true essence and gain a clear, guided direction for your soul's journey."
-recommended_jp:
-  - "以下のような方におすすめのセッションです："
-  - "人間関係や家族関係における課題を抱えている"
-  - "感情の不安定さや、同じ問題の繰り返し（パターン）に悩んでいる"
-  - "原因不明の不調や、何かが「ずれている」ような違和感を抱えている"
-  - "長年、人生の問いに対する答えを探し求めている"
-  - "自分自身の本質や、魂が向かうべき方向性を理解したい"
-recommended_zh:
-  - "此療程適合對象："
-  - "正面臨人際關係或家庭紛爭困擾"
-  - "長期感到情緒不穩定，或陷入重複的生活模式"
-  - "有無法解釋的不適感，或感到與內在失衡"
-  - "長期尋求生命解答，卻遲遲未果"
-  - "渴望了解自己的靈魂本質，並尋求靈魂發展方向"
-offerings: []
+recommended_en: >-
+  This session is designed for those who are ready for deeper clarity and
+  alignment, including:
+
+
+  Relationship & Family Challenges: Navigating recurring difficulties or
+  tensions in personal and family connections.
+
+
+  Emotional Instability: Struggling with persistent emotional highs and lows, or
+  feeling trapped in recurring negative life patterns.
+
+
+  Unexplained Discomfort: Experiencing a lingering sense of being "off-track,"
+  unexplained physical/energetic discomfort, or a feeling of misalignment.
+
+
+  Searching for Answers: Having spent a long time seeking truth and clarity, but
+  feeling that standard approaches haven't provided the depth you need.
+
+
+  Soul Alignment: Seeking to understand your true essence and gain a clear,
+  guided direction for your soul's journey.
+recommended_jp: |-
+  以下のような方におすすめのセッションです：
+
+  人間関係や家族関係における課題を抱えている
+
+  感情の不安定さや、同じ問題の繰り返し（パターン）に悩んでいる
+
+  原因不明の不調や、何かが「ずれている」ような違和感を抱えている
+
+  長年、人生の問いに対する答えを探し求めている
+
+  自分自身の本質や、魂が向かうべき方向性を理解したい
+recommended_zh: |-
+  此療程適合對象：
+
+  正面臨人際關係或家庭紛爭困擾
+
+  長期感到情緒不穩定，或陷入重複的生活模式
+
+  有無法解釋的不適感，或感到與內在失衡
+
+  長期尋求生命解答，卻遲遲未果
+
+  渴望了解自己的靈魂本質，並尋求靈魂發展方向
+offerings: >-
+  Standard Session: US$120
+
+
+  Includes: Pre-session consultation, intensive channeling & guidance, and
+  post-session integration tips & recording.
 slug: spiritual-guidance
 ---

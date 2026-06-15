@@ -72,12 +72,23 @@ through_session_en: |-
   Conducted online via Zoom
 
   Duration: Approx. 90 minutes
-recommended_en:
-  - Recommended for those who feel the energy in their home is heavy or stagnant, those experiencing unexplained family discord, anyone moving into a new property, or anyone seeking to turn their home into a powerful space for peace, joy, and spiritual growth.
-recommended_jp:
-  - 部屋の空気が重く感じる方、原因不明の家庭内の不和にお悩みの方、新居への引越しを控えている方、あるいは自宅を平和と喜び、精神的成長を促進するパワフルな空間にしたい方に強くおすすめします。
-recommended_zh:
-  - 適合感覺家中氣場沉重、長期經歷家庭不和、準備搬入新居，或是渴望將住宅轉化為支持和平、喜悅與靈性成長之空間的每一個人。
-offerings: []
+recommended_en: Recommended for those who feel the energy in their home is heavy
+  or stagnant, those experiencing unexplained family discord, anyone moving into
+  a new property, or anyone seeking to turn their home into a powerful space for
+  peace, joy, and spiritual growth.
+recommended_jp: 部屋の空気が重く感じる方、原因不明の家庭内の不和にお悩みの方、新居への引越しを控えている方、あるいは自宅を平和と喜び、精神的成長を促進するパワフルな空間にしたい方に強くおすすめします。
+recommended_zh: 適合感覺家中氣場沉重、長期經歷家庭不和、準備搬入新居，或是渴望將住宅轉化為支持和平、喜悅與靈性成長之空間的每一個人。
+offerings: >-
+  Standard Session: US$200
+
+  Includes a thorough remote session covering the home and surrounding land,
+  including a brief report 
+
+
+  Deep Transformation Bundle：
+
+  90-min Energy Healing Session + 90-min Home & Land Purification
+
+  US$350 (Save US$50)
 slug: home-purification
 ---
