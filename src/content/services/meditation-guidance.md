@@ -49,16 +49,16 @@ offerings: >-
   Conducted online via Zoom
 
 
-  Session Fee: US$250/ 90 min 
+  Session Fee: US$200/ 90 min 
 
   Includes a thorough remote session covering the home and surrounding land,
   including a brief report 
 
 
-  Limited Deep Transformation Bundle!!! 
+  Deep Transformation Bundle：
 
   90-min Energy Healing Session + 90-min Home & Land Purification
 
   US$350 (Save US$50)
-slug: /en/services/home-purification
+slug: home-purification
 ---
