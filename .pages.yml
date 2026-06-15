@@ -23,7 +23,14 @@ components:
     fields:
       - { name: en, label: English, type: text }
       - { name: zh, label: 繁體中文, type: text }
-      - { name: jp, label: 日本語, type: string }
+      - { name: jp, label: 日本語, type: text }
+  t_richtext:
+    type: object
+    label: Translatable Rich Text
+    fields:
+      - { name: en, label: English, type: rich-text }
+      - { name: zh, label: 繁體中文, type: rich-text }
+      - { name: jp, label: 日本語, type: rich-text }
   links: 
     type: object
     label: Links
