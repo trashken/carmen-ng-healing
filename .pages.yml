@@ -42,7 +42,11 @@ media:
     output: /uploads
     categories: [image]
     extensions: [jpg, jpeg, png, webp]
-
+  - name: videos
+    label: Blog videos
+    input: public/uploads
+    output: /uploads    
+    categories: [video]
 
   # ---------------------------------------------------------------------------
   # Blog posts
