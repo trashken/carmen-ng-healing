@@ -132,7 +132,7 @@ offerings: >-
   strengthen the human-pet energetic bond.)
 
 
-  Sanctuary Home & Land Purification: +US$200
+  Sanctuary Home & Land Purification: +US$150
 
   (This is our full, comprehensive purification service designed to ensure your
   living space remains a high-vibrational sanctuary for your ongoing journey.)
@@ -160,7 +160,7 @@ offerings: >-
   内容: 飼い主様ご自身のエネルギーの滞りをクリアにし、活力向上をサポートします。また、飼い主様とペット間のエネルギー的な絆をより強固なものにします。
 
 
-  住空間・土地の浄化: +US$200
+  住空間・土地の浄化: +US$150
 
 
   内容: 住環境を維持するための、包括的かつ本格的な浄化サービスです。居住空間を、日々の癒やしの旅を支える高波動な聖域として保ちます。
@@ -188,7 +188,7 @@ offerings: >-
   內容: 清理個人的能量堵塞，提升您的活力，並強化您與寵物伴侶之間的能量共振與連結。
 
 
-  空間與土地淨化: +US$200
+  空間與土地淨化: +US$150
 
 
   內容: 全面且深入的淨化服務，旨在確保您的居住環境維持高頻能量場，讓家居成為您療癒旅程中一個持續穩定的高振動空間。
