@@ -1,39 +1,17 @@
 ---
 slug: kwanon-canon
-title_en: Kwanon & Canon
-title_jp: 観音 & Kwanon & Canon
 title:
   en: Kwanon & Canon
   jp: 観音 & Kwanon & Canon
-date: 2026-04-15
+date: 2026-04-15T00:00:00.000Z
 category: article
 video: /videos/kwanon-canon.mp4
-body_en: >-
-  I was told many years ago the name of Goddess Kuan Yin has a beautiful meaning
-  behind. The characters 観 and 音, meaning 'to see' + 'sound' ; i.e. Seeing
-  Sound. Bodhisattva Avalokiteshvara, the Goddess of Mercy, has her 3rd eye
-  abilities so open that she can even see sound frequencies! Isn't that
-  amazing?! What a perfect name!
+body_en: |-
+  I was told many years ago the name of Goddess Kuan Yin has a beautiful meaning behind. The characters 観 and 音, meaning 'to see' + 'sound' ; i.e. Seeing Sound. Bodhisattva Avalokiteshvara, the Goddess of Mercy, has her 3rd eye abilities so open that she can even see sound frequencies! Isn't that amazing?! What a perfect name!
 
+  Then I also found that the brand Canon was originally called Kwanon in the 1930's. Back then, one of the owners was into Buddhism, created the camera and decided to name it after the Goddess. They hoped the deity would share her benevolence as they strived to make the world's best camera. The company also used the thousand-armed Kuan Yin as their logo, and have it engraved on the top part of the camera body. To make this beautiful story more complete, I noticed the surname of one of my respected mentors in my life, the ex-founder of quantum hypnosis QHHT Dolores Cannon, also shares the same sound as the Goddess. I did not know her personally, but her works had inspired so many people in her life time and even today. In one channeling opportunity, I realized that many gorgeous and brilliant female souls come from the fractals of Archangel Jophiel. Goddess Kuan Yin is one of them.
 
-  Then I also found that the brand Canon was originally called Kwanon in the
-  1930's. Back then, one of the owners was into Buddhism, created the camera and
-  decided to name it after the Goddess. They hoped the deity would share her
-  benevolence as they strived to make the world's best camera. The company also
-  used the thousand-armed Kuan Yin as their logo, and have it engraved on the
-  top part of the camera body. To make this beautiful story more complete, I
-  noticed the surname of one of my respected mentors in my life, the ex-founder
-  of quantum hypnosis QHHT Dolores Cannon, also shares the same sound as the
-  Goddess. I did not know her personally, but her works had inspired so many
-  people in her life time and even today. In one channeling opportunity, I
-  realized that many gorgeous and brilliant female souls come from the fractals
-  of Archangel Jophiel. Goddess Kuan Yin is one of them.
-
-
-  I believe that there is no surprising that Dolores Cannon, by choosing her
-  Earth life using this surname, was trying to give hints to us that she was
-  here to spread the love and wisdom... for those with the EYES to SEE and HEAR.
-
+  I believe that there is no surprising that Dolores Cannon, by choosing her Earth life using this surname, was trying to give hints to us that she was here to spread the love and wisdom... for those with the EYES to SEE and HEAR.
 
   Namaste.
 body_jp: |-

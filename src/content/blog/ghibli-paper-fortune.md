@@ -1,56 +1,25 @@
 ---
 slug: ghibli-paper-fortune
-title_en: Ghibli Paper Fortune
-title_jp: ジブリおみくじ Ghibli Paper Fortune
 title:
   en: Ghibli Paper Fortune
   jp: ジブリおみくじ Ghibli Paper Fortune
-date: 2026-06-09
+date: 2026-06-09T00:00:00.000Z
 category: article
 cover: /uploads/ghibli-paper-fortune.jpg
-body_en: >-
-  Last week I visited the Ghibli Museum, that was my second time. My first time
-  was almost 20 years ago. I almost forgot how it was like inside. But as I
-  entered some memories slowly came back, and of course that big plush toy
-  catbus is still there!
+body_en: |-
+  Last week I visited the Ghibli Museum, that was my second time. My first time was almost 20 years ago. I almost forgot how it was like inside. But as I entered some memories slowly came back, and of course that big plush toy catbus is still there!
 
+  The one thing that impressed me most was the entrance ticket. At reception, each person was given an entrance ticket that looked like a small portion of film. I did not know then what the captured film frame was like. By just looking at it, the frame picture was too small and too dark. Inside the museum, there's a machine where we could insert the film portion and see the screenshots projected.
 
-  The one thing that impressed me most was the entrance ticket. At reception,
-  each person was given an entrance ticket that looked like a small portion of
-  film. I did not know then what the captured film frame was like. By just
-  looking at it, the frame picture was too small and too dark. Inside the
-  museum, there's a machine where we could insert the film portion and see the
-  screenshots projected.
+  I almost laughed when I saw the pictures! To me that was like おみくじ drawn at a shrine！
 
+  The photo looked very much like the images I've been dreaming about recently. The theme of my dreams has been about the community, ships and sailing. I take that anything to do with sailing has a deep spiritual meaning... it's about ascension, evolution and consciousness.
 
-  I almost laughed when I saw the pictures! To me that was like おみくじ drawn at a
-  shrine！
+  I am very grateful for this synchronicity and greet and meet message from above! What an amazingly lovingly surprise!
 
+  Interestingly, my friend got another random entrance ticket, and as she inserted it at the machine, her images were different, but very spot on too! It's showing a hand climbing up a ladder, with some greens on the side. I know that currently she's going through some challenges where she has to study hard and work hard to get certified. The screenshots that she received were also some divine messages I'd say.
 
-  The photo looked very much like the images I've been dreaming about recently.
-  The theme of my dreams has been about the community, ships and sailing. I take
-  that anything to do with sailing has a deep spiritual meaning... it's about
-  ascension, evolution and consciousness.
-
-
-  I am very grateful for this synchronicity and greet and meet message from
-  above! What an amazingly lovingly surprise!
-
-
-  Interestingly, my friend got another random entrance ticket, and as she
-  inserted it at the machine, her images were different, but very spot on too!
-  It's showing a hand climbing up a ladder, with some greens on the side. I know
-  that currently she's going through some challenges where she has to study hard
-  and work hard to get certified. The screenshots that she received were also
-  some divine messages I'd say.
-
-
-  Talking about Ghibli and Director Hayao Miyazaki, just a quick side note...
-  Did you watch his movie released in 2023 The Boy and the Heron? Despite the
-  plot that most people or wikipedia depicted, there's a very spiritual and
-  quantum aspect to it, relating to multi-dimensionality, the structure of
-  multiverse and our soul existence. I think I'll have to watch it again.
-
+  Talking about Ghibli and Director Hayao Miyazaki, just a quick side note... Did you watch his movie released in 2023 The Boy and the Heron? Despite the plot that most people or wikipedia depicted, there's a very spiritual and quantum aspect to it, relating to multi-dimensionality, the structure of multiverse and our soul existence. I think I'll have to watch it again.
 
   Till then, feel free to share what you think!
 body_jp: |-

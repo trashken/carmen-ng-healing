@@ -5,15 +5,24 @@
     "slug": {
       "type": "string"
     },
-    "title_en": {
-      "type": "string"
-    },
-    "title_jp": {
-      "type": "string"
-    },
-    "title_zh": {
-      "default": "",
-      "type": "string"
+    "title": {
+      "type": "object",
+      "properties": {
+        "en": {
+          "type": "string"
+        },
+        "jp": {
+          "type": "string"
+        },
+        "zh": {
+          "default": "",
+          "type": "string"
+        }
+      },
+      "required": [
+        "en",
+        "jp"
+      ]
     },
     "date": {
       "type": "string",
@@ -49,8 +58,7 @@
   },
   "required": [
     "slug",
-    "title_en",
-    "title_jp",
+    "title",
     "date",
     "category",
     "body_jp"

@@ -16,9 +16,9 @@ const { post } = Astro.props;
 const locale: Locale = 'en';
 const t = getDictionary(locale);
 
-const titleFallback = !post.data.title_en;
+const titleFallback = !post.data.title.en;
 const bodyFallback = !post.data.body_en;
-const title = post.data.title_en || post.data.title_jp;
+const title = post.data.title.en || post.data.title.jp;
 const body = post.data.body_en || post.data.body_jp;
 const bodyParagraphs = body.split('\n').map((p: string) => p.trim()).filter(Boolean);
 

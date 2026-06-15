@@ -64,9 +64,9 @@ content:
     format: yaml-frontmatter
     type: collection
     view:
-      fields: [title_en, published, date]
-      primary: title_en
-      sort: [date, title_en]
+      fields: [title, published, date]
+      primary: title
+      sort: [date, title]
       default:
         sort: date
         order: desc
@@ -81,19 +81,22 @@ content:
           maxlength: 80
         # Slug is also the filename; do not let editors rename freely.
         # (The PagesCMS filename template uses {slug} so they must match.)
-      - name: title_en
-        type: string
-        label: Title (English)
-      - name: title_jp
-        type: string
-        label: Title (Japanese)
-      - name: title_zh
-        type: string
-        label: Title (Traditional Chinese)        
       - name: title
+        type: object
         label: Title
-        component: t_string
-        required: true
+        description: >-
+          Per-locale title. JP is required (the canonical version); EN and
+          ZH are optional and fall back to JP when empty.
+        fields:
+          - name: en
+            type: string
+            label: Title (English)
+          - name: jp
+            type: string
+            label: Title (Japanese)
+          - name: zh
+            type: string
+            label: Title (Traditional Chinese)
       - name: date
         type: date
         label: Publish date

@@ -50,7 +50,7 @@ const formatDate = (iso: Date) =>
                 {post.data.category === 'news' ? 'お知らせ' : '記事'}
               </p>
               <h2 class="font-serif text-lg mb-2 group-hover:text-rose transition-colors">
-                {post.data.title_jp}
+                {post.data.title.jp}
               </h2>
               <p class="text-ink-light text-sm leading-relaxed mb-4 line-clamp-3 whitespace-pre-line">
                 {post.data.body_jp.split('\n')[0].slice(0, 100)}…

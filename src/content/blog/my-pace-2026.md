@@ -1,11 +1,9 @@
 ---
 slug: my-pace-2026
-title_en: My Pace 2026
-title_jp: マイペース My Pace 2026
 title:
   en: My Pace 2026
   jp: マイペース My Pace 2026
-date: 2026-06-02
+date: 2026-06-02T00:00:00.000Z
 category: article
 cover: /uploads/my-pace-2026.jpg
 body_jp: |-

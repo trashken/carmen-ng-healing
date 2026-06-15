@@ -50,7 +50,7 @@ const formatDate = (iso: Date) =>
                 {post.data.category === 'news' ? '最新消息' : '文章'}
               </p>
               <h2 class="font-serif text-lg mb-2 group-hover:text-rose transition-colors">
-                {post.data.title_zh || post.data.title_jp}
+                {post.data.title.zh || post.data.title.jp}
               </h2>
               {post.data.body_zh && (
                 <p class="text-ink-light text-sm leading-relaxed mb-4 line-clamp-3 whitespace-pre-line">
