@@ -57,14 +57,27 @@ what_we_do_zh: |
   療程中，我將為您傳遞來自高我（Higher Self）與守護靈的訊息，並協助進行深層的覺察。
 
   如有需要，我會連結您的阿卡西紀錄（Akashic Records），從靈魂記錄中擷取對您當下最重要的智慧。我們會從靈性與能量的多維度視角，探討您面臨挑戰或失衡的根本原因；這不僅涵蓋今生的經歷與創傷，亦可能涉及家族傳承的影響、業力課題，以及與前世或未來時間線的連結。當需要時，我會針對這些層面進行能量調整，引導您的生命能量回歸到最原本、最自然的狀態。
-through_session_en: |-
-  Conducted online via Zoom.
+through_session_en: >-
+  Please ensure you are in a quiet, undisturbed space for the duration of our
+  session.
 
-  Duration: Approx. 60 minutes 
-through_session_jp: |+
-  
-through_session_zh: |+
-  
+
+  Experience Duration: Approx. 60 minutes
+
+
+  Format: Conducted remotely via Zoom (Recording included)
+through_session_jp: |-
+  セッション中は、静かで穏やかな環境にいられるよう、あらかじめご準備をお願いいたします。
+
+  所要時間: 約60分
+
+  形式: Zoomによる遠隔セッション（レコーディング付き）
+through_session_zh: |-
+  請確保在療程時，處於一個安靜且不受干擾的環境。
+
+  療程需時: 約 60 分鐘
+
+  形式: 透過 Zoom 網上進行（附錄影file）
 recommended_en: >-
   This session is designed for those who are ready for deeper clarity and
   alignment, including:
