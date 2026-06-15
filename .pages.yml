@@ -354,7 +354,7 @@ content:
       # its own price + duration. Leave empty to keep this entry as a
       # homepage card only (no detail page).
       - name: offerings
-        type: list
+        type: text
         label: Session offerings & pricing
         description: >-
           Each entry becomes a card on the service detail page. Add the
@@ -362,6 +362,7 @@ content:
         options:
           item:
             type: object
+            list: true
             fields:
               - name: title_en
                 type: string
