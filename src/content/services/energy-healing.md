@@ -1,4 +1,8 @@
 ---
+title:
+  en: Energy Healing
+  jp: エネルギーヒーリング
+  zh: 能量療程
 title_en: Energy Healing
 title_jp: エネルギーヒーリング
 title_zh: 能量療程
@@ -114,48 +118,5 @@ recommended_zh: |-
   療程適合所有人士，無論您是第一次接觸能量療癒，還是資深的能量工作者，皆歡迎預約。
 
   我為您持守源頭愛心光芒的高頻空間，協助您進行最深層的淨化與療癒。
-offerings: >-
-  Standard Session: US$200
-
-
-  3-session Package (for ongoing healing) : US$550 
-
-
-  Includes: Pre-session guidance, intensive energy cleansing & healing, and
-  post-session integration tips & recording.
-
-
-  ***
-
-  スタンダードセッション：US$200
-
-
-  3回セッションパッケージ（継続的なヒーリングのため）：US$550
-
-
-  内容：  
-
-  ・セッション前のガイダンス
-
-  ・集中的なエネルギー浄化とヒーリング
-
-  ・セッション後の統合サポートと録画データ
-
-  ***
-
-
-  標準療程：200 美元
-
-
-  三次療程套票（適合持續深層療癒）：550 美元
-
-
-  包括：  
-
-  ・療癒前指引
-
-  ・深層能量淨化與療癒
-
-  ・療癒後整合建議及錄影 
 slug: /en/services/energy-healing
 ---
