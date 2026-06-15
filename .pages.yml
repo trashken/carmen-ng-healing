@@ -216,12 +216,12 @@ content:
     filename: '{slug}.md'
     format: yaml-frontmatter
     view:
-      fields: [title_en, title_zh, title_jp ]
-      primary: title_en
-      sort: [ title_en]      
+      fields: [title.en, title.zh, title.jp ]
+      primary: title.en
+      sort: [ title.en]      
     fields:
       - name: title
-        
+        component: t_string        
       - name: title_en
         type: string
         label: Title (English)
