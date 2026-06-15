@@ -345,96 +345,95 @@ content:
       # its own price + duration. Leave empty to keep this entry as a
       # homepage card only (no detail page).
       - name: offerings
-        type: text
+        type: object
+        list:
+          collapsible: true
         label: Session offerings & pricing
         description: >-
           Each entry becomes a card on the service detail page. Add the
-          first one for the initial session, then follow-ups, packages, etc.
-        options:
-          item:
-            type: object            
-            fields:
-              - name: title_en
+          first one for the initial session, then follow-ups, packages, etc.      
+        fields:
+          - name: title_en
+            type: string
+            label: Title (English)
+          - name: title_jp
+            type: string
+            label: Title (Japanese)
+          - name: title_zh
+            type: string
+            label: Title (Traditional Chinese)
+          - name: desc_en
+            type: text
+            label: Description (English)
+          - name: desc_jp
+            type: text
+            label: Description (Japanese)
+          - name: desc_zh
+            type: text
+            label: Description (Traditional Chinese)
+          - name: bullets_en
+            type: list
+            label: Bullet list (English)
+            options:
+              item:
                 type: string
-                label: Title (English)
-              - name: title_jp
+          - name: bullets_jp
+            type: list
+            label: Bullet list (Japanese)
+            options:
+              item:
                 type: string
-                label: Title (Japanese)
-              - name: title_zh
+          - name: bullets_zh
+            type: list
+            label: Bullet list (Traditional Chinese)
+            options:
+              item:
                 type: string
-                label: Title (Traditional Chinese)
-              - name: desc_en
-                type: text
-                label: Description (English)
-              - name: desc_jp
-                type: text
-                label: Description (Japanese)
-              - name: desc_zh
-                type: text
-                label: Description (Traditional Chinese)
-              - name: bullets_en
-                type: list
-                label: Bullet list (English)
-                options:
-                  item:
-                    type: string
-              - name: bullets_jp
-                type: list
-                label: Bullet list (Japanese)
-                options:
-                  item:
-                    type: string
-              - name: bullets_zh
-                type: list
-                label: Bullet list (Traditional Chinese)
-                options:
-                  item:
-                    type: string
-              - name: duration_en
-                type: string
-                label: Duration (English, e.g. "120 min")
-              - name: duration_jp
-                type: string
-                label: Duration (Japanese, e.g. "120分")
-              - name: duration_zh
-                type: string
-                label: Duration (Traditional Chinese, e.g. "120分鐘")
-              - name: price_en
-                type: number
-                label: Price (USD, English)
-                description: >-
-                  Integer. Set to 0 to show "Contact for pricing".
-                options:
-                  min: 0
-              - name: price_jp
-                type: number
-                label: Price (JPY, Japanese)
-                description: >-
-                  Integer. Set to 0 to show "Contact for pricing".
-                options:
-                  min: 0
-              - name: price_zh
-                type: number
-                label: Price (HKD, Traditional Chinese)
-                description: >-
-                  Integer. Set to 0 to show "Contact for pricing".
-                options:
-                  min: 0
-              - name: currency_en
-                type: string
-                label: Currency prefix (English)
-                description: >-
-                  Text prefix shown before the EN price. Default "US$".
-              - name: currency_jp
-                type: string
-                label: Currency prefix (Japanese)
-                description: >-
-                  Text prefix shown before the JP price. Default "¥".
-              - name: currency_zh
-                type: string
-                label: Currency prefix (Traditional Chinese)
-                description: >-
-                  Text prefix shown before the ZH price. Default "HK$".
+          - name: duration_en
+            type: string
+            label: Duration (English, e.g. "120 min")
+          - name: duration_jp
+            type: string
+            label: Duration (Japanese, e.g. "120分")
+          - name: duration_zh
+            type: string
+            label: Duration (Traditional Chinese, e.g. "120分鐘")
+          - name: price_en
+            type: number
+            label: Price (USD, English)
+            description: >-
+              Integer. Set to 0 to show "Contact for pricing".
+            options:
+              min: 0
+          - name: price_jp
+            type: number
+            label: Price (JPY, Japanese)
+            description: >-
+              Integer. Set to 0 to show "Contact for pricing".
+            options:
+              min: 0
+          - name: price_zh
+            type: number
+            label: Price (HKD, Traditional Chinese)
+            description: >-
+              Integer. Set to 0 to show "Contact for pricing".
+            options:
+              min: 0
+          - name: currency_en
+            type: string
+            label: Currency prefix (English)
+            description: >-
+              Text prefix shown before the EN price. Default "US$".
+          - name: currency_jp
+            type: string
+            label: Currency prefix (Japanese)
+            description: >-
+              Text prefix shown before the JP price. Default "¥".
+          - name: currency_zh
+            type: string
+            label: Currency prefix (Traditional Chinese)
+            description: >-
+              Text prefix shown before the ZH price. Default "HK$".
       - name: slug
         type: string
         label: URL slug
