@@ -9,7 +9,30 @@
 # and src/pages/testimonials.astro. Migrating those to content collections
 # is the next step, but is gated on you confirming this config loads
 # correctly in the PagesCMS UI.
-
+components:
+  t_string:
+    type: object
+    label: Translatable String
+    fields:
+      - { name: en, label: English, type: string }
+      - { name: zh, label: 繁體中文, type: string }
+  t_text:
+    type: object
+    label: Translatable Text
+    fields:
+      - { name: en, label: English, type: text }
+      - { name: zh, label: 繁體中文, type: text }
+  links: 
+    type: object
+    label: Links
+    fields:
+      - name: title
+        component: t_string
+        label: Title
+      - name: url
+        type: string
+        label: URL
+        
 media:
   - name: images
     label: Blog cover images
@@ -61,6 +84,10 @@ content:
       - name: title_zh
         type: string
         label: Title (Traditional Chinese)        
+      - name: title
+        label: Title
+        component: t_text
+        required: true
       - name: date
         type: date
         label: Publish date
