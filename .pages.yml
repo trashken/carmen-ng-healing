@@ -370,25 +370,7 @@ content:
             label: Description (Japanese)
           - name: desc_zh
             type: text
-            label: Description (Traditional Chinese)
-          - name: bullets_en
-            type: list
-            label: Bullet list (English)
-            options:
-              item:
-                type: string
-          - name: bullets_jp
-            type: list
-            label: Bullet list (Japanese)
-            options:
-              item:
-                type: string
-          - name: bullets_zh
-            type: list
-            label: Bullet list (Traditional Chinese)
-            options:
-              item:
-                type: string
+            label: Description (Traditional Chinese)          
           - name: duration_en
             type: string
             label: Duration (English, e.g. "120 min")
