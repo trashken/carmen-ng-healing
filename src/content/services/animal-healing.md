@@ -192,5 +192,5 @@ offerings: >-
 
 
   內容: 全面且深入的淨化服務，旨在確保您的居住環境維持高頻能量場，讓家居成為您療癒旅程中一個持續穩定的高振動空間。
-slug: /en/services/animal-healing
+slug: animal-healing
 ---
