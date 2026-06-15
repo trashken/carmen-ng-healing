@@ -1,4 +1,8 @@
 ---
+title:
+  en: Workshops
+  jp: ワークショップ
+  zh: 工作坊
 title_en: Workshops
 title_jp: ワークショップ
 title_zh: 工作坊
