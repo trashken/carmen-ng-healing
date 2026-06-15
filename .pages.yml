@@ -361,8 +361,7 @@ content:
           first one for the initial session, then follow-ups, packages, etc.
         options:
           item:
-            type: object
-            list: true
+            type: object            
             fields:
               - name: title_en
                 type: string
