@@ -119,7 +119,7 @@ content:
         type: image
         options:
           media: videos
-          path: public/videos
+          path: /videos
           categories: [video]          
       - name: video
         type: string
