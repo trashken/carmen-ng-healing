@@ -341,25 +341,14 @@ content:
 
       # "Recommended for" bullet list.
       - name: recommended_en
-        type: list
-        label: 'Recommended for (English)'
-        description: >-
-          One bullet per line. Leave empty to hide this section.
-        options:
-          item:
-            type: string
+        type: rich-text
+        label: 'Recommended for (English)'        
       - name: recommended_jp
-        type: list
-        label: 'Recommended for (Japanese)'
-        options:
-          item:
-            type: string
+        type: rich-text
+        label: 'Recommended for (Japanese)'        
       - name: recommended_zh
-        type: list
-        label: 'Recommended for (Traditional Chinese)'
-        options:
-          item:
-            type: string
+        type: rich-text
+        label: 'Recommended for (Traditional Chinese)'        
 
       # Sub-offerings: each becomes its own card on the detail page with
       # its own price + duration. Leave empty to keep this entry as a
