@@ -78,6 +78,27 @@ what_we_do_zh: |-
   療癒與釋放： 療癒內在小孩，切斷負面能量束
 
   靈性提升： 開啟意識維度，強化與高我的連結，並覺醒您獨特的靈性天賦
+through_session_en: >-
+  Please ensure you are in a quiet, undisturbed space for the duration of our
+  session.
+
+
+  Experience Duration: Approx. 90 minutes
+
+
+  Format: Conducted remotely via Zoom 
+through_session_jp: |-
+  セッション中は、静かで穏やかな環境にいられるよう、あらかじめご準備をお願いいたします。
+
+  所要時間: 約90分
+
+  形式: Zoomによる遠隔セッション
+through_session_zh: |-
+  請確保在療程時，處於一個安靜且不受干擾的環境。
+
+  療程需時: 約 90 分鐘
+
+  形式: 透過 Zoom 網上進行
 recommended_en: >-
   Suitable for everyone, from those experiencing energy healing for the first
   time to seasoned practitioners. 
@@ -94,12 +115,47 @@ recommended_zh: |-
 
   我為您持守源頭愛心光芒的高頻空間，協助您進行最深層的淨化與療癒。
 offerings: >-
-  Conducted online via Zoom.
+  Standard Session: US$200
 
 
-  Session Fee: US$150 / 90 minutes
+  3-session Package (for ongoing healing) : US$550 
+
 
   Includes: Pre-session guidance, intensive energy cleansing & healing, and
   post-session integration tips & recording.
+
+
+  ***
+
+  スタンダードセッション：US$200
+
+
+  3回セッションパッケージ（継続的なヒーリングのため）：US$550
+
+
+  内容：  
+
+  ・セッション前のガイダンス
+
+  ・集中的なエネルギー浄化とヒーリング
+
+  ・セッション後の統合サポートと録画データ
+
+  ***
+
+
+  標準療程：200 美元
+
+
+  三次療程套票（適合持續深層療癒）：550 美元
+
+
+  包括：  
+
+  ・療癒前指引
+
+  ・深層能量淨化與療癒
+
+  ・療癒後整合建議及錄影 
 slug: /en/services/energy-healing
 ---
