@@ -118,8 +118,9 @@ content:
         label: Cover Video
         type: image
         options:
-          categories: [video]
+          media: videos
           path: public/videos
+          categories: [video]          
       - name: video
         type: string
         label: Cover video path
