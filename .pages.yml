@@ -16,12 +16,14 @@ components:
     fields:
       - { name: en, label: English, type: string }
       - { name: zh, label: 繁體中文, type: string }
+      - { name: jp, label: 日本語, type: string }
   t_text:
     type: object
     label: Translatable Text
     fields:
       - { name: en, label: English, type: text }
       - { name: zh, label: 繁體中文, type: text }
+      - { name: jp, label: 日本語, type: string }
   links: 
     type: object
     label: Links
