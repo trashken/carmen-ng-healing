@@ -119,6 +119,7 @@ content:
         type: image
         options:
           categories: [video]
+          path: public/videos
       - name: video
         type: string
         label: Cover video path
