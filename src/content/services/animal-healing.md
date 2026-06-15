@@ -1,4 +1,8 @@
 ---
+title:
+  en: "Animal Healing "
+  jp: 動物ヒーリング
+  zh: 動物療癒
 title_en: "Animal Healing "
 title_jp: 動物ヒーリング
 title_zh: 動物療癒
@@ -113,84 +117,5 @@ recommended_en: Ideal for all animal companions—including cats, dogs, rabbits,
   their overall well-being.
 recommended_jp: 猫、犬、うさぎ、鳥など、あらゆる動物が対象です。原因不明の体調不良や行動の変化、トラウマの癒やし、日々の健康維持・波動調整を必要としているパートナーに最適です。
 recommended_zh: 適合所有動物，包括貓、狗、兔、鳥類及各類寵物。無論是面對身體病痛、不明原因的行為改變、創傷修復，或是希望透過能量調整來提升日常健康與生活品質，皆非常適用。
-offerings: >-
-  Standard Session: US$200
-
-
-  Support Package (Recommended for ongoing recovery): US$550 (3 sessions)
-
-
-  Enhance Your Results: Integrated Family Add-ons
-
-  To ensure your companion’s environment remains high-vibrational and supportive
-  of their healing journey, you may add the following to any session or package:
-
-
-  Owner Energetic Alignment: +US$100
-
-  (Clears personal energetic congestion to support your own vitality and
-  strengthen the human-pet energetic bond.)
-
-
-  Sanctuary Home & Land Purification: +US$150
-
-  (This is our full, comprehensive purification service designed to ensure your
-  living space remains a high-vibrational sanctuary for your ongoing journey.)
-
-  *****
-
-
-  セッション料金・メニュー
-
-
-  スタンダード・セッション: US$200
-
-
-  サポート・パッケージ（3回分）: US$550
-
-
-  追加オプション：統合ファミリー・ヒーリング
-
-  パートナーの癒やしをより深め、健やかな環境を保つために、以下のオプションを組み合わせていただけます。
-
-
-  飼い主様向け：エネルギー調整: +US$100
-
-
-  内容: 飼い主様ご自身のエネルギーの滞りをクリアにし、活力向上をサポートします。また、飼い主様とペット間のエネルギー的な絆をより強固なものにします。
-
-
-  住空間・土地の浄化: +US$150
-
-
-  内容: 住環境を維持するための、包括的かつ本格的な浄化サービスです。居住空間を、日々の癒やしの旅を支える高波動な聖域として保ちます。
-
-  *******
-
-
-  各療程套餐及收費
-
-
-  標準療程: US$200（約 90 分鐘 / Zoom 網上進行）
-
-
-  療癒支援套餐（3 次療程）: US$550
-
-
-  家庭整合式療癒（加購選項）:
-
-  為鞏固療癒效果並維持高頻空間，您可以為套餐加購以下服務：
-
-
-  主人能量調頻: +US$100
-
-
-  內容: 清理個人的能量堵塞，提升您的活力，並強化您與寵物伴侶之間的能量共振與連結。
-
-
-  空間與土地淨化: +US$150
-
-
-  內容: 全面且深入的淨化服務，旨在確保您的居住環境維持高頻能量場，讓家居成為您療癒旅程中一個持續穩定的高振動空間。
 slug: animal-healing
 ---
