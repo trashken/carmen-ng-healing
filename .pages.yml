@@ -116,7 +116,7 @@ content:
           extensions: [jpg, jpeg, png, webp]
       - name: video
         label: Cover Video
-        type: image
+        type: file
         options:
           media: videos
           path: public/videos
