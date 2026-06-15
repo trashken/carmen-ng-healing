@@ -124,6 +124,10 @@ content:
           Public path under /videos/ (e.g. /videos/kwanon-canon.mp4). Leave
           blank if the post uses a still cover image. Only Kwanon & Canon
           currently uses a video.
+      - name: body
+        label: Body
+        component: t_richtext
+        required: true
       - name: body_en
         type: rich-text
         label: Body (English)
