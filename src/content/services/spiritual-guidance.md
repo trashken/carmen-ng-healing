@@ -57,8 +57,10 @@ what_we_do_zh: |
   療程中，我將為您傳遞來自高我（Higher Self）與守護靈的訊息，並協助進行深層的覺察。
 
   如有需要，我會連結您的阿卡西紀錄（Akashic Records），從靈魂記錄中擷取對您當下最重要的智慧。我們會從靈性與能量的多維度視角，探討您面臨挑戰或失衡的根本原因；這不僅涵蓋今生的經歷與創傷，亦可能涉及家族傳承的影響、業力課題，以及與前世或未來時間線的連結。當需要時，我會針對這些層面進行能量調整，引導您的生命能量回歸到最原本、最自然的狀態。
-through_session_en: |+
-  
+through_session_en: |-
+  Conducted online via Zoom.
+
+  Duration: Approx. 60 minutes 
 through_session_jp: |+
   
 through_session_zh: |+
@@ -111,9 +113,8 @@ recommended_zh: |-
 
   渴望了解自己的靈魂本質，並尋求靈魂發展方向
 offerings: >-
-  To be conducted online by Zoom.
+  Standard Session: US$120
 
-  Session Fee: US$100 / 50 minutes
 
   Includes: Pre-session consultation, intensive channeling & guidance, and
   post-session integration tips & recording.
