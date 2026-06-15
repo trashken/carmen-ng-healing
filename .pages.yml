@@ -82,21 +82,7 @@ content:
         # Slug is also the filename; do not let editors rename freely.
         # (The PagesCMS filename template uses {slug} so they must match.)
       - name: title
-        type: object
-        label: Title
-        description: >-
-          Per-locale title. JP is required (the canonical version); EN and
-          ZH are optional and fall back to JP when empty.
-        fields:
-          - name: en
-            type: string
-            label: Title (English)
-          - name: jp
-            type: string
-            label: Title (Japanese)
-          - name: zh
-            type: string
-            label: Title (Traditional Chinese)
+        component: t_string        
       - name: date
         type: date
         label: Publish date
@@ -234,6 +220,8 @@ content:
       primary: title_en
       sort: [ title_en]      
     fields:
+      - name: title
+        
       - name: title_en
         type: string
         label: Title (English)
