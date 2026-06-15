@@ -121,13 +121,8 @@ content:
           media: videos
           path: public/videos
           categories: [video]          
-      - name: video
-        type: string
-        label: Cover video path
         description: >-
-          Public path under /videos/ (e.g. /videos/kwanon-canon.mp4). Leave
-          blank if the post uses a still cover image. Only Kwanon & Canon
-          currently uses a video.      
+          Leave blank if the post uses a still cover image.      
       - name: body_en
         type: rich-text
         label: Body (English)
