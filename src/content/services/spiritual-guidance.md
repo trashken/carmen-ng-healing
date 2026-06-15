@@ -1,4 +1,8 @@
 ---
+title:
+  en: 1:1 Spiritual Guidance
+  jp: 1:1 スピリチュアル・ガイダンス
+  zh: 1:1 身心靈指引
 title_en: 1:1 Spiritual Guidance
 title_jp: 1:1 スピリチュアル・ガイダンス
 title_zh: 1:1 身心靈指引
@@ -125,11 +129,5 @@ recommended_zh: |-
   長期尋求生命解答，卻遲遲未果
 
   渴望了解自己的靈魂本質，並尋求靈魂發展方向
-offerings: >-
-  Standard Session: US$120
-
-
-  Includes: Pre-session consultation, intensive channeling & guidance, and
-  post-session integration tips & recording.
 slug: spiritual-guidance
 ---
