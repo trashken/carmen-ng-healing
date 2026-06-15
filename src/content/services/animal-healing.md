@@ -86,10 +86,27 @@ what_we_do_zh: |-
   靈魂溝通與指引： 連結您寵物的心靈，讀取牠們的需求、訊息與情緒狀態。
 
   環境與人寵連結： 提供飲食調整建議，以及優化主人與寵物之間的能量共振。
-through_session_en: Please ensure you and your companion are in a quiet,
-  undisturbed space for the duration of our session.
-through_session_jp: セッション中は、あなたと動物のパートナーが静かで穏やかな環境にいられるよう、あらかじめご準備をお願いいたします。
-through_session_zh: 請確保您與您的動物伴侶在療程時，處於一個安靜且不受干擾的環境。
+through_session_en: >-
+  Please ensure you and your companion are in a quiet, undisturbed space for the
+  duration of our session.
+
+
+  Experience Duration: Approx. 90 minutes
+
+
+  Format: Conducted remotely via Zoom (Recording included)
+through_session_jp: |-
+  セッション中は、あなたと動物のパートナーが静かで穏やかな環境にいられるよう、あらかじめご準備をお願いいたします。
+
+  所要時間: 約90分
+
+  形式: Zoomによる遠隔セッション（レコーディング付き）
+through_session_zh: |-
+  請確保您與您的動物伴侶在療程時，處於一個安靜且不受干擾的環境。
+
+  療程需時: 約 90 分鐘
+
+  形式: 透過 Zoom 網上進行（附錄影file）
 recommended_en: Ideal for all animal companions—including cats, dogs, rabbits,
   birds, and small pets—who are experiencing physical ailments, unexplained
   behavioral shifts, trauma, or simply need an energetic tune-up to support
@@ -97,24 +114,10 @@ recommended_en: Ideal for all animal companions—including cats, dogs, rabbits,
 recommended_jp: 猫、犬、うさぎ、鳥など、あらゆる動物が対象です。原因不明の体調不良や行動の変化、トラウマの癒やし、日々の健康維持・波動調整を必要としているパートナーに最適です。
 recommended_zh: 適合所有動物，包括貓、狗、兔、鳥類及各類寵物。無論是面對身體病痛、不明原因的行為改變、創傷修復，或是希望透過能量調整來提升日常健康與生活品質，皆非常適用。
 offerings: >-
-  Session Details & Investment
-
-  Standard Session
+  Standard Session: US$200
 
 
-  Investment: US$250
-
-
-  Experience Duration: Approx. 90 minutes
-
-
-  Format: Conducted remotely via Zoom
-
-
-  Support Package (Recommended for ongoing recovery)
-
-
-  Investment: US$750 (3 sessions)
+  Support Package (Recommended for ongoing recovery): US$550 (3 sessions)
 
 
   Enhance Your Results: Integrated Family Add-ons
@@ -123,25 +126,27 @@ offerings: >-
   of their healing journey, you may add the following to any session or package:
 
 
-  Owner Mini-Clearing: +US$100
+  Owner Energetic Alignment: +US$100
 
-  (Clears personal energetic congestion to support the human-pet energetic
-  bond.)
+  (Clears personal energetic congestion to support your own vitality and
+  strengthen the human-pet energetic bond.)
 
 
-  Space & Land Mini-Clearing: +US$100
+  Sanctuary Home & Land Purification: +US$200
 
-  (Clears and optimizes the home environment to maintain a high-frequency
-  sanctuary.)
+  (This is our full, comprehensive purification service designed to ensure your
+  living space remains a high-vibrational sanctuary for your ongoing journey.)
+
+  *****
 
 
   セッション料金・メニュー
 
 
-  スタンダード・セッション: US$250（約90分 / Zoom遠隔）
+  スタンダード・セッション: US$200
 
 
-  サポート・パッケージ（3回分）: US$750
+  サポート・パッケージ（3回分）: US$550
 
 
   追加オプション：統合ファミリー・ヒーリング
@@ -149,19 +154,27 @@ offerings: >-
   パートナーの癒やしをより深め、健やかな環境を保つために、以下のオプションを組み合わせていただけます。
 
 
-  飼い主様向けミニ浄化: +US$100（飼い主様のエネルギーを整え、絆を深めます）
+  飼い主様向け：エネルギー調整: +US$100
 
 
-  住空間・土地のミニ浄化: +US$100（空間を高波動な聖域へと保ちます）
+  内容: 飼い主様ご自身のエネルギーの滞りをクリアにし、活力向上をサポートします。また、飼い主様とペット間のエネルギー的な絆をより強固なものにします。
+
+
+  住空間・土地の浄化: +US$200
+
+
+  内容: 住環境を維持するための、包括的かつ本格的な浄化サービスです。居住空間を、日々の癒やしの旅を支える高波動な聖域として保ちます。
+
+  *******
 
 
   各療程套餐及收費
 
 
-  標準療程: US$250（約 90 分鐘 / Zoom 網上進行）
+  標準療程: US$200（約 90 分鐘 / Zoom 網上進行）
 
 
-  療癒支援套餐（3 次療程）: US$750
+  療癒支援套餐（3 次療程）: US$550
 
 
   家庭整合式療癒（加購選項）:
@@ -169,9 +182,15 @@ offerings: >-
   為鞏固療癒效果並維持高頻空間，您可以為套餐加購以下服務：
 
 
-  主人迷你能量淨化: +US$100（清理個人能量，優化人寵共振）
+  主人能量調頻: +US$100
 
 
-  空間與土地迷你淨化: +US$100（維持居住環境的高頻能量場）
+  內容: 清理個人的能量堵塞，提升您的活力，並強化您與寵物伴侶之間的能量共振與連結。
+
+
+  空間與土地淨化: +US$200
+
+
+  內容: 全面且深入的淨化服務，旨在確保您的居住環境維持高頻能量場，讓家居成為您療癒旅程中一個持續穩定的高振動空間。
 slug: /en/services/animal-healing
 ---
