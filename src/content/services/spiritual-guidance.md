@@ -89,33 +89,33 @@ recommended_en: >-
 recommended_jp: |-
   以下のような方におすすめのセッションです：
 
-  人間関係や家族関係における課題を抱えている方
+  人間関係や家族関係における課題を抱えている
 
-  感情の不安定さや、同じ問題の繰り返し（パターン）に悩んでいる方
+  感情の不安定さや、同じ問題の繰り返し（パターン）に悩んでいる
 
-  原因不明の不調や、何かが「ずれている」ような違和感を抱えている方
+  原因不明の不調や、何かが「ずれている」ような違和感を抱えている
 
-  長年、人生の問いに対する答えを探し求めている方
+  長年、人生の問いに対する答えを探し求めている
 
-  自分自身の本質や、魂が向かうべき方向性を理解したい方
+  自分自身の本質や、魂が向かうべき方向性を理解したい
 recommended_zh: |-
   此療程適合對象：
 
-  正面臨人際關係或家庭紛爭困擾者
+  正面臨人際關係或家庭紛爭困擾
 
-  長期感到情緒不穩定，或陷入重複的生活模式者
+  長期感到情緒不穩定，或陷入重複的生活模式
 
-  有無法解釋的不適感，或感到與內在失衡（misalignment）者
+  有無法解釋的不適感，或感到與內在失衡
 
-  長期尋求生命解答，卻遲遲未果者
+  長期尋求生命解答，卻遲遲未果
 
-  渴望了解自己的靈魂本質，並尋求靈魂發展方向者
+  渴望了解自己的靈魂本質，並尋求靈魂發展方向
 offerings: >-
   To be conducted online by Zoom.
 
   Session Fee: US$100 / 50 minutes
 
   Includes: Pre-session consultation, intensive channeling & guidance, and
-  post-session integration tips.
+  post-session integration tips & recording.
 slug: spiritual-guidance
 ---
