@@ -218,7 +218,7 @@ content:
     filename: '{slug}.md'
     format: yaml-frontmatter
     view:
-      fields: [eventDate, title, location]
+      fields: [eventDate, title.en, title.jp, location]
       primary: title
       sort: [eventDate]
       default:
