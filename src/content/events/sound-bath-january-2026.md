@@ -4,8 +4,8 @@ title:
   en: Sound Bath — January 2026
   jp: サウンドバス — 2026年1月
   zh: 聲音浴 — 2026年1月
-eventDate: 2026-07-07
-endDate: 2026-07-07
+date: 2026-07-09
+endDate: 2026-07-09
 location: Online via Zoom
 summary_en: A 2-hour group sound bath with crystal bowls, gongs, and chimes.
   Open to all levels — no experience needed.
