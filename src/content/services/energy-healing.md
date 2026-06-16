@@ -118,5 +118,5 @@ recommended_zh: |-
   療程適合所有人士，無論您是第一次接觸能量療癒，還是資深的能量工作者，皆歡迎預約。
 
   我為您持守源頭愛心光芒的高頻空間，協助您進行最深層的淨化與療癒。
-slug: /en/services/energy-healing
+slug: energy-healing
 ---

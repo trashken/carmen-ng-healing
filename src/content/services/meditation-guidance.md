@@ -76,11 +76,46 @@ through_session_en: |-
   Conducted online via Zoom
 
   Duration: Approx. 90 minutes
-recommended_en: Recommended for those who feel the energy in their home is heavy
-  or stagnant, those experiencing unexplained family discord, anyone moving into
-  a new property, or anyone seeking to turn their home into a powerful space for
-  peace, joy, and spiritual growth.
-recommended_jp: 部屋の空気が重く感じる方、原因不明の家庭内の不和にお悩みの方、新居への引越しを控えている方、あるいは自宅を平和と喜び、精神的成長を促進するパワフルな空間にしたい方に強くおすすめします。
-recommended_zh: 適合感覺家中氣場沉重、長期經歷家庭不和、準備搬入新居，或是渴望將住宅轉化為支持和平、喜悅與靈性成長之空間的每一個人。
+recommended_en: >+
+  **Ideal for:**
+
+
+  - Feeling a heavy or stagnant atmosphere in your home.
+
+  - Persistent disharmony within the household.
+
+  - Preparing to move into a new living space.
+
+  - Enhancing your home's energetic hygiene following personal healing sessions.
+
+  - A long-overdue energetic deep-clean to refresh your space after years of
+  living there.
+
+  - Purifying the energy of your professional office or workplace environment.
+
+  - Clearing and blessing the land before starting new construction.
+
+recommended_jp: |+
+  **このような方におすすめです：**
+
+  - 自宅の空間に重苦しさや停滞感を感じる方。
+  - 家庭内の不和が続いていると感じる方。
+  - 新しい住居への引っ越しを控えている方。
+  - 個人セッションの後、ご自宅のエネルギー環境も整えたい方。
+  - 長年住み続けてきた空間を一度リセットし、エネルギーの浄化を行いたい方。
+  - オフィスや職場環境のエネルギーを浄化したい方。
+  - 建物の建設前に、土地のエネルギーを浄化・調整したい方。
+
+recommended_zh: |+
+  **適合對象與情境：**
+
+  - 感覺家中氣場沉重、長期感到不適。
+  - 家中長期出現家庭不和、爭吵不斷。
+  - 準備搬入新居，希望為新空間建立純淨磁場。
+  - 接受個人療程後，希望改善居家能量衛生，鞏固療效。
+  - 感覺居住了多年，是時候為空間進行深層清潔與能量淨化。
+  - 辦公室或工作環境的能量清理，提升工作效率與氣場。
+  - 土地建屋前的能量淨化與空間祝福。
+
 slug: home-purification
 ---
