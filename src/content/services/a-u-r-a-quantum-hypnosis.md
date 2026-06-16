@@ -1,8 +1,8 @@
 ---
 title:
-  en: Hypnotherapy
-  jp: ヒプノセラピー
-  zh: 催眠療法
+  en: A.U.R.A. Quantum Hypnosis
+  jp: A.U.R.A. 量子催眠
+  zh: A.U.R.A. 量子催眠療癒
 title_en: Hypnotherapy
 title_jp: ヒプノセラピー
 title_zh: 催眠療法
