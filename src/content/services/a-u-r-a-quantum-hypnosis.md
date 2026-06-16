@@ -1,4 +1,8 @@
 ---
+title:
+  en: Hypnotherapy
+  jp: ヒプノセラピー
+  zh: 催眠療法
 title_en: Hypnotherapy
 title_jp: ヒプノセラピー
 title_zh: 催眠療法
@@ -235,59 +239,6 @@ through_session_zh: >-
 
 
   如果連接高我出現困難，或需要更深層次的連接，大天使和揚昇大師將聯合高我一起介入協助，促使身心靈療癒順利進行。
-  
-bullets_en:
-  - Clearing negative attachments
-  - Damage from vaccines and A.I. negative technologies
-  - Removal of Negative Cords, Implants, Hooks
-  - Closing of Dark Portals
-  - Removal of Negative Contracts
-  - Release of Trauma from current or past life
-  - Vision problems
-  - Dental health
-  - Age regression 5-15 years
-  - DNA Reprograming and Repairing
-  - Balancing aligning Chakras
-  - Issues with Auric field
-  - Retrieving fragmented aspects of the soul
-  - Strengthening connection to Higher Self
-  - Expansion of spiritual gifts
-  - Cleansing of the Tree of Life
-bullets_jp:
-  - ネガティヴな付着物の浄化
-  - ワクチンやA.I.ネガティブテクノロジーによるダメージ
-  - ネガティヴコード、インプラント、フックの除去
-  - ダークポータルの閉鎖
-  - ネガティヴな契約の解除
-  - 現世・前世トラウマの解放
-  - 視力の問題
-  - 歯の健康
-  - 5-15年の年齢回帰
-  - DNAの再プログラミングと修復
-  - チャクラの調整
-  - オーラフィールドの問題
-  - 魂の断片化の統合
-  - ハイヤーセルフとのつながりの強化
-  - スピリチュアルギフトの拡大
-  - 生命の木の浄化
-bullets_zh:
-  - 編程修復 DNA 增強生命力
-  - 調整脈輪
-  - 修復氣場
-  - 淨化不潔／低頻存在
-  - 能量修復疫苗帶來影響
-  - 移除負極線 Cord、植入物 Implant、Hook 等
-  - 解除負極契約
-  - 解除前世今生陰影創傷
-  - 改善視力
-  - 改善口腔牙齒健康
-  - 逆齡 5-15 歲（重整細胞）
-  - 能量調整：平衡和調整脈輪
-  - 修補顏色能量磁場
-  - 整合靈魂碎片
-  - 加強聯繫高我
-  - 擴展天賦才華
-  - 淨化療癒生命之樹
 recommended_en: "It is suitable for people of any age — children, adults,
   seniors — whether they are awakened, partially awakened, or not awakened. "
 recommended_jp: お子様から大人、ご年配の方まで、覚醒の度合いを問わず、どなたでも受けていただけます。
