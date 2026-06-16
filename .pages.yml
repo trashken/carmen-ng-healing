@@ -638,3 +638,10 @@ content:
                 options:
                   item:
                     type: string
+actions:
+  - name: deploy-site
+    label: Deploy site
+    workflow: cms-deploy.yml
+    ref: current
+    fields:
+      - name: force
