@@ -16,7 +16,7 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const t = getDictionary('jp');
-const title = entry.data.title_jp;
+const title = entry.data.title.jp;
 const description = entry.data.desc_jp;
 ---
 

@@ -2,15 +2,24 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
   "properties": {
-    "title_en": {
-      "type": "string"
-    },
-    "title_jp": {
-      "type": "string"
-    },
-    "title_zh": {
-      "default": "",
-      "type": "string"
+    "title": {
+      "type": "object",
+      "properties": {
+        "en": {
+          "type": "string"
+        },
+        "jp": {
+          "type": "string"
+        },
+        "zh": {
+          "default": "",
+          "type": "string"
+        }
+      },
+      "required": [
+        "en",
+        "jp"
+      ]
     },
     "subtitle_en": {
       "type": "string"
@@ -211,8 +220,7 @@
     }
   },
   "required": [
-    "title_en",
-    "title_jp",
+    "title",
     "subtitle_en",
     "subtitle_jp",
     "desc_en",

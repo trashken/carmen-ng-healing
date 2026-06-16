@@ -47,9 +47,11 @@ const testimonials = defineCollection({
 const services = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/services' }),
   schema: z.object({
-    title_en: z.string(),
-    title_jp: z.string(),
-    title_zh: z.string().optional().default(''),
+    title: z.object({
+      en: z.string(),
+      jp: z.string(),
+      zh: z.string().optional().default(''),
+    }),
     subtitle_en: z.string(),
     subtitle_jp: z.string(),
     subtitle_zh: z.string().optional().default(''),

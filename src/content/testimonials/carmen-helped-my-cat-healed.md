@@ -22,12 +22,6 @@ over a course of 1 week, the average went from 22 - 27mmol/L to 12-14 mmol/L (be
 
 Carmen is really a miracle worker.
 
-Thank you!
-
-!
-
-!
-
-
+Thank you!!!
 
 ~ Chunling
