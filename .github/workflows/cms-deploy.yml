@@ -7,6 +7,10 @@ on:
         description: Force deploy
         type: boolean
         default: false
+      payload:
+        description: Pages CMS payload as JSON
+        required: true
+        type: string        
 
 jobs:
   deploy:
