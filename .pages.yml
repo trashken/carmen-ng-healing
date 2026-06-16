@@ -249,7 +249,7 @@ content:
           - name: zh
             type: string
             label: Title (Traditional Chinese)
-      - name: eventDate
+      - name: date
         type: date
         label: Event Date
         description: >-
@@ -299,11 +299,13 @@ content:
         options:
           format: markdown
       - name: cover
-        type: string
-        label: Cover image path
-        description: >-
-          Public path under /uploads/ (e.g. /uploads/sound-bath.jpg).
-          Shown at the top of the event card. Optional.
+        type: image
+        label: Cover image
+        description: Square 1000×1000 image. Stored in public/uploads/.
+        options:
+          media: images
+          path: public/uploads
+          extensions: [jpg, jpeg, png, webp]
       - name: registrationUrl
         type: string
         label: Registration URL
