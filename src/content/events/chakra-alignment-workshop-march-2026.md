@@ -4,16 +4,13 @@ title:
   en: Chakra Alignment Workshop
   jp: チャクラ調整ワークショップ
   zh: 脈輪調整工作坊
-date: 2026-03-08T15:00:00.000Z
+eventDate: 2026-06-17
+endDate: 2026-06-17
 location: Hong Kong — Central
-summary_en: >-
-  A half-day in-person workshop exploring the seven main chakras
+summary_en: A half-day in-person workshop exploring the seven main chakras
   through breath, sound, and gentle movement.
-summary_jp: >-
-  呼吸、音、優しい動きを通じて七つの主要チャクラを探求する、対面式の
-  半日ワークショップ。
-summary_zh: >-
-  半日實體工作坊，透過呼吸、聲音與輕柔的動作，探索七大主要脈輪。
+summary_jp: 呼吸、音、優しい動きを通じて七つの主要チャクラを探求する、対面式の 半日ワークショップ。
+summary_zh: 半日實體工作坊，透過呼吸、聲音與輕柔的動作，探索七大主要脈輪。
 body_en: |-
   An intimate half-day workshop for up to 12 participants. We'll move
   through the seven main chakras with breath, sound, and gentle
@@ -27,4 +24,3 @@ body_zh: |-
   逐一走過七大主要脈輪，讓你身心更清明、與身體的智慧更同頻。
 registrationUrl: https://example.com/chakra-workshop-mar-2026
 ---
-
