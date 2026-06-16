@@ -38,4 +38,21 @@ export default {
     label: '語言',
     skipToContent: '跳至主要內容',
   },
+
+  blog: {
+    tabs: {
+      articles: '網誌',
+      events: '活動・工作坊',
+    },
+    events: {
+      heading: '即將舉行的活動與工作坊',
+      subtitle: '團體療癒、工作坊與特別聚會。名額有限，請及早報名。',
+      past: '已結束',
+      upcoming: '即將舉行',
+      noUpcoming: '目前沒有即將舉行的活動，請稍後再查看。',
+      noEvents: '暫無活動。',
+      register: '立即報名',
+      learnMore: '了解更多',
+    },
+  },
 } as const;

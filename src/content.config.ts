@@ -77,9 +77,9 @@ const services = defineCollection({
     through_session_en: z.string().optional().default(''),
     through_session_jp: z.string().optional().default(''),
     through_session_zh: z.string().optional().default(''),
-    recommended_en: z.array(z.string()).optional().default([]),
-    recommended_jp: z.array(z.string()).optional().default([]),
-    recommended_zh: z.array(z.string()).optional().default([]),
+    recommended_en: z.string().optional().default(''),
+    recommended_jp: z.string().optional().default(''),
+    recommended_zh: z.string().optional().default(''),
     // Sub-offerings (each = its own card on the detail page, with
     // per-locale title / description / bullets / duration / price).
     // Optional + defaulting to [] so the 6 generic homepage-only
@@ -107,6 +107,44 @@ const services = defineCollection({
       currency_jp: z.string().optional().default('¥'),
       currency_zh: z.string().optional().default('HK$'),
     })).optional().default([]),
+  }),
+});
+
+// Events / workshops shown on the Blog page's "Events" tab. Each event
+// has a per-locale title, a single date, an optional location, a per-
+// locale short summary used on the listing card, and a per-locale
+// Markdown body used on the (optional) detail page.
+const events = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/events' }),
+  schema: z.object({
+    slug: z.string(),
+    title: z.object({
+      en: z.string(),
+      jp: z.string(),
+      zh: z.string().optional().default(''),
+    }),
+    // Event date. The listing page sorts by this; past events are
+    // still listed but shown after upcoming ones, with a "past" label.
+    date: z.coerce.date(),
+    // Optional end date (for multi-day events). If omitted the event
+    // is treated as a single-day event on `date`.
+    endDate: z.coerce.date().optional(),
+    // Free-form location string ("Online via Zoom", "Hong Kong", etc.).
+    location: z.string().optional().default(''),
+    // Short summary used on the listing card (per locale, body kept on
+    // the detail page).
+    summary_en: z.string().optional().default(''),
+    summary_jp: z.string().optional().default(''),
+    summary_zh: z.string().optional().default(''),
+    // Long-form Markdown body (per locale, falls back like other
+    // per-locale fields). Stored as YAML literal block scalar.
+    body_en: z.string().optional().default(''),
+    body_jp: z.string().optional().default(''),
+    body_zh: z.string().optional().default(''),
+    // Cover image path under /uploads/.
+    cover: z.string().optional(),
+    // Optional registration / external link.
+    registrationUrl: z.string().optional(),
   }),
 });
 
@@ -149,4 +187,4 @@ const about = defineCollection({
   }),
 });
 
-export const collections = { blog, testimonials, services, about };
+export const collections = { blog, testimonials, services, events, about };

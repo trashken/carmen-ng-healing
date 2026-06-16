@@ -97,25 +97,16 @@
       "type": "string"
     },
     "recommended_en": {
-      "default": [],
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
+      "default": "",
+      "type": "string"
     },
     "recommended_jp": {
-      "default": [],
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
+      "default": "",
+      "type": "string"
     },
     "recommended_zh": {
-      "default": [],
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
+      "default": "",
+      "type": "string"
     },
     "offerings": {
       "default": [],

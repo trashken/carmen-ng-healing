@@ -39,4 +39,22 @@ export default {
     label: '言語',
     skipToContent: '本文へスキップ',
   },
+
+  blog: {
+    tabs: {
+      articles: 'ブログ',
+      events: 'イベント・ワークショップ',
+    },
+    events: {
+      heading: '今後のイベント・ワークショップ',
+      subtitle:
+        'グループセッション、ワークショップ、特別イベント。お早めにお申し込みください。',
+      past: '終了',
+      upcoming: '開催予定',
+      noUpcoming: '現在予定されているイベントはありません。最新情報をお待ちください。',
+      noEvents: 'イベントはまだありません。',
+      register: 'お申し込み',
+      learnMore: '詳細を見る',
+    },
+  },
 } as const;

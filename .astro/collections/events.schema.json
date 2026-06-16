@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "slug": {
+      "type": "string"
+    },
+    "title": {
+      "type": "object",
+      "properties": {
+        "en": {
+          "type": "string"
+        },
+        "jp": {
+          "type": "string"
+        },
+        "zh": {
+          "default": "",
+          "type": "string"
+        }
+      },
+      "required": [
+        "en",
+        "jp"
+      ]
+    },
+    "date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "endDate": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "location": {
+      "default": "",
+      "type": "string"
+    },
+    "summary_en": {
+      "default": "",
+      "type": "string"
+    },
+    "summary_jp": {
+      "default": "",
+      "type": "string"
+    },
+    "summary_zh": {
+      "default": "",
+      "type": "string"
+    },
+    "body_en": {
+      "default": "",
+      "type": "string"
+    },
+    "body_jp": {
+      "default": "",
+      "type": "string"
+    },
+    "body_zh": {
+      "default": "",
+      "type": "string"
+    },
+    "cover": {
+      "type": "string"
+    },
+    "registrationUrl": {
+      "type": "string"
+    },
+    "$schema": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "slug",
+    "title",
+    "date"
+  ]
+}

@@ -24,7 +24,7 @@ const tagline = d[taglineField] || d.tagline_en;
 const intro = d[introField] || d.intro_en;
 const whatWeDo = d[whatField] || d.what_we_do_en;
 const throughSession = d[throughField] || d.through_session_en;
-const recommended = d[recommendedField]?.length ? d[recommendedField] : d.recommended_en;
+const recommended = d[recommendedField] || d.recommended_en;
 const isFallback = d[taglineField] === '' && d.tagline_en !== '';
 
 const colorClasses: Record<'rose' | 'lavender' | 'sky' | 'peach', { bg: string; text: string; ring: string }> = {
@@ -116,17 +116,10 @@ const copy = {
   </section>
 )}
 
-{recommended && recommended.length > 0 && (
+{recommended && (
   <section class="mb-12 max-w-3xl">
     <h2 class="font-serif text-2xl text-ink mb-4">{copy.recommendedFor}</h2>
-    <ul class="space-y-2 text-ink-light leading-relaxed">
-      {recommended.map((item) => (
-        <li class="flex gap-3">
-          <span class={`${cc.text} mt-2 flex-shrink-0`}>•</span>
-          <span>{item}</span>
-        </li>
-      ))}
-    </ul>
+    <p class="text-ink-light leading-relaxed whitespace-pre-line">{recommended}</p>
   </section>
 )}
 

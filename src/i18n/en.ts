@@ -39,6 +39,24 @@ export default {
     label: 'Language',
     skipToContent: 'Skip to content',
   },
+
+  blog: {
+    tabs: {
+      articles: 'Blog',
+      events: 'Events & Workshops',
+    },
+    events: {
+      heading: 'Upcoming Events & Workshops',
+      subtitle:
+        'Group sessions, workshops, and special gatherings. Save your spot early.',
+      past: 'Past',
+      upcoming: 'Upcoming',
+      noUpcoming: 'No upcoming events right now — check back soon.',
+      noEvents: 'No events yet.',
+      register: 'Register',
+      learnMore: 'Learn more',
+    },
+  },
 } as const;
 
 export type Dictionary = typeof import('./en').default;

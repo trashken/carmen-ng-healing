@@ -136,6 +136,14 @@ declare module 'astro:content' {
   rendered?: RenderedContent;
   filePath?: string;
 }>;
+"events": Record<string, {
+  id: string;
+  body?: string;
+  collection: "events";
+  data: InferEntrySchema<"events">;
+  rendered?: RenderedContent;
+  filePath?: string;
+}>;
 "services": Record<string, {
   id: string;
   body?: string;

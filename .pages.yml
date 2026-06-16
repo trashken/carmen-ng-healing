@@ -198,7 +198,118 @@ content:
             label: 中文 (Traditional Chinese)      
       - name: body
         type: rich-text
-        label: Testimonial text        
+        label: Testimonial text
+
+  # ---------------------------------------------------------------------------
+  # Events / Workshops
+  # ---------------------------------------------------------------------------
+  # One Markdown file per event, in src/content/events/{slug}.md.
+  # Each event has a single date, optional end date, optional location,
+  # and per-locale title / summary / body. Shown on the Blog page's
+  # "Events & Workshops" tab. Past events are still listed but visually
+  # de-emphasized (lower opacity + "Past" label) and the registration
+  # link is hidden.
+  # ---------------------------------------------------------------------------
+
+  - name: events
+    label: Events & Workshops
+    type: collection
+    path: src/content/events
+    filename: '{slug}.md'
+    format: yaml-frontmatter
+    view:
+      fields: [date, title, location]
+      primary: title
+      sort: [date]
+      default:
+        sort: date
+        order: asc
+    fields:
+      - name: slug
+        type: string
+        label: URL slug
+        description: >-
+          Lowercase, hyphen-separated. Used as the filename (e.g.
+          "sound-bath-january-2026" → /src/content/events/sound-bath-january-2026.md).
+        options:
+          maxlength: 80
+      - name: title
+        type: object
+        label: Event title
+        description: >-
+          Per-locale title. JP and EN are required; ZH is optional and
+          falls back to JP when empty.
+        fields:
+          - name: en
+            type: string
+            label: Title (English)
+          - name: jp
+            type: string
+            label: Title (Japanese)
+          - name: zh
+            type: string
+            label: Title (Traditional Chinese)
+      - name: date
+        type: date
+        label: Event date
+        description: >-
+          The start date/time of the event. The Events tab lists events
+          in chronological order; past events are shown after upcoming
+          ones and visually de-emphasized.
+        options:
+          format: yyyy-MM-dd
+      - name: endDate
+        type: date
+        label: End date (optional)
+        description: >-
+          For multi-day events. Leave empty for single-day events.
+        options:
+          format: yyyy-MM-dd
+      - name: location
+        type: string
+        label: Location
+        description: >-
+          Free-form text shown on the event card (e.g. "Online via
+          Zoom", "Hong Kong — Central").
+      - name: summary_en
+        type: text
+        label: Short summary (English)
+        description: >-
+          1-2 sentence summary shown on the Events tab card. Optional;
+          if empty, the first paragraph of the body is used.
+      - name: summary_jp
+        type: text
+        label: Short summary (Japanese)
+      - name: summary_zh
+        type: text
+        label: Short summary (Traditional Chinese)
+      - name: body_en
+        type: rich-text
+        label: Long description (English)
+        options:
+          format: markdown
+      - name: body_jp
+        type: rich-text
+        label: Long description (Japanese)
+        options:
+          format: markdown
+      - name: body_zh
+        type: rich-text
+        label: Long description (Traditional Chinese)
+        options:
+          format: markdown
+      - name: cover
+        type: string
+        label: Cover image path
+        description: >-
+          Public path under /uploads/ (e.g. /uploads/sound-bath.jpg).
+          Shown at the top of the event card. Optional.
+      - name: registrationUrl
+        type: string
+        label: Registration URL
+        description: >-
+          External link (e.g. Eventbrite). Shown as a "Register" button
+          on upcoming events; hidden once the event date has passed.
 
   # ---------------------------------------------------------------------------
   # Services
