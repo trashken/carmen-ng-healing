@@ -218,11 +218,11 @@ content:
     filename: '{slug}.md'
     format: yaml-frontmatter
     view:
-      fields: [date, title, location]
+      fields: [eventDate, title, location]
       primary: title
-      sort: [date]
+      sort: [eventDate]
       default:
-        sort: date
+        sort: eventDate
         order: asc
     fields:
       - name: slug
@@ -249,9 +249,9 @@ content:
           - name: zh
             type: string
             label: Title (Traditional Chinese)
-      - name: date
+      - name: eventDate
         type: date
-        label: Event date
+        label: Event Date
         description: >-
           The start date/time of the event. The Events tab lists events
           in chronological order; past events are shown after upcoming
