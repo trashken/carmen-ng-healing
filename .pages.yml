@@ -332,18 +332,7 @@ content:
       fields: [title.en, title.zh, title.jp ]
       primary: title.en
       sort: [ title.en]      
-    fields:
-      - name: title
-        component: t_string        
-      - name: title_en
-        type: string
-        label: Title (English)
-      - name: title_jp
-        type: string
-        label: Title (Japanese)
-      - name: title_zh
-        type: string
-        label: Title (Traditional Chinese)
+    fields:      
       - name: subtitle_en
         type: string
         label: Subtitle (English)
