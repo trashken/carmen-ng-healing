@@ -14,6 +14,7 @@ export default {
     home: '首頁',
     blog: '網誌',
     about: '關於我',
+    events: '活動',
     testimonials: '客戶分享',
     contact: '聯絡',
     bookSession: '預約療程',
@@ -39,20 +40,17 @@ export default {
     skipToContent: '跳至主要內容',
   },
 
-  blog: {
-    tabs: {
-      articles: '網誌',
-      events: '活動・工作坊',
-    },
-    events: {
-      heading: '即將舉行的活動與工作坊',
-      subtitle: '團體療癒、工作坊與特別聚會。名額有限，請及早報名。',
-      past: '已結束',
-      upcoming: '即將舉行',
-      noUpcoming: '目前沒有即將舉行的活動，請稍後再查看。',
-      noEvents: '暫無活動。',
-      register: '立即報名',
-      learnMore: '了解更多',
-    },
+  events: {
+    heading: '活動・工作坊',
+    subtitle: '團體療癒、工作坊與特別聚會。點擊活動以查看詳情。',
+    past: '已結束',
+    upcoming: '即將舉行',
+    noEvents: '目前沒有活動，請稍後再查看。',
+    register: '立即報名',
+    registerCta: '報名此活動',
+    details: '詳情',
+    location: '地點',
+    date: '日期',
+    moreInfo: '了解更多',
   },
 } as const;

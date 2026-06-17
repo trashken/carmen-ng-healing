@@ -1,0 +1,156 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { getCollection, render } from 'astro:content';
+import { getDictionary, type Locale } from '../../../i18n';
+
+const locale: Locale = 'jp';
+const t = getDictionary(locale);
+
+const allEvents = await getCollection('events');
+const sortedEvents = allEvents.sort(
+  (a, b) => a.data.date.valueOf() - b.data.date.valueOf(),
+);
+const isPast = (iso: Date) => iso.getTime() < Date.now();
+const formatEventDate = (iso: Date) =>
+  iso.toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' });
+const formatEventTime = (iso: Date) =>
+  iso.toLocaleTimeString('ja-JP', { hour: 'numeric', minute: '2-digit', hour12: false });
+
+const rendered = await Promise.all(
+  sortedEvents.map(async (entry) => {
+    return {
+      entry,
+      Content: entry.data.body_jp ? (await render(entry)).Content : null,
+      summary: entry.data.summary_jp,
+    };
+  }),
+);
+---
+
+<Layout title={`${t.nav.events} | ${t.meta.siteName}`} description={t.events.subtitle} locale={locale}>
+  <section class="py-20 bg-gradient-to-b from-blush to-warm-white">
+    <div class="max-w-3xl mx-auto px-6">
+      <p class="text-rose font-serif text-center text-lg italic mb-2">{t.nav.events}</p>
+      <h1 class="section-title">{t.events.heading}</h1>
+      <p class="section-subtitle">{t.events.subtitle}</p>
+
+      {rendered.length === 0 ? (
+        <p class="text-center text-ink-light/60 italic mt-12">{t.events.noEvents}</p>
+      ) : (
+        <div class="mt-12 space-y-4">
+          {rendered.map(({ entry, Content, summary }) => {
+            const past = isPast(entry.data.date);
+            const title = entry.data.title.jp;
+            return (
+              <details class="group rounded-2xl border border-rose/15 bg-warm-white shadow-sm overflow-hidden">
+                <summary class="cursor-pointer list-none px-6 py-5 flex items-center gap-4 hover:bg-rose/5 transition-colors">
+                  <div class="flex-1 min-w-0">
+                    <div class="flex items-center gap-2 mb-2">
+                      <span class={`text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full ${past ? 'bg-ink/10 text-ink-light' : 'bg-rose/10 text-rose'}`}>
+                        {past ? t.events.past : t.events.upcoming}
+                      </span>
+                      {entry.data.location && (
+                        <span class="text-[10px] uppercase tracking-wider text-ink-light/60 truncate">
+                          {entry.data.location}
+                        </span>
+                      )}
+                    </div>
+                    <h2 class="font-serif text-lg text-ink leading-snug">{title}</h2>
+                    <p class="text-xs text-ink-light/70 mt-1">
+                      <time datetime={entry.data.date.toISOString()}>
+                        {formatEventDate(entry.data.date)}{formatEventTime(entry.data.date) ? ` · ${formatEventTime(entry.data.date)}` : ''}
+                      </time>
+                      {entry.data.endDate && (
+                        <>
+                          {' 〜 '}
+                          <time datetime={entry.data.endDate.toISOString()}>
+                            {formatEventDate(entry.data.endDate)}
+                          </time>
+                        </>
+                      )}
+                    </p>
+                  </div>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="text-ink-light transition-transform group-open:rotate-180 flex-shrink-0"
+                    aria-hidden="true"
+                  >
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </summary>
+                <div class="px-6 pb-6 border-t border-rose/10">
+                  <div class="pt-5 space-y-5">
+                    {entry.data.cover && (
+                      <img
+                        src={entry.data.cover}
+                        alt=""
+                        loading="lazy"
+                        class="w-full max-h-72 object-cover rounded-xl"
+                      />
+                    )}
+
+                    <dl class="grid sm:grid-cols-2 gap-4 text-sm">
+                      <div>
+                        <dt class="text-[10px] uppercase tracking-wider text-ink-light/60 mb-1">{t.events.date}</dt>
+                        <dd class="text-ink">
+                          <time datetime={entry.data.date.toISOString()}>
+                            {formatEventDate(entry.data.date)}
+                          </time>
+                          {entry.data.endDate && (
+                            <>
+                              {' 〜 '}
+                              <time datetime={entry.data.endDate.toISOString()}>
+                                {formatEventDate(entry.data.endDate)}
+                              </time>
+                            </>
+                          )}
+                        </dd>
+                      </div>
+                      {entry.data.location && (
+                        <div>
+                          <dt class="text-[10px] uppercase tracking-wider text-ink-light/60 mb-1">{t.events.location}</dt>
+                          <dd class="text-ink">{entry.data.location}</dd>
+                        </div>
+                      )}
+                    </dl>
+
+                    {summary && (
+                      <p class="text-ink-light leading-relaxed whitespace-pre-line">{summary}</p>
+                    )}
+
+                    {Content && (
+                      <div class="prose prose-sm max-w-none text-ink-light leading-relaxed whitespace-pre-line">
+                        <Content />
+                      </div>
+                    )}
+
+                    {entry.data.registrationUrl && !past && (
+                      <div class="pt-2">
+                        <a
+                          href={entry.data.registrationUrl}
+                          target="_blank"
+                          rel="noopener"
+                          class="btn-primary text-sm px-6 py-2.5 inline-flex"
+                        >
+                          {t.events.registerCta} →
+                        </a>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </details>
+            );
+          })}
+        </div>
+      )}
+    </div>
+  </section>
+</Layout>

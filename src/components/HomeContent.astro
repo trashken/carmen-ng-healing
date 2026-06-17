@@ -9,15 +9,17 @@ export interface Props {
 const { locale } = Astro.props;
 
 const allServices = await getCollection('services');
+const pickL10n = (s: { en: string; jp: string; zh?: string }) =>
+  locale === 'en' ? s.en : (locale === 'jp' ? s.jp : (s.zh || s.jp));
 const services = allServices
   .sort((a, b) => a.data.order - b.data.order)
   .map((entry) => ({
     slug: entry.id.replace(/\.md$/, ''),
     icon: entry.data.icon,
     color: entry.data.color,
-    title: locale === 'en' ? entry.data.title_en : (locale === 'jp' ? entry.data.title_jp : (entry.data.title_zh || entry.data.title_jp)),
-    subtitle: locale === 'en' ? entry.data.subtitle_en : (locale === 'jp' ? entry.data.subtitle_jp : (entry.data.subtitle_zh || entry.data.subtitle_jp)),
-    description: locale === 'en' ? entry.data.desc_en : (locale === 'jp' ? entry.data.desc_jp : (entry.data.desc_zh || entry.data.desc_jp)),
+    title: pickL10n(entry.data.title),
+    subtitle: pickL10n(entry.data.subtitle),
+    description: pickL10n(entry.data.desc),
     hasDetail: (entry.data.offerings?.length ?? 0) > 0,
   }));
 

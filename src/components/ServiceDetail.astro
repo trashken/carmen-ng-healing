@@ -10,22 +10,22 @@ export interface Props {
 const { locale, entry } = Astro.props;
 const d = entry.data;
 
-const titleField = `title_${locale === 'en' ? 'en' : locale === 'jp' ? 'jp' : 'zh'}` as 'title_en' | 'title_jp' | 'title_zh';
-const subtitleField = `subtitle_${locale === 'en' ? 'en' : locale === 'jp' ? 'jp' : 'zh'}` as 'subtitle_en' | 'subtitle_jp' | 'subtitle_zh';
-const taglineField = `tagline_${locale === 'en' ? 'en' : locale === 'jp' ? 'jp' : 'zh'}` as 'tagline_en' | 'tagline_jp' | 'tagline_zh';
-const introField = `intro_${locale === 'en' ? 'en' : locale === 'jp' ? 'jp' : 'zh'}` as 'intro_en' | 'intro_jp' | 'intro_zh';
-const whatField = `what_we_do_${locale === 'en' ? 'en' : locale === 'jp' ? 'jp' : 'zh'}` as 'what_we_do_en' | 'what_we_do_jp' | 'what_we_do_zh';
-const throughField = `through_session_${locale === 'en' ? 'en' : locale === 'jp' ? 'jp' : 'zh'}` as 'through_session_en' | 'through_session_jp' | 'through_session_zh';
-const recommendedField = `recommended_${locale === 'en' ? 'en' : locale === 'jp' ? 'jp' : 'zh'}` as 'recommended_en' | 'recommended_jp' | 'recommended_zh';
+const pickL10n = (s?: { en: string; jp: string; zh?: string }) => {
+  if (!s) return '';
+  if (locale === 'en') return s.en;
+  if (locale === 'jp') return s.jp;
+  return s.zh || s.jp;
+};
 
-const title = d[titleField] || d.title_en;
-const subtitle = d[subtitleField] || d.subtitle_en;
-const tagline = d[taglineField] || d.tagline_en;
-const intro = d[introField] || d.intro_en;
-const whatWeDo = d[whatField] || d.what_we_do_en;
-const throughSession = d[throughField] || d.through_session_en;
-const recommended = d[recommendedField] || d.recommended_en;
-const isFallback = d[taglineField] === '' && d.tagline_en !== '';
+const title = pickL10n(d.title) || d.title.en;
+const subtitle = pickL10n(d.subtitle) || d.subtitle.en;
+const tagline = pickL10n(d.tagline);
+const intro = pickL10n(d.intro);
+const whatWeDo = pickL10n(d.what_we_do);
+const throughSession = pickL10n(d.through_session);
+const recommended = pickL10n(d.recommended);
+const isFallback =
+  (d.tagline?.jp === '' || d.tagline?.jp == null) && d.tagline?.en !== '';
 
 const colorClasses: Record<'rose' | 'lavender' | 'sky' | 'peach', { bg: string; text: string; ring: string }> = {
   rose:     { bg: 'bg-rose/10',     text: 'text-rose',     ring: 'ring-rose/20' },
@@ -128,12 +128,12 @@ const copy = {
     <h2 class="font-serif text-2xl text-ink mb-6">{copy.offerings}</h2>
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
       {d.offerings.map((o) => {
-        const oTitle = (locale === 'jp' ? o.title_jp : (locale === 'zh' ? (o.title_zh || o.title_jp) : o.title_en)) || o.title_en;
-        const oDesc = (locale === 'jp' ? o.desc_jp : (locale === 'zh' ? (o.desc_zh || o.desc_jp) : o.desc_en)) || o.desc_en;
-        const oBullets = (locale === 'jp' ? o.bullets_jp : (locale === 'zh' ? (o.bullets_zh || o.bullets_jp) : o.bullets_en)) || o.bullets_en;
-        const oDuration = (locale === 'jp' ? o.duration_jp : (locale === 'zh' ? (o.duration_zh || o.duration_jp) : o.duration_en)) || o.duration_en;
-        const oCurrency = (locale === 'jp' ? o.currency_jp : (locale === 'zh' ? o.currency_zh : o.currency_en)) || o.currency_en;
-        const oPrice = (locale === 'jp' ? o.price_jp : (locale === 'zh' ? o.price_zh : o.price_en)) || 0;
+        const oTitle = pickL10n(o.title) || o.title.en;
+        const oDesc = pickL10n(o.desc);
+        const oBullets = (locale === 'jp' ? o.bullets?.jp : (locale === 'zh' ? (o.bullets?.zh || o.bullets?.jp || []) : (o.bullets?.en || []))) ?? [];
+        const oDuration = pickL10n(o.duration);
+        const oCurrency = (locale === 'jp' ? o.currency?.jp : (locale === 'zh' ? (o.currency?.zh || o.currency?.jp || 'HK$') : (o.currency?.en || 'US$')));
+        const oPrice = (locale === 'jp' ? o.price?.jp : (locale === 'zh' ? (o.price?.zh ?? o.price?.jp ?? 0) : (o.price?.en ?? 0))) ?? 0;
         return (
           <div class={`card ring-1 ${cc.ring} flex flex-col`}>
             <h3 class="font-serif text-lg text-ink mb-2">{oTitle}</h3>

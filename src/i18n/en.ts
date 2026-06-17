@@ -14,6 +14,7 @@ export default {
     home: 'Home',
     blog: 'Blog',
     about: 'About',
+    events: 'Events',
     testimonials: 'Testimonials',
     contact: 'Contact',
     bookSession: 'Book a Session',
@@ -40,22 +41,19 @@ export default {
     skipToContent: 'Skip to content',
   },
 
-  blog: {
-    tabs: {
-      articles: 'Blog',
-      events: 'Events & Workshops',
-    },
-    events: {
-      heading: 'Upcoming Events & Workshops',
-      subtitle:
-        'Group sessions, workshops, and special gatherings. Save your spot early.',
-      past: 'Past',
-      upcoming: 'Upcoming',
-      noUpcoming: 'No upcoming events right now — check back soon.',
-      noEvents: 'No events yet.',
-      register: 'Register',
-      learnMore: 'Learn more',
-    },
+  events: {
+    heading: 'Events & Workshops',
+    subtitle:
+      'Group sessions, workshops, and special gatherings. Click an event for full details.',
+    past: 'Past',
+    upcoming: 'Upcoming',
+    noEvents: 'No events yet — check back soon.',
+    register: 'Register',
+    registerCta: 'Register for this event',
+    details: 'Details',
+    location: 'Location',
+    date: 'Date',
+    moreInfo: 'More info',
   },
 } as const;
 

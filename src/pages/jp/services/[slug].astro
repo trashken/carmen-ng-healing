@@ -7,7 +7,7 @@ import { getDictionary } from '../../../i18n';
 export async function getStaticPaths() {
   const all = await getCollection('services');
   return all
-    .filter((entry) => entry.data.intro_en !== '' || entry.data.offerings.length > 0)
+    .filter((entry) => entry.data.intro?.en !== '' || entry.data.offerings.length > 0)
     .map((entry) => ({
       params: { slug: entry.id.replace(/\.md$/, '') },
       props: { entry },
@@ -17,7 +17,7 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const t = getDictionary('jp');
 const title = entry.data.title.jp;
-const description = entry.data.desc_jp;
+const description = entry.data.desc.jp;
 ---
 
 <Layout title={`${title} | ${t.meta.siteName}`} description={description} locale="jp">

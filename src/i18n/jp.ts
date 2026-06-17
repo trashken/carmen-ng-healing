@@ -14,6 +14,7 @@ export default {
     home: 'ホーム',
     blog: 'ブログ',
     about: 'プロフィール',
+    events: 'イベント',
     testimonials: 'お客様の声',
     contact: 'お問い合わせ',
     bookSession: 'セッションを予約',
@@ -40,21 +41,18 @@ export default {
     skipToContent: '本文へスキップ',
   },
 
-  blog: {
-    tabs: {
-      articles: 'ブログ',
-      events: 'イベント・ワークショップ',
-    },
-    events: {
-      heading: '今後のイベント・ワークショップ',
-      subtitle:
-        'グループセッション、ワークショップ、特別イベント。お早めにお申し込みください。',
-      past: '終了',
-      upcoming: '開催予定',
-      noUpcoming: '現在予定されているイベントはありません。最新情報をお待ちください。',
-      noEvents: 'イベントはまだありません。',
-      register: 'お申し込み',
-      learnMore: '詳細を見る',
-    },
+  events: {
+    heading: 'イベント・ワークショップ',
+    subtitle:
+      'グループセッション、ワークショップ、特別イベント。クリックで詳細を表示します。',
+    past: '終了',
+    upcoming: '開催予定',
+    noEvents: '現在予定されているイベントはありません。',
+    register: 'お申し込み',
+    registerCta: 'このイベントに申し込む',
+    details: '詳細',
+    location: '場所',
+    date: '日時',
+    moreInfo: '詳細を見る',
   },
 } as const;

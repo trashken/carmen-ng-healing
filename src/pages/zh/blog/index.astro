@@ -10,15 +10,8 @@ const allPosts = await getCollection('blog');
 const sortedPosts = allPosts.sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
 );
-const allEvents = await getCollection('events');
-const sortedEvents = allEvents.sort(
-  (a, b) => a.data.date.valueOf() - b.data.date.valueOf(),
-);
 const formatDate = (iso: Date) =>
   iso.toLocaleDateString('zh-Hant', { year: 'numeric', month: 'long', day: 'numeric' });
-const formatEventDate = (iso: Date) =>
-  iso.toLocaleDateString('zh-Hant', { year: 'numeric', month: 'long', day: 'numeric' });
-const isPast = (iso: Date) => iso.getTime() < Date.now();
 ---
 
 <Layout title={`${t.nav.blog} | ${t.meta.siteName}`} locale={locale}>
@@ -28,138 +21,52 @@ const isPast = (iso: Date) => iso.getTime() < Date.now();
       <h1 class="section-title">{t.nav.blog}</h1>
       <p class="section-subtitle">關於療癒、靈性與正念生活的反思。</p>
 
-      <div id="blog-tabs" class="flex justify-center gap-4 mb-12" role="tablist">
-        <button
-          type="button"
-          role="tab"
-          data-tab="articles"
-          aria-selected="true"
-          class="tab px-6 py-2 rounded-full bg-rose text-white text-sm"
-        >
-          {t.blog.tabs.articles}
-        </button>
-        <button
-          type="button"
-          role="tab"
-          data-tab="events"
-          aria-selected="false"
-          class="tab px-6 py-2 rounded-full border border-rose/30 text-ink-light text-sm hover:bg-rose/5"
-        >
-          {t.blog.tabs.events}
-        </button>
+      <div class="flex justify-center gap-4 mb-12">
+        <a id="tab-all" href="/zh/blog" class="tab px-6 py-2 rounded-full bg-rose text-white text-sm">全部文章</a>
+        <a id="tab-news" href="/zh/blog?category=news" class="tab px-6 py-2 rounded-full border border-rose/30 text-ink-light text-sm hover:bg-rose/5">最新消息</a>
       </div>
 
-      <div id="panel-articles" role="tabpanel" data-panel="articles">
-        <div id="post-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {sortedPosts.map((post) => (
-            <article class="card group" data-category={post.data.category}>
-              <a href={`/zh/blog/${post.data.slug}`} class="block">
-                <div class="w-full h-44 rounded-xl mb-5 overflow-hidden bg-gradient-to-br from-sky-light/40 to-lavender-light/40 relative">
-                  {post.data.cover
-                    ? <img src={post.data.cover} alt="" loading="lazy" class="w-full h-full object-cover" />
-                    : <div class="w-full h-full flex items-center justify-center">
-                        {post.data.video
-                          ? <span class="text-3xl opacity-30">▶</span>
-                          : <span class="text-3xl opacity-20">✦</span>
-                        }
-                      </div>
-                  }
-                  {post.data.video && (
-                    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-                      <span class="w-12 h-12 rounded-full bg-ink/60 text-white text-2xl flex items-center justify-center">▶</span>
+      <div id="post-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {sortedPosts.map((post) => (
+          <article class="card group" data-category={post.data.category}>
+            <a href={`/zh/blog/${post.data.slug}`} class="block">
+              <div class="w-full h-44 rounded-xl mb-5 overflow-hidden bg-gradient-to-br from-sky-light/40 to-lavender-light/40 relative">
+                {post.data.cover
+                  ? <img src={post.data.cover} alt="" loading="lazy" class="w-full h-full object-cover" />
+                  : <div class="w-full h-full flex items-center justify-center">
+                      {post.data.video
+                        ? <span class="text-3xl opacity-30">▶</span>
+                        : <span class="text-3xl opacity-20">✦</span>
+                      }
                     </div>
-                  )}
-                </div>
-                <p class="text-xs text-rose tracking-wider uppercase mb-2">
-                  {post.data.category === 'news' ? '最新消息' : '文章'}
+                }
+                {post.data.video && (
+                  <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                    <span class="w-12 h-12 rounded-full bg-ink/60 text-white text-2xl flex items-center justify-center">▶</span>
+                  </div>
+                )}
+              </div>
+              <p class="text-xs text-rose tracking-wider uppercase mb-2">
+                {post.data.category === 'news' ? '最新消息' : '文章'}
+              </p>
+              <h2 class="font-serif text-lg mb-2 group-hover:text-rose transition-colors">
+                {post.data.title.zh || post.data.title.jp}
+              </h2>
+              {post.data.body_zh && (
+                <p class="text-ink-light text-sm leading-relaxed mb-4 line-clamp-3 whitespace-pre-line">
+                  {post.data.body_zh.split('\n')[0].slice(0, 100)}…
                 </p>
-                <h2 class="font-serif text-lg mb-2 group-hover:text-rose transition-colors">
-                  {post.data.title.zh || post.data.title.jp}
-                </h2>
-                {post.data.body_zh && (
-                  <p class="text-ink-light text-sm leading-relaxed mb-4 line-clamp-3 whitespace-pre-line">
-                    {post.data.body_zh.split('\n')[0].slice(0, 100)}…
-                  </p>
-                )}
-                {!post.data.body_zh && (
-                  <p class="text-ink-light/60 text-sm italic mb-4">中文翻譯準備中 / Japanese only</p>
-                )}
-                <div class="flex items-center justify-between">
-                  <span class="text-xs text-ink-light/60">{formatDate(post.data.date)}</span>
-                  <span class="text-rose text-sm group-hover:underline">閱讀全文 →</span>
-                </div>
-              </a>
-            </article>
-          ))}
-        </div>
-      </div>
-
-      <div id="panel-events" role="tabpanel" data-panel="events" class="hidden">
-        <div class="text-center max-w-2xl mx-auto mb-10">
-          <h2 class="font-serif text-2xl text-ink mb-2">{t.blog.events.heading}</h2>
-          <p class="text-ink-light/80 text-sm">{t.blog.events.subtitle}</p>
-        </div>
-        {sortedEvents.length === 0 ? (
-          <p class="text-center text-ink-light/60 italic">{t.blog.events.noEvents}</p>
-        ) : (
-          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {sortedEvents.map((event) => {
-              const past = isPast(event.data.date);
-              const summary = event.data.summary_zh || event.data.summary_jp || '';
-              const title = event.data.title.zh || event.data.title.jp;
-              return (
-                <article class={`card group flex flex-col ${past ? 'opacity-70' : ''}`} data-past={past ? 'true' : 'false'}>
-                  <div class="flex items-center gap-2 mb-3">
-                    <span class={`text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full ${past ? 'bg-ink/10 text-ink-light' : 'bg-rose/10 text-rose'}`}>
-                      {past ? t.blog.events.past : t.blog.events.upcoming}
-                    </span>
-                    {event.data.location && (
-                      <span class="text-[10px] uppercase tracking-wider text-ink-light/60">
-                        {event.data.location}
-                      </span>
-                    )}
-                  </div>
-                  <h3 class="font-serif text-lg text-ink mb-2 group-hover:text-rose transition-colors">
-                    {title}
-                  </h3>
-                  <p class="text-xs text-ink-light/70 mb-3">
-                    <time datetime={event.data.date.toISOString()}>
-                      {formatEventDate(event.data.date)}
-                    </time>
-                    {event.data.endDate && (
-                      <>
-                        {' – '}
-                        <time datetime={event.data.endDate.toISOString()}>
-                          {formatEventDate(event.data.endDate)}
-                        </time>
-                      </>
-                    )}
-                  </p>
-                  {summary && (
-                    <p class="text-ink-light text-sm leading-relaxed mb-4 line-clamp-3 whitespace-pre-line">
-                      {summary}
-                    </p>
-                  )}
-                  <div class="mt-auto pt-4 border-t border-rose/10 flex items-center justify-between">
-                    <span class="text-xs text-ink-light/60">{formatEventDate(event.data.date)}</span>
-                    {event.data.registrationUrl && !past ? (
-                      <a
-                        href={event.data.registrationUrl}
-                        target="_blank"
-                        rel="noopener"
-                        class="text-rose text-sm hover:underline"
-                      >
-                        {t.blog.events.register} →
-                      </a>
-                    ) : (
-                      <span class="text-ink-light/40 text-xs italic">{t.blog.events.past}</span>
-                    )}
-                  </div>
-                </article>
-              );
-            })}
-          </div>
-        )}
+              )}
+              {!post.data.body_zh && (
+                <p class="text-ink-light/60 text-sm italic mb-4">中文翻譯準備中 / Japanese only</p>
+              )}
+              <div class="flex items-center justify-between">
+                <span class="text-xs text-ink-light/60">{formatDate(post.data.date)}</span>
+                <span class="text-rose text-sm group-hover:underline">閱讀全文 →</span>
+              </div>
+            </a>
+          </article>
+        ))}
       </div>
 
       <p id="empty-state" class="hidden text-center text-ink-light/60 italic mt-12">
@@ -170,35 +77,30 @@ const isPast = (iso: Date) => iso.getTime() < Date.now();
 </Layout>
 
 <script>
-  function activate(name: string) {
-    const tabs = document.querySelectorAll<HTMLButtonElement>('#blog-tabs [role="tab"]');
-    tabs.forEach((tab) => {
-      const isActive = tab.getAttribute('data-tab') === name;
-      tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
-      tab.className = isActive
-        ? 'tab px-6 py-2 rounded-full bg-rose text-white text-sm'
-        : 'tab px-6 py-2 rounded-full border border-rose/30 text-ink-light text-sm hover:bg-rose/5';
-    });
-    document.querySelectorAll<HTMLElement>('[data-panel]').forEach((panel) => {
-      panel.classList.toggle('hidden', panel.getAttribute('data-panel') !== name);
-    });
-  }
+  const params = new URLSearchParams(window.location.search);
+  const category = params.get('category');
+  const allTab = document.getElementById('tab-all');
+  const newsTab = document.getElementById('tab-news');
+  const grid = document.getElementById('post-grid');
+  const empty = document.getElementById('empty-state');
 
-  document.querySelectorAll<HTMLButtonElement>('#blog-tabs [role="tab"]').forEach((tab) => {
-    tab.addEventListener('click', () => {
-      const name = tab.getAttribute('data-tab');
-      if (!name) return;
-      activate(name);
-      const newHash = '#' + name;
-      if (window.location.hash !== newHash) {
-        history.replaceState(null, '', newHash);
-      }
-    });
-  });
+  if (grid && allTab && newsTab) {
+    if (category === 'news') {
+      grid.querySelectorAll<HTMLElement>('[data-category]').forEach((el) => {
+        el.style.display = el.dataset.category === 'news' ? '' : 'none';
+      });
+      allTab.className = 'tab px-6 py-2 rounded-full border border-rose/30 text-ink-light text-sm hover:bg-rose/5';
+      newsTab.className = 'tab px-6 py-2 rounded-full bg-rose text-white text-sm';
+    } else {
+      grid.querySelectorAll<HTMLElement>('[data-category]').forEach((el) => {
+        el.style.display = '';
+      });
+    }
 
-  const initial = window.location.hash.replace('#', '');
-  if (initial === 'events' || initial === 'articles') {
-    activate(initial);
+    if (empty) {
+      const visible = grid.querySelectorAll<HTMLElement>('[data-category]:not([style*="display: none"])').length;
+      empty.style.display = visible === 0 ? '' : 'none';
+    }
   }
 </script>
 
