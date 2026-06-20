@@ -709,13 +709,7 @@ content:
         label: Sign-off (Japanese)
       - name: signoff_zh
         type: text
-        label: Sign-off (Traditional Chinese)
-      - name: portrait
-        type: string
-        label: Portrait image path
-        description: >-
-          Public path under /uploads/ (e.g. /uploads/about-portrait.jpg).
-          Shown in the left column of the about page hero.
+        label: Sign-off (Traditional Chinese)      
       - name: portrait
         type: image
         label: Portrait Image
