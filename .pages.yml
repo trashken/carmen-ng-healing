@@ -719,6 +719,10 @@ content:
       - name: portrait
         type: image
         label: Portrait Image
+        options:
+          media: images
+          path: public/uploads
+          extensions: [jpg, jpeg, png, webp]
       - name: hands
         type: string
         label: Hands / second image path
