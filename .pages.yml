@@ -42,6 +42,12 @@ media:
     output: /uploads
     categories: [image]
     extensions: [jpg, jpeg, png, webp]
+  - name: assets
+    label: Asset Images
+    input: public/assets
+    output: /assets
+    categories: [image]
+    extensions: [jpg, jpeg, png, webp]
   - name: videos
     label: Blog videos
     input: public/videos
