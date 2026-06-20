@@ -401,19 +401,19 @@ content:
       primary: title.en
       sort: [ title.en]      
     fields:
-      - name: subtitle
+      - name: title
         type: object
-        label: Subtitle
+        label: Title
         fields:
           - name: en
             type: string
-            label: Subtitle (English)
+            label: Title (English)
           - name: jp
             type: string
-            label: Subtitle (Japanese)
+            label: Title (Japanese)
           - name: zh
             type: string
-            label: Subtitle (Traditional Chinese)
+            label: Title (Traditional Chinese)
       - name: desc
         type: object
         label: Description
