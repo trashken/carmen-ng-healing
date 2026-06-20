@@ -217,8 +217,8 @@ content:
     filename: '{slug}.md'
     format: yaml-frontmatter
     view:
-      fields: [order, question, date]
-      primary: question
+      fields: [order, question.en, date]
+      primary: question.en
       sort: [order]
       default:
         sort: order
