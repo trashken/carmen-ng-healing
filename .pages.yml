@@ -716,6 +716,9 @@ content:
         description: >-
           Public path under /uploads/ (e.g. /uploads/about-portrait.jpg).
           Shown in the left column of the about page hero.
+      - name: portrait
+        type: image
+        label: Portrait Image
       - name: hands
         type: string
         label: Hands / second image path
