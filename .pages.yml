@@ -443,7 +443,7 @@ content:
           cards. Leave empty to fall back to the icon.
         options:
           media: images
-          path: public/uploads
+          path: public
           extensions: [jpg, jpeg, png, webp]
       - name: color
         type: select
