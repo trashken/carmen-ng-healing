@@ -548,13 +548,13 @@ content:
             label: 'Recommended for (Traditional Chinese)'
       - name: testimonial_1
         type: text
-        label: Testimonial #1
+        label: 1st Testimonial
       - name: testimonial_2
         type: text
-        label: Testimonial #2
+        label: 2nd Testimonial
       - name: testimonial_3
         type: text
-        label: Testimonial #3
+        label: 3rd Testimonial
 
       # Sub-offerings: each becomes its own card on the detail page with
       # its own price + duration. Leave empty to keep this entry as a
