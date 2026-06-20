@@ -434,14 +434,17 @@ content:
           A single emoji or symbol character shown in the card (e.g. ✦, ♯,
           ☆, ◈). Rendered as text, so it must be a real Unicode character.
       - name: image
-        type: string
+        type: image
         label: Service image
         description: >-
           Public path to a watercolor illustration under /uploads/
           (e.g. /uploads/energy-healing-hands.jpg). When set, the image
           replaces the icon glyph on the homepage + services-index
           cards. Leave empty to fall back to the icon.
-
+        options:
+          media: images
+          path: public/uploads
+          extensions: [jpg, jpeg, png, webp]
       - name: color
         type: select
         label: Accent color
