@@ -4,6 +4,7 @@ title:
   jp: 1:1 スピリチュアル・ガイダンス
   zh: 1:1 身心靈指引
 icon: ✦
+image: /meditation-silhouette.jpg
 color: rose
 order: 1
 slug: spiritual-guidance

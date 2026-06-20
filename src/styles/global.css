@@ -1,32 +1,99 @@
 @import "tailwindcss";
 
-@theme {
-  --font-serif: 'Playfair Display', Georgia, serif;
-  --font-sans: 'Inter', system-ui, sans-serif;
+/* ---------------------------------------------------------------------
+ * Theme tokens — adapted from the source repo's Tailwind v3 config.
+ * Source: /tailwind.config.js + /src/index.css (Carmen Ng Healing
+ * Japanese-styled palette). Mapped into Tailwind v4's @theme namespace so
+ * they're available as utility classes (bg-sky, text-navy-text, etc.).
+ *
+ * Component classes below (.btn-primary, .card, .section-title, etc.) are
+ * re-themed to use the new palette and fonts. Layouts (section padding,
+ * card sizing) are unchanged from the prior theme.
+ * ------------------------------------------------------------------- */
 
-  --color-blush: #fef5f0;
-  --color-blush-light: #fff8f5;
-  --color-rose: #e8a0a0;
-  --color-rose-dark: #d47a7a;
-  --color-lavender: #c4b5d4;
-  --color-lavender-light: #e8dcef;
-  --color-sky: #a8c8e0;
-  --color-sky-light: #d0e4f0;
-  --color-peach: #f4cba8;
-  --color-peach-light: #fce4d0;
-  --color-cream: #faf6f0;
-  --color-ink: #2d2a33;
-  --color-ink-light: #5c5866;
-  --color-warm-white: #fdfbf9;
+@theme {
+  /* Fonts: the source uses 'Zen Old Mincho' for display (h1-h4) and
+     'Noto Sans JP' for body. Tailwind utilities: font-serif = display,
+     font-sans = body. */
+  --font-serif: 'Zen Old Mincho', 'Playfair Display', Georgia, serif;
+  --font-sans: 'Noto Sans JP', 'Inter', system-ui, sans-serif;
+
+  /* Sky / light blue family (used for hero gradient + light backgrounds). */
+  --color-sky: #b8dce8;
+  --color-sky-light: #e8f4f8;
+  --color-sky-bright: #7ec8e3;
+  --color-sky-pale: #f0f8fc;
+  /* Legacy aliases (used in many places already — keep so existing
+     Tailwind classes like `bg-sky-light/40` keep working). */
+  --color-sky-light-old: #d0e4f0;
+
+  /* Navy / deep blue family (used for headings, text, dark sections). */
+  --color-navy: #2c3e50;
+  --color-navy-deep: #1b3a5c;
+  --color-navy-dark: #152d48;
+  --color-navy-text: #2c3e50;
+
+  /* Coral family (the source's primary CTA color). */
+  --color-coral: #e8927c;
+  --color-coral-dark: #d67d68;
+  --color-coral-light: #f0a898;
+
+  /* Teal family (the source's accent + link color). */
+  --color-teal: #4aafbf;
+  --color-teal-dark: #3d9aa8;
+  --color-teal-light: #6bc4d2;
+
+  /* Pink / soft accent. */
+  --color-pink-soft: #f5c6d0;
+  --color-pink-light: #fad4dc;
+
+  /* Section / muted background. */
+  --color-gray-section: #edf1f5;
+  --color-cream: #f5f0e8;
+
+  /* Animations from the source repo (Tailwind v3 keyframes). Mapped
+     to Tailwind v4's animation system via @theme so the `animate-*`
+     utility classes can reference them. */
+  --animate-cloud-drift: cloud-drift 18s ease-in-out infinite;
+  --animate-petal-fall: petal-fall 4s ease-in-out infinite;
+
+  /* Backwards-compat aliases for the OLD theme. The repo was built around
+     a rose/blush/lavender/peach palette; some classes + component
+     styles still reference those names. We map them to sensible new
+     equivalents so the site doesn't break visually. */
+  --color-blush: #e8f4f8;          /* was: #fef5f0 → now sky-light */
+  --color-blush-light: #f0f8fc;    /* was: #fff8f5 → now sky-pale */
+  --color-rose: #e8927c;            /* was: #e8a0a0 → now coral */
+  --color-rose-dark: #d67d68;       /* was: #d47a7a → now coral-dark */
+  --color-lavender: #c4b5d4;        /* keep lavender (no source equiv) */
+  --color-lavender-light: #e8dcef;  /* keep */
+  --color-peach: #f4cba8;           /* keep peach (no source equiv) */
+  --color-peach-light: #fce4d0;     /* keep */
+  --color-ink: #2c3e50;             /* was: #2d2a33 → now navy-text */
+  --color-ink-light: #5c5866;       /* was: #5c5866 — keep */
+  --color-warm-white: #fdfbf9;      /* keep */
 }
 
 @layer base {
+  /* Keyframes used by the new homepage animations. Mapped from the
+     source repo's tailwind.config.js. */
+  @keyframes cloud-drift {
+    0%, 100% { transform: translateX(-15px); }
+    50%      { transform: translateX(15px); }
+  }
+  @keyframes petal-fall {
+    0%   { transform: translateY(-10px) rotate(0deg); opacity: 0; }
+    10%  { opacity: 1; }
+    90%  { opacity: 1; }
+    100% { transform: translateY(10px) rotate(15deg); opacity: 0; }
+  }
+
   html {
     scroll-behavior: smooth;
   }
 
   body {
-    @apply bg-warm-white text-ink font-sans antialiased;
+    @apply bg-warm-white text-navy-text font-sans antialiased;
   }
 
   h1, h2, h3, h4 {
@@ -40,22 +107,22 @@
 
 @layer components {
   .btn-primary {
-    @apply inline-block px-8 py-3 bg-rose text-white font-sans text-sm tracking-widest uppercase
-           rounded-full hover:bg-rose-dark transition-all duration-300
-           hover:shadow-lg hover:shadow-rose/30;
+    @apply inline-block px-8 py-3 bg-coral text-white font-sans text-sm tracking-widest uppercase
+           rounded-full hover:bg-coral-dark transition-all duration-300
+           hover:shadow-lg hover:shadow-coral/30;
   }
 
   .btn-outline {
-    @apply inline-block px-8 py-3 border-2 border-rose text-rose font-sans text-sm tracking-widest uppercase
-           rounded-full hover:bg-rose hover:text-white transition-all duration-300;
+    @apply inline-block px-8 py-3 border-2 border-coral text-coral font-sans text-sm tracking-widest uppercase
+           rounded-full hover:bg-coral hover:text-white transition-all duration-300;
   }
 
   .section-title {
-    @apply font-serif text-3xl md:text-4xl text-center mb-4;
+    @apply font-serif text-3xl md:text-4xl text-center mb-4 text-navy-text uppercase tracking-[0.15em];
   }
 
   .section-subtitle {
-    @apply text-ink-light text-center max-w-xl mx-auto mb-12 text-sm leading-relaxed;
+    @apply text-navy-text/60 text-center max-w-xl mx-auto mb-12 text-sm leading-relaxed;
   }
 
   .card {
@@ -68,17 +135,5 @@
   }
 }
 
-/* Font loading */
-@font-face {
-  font-family: 'Playfair Display';
-  font-style: normal;
-  font-weight: 400 700;
-  src: url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
-}
-
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 300 600;
-  src: url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
-}
+/* Font loading — matches the source repo's Google Fonts requests. */
+@import url('https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600&display=swap');

@@ -4,6 +4,7 @@ title:
   jp: 家・土地の浄化
   zh: 家居與土地淨化
 icon: ○
+image: /home-clearing.jpg
 color: sky
 order: 4
 slug: home-purification

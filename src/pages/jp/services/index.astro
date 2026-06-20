@@ -36,6 +36,7 @@ const copy = {
         const s = {
           slug: entry.id.replace(/\.md$/, ''),
           icon: entry.data.icon,
+          image: entry.data.image || '',
           color: entry.data.color,
           title: entry.data.title.jp,
           subtitle: entry.data.subtitle.jp,
@@ -44,10 +45,17 @@ const copy = {
         const cc = colorClasses[s.color];
         return (
           <a href={`/jp/services/${s.slug}`} class="block bg-white/80 border border-rose/10 rounded-md p-4 hover:border-rose/40 transition-colors">
-            <div class="flex items-baseline gap-2 mb-1.5">
-              <span class={`${cc.text} text-lg`}>{s.icon}</span>
-              <h2 class="font-serif text-base text-ink leading-snug">{s.title}</h2>
-            </div>
+            {s.image ? (
+              <div class="aspect-square w-16 flex-shrink-0 overflow-hidden rounded-full mb-2">
+                <img src={s.image} alt={s.title} loading="lazy" class="h-full w-full object-cover" />
+              </div>
+            ) : (
+              <div class="flex items-baseline gap-2 mb-1.5">
+                <span class={`${cc.text} text-lg`}>{s.icon}</span>
+                <h2 class="font-serif text-base text-ink leading-snug">{s.title}</h2>
+              </div>
+            )}
+            {s.image && <h2 class="font-serif text-base text-ink leading-snug mb-1.5">{s.title}</h2>}
             <p class="text-[11px] text-rose tracking-wider uppercase mb-2">{s.subtitle}</p>
             <p class="text-sm text-ink-light leading-relaxed tracking-[0.05em]">{s.description}</p>
             <p class={`mt-2 text-xs ${cc.text}`}>{copy.cta} →</p>

@@ -53,4 +53,62 @@ export default {
     date: '日期',
     moreInfo: '了解更多',
   },
+
+  home: {
+    nav: {
+      services: '服務',
+      stories: '客戶分享',
+      story: '我的故事',
+      contact: '聯絡',
+    },
+    hero: {
+      welcome: '歡迎',
+      title: 'Carmen Ng',
+      titleKana: '卡門',
+      tagline: '整體療癒',
+      description:
+        '一個神聖的空間，將阻力化為流動，回歸內心，並讓您內在的黃金綻放。',
+      bookSession: '預約療程',
+      exploreServices: '了解服務',
+    },
+    services: {
+      eyebrow: '服務',
+      title: '服務',
+      subtitle:
+        '我提供多樣化的療癒形式，根據您當下的能量狀態與意圖量身調整，陪伴您走向身心安康。',
+    },
+    info: {
+      eyebrow: '最新資訊',
+      title: 'Information',
+      sub: '最新資訊',
+      tabNews: '最新消息',
+      tabBlogs: '網誌',
+      moreNews: '更多消息 →',
+    },
+    testimonials: {
+      eyebrow: '客戶分享',
+      title: '他們的話',
+      sub: '客戶分享',
+    },
+    story: {
+      eyebrow: '我的故事',
+      title: 'My Story',
+      sub: '我的故事',
+      certEyebrow: '修習傳承',
+    },
+    contact: {
+      eyebrow: '聯絡',
+      title: 'Contact',
+      sub: '聯絡',
+      email: 'hello@carmennghealing.com',
+      ctaCopy:
+        '準備好開啟您的療癒之旅了嗎?歡迎預約療程，或先安排 15 分鐘的免費諮詢，一起探索最適合您的方向。',
+      bookSession: '預約療程',
+      moreInfo: '了解更多',
+    },
+    faqs: {
+      title: '常見問題',
+      empty: '暫無問題，請稍後再查看。',
+    },
+  },
 } as const;

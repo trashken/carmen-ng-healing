@@ -201,6 +201,71 @@ content:
         label: Testimonial text
 
   # ---------------------------------------------------------------------------
+  # Q & A
+  # ---------------------------------------------------------------------------
+  # One Markdown file per FAQ, in src/content/faqs/{slug}.md.
+  # Each FAQ has per-locale question + answer. EN is required; JP and
+  # ZH fall back to EN on the page when empty. Display order is
+  # controlled by the `order` field (lower numbers appear first).
+  # Shown on the homepage in the "Q & A" section under Contact.
+  # ---------------------------------------------------------------------------
+
+  - name: faqs
+    label: Q & A
+    type: collection
+    path: src/content/faqs
+    filename: '{slug}.md'
+    format: yaml-frontmatter
+    view:
+      fields: [order, question, date]
+      primary: question
+      sort: [order]
+      default:
+        sort: order
+        order: asc
+    fields:
+      - name: order
+        type: number
+        label: Display order
+        description: >-
+          Lower numbers appear first. Leave at 100 to push to the end.
+        options:
+          min: 1
+          max: 999
+          default: 1
+      - name: question
+        type: object
+        label: Question
+        description: >-
+          Per-locale question. EN is required (canonical); JP and ZH
+          are optional and fall back to EN on the page when empty.
+        fields:
+          - name: en
+            type: string
+            label: Question (English)
+          - name: jp
+            type: string
+            label: Question (Japanese)
+          - name: zh
+            type: string
+            label: Question (Traditional Chinese)
+      - name: answer
+        type: object
+        label: Answer
+        description: >-
+          Per-locale answer (Markdown). Same fallback rules.
+        fields:
+          - name: en
+            type: text
+            label: Answer (English)
+          - name: jp
+            type: text
+            label: Answer (Japanese)
+          - name: zh
+            type: text
+            label: Answer (Traditional Chinese)
+
+  # ---------------------------------------------------------------------------
   # Events / Workshops
   # ---------------------------------------------------------------------------
   # One Markdown file per event, in src/content/events/{slug}.md.
@@ -368,6 +433,14 @@ content:
         description: >-
           A single emoji or symbol character shown in the card (e.g. ✦, ♯,
           ☆, ◈). Rendered as text, so it must be a real Unicode character.
+      - name: image
+        type: string
+        label: Service image
+        description: >-
+          Public path to a watercolor illustration under /uploads/
+          (e.g. /uploads/energy-healing-hands.jpg). When set, the image
+          replaces the icon glyph on the homepage + services-index
+          cards. Leave empty to fall back to the icon.
 
       - name: color
         type: select

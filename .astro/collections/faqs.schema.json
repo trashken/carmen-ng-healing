@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "question": {
+      "type": "object",
+      "properties": {
+        "en": {
+          "type": "string"
+        },
+        "jp": {
+          "default": "",
+          "type": "string"
+        },
+        "zh": {
+          "default": "",
+          "type": "string"
+        }
+      },
+      "required": [
+        "en"
+      ]
+    },
+    "answer": {
+      "type": "object",
+      "properties": {
+        "en": {
+          "type": "string"
+        },
+        "jp": {
+          "default": "",
+          "type": "string"
+        },
+        "zh": {
+          "default": "",
+          "type": "string"
+        }
+      },
+      "required": [
+        "en"
+      ]
+    },
+    "order": {
+      "default": 100,
+      "type": "number"
+    },
+    "$schema": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "question",
+    "answer"
+  ]
+}

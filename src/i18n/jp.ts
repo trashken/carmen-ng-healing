@@ -55,4 +55,62 @@ export default {
     date: '日時',
     moreInfo: '詳細を見る',
   },
+
+  home: {
+    nav: {
+      services: 'サービス',
+      stories: 'ご感想',
+      story: '私の物語',
+      contact: 'お問い合わせ',
+    },
+    hero: {
+      welcome: 'ようこそ',
+      title: 'Carmen Ng',
+      titleKana: 'カーメン',
+      tagline: 'ホリスティック・ヒーリング',
+      description:
+        '内なる抵抗を流れに変え、ハートへと還り、あなたの内側の黄金を現すための聖なる空間。',
+      bookSession: 'セッションを予約',
+      exploreServices: 'サービスを見る',
+    },
+    services: {
+      eyebrow: '提供内容',
+      title: 'サービス',
+      subtitle:
+        'あなたの歩み・エネルギー・意図に合わせてカスタマイズされた、多彩な癒しのメソッドをご用意しています。',
+    },
+    info: {
+      eyebrow: 'お知らせ',
+      title: 'Information',
+      sub: 'お知らせ',
+      tabNews: 'ニュース',
+      tabBlogs: 'ブログ',
+      moreNews: '一覧を見る →',
+    },
+    testimonials: {
+      eyebrow: 'お客様の声',
+      title: 'ご感想',
+      sub: 'お客様の声',
+    },
+    story: {
+      eyebrow: '私の物語',
+      title: 'My Story',
+      sub: '私の物語',
+      certEyebrow: '修得した伝統',
+    },
+    contact: {
+      eyebrow: 'お問い合わせ',
+      title: 'Contact',
+      sub: 'お問い合わせ',
+      email: 'hello@carmennghealing.com',
+      ctaCopy:
+        '癒しの旅を始める準備はできていますか?セッションのご予約、または 15 分の無料カウンセリングで、ご一緒に歩む方法を探ってみませんか。',
+      bookSession: 'セッションを予約',
+      moreInfo: '詳しく見る',
+    },
+    faqs: {
+      title: 'Q & A',
+      empty: '質問はまだありません。',
+    },
+  },
 } as const;

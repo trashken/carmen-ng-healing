@@ -55,6 +55,64 @@ export default {
     date: 'Date',
     moreInfo: 'More info',
   },
+
+  home: {
+    nav: {
+      services: 'Services',
+      stories: 'Stories',
+      story: 'My Story',
+      contact: 'Contact',
+    },
+    hero: {
+      welcome: 'Welcome',
+      title: 'Carmen Ng',
+      titleKana: 'カーメン',
+      tagline: 'Holistic Healing',
+      description:
+        'A sacred space to transmute resistance into flow, return to the heart, and reveal the gold within you.',
+      bookSession: 'Book a Session',
+      exploreServices: 'Explore Services',
+    },
+    services: {
+      eyebrow: 'Services',
+      title: 'Services',
+      subtitle:
+        'I offer a range of modalities to support your path to wellness — each session is tailored to your unique energy and intentions.',
+    },
+    info: {
+      eyebrow: 'Information',
+      title: 'Information',
+      sub: 'お知らせ',
+      tabNews: 'NEWS',
+      tabBlogs: 'BLOGS',
+      moreNews: 'More News →',
+    },
+    testimonials: {
+      eyebrow: 'What Clients Say',
+      title: 'What Clients Say',
+      sub: 'お客様の声',
+    },
+    story: {
+      eyebrow: 'My Story',
+      title: 'My Story',
+      sub: '私の物語',
+      certEyebrow: 'Trained in',
+    },
+    contact: {
+      eyebrow: 'Contact',
+      title: 'Contact',
+      sub: 'お問い合わせ',
+      email: 'hello@carmennghealing.com',
+      ctaCopy:
+        'Ready to begin your healing journey? Book a session or schedule a free 15-minute consultation to explore how we might work together.',
+      bookSession: 'Book a Session',
+      moreInfo: 'More info',
+    },
+    faqs: {
+      title: 'Q & A',
+      empty: 'No questions yet — check back soon.',
+    },
+  },
 } as const;
 
 export type Dictionary = typeof import('./en').default;

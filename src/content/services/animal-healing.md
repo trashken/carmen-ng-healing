@@ -4,6 +4,7 @@ title:
   jp: 動物ヒーリング
   zh: 動物療癒
 icon: ☆
+image: /pet-healing.jpg
 color: peach
 order: 6
 slug: animal-healing

@@ -4,6 +4,7 @@ title:
   jp: エネルギーヒーリング
   zh: 能量療程
 icon: ✦
+image: /energy-healing-hands.jpg
 color: lavender
 order: 2
 slug: energy-healing

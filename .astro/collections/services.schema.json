@@ -62,6 +62,10 @@
     "icon": {
       "type": "string"
     },
+    "image": {
+      "default": "",
+      "type": "string"
+    },
     "color": {
       "type": "string",
       "enum": [

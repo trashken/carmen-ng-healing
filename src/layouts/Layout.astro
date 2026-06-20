@@ -6,9 +6,10 @@ export interface Props {
   title: string;
   description?: string;
   locale?: Locale;
+  transparentNav?: boolean;
 }
 
-const { title, description, locale = defaultLocale } = Astro.props;
+const { title, description, locale = defaultLocale, transparentNav = false } = Astro.props;
 const t = getDictionary(locale);
 const otherLocales = locales.filter((l) => l !== locale);
 
@@ -69,26 +70,34 @@ const currentPath = Astro.url.pathname;
     <meta name="description" content={description || t.meta.defaultDescription} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600&display=swap" rel="stylesheet" />
   </head>
   <body class="overflow-x-hidden">
-    <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[60] focus:bg-rose focus:text-white focus:px-4 focus:py-2 focus:rounded">
+    <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[60] focus:bg-coral focus:text-white focus:px-4 focus:py-2 focus:rounded">
       {t.switcher.skipToContent}
     </a>
 
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-warm-white/90 backdrop-blur-md border-b border-rose/10">
+    <nav
+      data-nav
+      class:list={[
+        'fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b',
+        transparentNav
+          ? 'bg-transparent border-transparent'
+          : 'bg-warm-white/90 backdrop-blur-md border-rose/10',
+      ]}
+    >
       <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <a href={locale === defaultLocale ? '/' : `/${locale}`} class="flex items-center gap-3 group">
           <img src="/assets/logo.png" alt={t.meta.siteName} class="w-10 h-10 rounded-full object-cover group-hover:scale-105 transition-transform" />
-          <span class="font-serif text-lg text-ink">Carmen Ng</span>
+          <span data-nav-logo class="font-serif text-lg text-ink transition-colors duration-500">Carmen Ng</span>
         </a>
         <div class="hidden md:flex items-center gap-8">
-          <a href={locale === defaultLocale ? '/' : `/${locale}`} class="text-sm text-ink-light hover:text-rose transition-colors">{t.nav.home}</a>
-          <a href={`/${locale}/about`} class="text-sm text-ink-light hover:text-rose transition-colors">{t.nav.about}</a>
-          <a href={`/${locale}/blog`} class="text-sm text-ink-light hover:text-rose transition-colors">{t.nav.blog}</a>
-          <a href={`/${locale}/events`} class="text-sm text-ink-light hover:text-rose transition-colors">{t.nav.events}</a>
-          <a href="/testimonials" class="text-sm text-ink-light hover:text-rose transition-colors">{t.nav.testimonials}</a>
-          <a href="/contact" class="text-sm text-ink-light hover:text-rose transition-colors">{t.nav.contact}</a>
+          <a data-nav-link href={locale === defaultLocale ? '/' : `/${locale}`} class="text-sm text-ink-light hover:text-rose transition-colors">{t.nav.home}</a>
+          <a data-nav-link href={`/${locale}/about`} class="text-sm text-ink-light hover:text-rose transition-colors">{t.nav.about}</a>
+          <a data-nav-link href={`/${locale}/blog`} class="text-sm text-ink-light hover:text-rose transition-colors">{t.nav.blog}</a>
+          <a data-nav-link href={`/${locale}/events`} class="text-sm text-ink-light hover:text-rose transition-colors">{t.nav.events}</a>
+          <a data-nav-link href="/testimonials" class="text-sm text-ink-light hover:text-rose transition-colors">{t.nav.testimonials}</a>
+          <a data-nav-link href="/contact" class="text-sm text-ink-light hover:text-rose transition-colors">{t.nav.contact}</a>
         </div>
         <div class="flex items-center gap-3">
           <div class="hidden sm:flex items-center gap-1 text-xs">
@@ -96,6 +105,7 @@ const currentPath = Astro.url.pathname;
               <a
                 href={localePathFor(l, currentPath)}
                 aria-label={`Switch language to ${l}`}
+                data-nav-link
                 class="px-2 py-1 rounded text-ink-light hover:text-rose hover:bg-rose/5 transition-colors uppercase"
               >
                 {l}
@@ -208,57 +218,72 @@ const currentPath = Astro.url.pathname;
       });
       // Close panel after navigating so SPA-ish transitions don't strand it open
       panel?.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setOpen(false)));
+
+      // Nav style swap: transparent at the top of the page, white-on-scroll
+      // when there's a hero, dark-aware when scrolling through [data-dark-section]
+      // sections (Story / Contact). Mirrors the source repo's Navigation.tsx.
+      const nav = document.querySelector<HTMLElement>('[data-nav]');
+      const logo = document.querySelector<HTMLElement>('[data-nav-logo]');
+      const navLinks = document.querySelectorAll<HTMLElement>('[data-nav-link]');
+      const NAV_THRESHOLD = 100;
+
+      function setNavState() {
+        if (!nav) return;
+        const scrolled = window.scrollY > NAV_THRESHOLD;
+        const darkSections = document.querySelectorAll('[data-dark-section]');
+        let inDark = false;
+        darkSections.forEach((section) => {
+          const rect = (section as HTMLElement).getBoundingClientRect();
+          if (rect.top < 80 && rect.bottom > 80) inDark = true;
+        });
+        if (scrolled) {
+          if (inDark) {
+            nav.className = 'fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b bg-navy-deep/90 backdrop-blur-xl border-white/10';
+            logo?.classList.add('text-white');
+            logo?.classList.remove('text-ink');
+            navLinks.forEach((l) => {
+              l.classList.add('text-white/60');
+              l.classList.remove('text-ink-light');
+            });
+          } else {
+            nav.className = 'fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b bg-white/80 backdrop-blur-xl border-rose/10 shadow-sm';
+            logo?.classList.add('text-ink');
+            logo?.classList.remove('text-white');
+            navLinks.forEach((l) => {
+              l.classList.add('text-ink-light');
+              l.classList.remove('text-white/60');
+            });
+          }
+        } else {
+          // Above the fold: fully transparent (no border) so the hero
+          // gradient is unobstructed.
+          nav.className = 'fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b bg-transparent border-transparent';
+          logo?.classList.add('text-ink');
+          logo?.classList.remove('text-white');
+          navLinks.forEach((l) => {
+            l.classList.add('text-ink-light');
+            l.classList.remove('text-white/60');
+          });
+        }
+      }
+      setNavState();
+      window.addEventListener('scroll', setNavState, { passive: true });
     </script>
 
-    <main id="main" class="pt-16 min-h-screen">
+    <main id="main" class="min-h-screen">
       <slot />
     </main>
 
-    <footer class="bg-ink text-cream mt-24">
-      <div class="max-w-6xl mx-auto px-6 py-16">
-        <div class="grid md:grid-cols-3 gap-12 mb-12">
-          <div>
-            <h3 class="font-serif text-xl mb-4 text-white">Carmen Ng</h3>
-            <p class="text-cream/70 text-sm leading-relaxed">
-              {t.footer.tagline}
-            </p>
-          </div>
-          <div>
-            <h3 class="font-serif text-lg mb-4 text-white">{t.footer.explore}</h3>
-            <div class="flex flex-col gap-3">
-              <a href={locale === defaultLocale ? '/' : `/${locale}`} class="text-sm text-cream/60 hover:text-rose transition-colors">{t.nav.home}</a>
-              <a href={`/${locale}/about`} class="text-sm text-cream/60 hover:text-rose transition-colors">{t.nav.about}</a>
-              <a href={`/${locale}/blog`} class="text-sm text-cream/60 hover:text-rose transition-colors">{t.nav.blog}</a>
-              <a href={`/${locale}/events`} class="text-sm text-cream/60 hover:text-rose transition-colors">{t.nav.events}</a>
-              <a href="/testimonials" class="text-sm text-cream/60 hover:text-rose transition-colors">{t.nav.testimonials}</a>
-              <a href="/contact" class="text-sm text-cream/60 hover:text-rose transition-colors">{t.nav.contact}</a>
-            </div>
-          </div>
-          <div>
-            <h3 class="font-serif text-lg mb-4 text-white">{t.footer.newsletter}</h3>
-            <p class="text-cream/60 text-sm mb-4">{t.footer.newsletterCopy}</p>
-            <form class="flex gap-2">
-              <input
-                type="email"
-                placeholder={t.footer.newsletterPlaceholder}
-                aria-label={t.footer.newsletterPlaceholder}
-                class="flex-1 px-4 py-2.5 rounded-full bg-white/10 border border-white/20 text-sm text-white placeholder:text-cream/40 focus:outline-none focus:border-rose/50"
-              />
-              <button type="submit" class="px-5 py-2.5 bg-rose text-white text-sm rounded-full hover:bg-rose-dark transition-colors whitespace-nowrap">
-                {t.footer.newsletterSubmit}
-              </button>
-            </form>
-          </div>
-        </div>
-
-        <div class="border-t border-white/10 pt-6 mb-6 text-xs text-cream/50 leading-relaxed">
+    <footer class="bg-navy-dark text-cream mt-24 border-t border-white/10">
+      <div class="max-w-6xl mx-auto px-6 py-10 text-center">
+        <p class="text-xs font-normal tracking-[0.08em] text-white/40 mb-2">
+          © {new Date().getFullYear()} Carmen Ng Healing · All Rights Reserved
+        </p>
+        <p class="text-xs font-normal tracking-[0.06em] text-white/25">
           {t.disclaimer}
-        </div>
-
-        <div class="border-t border-white/10 pt-8 text-center text-sm text-cream/50">
-          {t.footer.copyright(new Date().getFullYear())}
-        </div>
+        </p>
       </div>
     </footer>
   </body>
 </html>
+

@@ -4,6 +4,7 @@ title:
   jp: A.U.R.A. 量子催眠
   zh: A.U.R.A. 量子催眠療癒
 icon: ◉
+image: /cosmic-profile.jpg
 color: sky
 order: 4
 slug: a-u-r-a-quantum-hypnosis

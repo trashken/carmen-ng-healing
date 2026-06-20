@@ -1,5 +1,5 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, getEntry } from 'astro:content';
 import { type Locale } from '../i18n';
 
 export interface Props {
@@ -7,6 +7,8 @@ export interface Props {
 }
 
 const { locale } = Astro.props;
+const t = (await import('../i18n')).getDictionary(locale);
+const home = t.home;
 
 const allServices = await getCollection('services');
 const pickL10n = (s: { en: string; jp: string; zh?: string }) =>
@@ -16,323 +18,568 @@ const services = allServices
   .map((entry) => ({
     slug: entry.id.replace(/\.md$/, ''),
     icon: entry.data.icon,
-    color: entry.data.color,
+    image: entry.data.image || '',
     title: pickL10n(entry.data.title),
     subtitle: pickL10n(entry.data.subtitle),
-    description: pickL10n(entry.data.desc),
-    hasDetail: (entry.data.offerings?.length ?? 0) > 0,
   }));
 
-// Map color name -> Tailwind classes. Static keys (not template
-// interpolation) so Tailwind v4's scanner can detect them at build time.
-// Add a new color here AND in the content.config.ts z.enum(...) list
-// AND in .pages.yml's color select field — three places, on purpose.
-const colorClasses: Record<'rose' | 'lavender' | 'sky' | 'peach', { bg: string; text: string }> = {
-  rose:     { bg: 'bg-rose/10',     text: 'text-rose' },
-  lavender: { bg: 'bg-lavender/10', text: 'text-lavender' },
-  sky:      { bg: 'bg-sky/10',      text: 'text-sky' },
-  peach:    { bg: 'bg-peach/10',    text: 'text-peach' },
-};
-
+// Latest 3 blog posts for the Info section.
 const allPosts = await getCollection('blog');
 const topPosts = allPosts
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
   .slice(0, 3);
+const postTitle = (p: typeof topPosts[number]) =>
+  locale === 'en'
+    ? (p.data.title.en || p.data.title.jp)
+    : (locale === 'jp' ? p.data.title.jp : (p.data.title.zh || p.data.title.jp));
+const formatDate = (iso: Date) => {
+  const y = iso.getFullYear();
+  const m = String(iso.getMonth() + 1).padStart(2, '0');
+  const d = String(iso.getDate()).padStart(2, '0');
+  return locale === 'en'
+    ? iso.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })
+    : `${y}.${m}.${d}`;
+};
 
-const formatDate = (iso: Date) =>
-  iso.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+// Upcoming events for the Info section.
+const allEvents = await getCollection('events');
+const now = Date.now();
+const upcomingEvents = allEvents
+  .filter((e) => e.data.date.getTime() >= now)
+  .sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf())
+  .slice(0, 3);
+const eventTitle = (e: typeof upcomingEvents[number]) =>
+  locale === 'en'
+    ? (e.data.title.en || e.data.title.jp)
+    : (locale === 'jp' ? e.data.title.jp : (e.data.title.zh || e.data.title.jp));
 
+// Story section data: pulled from the about collection.
+const about = await getEntry('about', 'main');
+const storyParas = (() => {
+  if (!about) return [];
+  // Use the first ~3 paragraphs of the EN body, with paragraphs split
+  // by blank lines.
+  const body = about.data.body_en || about.data.body_jp || '';
+  return body.split(/\n\s*\n/).slice(0, 3);
+})();
+const certs = (about?.data.certifications || []).flatMap((c) =>
+  (c.items_en || []).slice(0, 1).map(() => c.school_en)
+);
+const flatCerts = Array.from(new Set(certs)).slice(0, 6);
+
+// FAQ section: read from the faqs collection, sorted by `order`. EN
+// canonical; JP and ZH fall back to EN on the page.
+const allFaqs = await getCollection('faqs');
+const sortedFaqs = allFaqs.sort((a, b) => a.data.order - b.data.order);
+const faqQ = (f: typeof sortedFaqs[number]) =>
+  locale === 'en'
+    ? f.data.question.en
+    : (locale === 'jp' ? (f.data.question.jp || f.data.question.en) : (f.data.question.zh || f.data.question.en));
+const faqA = (f: typeof sortedFaqs[number]) =>
+  locale === 'en'
+    ? f.data.answer.en
+    : (locale === 'jp' ? (f.data.answer.jp || f.data.answer.en) : (f.data.answer.zh || f.data.answer.en));
+
+// Static testimonials fallback (the full 94 live in the testimonials
+// collection; the homepage just shows 3 highlighted quotes).
 const testimonials = [
   {
-    name: 'Sarah L.',
-    text: "After just three sessions with Carmen, I felt a shift I hadn't experienced in years. The energy work released something I didn't even know I was holding.",
-    rating: 5,
+    name: 'Monika',
+    quote:
+      'Thank you very much Carmen for sharing your gifts and light! I experienced the healing session twice and it was absolutely unique. Light codes transmissions were so powerful and tangible.',
   },
   {
-    name: 'Michael T.',
-    text: "The sound bath session was transformative. I've never felt such deep relaxation. Carmen creates a truly sacred space.",
-    rating: 5,
+    name: 'Chun Ling',
+    quote:
+      "My right shoulder is improving already. The movement range is bigger and I can do a yoga pose which I couldn't do before today. And I'm in such a brightened mood today.",
   },
   {
-    name: 'Emily W.',
-    text: "Carmen's spiritual coaching helped me find clarity during a difficult career transition. Her intuition is remarkable.",
-    rating: 5,
+    name: 'Cary',
+    quote:
+      'It was an amazing experience! The whole process was very relaxing and enlightening. After the session, I felt like my mind and body has been cleansed and my senses heightened.',
   },
 ];
 
-// Locale-aware copy for the hero and section headers. The service / blog /
-// testimonials / about *content* (cards, quotes) is still in English; only
-// the page chrome (titles, subtitles) is localized for now. You can replace
-// the body copy with localized versions in the dictionaries if needed.
-const copy: Record<Locale, {
-  heroWelcome: string;
-  heroTitle: string;
-  heroSubtitle: string;
-  heroDescription: string;
-  bookSession: string;
-  exploreServices: string;
-  whatIOffer: string;
-  myHealingApproach: string;
-  myHealingApproachBody: string;
-  latestInsights: string;
-  fromTheBlog: string;
-  fromTheBlogBody: string;
-  viewAllPosts: string;
-  whatClientsSay: string;
-  kindWords: string;
-  readAllReviews: string;
-  aboutMe: string;
-  meetCarmen: string;
-  meetCarmenBody: string[];
-  connectWithMe: string;
-  articleLabel: string;
-  newsLabel: string;
-  readMore: string;
-}> = {
-  en: {
-    heroWelcome: 'Welcome to',
-    heroTitle: 'Holistic Healing',
-    heroSubtitle: 'Holistic Healing',
-    heroDescription: 'Rediscover your inner harmony through energy healing, sound therapy, and spiritual guidance.',
-    bookSession: 'Book a Session',
-    exploreServices: 'Explore Services',
-    whatIOffer: 'What I Offer',
-    myHealingApproach: 'My Healing Approach',
-    myHealingApproachBody: 'Every journey is unique. I offer a range of modalities to support your path to wellness.',
-    latestInsights: 'Latest Insights',
-    fromTheBlog: 'From the Blog',
-    fromTheBlogBody: 'Thoughts on healing, spirituality, and living authentically.',
-    viewAllPosts: 'View All Posts',
-    whatClientsSay: 'What Clients Say',
-    kindWords: 'Kind Words',
-    readAllReviews: 'Read All Reviews',
-    aboutMe: 'About Me',
-    meetCarmen: 'Meet Carmen',
-    meetCarmenBody: [
-      'My journey into healing began over a decade ago, after experiencing the profound transformation that energy work brought to my own life. What started as personal healing evolved into a calling to guide others on their path to wholeness.',
-      'Trained in Reiki, sound therapy, and various meditation traditions, I blend ancient wisdom with intuitive practice. Every session is a co-created space — tailored to where you are today, and where you\'re ready to go.',
-      'I believe healing isn\'t about fixing what\'s broken — it\'s about remembering what\'s already whole. My role is simply to hold the space for that remembering.',
-    ],
-    connectWithMe: 'Connect With Me',
-    articleLabel: 'Articles',
-    newsLabel: 'News & Events',
-    readMore: 'Read more →',
-  },
-  jp: {
-    heroWelcome: 'ようこそ',
-    heroTitle: 'ホリスティック・ヒーリング',
-    heroSubtitle: 'ホリスティック・ヒーリング',
-    heroDescription: 'エネルギーヒーリング、 sound therapy、スピリチュアル・ガイダンスを通じて内なる調和を取り戻します。',
-    bookSession: 'セッションを予約',
-    exploreServices: 'サービスを見る',
-    whatIOffer: '提供内容',
-    myHealingApproach: '私のアプローチ',
-    myHealingApproachBody: '一人ひとり異なる旅路に、心と体の癒しを提供します。',
-    latestInsights: '最新のインサイト',
-    fromTheBlog: 'ブログより',
-    fromTheBlogBody: '癒し、スピリチュアル、マインドフル・ライフについての考察。',
-    viewAllPosts: '全ての記事を見る',
-    whatClientsSay: 'お客様の声',
-    kindWords: 'ご感想',
-    readAllReviews: '全てのレビューを読む',
-    aboutMe: 'プロフィール',
-    meetCarmen: 'カーメンについて',
-    meetCarmenBody: [
-      'ヒーリングの旅は十多年前、エネルギー・ワークが私の人生にもたらした深い変容の体験から始まりました。',
-      'レイキ、サウンドセラピー、そして様々な瞑想の伝統を学んだ上で、古代の叡智と直感的な実践を融合させています。',
-      '癒しは「壊れた部分を直す」ことではなく、「すでに whole である自分を思い出す」ことだと信じています。',
-    ],
-    connectWithMe: 'お問い合わせ',
-    articleLabel: '記事',
-    newsLabel: 'お知らせ',
-    readMore: '続きを読む →',
-  },
-  zh: {
-    heroWelcome: '歡迎來到',
-    heroTitle: '整體療癒',
-    heroSubtitle: '整體療癒',
-    heroDescription: '透過能量療癒、聲音療法與靈性指引，重新與內在的和諧連結。',
-    bookSession: '預約療程',
-    exploreServices: '了解服務',
-    whatIOffer: '服務項目',
-    myHealingApproach: '我的療癒方式',
-    myHealingApproachBody: '每個人的旅程都獨一無二，我提供多元的療癒方式來支持您的健康之路。',
-    latestInsights: '最新分享',
-    fromTheBlog: '網誌精選',
-    fromTheBlogBody: '關於療癒、靈性與真實生活的反思。',
-    viewAllPosts: '查看所有文章',
-    whatClientsSay: '客戶分享',
-    kindWords: '他們的話',
-    readAllReviews: '閱讀所有分享',
-    aboutMe: '關於我',
-    meetCarmen: '認識 Carmen',
-    meetCarmenBody: [
-      '我的療癒旅程始於十多年前，親身經歷了能量療癒為生命帶來的深刻轉化。',
-      '我受過 Reiki、聲音療法及多種冥想傳統的訓練，將古老的智慧與直覺性的實踐相融合。',
-      '我相信療癒不是「修補破碎」，而是「憶起本已完整」。我的角色只是為這份憶起提供空間。',
-    ],
-    connectWithMe: '與我聯絡',
-    articleLabel: '文章',
-    newsLabel: '最新消息',
-    readMore: '閱讀全文 →',
-  },
-};
-
-const c = copy[locale];
 const blogIndexPath = locale === 'en' ? '/en/blog' : `/${locale}/blog`;
+const eventsIndexPath = locale === 'en' ? '/en/events' : `/${locale}/events`;
+const aboutPath = locale === 'en' ? '/en/about' : `/${locale}/about`;
+const contactPath = locale === 'en' ? '/contact' : `/${locale}/contact`;
 ---
 
-  <!-- Hero Section -->
-  <section class="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-blush via-warm-white to-warm-white bg-[image:linear-gradient(rgba(255,251,247,0.55),rgba(255,251,247,0.55)),url(/uploads/hero-jp.jpg)] bg-cover bg-center">
-    <div class="absolute w-96 h-96 rounded-full bg-lavender-light/30 blur-3xl -top-20 -left-20 animate-pulse pointer-events-none"></div>
-    <div class="absolute w-80 h-80 rounded-full bg-sky-light/20 blur-3xl top-40 -right-20 animate-pulse pointer-events-none" style="animation-delay: 2s"></div>
-    <div class="absolute w-64 h-64 rounded-full bg-peach-light/25 blur-3xl bottom-20 left-1/3 animate-pulse pointer-events-none" style="animation-delay: 4s"></div>
+<!-- ============================== HERO ============================== -->
+<section
+  id="hero"
+  data-dark-section
+  class="relative min-h-screen w-full overflow-hidden"
+  style="background: linear-gradient(180deg, #7EC8E3 0%, #B8DCE8 30%, #D4EBF3 60%, #E8F4F8 85%, #EDF1F5 100%);"
+>
+  <!-- Floating clouds -->
+  <img
+    src="/cloud-formation.png"
+    alt=""
+    role="presentation"
+    class="pointer-events-none absolute left-[5%] top-[8%] w-[180px] opacity-70 lg:w-[220px] animate-[cloud-drift_18s_ease-in-out_infinite]"
+  />
+  <img
+    src="/cloud-formation.png"
+    alt=""
+    role="presentation"
+    class="pointer-events-none absolute right-[8%] top-[15%] w-[140px] opacity-60 lg:w-[180px] animate-[cloud-drift_18s_ease-in-out_infinite]"
+    style="animation-delay: -9s; animation-direction: reverse;"
+  />
 
-    <div class="relative z-10 text-center px-6 max-w-3xl mx-auto">
-      <p class="text-rose font-serif text-lg md:text-xl italic mb-4">{c.heroWelcome}</p>
-      <h1 class="text-5xl md:text-7xl font-serif font-bold text-ink mb-6 leading-tight">
-        Carmen Ng<br />
-        <span class="text-3xl md:text-4xl font-normal italic text-ink-light">{c.heroSubtitle}</span>
+  <div class="mx-auto flex min-h-screen max-w-[1200px] flex-col items-center px-6 pt-24 md:flex-row md:items-center md:justify-between md:px-12 md:pt-0 lg:px-8">
+    <!-- Left: Mount Fuji + cherry blossom + sun disc -->
+    <div class="relative flex w-full justify-center md:w-[50%] md:justify-start">
+      <img
+        src="/fuji.png"
+        alt=""
+        role="presentation"
+        class="relative z-10 w-[280px] md:w-[400px] lg:w-[480px]"
+      />
+      <img
+        src="/cherry-blossom.png"
+        alt=""
+        role="presentation"
+        class="pointer-events-none absolute -bottom-8 -left-4 z-20 w-[200px] md:-left-8 md:w-[280px] lg:w-[340px]"
+      />
+      <div
+        class="absolute right-[15%] top-[5%] h-[60px] w-[60px] rounded-full bg-gradient-to-br from-amber-200 to-amber-400 opacity-60 blur-[1px] md:right-[20%] md:h-[80px] md:h-[80px] md:w-[80px]"
+      ></div>
+    </div>
+
+    <!-- Right: Text content -->
+    <div class="relative z-20 mt-6 w-full text-center md:mt-0 md:w-[50%] md:text-left">
+      <h1 class="font-serif text-4xl font-normal uppercase tracking-[0.15em] text-navy-text md:text-5xl lg:text-6xl">
+        {home.hero.title}
       </h1>
-      <p class="text-ink-light text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed">
-        {c.heroDescription}
+      <p class="mt-2 font-sans text-lg font-normal tracking-[0.2em] text-navy-text/70 md:text-xl">
+        {home.hero.titleKana}
       </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/contact" class="btn-primary text-base px-10 py-4">{c.bookSession}</a>
-        <a href="#services" class="btn-outline text-base px-10 py-4">{c.exploreServices}</a>
+      <p class="mt-4 font-serif text-sm font-normal uppercase tracking-[0.25em] text-teal md:text-base">
+        {home.hero.tagline}
+      </p>
+      <p class="mx-auto mt-6 max-w-[380px] text-sm font-light leading-relaxed text-navy-text/70 md:mx-0">
+        {home.hero.description}
+      </p>
+      <div class="mt-8 flex flex-col items-center gap-4 sm:flex-row md:items-start">
+        <a href={contactPath} class="inline-block rounded-full bg-coral px-8 py-3 text-sm font-normal tracking-[0.1em] text-white shadow-lg shadow-coral/25 transition-all duration-300 hover:bg-coral-dark hover:shadow-xl hover:shadow-coral/30">
+          {home.hero.bookSession}
+        </a>
+        <a href="#services" class="inline-block rounded-full border border-navy-text/20 px-8 py-3 text-sm font-normal tracking-[0.1em] text-navy-text transition-all duration-300 hover:border-teal hover:text-teal">
+          {home.hero.exploreServices}
+        </a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Services Section -->
-  <section id="services" class="py-24 bg-cream">
-    <div class="max-w-6xl mx-auto px-6">
-      <p class="text-rose font-serif text-center text-lg italic mb-2">{c.whatIOffer}</p>
-      <h2 class="section-title">{c.myHealingApproach}</h2>
-      <p class="section-subtitle">
-        {c.myHealingApproachBody}
+<!-- ============================== INFO (News / Blogs) ============================== -->
+<section
+  id="info"
+  class="relative w-full bg-gray-section py-20 md:py-28"
+>
+  <div class="mx-auto flex max-w-[1200px] flex-col gap-12 px-6 md:flex-row md:gap-16 md:px-12 lg:px-8">
+    <!-- Left: heading + torii gate art -->
+    <div class="relative md:w-[40%]">
+      <h2 class="font-serif text-3xl font-normal uppercase tracking-[0.15em] text-navy-text md:text-4xl">
+        {home.info.title}
+      </h2>
+      <p class="mt-2 font-sans text-base tracking-[0.1em] text-navy-text/50">
+        {home.info.sub}
       </p>
+      <div class="relative mt-6">
+        <img
+          src="/torii-gate.png"
+          alt=""
+          role="presentation"
+          class="w-[220px] md:w-[280px]"
+        />
+        <img
+          src="/cloud-formation.png"
+          alt=""
+          role="presentation"
+          class="pointer-events-none absolute -right-4 top-0 w-[80px] opacity-40 animate-[cloud-drift_18s_ease-in-out_infinite]"
+        />
+      </div>
+    </div>
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {services.map((s) => {
-          const cc = colorClasses[s.color];
-          const detailHref = `/${locale}/services/${s.slug}`;
-          const inner = (
-            <>
-              <div class={`w-12 h-12 rounded-xl ${cc.bg} flex items-center justify-center ${cc.text} text-xl mb-5 ${s.hasDetail ? 'group-hover:scale-110' : ''} transition-transform`}>
-                {s.icon}
-              </div>
-              <h3 class="font-serif text-xl mb-1">{s.title}</h3>
-              <p class="text-rose text-xs tracking-widest uppercase mb-3">{s.subtitle}</p>
-              <p class="text-ink-light text-sm leading-relaxed">{s.description}</p>
-              {s.hasDetail && (
-                <p class={`mt-4 text-xs ${cc.text} group-hover:underline`}>Learn more →</p>
-              )}
-            </>
-          );
-          return s.hasDetail ? (
-            <a href={detailHref} class="card group hover:-translate-y-1 block">
-              {inner}
+    <!-- Right: tabs (News | Blogs) -->
+    <div class="md:w-[60%]">
+      <div class="mb-8 flex gap-0">
+        <button
+          type="button"
+          data-info-tab="news"
+          aria-selected="true"
+          class="info-tab px-8 py-3 text-sm font-normal tracking-[0.1em] rounded-t-lg bg-teal text-white transition-all duration-300"
+        >
+          {home.info.tabNews}
+        </button>
+        <button
+          type="button"
+          data-info-tab="blogs"
+          aria-selected="false"
+          class="info-tab px-8 py-3 text-sm font-normal tracking-[0.1em] rounded-t-lg bg-white text-navy-text/60 hover:text-navy-text transition-all duration-300"
+        >
+          {home.info.tabBlogs}
+        </button>
+      </div>
+
+      <!-- News panel (events) -->
+      <div data-info-panel="news" class="space-y-0">
+        {upcomingEvents.length === 0 ? (
+          <p class="text-sm text-navy-text/60 italic px-6 py-5">No upcoming events.</p>
+        ) : (
+          upcomingEvents.map((event) => (
+            <a
+              href={eventsIndexPath}
+              class="group block border-b border-navy-text/10 bg-white px-6 py-5 transition-all duration-300 hover:bg-sky-light/50"
+            >
+              <p class="mb-1 text-xs tracking-[0.08em] text-navy-text/40">
+                {formatDate(event.data.date)}
+              </p>
+              <p class="text-sm font-normal leading-relaxed text-navy-text transition-colors duration-300 group-hover:text-teal">
+                {eventTitle(event)}
+              </p>
             </a>
-          ) : (
-            <div class="card">
-              {inner}
-            </div>
-          );
-        })}
+          ))
+        )}
       </div>
-    </div>
-  </section>
 
-  <!-- Blog Preview Section -->
-  <section class="py-24">
-    <div class="max-w-6xl mx-auto px-6">
-      <p class="text-rose font-serif text-center text-lg italic mb-2">{c.latestInsights}</p>
-      <h2 class="section-title">{c.fromTheBlog}</h2>
-      <p class="section-subtitle">{c.fromTheBlogBody}</p>
-
-      <div class="grid md:grid-cols-3 gap-6">
+      <!-- Blogs panel -->
+      <div data-info-panel="blogs" class="space-y-0 hidden">
         {topPosts.map((post) => (
-          <a href={`${blogIndexPath}/${post.data.slug}`} class="card group block">
-            <div class="w-full h-48 rounded-xl mb-5 overflow-hidden bg-gradient-to-br from-lavender-light/40 to-sky-light/40 relative">
-              {post.data.cover
-                ? <img src={post.data.cover} alt="" loading="lazy" class="w-full h-full object-cover" />
-                : <div class="w-full h-full flex items-center justify-center">
-                    {post.data.video
-                      ? <span class="text-4xl opacity-30">▶</span>
-                      : <span class="text-4xl opacity-30">✦</span>
-                    }
-                  </div>
-              }
-              {post.data.video && (
-                <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-                  <span class="w-12 h-12 rounded-full bg-ink/60 text-white text-2xl flex items-center justify-center">▶</span>
-                </div>
-              )}
-            </div>
-            <p class="text-xs text-rose tracking-wider uppercase mb-2">
-              {post.data.category === 'news' ? c.newsLabel : c.articleLabel}
+          <a
+            href={`${blogIndexPath}/${post.data.slug}`}
+            class="group block border-b border-navy-text/10 bg-white px-6 py-5 transition-all duration-300 hover:bg-sky-light/50"
+          >
+            <p class="mb-1 text-xs tracking-[0.08em] text-navy-text/40">
+              {formatDate(post.data.date)}
             </p>
-            <h3 class="font-serif text-lg mb-2 group-hover:text-rose transition-colors">
-              {(locale === 'jp' ? post.data.title.jp : (post.data.title.en || post.data.title.jp))}
-            </h3>
-            <p class="text-ink-light text-sm leading-relaxed mb-4 line-clamp-3">
-              {(post.data.body_en || post.data.body_jp).split('\n')[0].slice(0, 140)}…
+            <p class="text-sm font-normal leading-relaxed text-navy-text transition-colors duration-300 group-hover:text-teal">
+              {postTitle(post)}
             </p>
-            <div class="flex items-center justify-between">
-              <span class="text-xs text-ink-light/60">{formatDate(post.data.date)}</span>
-              <span class="text-rose text-sm group-hover:underline">{c.readMore}</span>
-            </div>
           </a>
         ))}
       </div>
 
-      <div class="text-center mt-10">
-        <a href={blogIndexPath} class="btn-outline">{c.viewAllPosts}</a>
+      <div class="mt-6 text-right">
+        <a
+          href={blogIndexPath}
+          class="inline-block text-sm tracking-[0.08em] text-navy-text/50 transition-colors duration-300 hover:text-teal"
+        >
+          {home.info.moreNews}
+        </a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Testimonials Section -->
-  <section class="py-24 bg-gradient-to-b from-warm-white to-blush">
-    <div class="max-w-6xl mx-auto px-6">
-      <p class="text-rose font-serif text-center text-lg italic mb-2">{c.whatClientsSay}</p>
-      <h2 class="section-title">{c.kindWords}</h2>
+<!-- ============================== SERVICES ============================== -->
+<section
+  id="services"
+  class="relative w-full overflow-hidden bg-white py-20 md:py-28"
+>
+  <img
+    src="/petal-swirl.png"
+    alt=""
+    role="presentation"
+    class="pointer-events-none absolute -right-20 -top-32 w-[250px] opacity-40 md:-right-10 md:w-[350px]"
+  />
 
-      <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-        {testimonials.map((t) => (
-          <div class="card relative">
-            <div class="text-rose/30 text-5xl font-serif leading-none mb-2">"</div>
-            <p class="text-ink-light text-sm leading-relaxed mb-6 italic">"{t.text}"</p>
-            <div class="flex items-center justify-between mt-auto">
-              <span class="text-sm font-medium">— {t.name}</span>
-              <div class="flex gap-0.5 text-rose text-xs">{'★'.repeat(t.rating)}</div>
+  <div class="relative z-10 mx-auto max-w-[1200px] px-6 md:px-12 lg:px-8">
+    <div class="mb-12 md:mb-16">
+      <h2 class="font-serif text-3xl font-normal uppercase tracking-[0.15em] text-navy-text md:text-4xl">
+        {home.services.title}
+      </h2>
+      <p class="mt-3 max-w-[400px] text-sm font-light leading-relaxed text-navy-text/60">
+        {home.services.subtitle}
+      </p>
+    </div>
+
+    <div class="grid grid-cols-2 gap-6 md:grid-cols-3 md:gap-8 lg:gap-10">
+      {services.map((s) => {
+        const detailHref = `/${locale}/services/${s.slug}`;
+        return (
+          <a href={detailHref} class="group cursor-pointer text-center">
+            <div class="relative mx-auto mb-4 aspect-square w-full max-w-[180px] overflow-hidden rounded-full md:max-w-[200px] bg-gradient-to-br from-sky-light to-cream">
+              {s.image ? (
+                <img
+                  src={s.image}
+                  alt={s.title}
+                  loading="lazy"
+                  class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+              ) : (
+                <div class="absolute inset-0 flex items-center justify-center text-4xl text-teal/40 transition-transform duration-500 group-hover:scale-110">
+                  {s.icon}
+                </div>
+              )}
+              <div class="absolute inset-0 rounded-full bg-teal/0 transition-all duration-500 group-hover:bg-teal/20"></div>
             </div>
-          </div>
+            <h3 class="font-serif text-sm font-normal uppercase tracking-[0.1em] text-navy-text transition-colors duration-300 group-hover:text-teal md:text-base">
+              {s.title}
+            </h3>
+            <p class="mt-1 text-xs tracking-[0.05em] text-navy-text/40">
+              {s.subtitle}
+            </p>
+          </a>
+        );
+      })}
+    </div>
+  </div>
+</section>
+
+<!-- ============================== TESTIMONIALS ============================== -->
+<section
+  id="testimonials"
+  class="relative w-full overflow-hidden bg-gray-section py-20 md:py-28"
+>
+  <div class="absolute -top-1 left-0 w-full rotate-180">
+    <img
+      src="/ocean-waves.png"
+      alt=""
+      role="presentation"
+      class="pointer-events-none w-full opacity-10"
+      style="mask-image: linear-gradient(to bottom, black 0%, transparent 80%); -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 80%);"
+    />
+  </div>
+
+  <div class="relative z-10 mx-auto max-w-[1200px] px-6 md:px-12 lg:px-8">
+    <div class="mb-12 text-center md:mb-16">
+      <h2 class="font-serif text-3xl font-normal uppercase tracking-[0.15em] text-navy-text md:text-4xl">
+        {home.testimonials.title}
+      </h2>
+      <p class="mt-2 font-sans text-sm tracking-[0.15em] text-navy-text/40">
+        {home.testimonials.sub}
+      </p>
+    </div>
+
+    <div class="grid gap-6 md:grid-cols-3 md:gap-8">
+      {testimonials.map((t) => (
+        <div class="relative bg-white px-8 py-10">
+          <span class="absolute left-6 top-6 font-serif text-5xl leading-none text-teal/20">
+            &ldquo;
+          </span>
+          <p class="relative z-10 mb-6 pt-6 text-sm font-light leading-relaxed text-navy-text/80">
+            {t.quote}
+          </p>
+          <p class="text-xs font-normal tracking-[0.15em] text-teal">
+            — {t.name}
+          </p>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-10 text-center">
+      <a
+        href="/testimonials"
+        class="inline-block text-sm tracking-[0.08em] text-navy-text/50 transition-colors duration-300 hover:text-teal"
+      >
+        Read all stories →
+      </a>
+    </div>
+  </div>
+
+  <div class="absolute -bottom-1 left-0 w-full">
+    <img
+      src="/ocean-waves.png"
+      alt=""
+      role="presentation"
+      class="pointer-events-none w-full opacity-15"
+      style="mask-image: linear-gradient(to top, black 0%, transparent 80%); -webkit-mask-image: linear-gradient(to top, black 0%, transparent 80%);"
+    />
+  </div>
+</section>
+
+<!-- ============================== STORY (dark) ============================== -->
+<section
+  id="story"
+  data-dark-section
+  class="relative w-full overflow-hidden bg-navy-deep py-20 md:py-28"
+>
+  <img
+    src="/cloud-formation.png"
+    alt=""
+    role="presentation"
+    class="pointer-events-none absolute -left-10 top-[10%] w-[150px] opacity-20 animate-[cloud-drift_18s_ease-in-out_infinite]"
+  />
+
+  <div class="relative z-10 mx-auto flex max-w-[1200px] flex-col items-center gap-12 px-6 md:flex-row md:gap-16 md:px-12 lg:px-8">
+    <div class="w-full md:w-[45%]">
+      <img
+        src="/story-mountains.png"
+        alt=""
+        role="presentation"
+        class="w-full max-w-[400px]"
+      />
+    </div>
+
+    <div class="w-full md:w-[55%]">
+      <h2 class="font-serif text-3xl font-normal uppercase tracking-[0.15em] text-white md:text-4xl">
+        {home.story.title}
+      </h2>
+      <p class="mt-2 text-sm tracking-[0.1em] text-white/40">
+        {home.story.sub}
+      </p>
+
+      <div class="mt-8 space-y-5">
+        {storyParas.map((p) => (
+          <p class="text-sm font-light leading-relaxed text-white/80">
+            {p}
+          </p>
         ))}
       </div>
 
-      <div class="text-center mt-10">
-        <a href="/testimonials" class="btn-outline">{c.readAllReviews}</a>
+      <p class="mt-8 text-[10px] uppercase tracking-[0.2em] text-white/40">
+        {home.story.certEyebrow}
+      </p>
+      <div class="mt-3 flex flex-wrap gap-2">
+        {flatCerts.map((cert) => (
+          <span class="rounded-full border border-white/20 px-4 py-1.5 text-xs tracking-[0.05em] text-white/60">
+            {cert}
+          </span>
+        ))}
       </div>
-    </div>
-  </section>
 
-  <!-- About Section -->
-  <section class="py-24">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="flex flex-col md:flex-row items-center gap-12 max-w-4xl mx-auto">
-        <div class="w-64 h-64 rounded-full bg-gradient-to-br from-lavender-light to-sky-light flex-shrink-0 flex items-center justify-center">
-          <span class="text-6xl opacity-40">✦</span>
-        </div>
+      <a
+        href={aboutPath}
+        class="mt-8 inline-block text-sm tracking-[0.08em] text-teal-light transition-colors duration-300 hover:text-white"
+      >
+        Read more →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== Q & A (dark) ============================== -->
+<section
+  id="qa"
+  data-dark-section
+  class="relative w-full overflow-hidden bg-navy-deep py-20 md:py-28 border-t border-white/5"
+>
+  <div class="relative z-10 mx-auto max-w-[1200px] px-6 md:px-12 lg:px-8">
+    <h3 class="mb-8 font-serif text-2xl font-normal uppercase tracking-[0.12em] text-white">
+      {home.faqs.title}
+    </h3>
+
+    {sortedFaqs.length === 0 ? (
+      <p class="text-sm font-light text-white/60 italic">{home.faqs.empty}</p>
+    ) : (
+      <div class="space-y-3">
+        {sortedFaqs.map((f) => (
+          <details class="group rounded-md border border-white/10 bg-white/[0.03] [&_summary::-webkit-details-marker]:hidden">
+            <summary class="flex cursor-pointer list-none items-center justify-between px-6 py-4 text-left transition-colors duration-300 hover:bg-white/[0.05]">
+              <span class="pr-4 text-sm font-normal tracking-[0.04em] text-white/80">
+                {faqQ(f)}
+              </span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="shrink-0 text-white/40 transition-transform duration-300 group-open:rotate-180"
+                aria-hidden="true"
+              >
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </summary>
+            <div class="border-t border-white/10 px-6 pb-5 pt-4">
+              <p class="text-sm font-light leading-relaxed text-white/60 whitespace-pre-line">
+                {faqA(f)}
+              </p>
+            </div>
+          </details>
+        ))}
+      </div>
+    )}
+  </div>
+</section>
+
+<!-- ============================== CONTACT (dark) ============================== -->
+<section
+  id="contact"
+  data-dark-section
+  class="relative w-full overflow-hidden bg-navy-deep py-20 md:py-28"
+>
+  <div class="absolute bottom-0 left-0 w-[280px] overflow-hidden lg:w-[380px]">
+    <img
+      src="/lotus-flowers.png"
+      alt=""
+      role="presentation"
+      class="pointer-events-none w-full"
+    />
+  </div>
+
+  <div class="relative z-10 mx-auto max-w-[1200px] px-6 md:px-12 lg:px-8">
+    <div class="mb-16 md:mb-20">
+      <h2 class="font-serif text-3xl font-normal uppercase tracking-[0.15em] text-white md:text-4xl">
+        {home.contact.title}
+      </h2>
+      <p class="mt-2 text-sm tracking-[0.1em] text-white/40">
+        {home.contact.sub}
+      </p>
+
+      <div class="mt-10 grid gap-10 md:grid-cols-2 md:gap-16">
         <div>
-          <p class="text-rose font-serif italic text-lg mb-2">{c.aboutMe}</p>
-          <h2 class="font-serif text-3xl md:text-4xl mb-6">{c.meetCarmen}</h2>
-          <div class="text-ink-light text-sm leading-relaxed space-y-4">
-            {c.meetCarmenBody.map((p) => <p>{p}</p>)}
+          <p class="mb-6 text-sm font-light leading-relaxed text-white/70">
+            All sessions are held online via Zoom. I welcome clients from all over the world. Feel free to reach out with any questions or to book your session.
+          </p>
+          <div class="space-y-3">
+            <a
+              href={`mailto:${home.contact.email}`}
+              class="block text-sm tracking-[0.06em] text-teal-light transition-colors duration-300 hover:text-white"
+            >
+              {home.contact.email}
+            </a>
+            <div class="flex gap-6 pt-2 text-xs tracking-[0.06em] text-white/50">
+              <a href="https://instagram.com/carmennghealing" target="_blank" rel="noopener noreferrer" class="transition-colors duration-300 hover:text-teal-light">Instagram</a>
+              <a href="https://youtube.com/@CarmenNgHealing" target="_blank" rel="noopener noreferrer" class="transition-colors duration-300 hover:text-teal-light">YouTube</a>
+              <a href="https://open.spotify.com/artist/3dPiiI40Irujqmd4f9atMs" target="_blank" rel="noopener noreferrer" class="transition-colors duration-300 hover:text-teal-light">Spotify</a>
+            </div>
           </div>
-          <a href="/en/about" class="btn-primary mt-8">{c.connectWithMe}</a>
+        </div>
+
+        <div class="flex flex-col items-start justify-center">
+          <p class="mb-6 text-sm font-light leading-relaxed text-white/70">
+            {home.contact.ctaCopy}
+          </p>
+          <a
+            href={`mailto:${home.contact.email}?subject=Session%20Booking`}
+            class="inline-block rounded-full bg-coral px-10 py-3.5 text-sm font-normal tracking-[0.1em] text-white shadow-lg shadow-coral/25 transition-all duration-300 hover:bg-coral-dark hover:shadow-xl"
+          >
+            {home.contact.bookSession}
+          </a>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
+<script>
+  // Info section tabs (News | Blogs). Pure client-side toggle.
+  function activate(name: string) {
+    const tabs = document.querySelectorAll<HTMLButtonElement>('[data-info-tab]');
+    tabs.forEach((tab) => {
+      const isActive = tab.getAttribute('data-info-tab') === name;
+      tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      tab.className = isActive
+        ? 'info-tab px-8 py-3 text-sm font-normal tracking-[0.1em] rounded-t-lg bg-teal text-white transition-all duration-300'
+        : 'info-tab px-8 py-3 text-sm font-normal tracking-[0.1em] rounded-t-lg bg-white text-navy-text/60 hover:text-navy-text transition-all duration-300';
+    });
+    document.querySelectorAll<HTMLElement>('[data-info-panel]').forEach((panel) => {
+      panel.classList.toggle('hidden', panel.getAttribute('data-info-panel') !== name);
+    });
+  }
+  document.querySelectorAll<HTMLButtonElement>('[data-info-tab]').forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const name = tab.getAttribute('data-info-tab');
+      if (name) activate(name);
+    });
+  });
+</script>

@@ -31,6 +31,7 @@ const colorClasses: Record<'rose' | 'lavender' | 'sky' | 'peach', { bg: string; 
         const s = {
           slug: entry.id.replace(/\.md$/, ''),
           icon: entry.data.icon,
+          image: entry.data.image || '',
           color: entry.data.color,
           title: entry.data.title.en,
           subtitle: entry.data.subtitle.en,
@@ -39,9 +40,15 @@ const colorClasses: Record<'rose' | 'lavender' | 'sky' | 'peach', { bg: string; 
         const cc = colorClasses[s.color];
         return (
           <a href={`/en/services/${s.slug}`} class="card group hover:-translate-y-1 block">
-            <div class={`w-12 h-12 rounded-xl ${cc.bg} flex items-center justify-center ${cc.text} text-xl mb-5 group-hover:scale-110 transition-transform`}>
-              {s.icon}
-            </div>
+            {s.image ? (
+              <div class="aspect-square w-full max-w-[200px] mx-auto mb-5 overflow-hidden rounded-full">
+                <img src={s.image} alt={s.title} loading="lazy" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
+              </div>
+            ) : (
+              <div class={`w-12 h-12 rounded-xl ${cc.bg} flex items-center justify-center ${cc.text} text-xl mb-5 group-hover:scale-110 transition-transform`}>
+                {s.icon}
+              </div>
+            )}
             <h2 class="font-serif text-xl mb-1">{s.title}</h2>
             <p class="text-rose text-xs tracking-widest uppercase mb-3">{s.subtitle}</p>
             <p class="text-ink-light text-sm leading-relaxed">{s.description}</p>

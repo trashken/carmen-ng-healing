@@ -1,11 +1,13 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, getEntry } from 'astro:content';
 
 export interface Props {
   locale: 'jp' | 'zh';
 }
 
 const { locale } = Astro.props;
+const t = (await import('../i18n')).getDictionary(locale);
+const home = t.home;
 
 const allServices = await getCollection('services');
 const pickL10n = (s: { en: string; jp: string; zh?: string }) =>
@@ -15,263 +17,422 @@ const services = allServices
   .map((entry) => ({
     slug: entry.id.replace(/\.md$/, ''),
     icon: entry.data.icon,
-    color: entry.data.color,
+    image: entry.data.image || '',
     title: pickL10n(entry.data.title),
     subtitle: pickL10n(entry.data.subtitle),
-    description: pickL10n(entry.data.desc),
-    hasDetail: (entry.data.offerings?.length ?? 0) > 0,
   }));
-
-// Same color map as HomeContent.astro. Keep in sync if you add a color.
-const colorClasses: Record<'rose' | 'lavender' | 'sky' | 'peach', { text: string }> = {
-  rose:     { text: 'text-rose' },
-  lavender: { text: 'text-lavender' },
-  sky:      { text: 'text-sky' },
-  peach:    { text: 'text-peach' },
-};
 
 const allPosts = await getCollection('blog');
 const topPosts = allPosts
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-  .slice(0, 4);
-
+  .slice(0, 3);
+const postTitle = (p: typeof topPosts[number]) =>
+  locale === 'jp' ? p.data.title.jp : (p.data.title.zh || p.data.title.jp);
 const formatDate = (iso: Date) => {
-  // CJK date format: 2026年6月9日 (JP) or 2026年6月9日 (ZH)
   const y = iso.getFullYear();
-  const m = iso.getMonth() + 1;
-  const d = iso.getDate();
-  return locale === 'jp' ? `${y}年${m}月${d}日` : `${y}年${m}月${d}日`;
+  const m = String(iso.getMonth() + 1).padStart(2, '0');
+  const d = String(iso.getDate()).padStart(2, '0');
+  return `${y}.${m}.${d}`;
 };
 
-const testimonials = [
-  {
-    name: 'Kao',
-    quote: '心も体も軽くなり、自分の進みたい方向もはっきりして、とても安心しました。',
-    service: 'ガイダンス',
-  },
-  {
-    name: 'もん',
-    quote: '実際の誘導以外の説明やアフターケアを絵や文字で示してくださり、確認しやすかったです。',
-    service: 'ボディスキャン',
-  },
-  {
-    name: 'おゆ',
-    quote: '感謝と愛をたくさん感じることができる時間は改めて幸せだなあと思いました。',
-    service: 'ボディスキャン',
-  },
+const allEvents = await getCollection('events');
+const now = Date.now();
+const upcomingEvents = allEvents
+  .filter((e) => e.data.date.getTime() >= now)
+  .sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf())
+  .slice(0, 3);
+const eventTitle = (e: typeof upcomingEvents[number]) =>
+  locale === 'jp' ? e.data.title.jp : (e.data.title.zh || e.data.title.jp);
+
+const about = await getEntry('about', 'main');
+const storyParas = (() => {
+  if (!about) return [];
+  const body = locale === 'jp' ? about.data.body_jp : (about.data.body_zh || about.data.body_jp);
+  return body.split(/\n\s*\n/).slice(0, 3);
+})();
+const certs = (about?.data.certifications || []).flatMap((c) =>
+  (c.items_jp || []).slice(0, 1).map(() => c.school_jp)
+);
+const flatCerts = Array.from(new Set(certs)).slice(0, 6);
+
+const allFaqs = await getCollection('faqs');
+const sortedFaqs = allFaqs.sort((a, b) => a.data.order - b.data.order);
+const faqQ = (f: typeof sortedFaqs[number]) =>
+  locale === 'jp' ? (f.data.question.jp || f.data.question.en) : (f.data.question.zh || f.data.question.en);
+const faqA = (f: typeof sortedFaqs[number]) =>
+  locale === 'jp' ? (f.data.answer.jp || f.data.answer.en) : (f.data.answer.zh || f.data.answer.en);
+
+const testimonials = locale === 'jp' ? [
+  { name: 'Kao', quote: '心も体も軽くなり、自分の進みたい方向もはっきりして、とても安心しました。' },
+  { name: 'もん', quote: '実際の誘導以外の説明やアフターケアを絵や文字で示してくださり、確認しやすかったです。' },
+  { name: 'おゆ', quote: '感謝と愛をたくさん感じることができる時間は改めて幸せだなあと思いました。' },
+] : [
+  { name: 'Christine', quote: '我 75 歲，呢幾年身體一路有好幾處唔舒服……做完 RAAH 療程後，多年來第一次瞓得咁好。' },
+  { name: 'M', quote: '整個過程非常舒適和放鬆。療程後我感到身心被淨化，感官也變得敏銳。' },
+  { name: 'Kylie', quote: "Carmen's 引導清晰、溫柔，讓我更深地連結自己的本質。" },
 ];
 
-const copy = {
-  jp: {
-    heroWelcome: 'ようこそ',
-    heroSubtitle: 'ホリスティック・ヒーリング',
-    heroDescription: 'エネルギーヒーリング、 sound therapy、スピリチュアル・ガイダンスを通じて内なる調和を取り戻します。',
-    bookSession: 'セッションを予約',
-    exploreServices: 'サービス一覧',
-    sectionServices: '提供内容',
-    sectionServicesSub: 'あらゆる旅路に寄り添うメソッド',
-    sectionLatest: '最新のインサイト',
-    sectionLatestSub: 'ブログより',
-    sectionLatestBody: '癒し、スピリチュアル、マインドフル・ライフについての考察。',
-    viewAll: '全ての記事',
-    sectionVoices: 'お客様の声',
-    sectionVoicesSub: 'ご感想',
-    readAllVoices: '全てのレビュー',
-    sectionAbout: 'プロフィール',
-    sectionAboutSub: 'カーメンについて',
-    connectWithMe: 'お問い合わせ',
-    articleLabel: '記事',
-    newsLabel: 'お知らせ',
-    readMore: '続きを読む',
-    byLine: '提供',
-  },
-  zh: {
-    heroWelcome: '歡迎來到',
-    heroSubtitle: '整體療癒',
-    heroDescription: '透過能量療癒、聲音療法與靈性指引，重新與內在的和諧連結。',
-    bookSession: '預約療程',
-    exploreServices: '所有服務',
-    sectionServices: '服務項目',
-    sectionServicesSub: '支持每一段獨特的療癒之旅',
-    sectionLatest: '最新分享',
-    sectionLatestSub: '網誌精選',
-    sectionLatestBody: '關於療癒、靈性與真實生活的反思。',
-    viewAll: '查看全部',
-    sectionVoices: '客戶分享',
-    sectionVoicesSub: '他們的話',
-    readAllVoices: '閱讀所有分享',
-    sectionAbout: '關於我',
-    sectionAboutSub: '認識 Carmen',
-    connectWithMe: '與我聯絡',
-    articleLabel: '文章',
-    newsLabel: '最新消息',
-    readMore: '閱讀全文',
-    byLine: '療程',
-  },
-} as const;
-
-const c = copy[locale];
 const blogIndexPath = `/${locale}/blog`;
+const eventsIndexPath = `/${locale}/events`;
+const aboutPath = `/${locale}/about`;
+const contactPath = `/${locale}/contact`;
 ---
 
-  <!-- Hero Section (breathable, sized for CJK legibility: 16px body, 0.1em tracking) -->
-  <section class="relative min-h-[55vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-blush via-warm-white to-warm-white bg-[image:linear-gradient(rgba(255,251,247,0.6),rgba(255,251,247,0.6)),url(/uploads/hero-jp.jpg)] bg-cover bg-center border-b border-rose/10">
-    <div class="absolute w-72 h-72 rounded-full bg-lavender-light/20 blur-3xl -top-10 -left-10 pointer-events-none"></div>
-    <div class="absolute w-60 h-60 rounded-full bg-sky-light/15 blur-3xl bottom-0 right-0 pointer-events-none"></div>
+<!-- ============================== HERO ============================== -->
+<section
+  id="hero"
+  data-dark-section
+  class="relative min-h-screen w-full overflow-hidden"
+  style="background: linear-gradient(180deg, #7EC8E3 0%, #B8DCE8 30%, #D4EBF3 60%, #E8F4F8 85%, #EDF1F5 100%);"
+>
+  <img
+    src="/cloud-formation.png"
+    alt=""
+    role="presentation"
+    class="pointer-events-none absolute left-[5%] top-[8%] w-[180px] opacity-70 lg:w-[220px] animate-[cloud-drift_18s_ease-in-out_infinite]"
+  />
+  <img
+    src="/cloud-formation.png"
+    alt=""
+    role="presentation"
+    class="pointer-events-none absolute right-[8%] top-[15%] w-[140px] opacity-60 lg:w-[180px] animate-[cloud-drift_18s_ease-in-out_infinite]"
+    style="animation-delay: -9s; animation-direction: reverse;"
+  />
 
-    <div class="relative z-10 text-center px-6 max-w-2xl mx-auto py-16">
-      <p class="text-rose font-serif text-sm mb-3 tracking-[0.1em]">{c.heroWelcome}</p>
-      <h1 class="text-4xl md:text-6xl font-serif font-bold text-ink mb-4 leading-tight">
-        Carmen Ng
+  <div class="mx-auto flex min-h-screen max-w-[1200px] flex-col items-center px-6 pt-24 md:flex-row md:items-center md:justify-between md:px-12 md:pt-0 lg:px-8">
+    <div class="relative flex w-full justify-center md:w-[50%] md:justify-start">
+      <img
+        src="/fuji.png"
+        alt=""
+        role="presentation"
+        class="relative z-10 w-[280px] md:w-[400px] lg:w-[480px]"
+      />
+      <img
+        src="/cherry-blossom.png"
+        alt=""
+        role="presentation"
+        class="pointer-events-none absolute -bottom-8 -left-4 z-20 w-[200px] md:-left-8 md:w-[280px] lg:w-[340px]"
+      />
+      <div class="absolute right-[15%] top-[5%] h-[60px] w-[60px] rounded-full bg-gradient-to-br from-amber-200 to-amber-400 opacity-60 blur-[1px] md:right-[20%] md:h-[80px] md:h-[80px] md:w-[80px]"></div>
+    </div>
+
+    <div class="relative z-20 mt-6 w-full text-center md:mt-0 md:w-[50%] md:text-left">
+      <h1 class="font-serif text-4xl font-normal uppercase tracking-[0.15em] text-navy-text md:text-5xl lg:text-6xl">
+        {home.hero.title}
       </h1>
-      <p class="text-lg md:text-xl font-serif text-ink-light mb-6 tracking-[0.1em]">{c.heroSubtitle}</p>
-      <p class="text-base md:text-lg text-ink-light mb-8 leading-loose max-w-xl mx-auto tracking-[0.1em]">
-        {c.heroDescription}
+      <p class="mt-2 font-sans text-lg font-normal tracking-[0.2em] text-navy-text/70 md:text-xl">
+        {home.hero.titleKana}
       </p>
-      <div class="flex flex-col sm:flex-row gap-3 justify-center">
-        <a href="/contact" class="btn-primary text-sm px-8 py-3">{c.bookSession}</a>
-        <a href="#services" class="btn-outline text-sm px-8 py-3">{c.exploreServices}</a>
+      <p class="mt-4 font-serif text-sm font-normal uppercase tracking-[0.25em] text-teal md:text-base">
+        {home.hero.tagline}
+      </p>
+      <p class="mx-auto mt-6 max-w-[380px] text-sm font-light leading-relaxed text-navy-text/70 md:mx-0">
+        {home.hero.description}
+      </p>
+      <div class="mt-8 flex flex-col items-center gap-4 sm:flex-row md:items-start">
+        <a href={contactPath} class="inline-block rounded-full bg-coral px-8 py-3 text-sm font-normal tracking-[0.1em] text-white shadow-lg shadow-coral/25 transition-all duration-300 hover:bg-coral-dark hover:shadow-xl hover:shadow-coral/30">
+          {home.hero.bookSession}
+        </a>
+        <a href="#services" class="inline-block rounded-full border border-navy-text/20 px-8 py-3 text-sm font-normal tracking-[0.1em] text-navy-text transition-all duration-300 hover:border-teal hover:text-teal">
+          {home.hero.exploreServices}
+        </a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Services Section (4-up grid, sized for CJK legibility) -->
-  <section id="services" class="py-12 bg-cream/40">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="flex items-baseline justify-between mb-6 border-b border-rose/20 pb-2">
-        <h2 class="font-serif text-2xl text-ink tracking-[0.1em]">{c.sectionServices}</h2>
-        <p class="text-sm text-ink-light/70 tracking-[0.1em]">{c.sectionServicesSub}</p>
+<!-- ============================== INFO ============================== -->
+<section
+  id="info"
+  class="relative w-full bg-gray-section py-20 md:py-28"
+>
+  <div class="mx-auto flex max-w-[1200px] flex-col gap-12 px-6 md:flex-row md:gap-16 md:px-12 lg:px-8">
+    <div class="relative md:w-[40%]">
+      <h2 class="font-serif text-3xl font-normal uppercase tracking-[0.15em] text-navy-text md:text-4xl">
+        {home.info.title}
+      </h2>
+      <p class="mt-2 font-sans text-base tracking-[0.1em] text-navy-text/50">
+        {home.info.sub}
+      </p>
+      <div class="relative mt-6">
+        <img src="/torii-gate.png" alt="" role="presentation" class="w-[220px] md:w-[280px]" />
+        <img src="/cloud-formation.png" alt="" role="presentation" class="pointer-events-none absolute -right-4 top-0 w-[80px] opacity-40 animate-[cloud-drift_18s_ease-in-out_infinite]" />
+      </div>
+    </div>
+
+    <div class="md:w-[60%]">
+      <div class="mb-8 flex gap-0">
+        <button type="button" data-info-tab="news" aria-selected="true" class="info-tab px-8 py-3 text-sm font-normal tracking-[0.1em] rounded-t-lg bg-teal text-white transition-all duration-300">
+          {home.info.tabNews}
+        </button>
+        <button type="button" data-info-tab="blogs" aria-selected="false" class="info-tab px-8 py-3 text-sm font-normal tracking-[0.1em] rounded-t-lg bg-white text-navy-text/60 hover:text-navy-text transition-all duration-300">
+          {home.info.tabBlogs}
+        </button>
       </div>
 
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-        {services.map((s) => {
-          const cc = colorClasses[s.color];
-          const detailHref = `/${locale}/services/${s.slug}`;
-          const inner = (
-            <>
-              <div class="flex items-baseline gap-2 mb-1.5">
-                <span class={`${cc.text} text-lg`}>{s.icon}</span>
-                <h3 class="font-serif text-base text-ink leading-snug">{s.title}</h3>
-              </div>
-              <p class="text-[11px] text-rose tracking-wider uppercase mb-2">{s.subtitle}</p>
-              <p class="text-sm text-ink-light leading-relaxed tracking-[0.05em]">{s.description}</p>
-              {s.hasDetail && (
-                <p class={`mt-2 text-xs ${cc.text}`}>詳しく →</p>
-              )}
-            </>
-          );
-          return s.hasDetail ? (
-            <a href={detailHref} class="block bg-white/80 border border-rose/10 rounded-md p-4 hover:border-rose/40 transition-colors">
-              {inner}
+      <div data-info-panel="news" class="space-y-0">
+        {upcomingEvents.length === 0 ? (
+          <p class="text-sm text-navy-text/60 italic px-6 py-5">No upcoming events.</p>
+        ) : (
+          upcomingEvents.map((event) => (
+            <a href={eventsIndexPath} class="group block border-b border-navy-text/10 bg-white px-6 py-5 transition-all duration-300 hover:bg-sky-light/50">
+              <p class="mb-1 text-xs tracking-[0.08em] text-navy-text/40">{formatDate(event.data.date)}</p>
+              <p class="text-sm font-normal leading-relaxed text-navy-text transition-colors duration-300 group-hover:text-teal">{eventTitle(event)}</p>
             </a>
-          ) : (
-            <div class="bg-white/80 border border-rose/10 rounded-md p-4">
-              {inner}
-            </div>
-          );
-        })}
+          ))
+        )}
       </div>
-    </div>
-  </section>
 
-  <!-- Blog Section (dense 4-up grid, sized for CJK legibility) -->
-  <section class="py-12">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="flex items-baseline justify-between mb-4 border-b border-rose/20 pb-2">
-        <div class="flex items-baseline gap-3">
-          <h2 class="font-serif text-2xl text-ink tracking-[0.1em]">{c.sectionLatest}</h2>
-          <span class="text-sm text-ink-light/60 tracking-[0.1em]">{c.sectionLatestSub}</span>
-        </div>
-        <a href={blogIndexPath} class="text-sm text-rose hover:underline">{c.viewAll} →</a>
-      </div>
-      <p class="text-sm text-ink-light/70 mb-5 tracking-[0.1em]">{c.sectionLatestBody}</p>
-
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+      <div data-info-panel="blogs" class="space-y-0 hidden">
         {topPosts.map((post) => (
-          <a href={`${blogIndexPath}/${post.data.slug}`} class="block group">
-            <div class="aspect-[4/3] rounded-md mb-2 overflow-hidden bg-gradient-to-br from-sky-light/30 to-lavender-light/30 relative">
-              {post.data.cover
-                ? <img src={post.data.cover} alt="" loading="lazy" class="w-full h-full object-cover" />
-                : <div class="w-full h-full flex items-center justify-center">
-                    {post.data.video
-                      ? <span class="text-2xl opacity-30">▶</span>
-                      : <span class="text-2xl opacity-20">✦</span>
-                    }
-                  </div>
-              }
-              {post.data.video && (
-                <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-                  <span class="w-8 h-8 rounded-full bg-ink/60 text-white text-sm flex items-center justify-center">▶</span>
-                </div>
-              )}
-            </div>
-            <p class="text-[11px] text-rose tracking-wider uppercase mb-1.5">
-              {post.data.category === 'news' ? c.newsLabel : c.articleLabel}
-            </p>
-            <h3 class="font-serif text-base text-ink leading-relaxed mb-1.5 group-hover:text-rose transition-colors line-clamp-2 tracking-[0.05em]">
-              {post.data.title.jp}
-            </h3>
-            <p class="text-xs text-ink-light/60 tracking-[0.05em]">{formatDate(post.data.date)}</p>
+          <a href={`${blogIndexPath}/${post.data.slug}`} class="group block border-b border-navy-text/10 bg-white px-6 py-5 transition-all duration-300 hover:bg-sky-light/50">
+            <p class="mb-1 text-xs tracking-[0.08em] text-navy-text/40">{formatDate(post.data.date)}</p>
+            <p class="text-sm font-normal leading-relaxed text-navy-text transition-colors duration-300 group-hover:text-teal">{postTitle(post)}</p>
           </a>
         ))}
       </div>
-    </div>
-  </section>
 
-  <!-- Testimonials Section (compact, sized for CJK legibility) -->
-  <section class="py-12 bg-gradient-to-b from-warm-white to-blush/30">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="flex items-baseline justify-between mb-4 border-b border-rose/20 pb-2">
-        <div class="flex items-baseline gap-3">
-          <h2 class="font-serif text-2xl text-ink tracking-[0.1em]">{c.sectionVoices}</h2>
-          <span class="text-sm text-ink-light/60 tracking-[0.1em]">{c.sectionVoicesSub}</span>
-        </div>
-        <a href="/testimonials" class="text-sm text-rose hover:underline">{c.readAllVoices} →</a>
+      <div class="mt-6 text-right">
+        <a href={blogIndexPath} class="inline-block text-sm tracking-[0.08em] text-navy-text/50 transition-colors duration-300 hover:text-teal">
+          {home.info.moreNews}
+        </a>
       </div>
+    </div>
+  </div>
+</section>
 
-      <div class="grid md:grid-cols-3 gap-3">
-        {testimonials.map((t) => (
-          <div class="bg-white/70 border-l-2 border-rose/40 pl-4 pr-3 py-3 rounded-r-md">
-            <p class="text-sm text-ink-light leading-relaxed mb-3 line-clamp-4 tracking-[0.05em]">{t.quote}</p>
-            <div class="flex items-center justify-between text-xs">
-              <span class="font-medium text-ink">— {t.name}</span>
-              <span class="text-ink-light/60">{c.byLine}: {t.service}</span>
+<!-- ============================== SERVICES ============================== -->
+<section
+  id="services"
+  class="relative w-full overflow-hidden bg-white py-20 md:py-28"
+>
+  <img src="/petal-swirl.png" alt="" role="presentation" class="pointer-events-none absolute -right-20 -top-32 w-[250px] opacity-40 md:-right-10 md:w-[350px]" />
+  <div class="relative z-10 mx-auto max-w-[1200px] px-6 md:px-12 lg:px-8">
+    <div class="mb-12 md:mb-16">
+      <h2 class="font-serif text-3xl font-normal uppercase tracking-[0.15em] text-navy-text md:text-4xl">
+        {home.services.title}
+      </h2>
+      <p class="mt-3 max-w-[400px] text-sm font-light leading-relaxed text-navy-text/60">
+        {home.services.subtitle}
+      </p>
+    </div>
+    <div class="grid grid-cols-2 gap-6 md:grid-cols-3 md:gap-8 lg:gap-10">
+      {services.map((s) => {
+        const detailHref = `/${locale}/services/${s.slug}`;
+        return (
+          <a href={detailHref} class="group cursor-pointer text-center">
+            <div class="relative mx-auto mb-4 aspect-square w-full max-w-[180px] overflow-hidden rounded-full md:max-w-[200px] bg-gradient-to-br from-sky-light to-cream">
+              {s.image ? (
+                <img
+                  src={s.image}
+                  alt={s.title}
+                  loading="lazy"
+                  class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+              ) : (
+                <div class="absolute inset-0 flex items-center justify-center text-4xl text-teal/40 transition-transform duration-500 group-hover:scale-110">{s.icon}</div>
+              )}
+              <div class="absolute inset-0 rounded-full bg-teal/0 transition-all duration-500 group-hover:bg-teal/20"></div>
             </div>
-          </div>
+            <h3 class="font-serif text-sm font-normal uppercase tracking-[0.1em] text-navy-text transition-colors duration-300 group-hover:text-teal md:text-base">
+              {s.title}
+            </h3>
+            <p class="mt-1 text-xs tracking-[0.05em] text-navy-text/40">{s.subtitle}</p>
+          </a>
+        );
+      })}
+    </div>
+  </div>
+</section>
+
+<!-- ============================== TESTIMONIALS ============================== -->
+<section
+  id="testimonials"
+  class="relative w-full overflow-hidden bg-gray-section py-20 md:py-28"
+>
+  <div class="absolute -top-1 left-0 w-full rotate-180">
+    <img src="/ocean-waves.png" alt="" role="presentation" class="pointer-events-none w-full opacity-10" style="mask-image: linear-gradient(to bottom, black 0%, transparent 80%); -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 80%);" />
+  </div>
+  <div class="relative z-10 mx-auto max-w-[1200px] px-6 md:px-12 lg:px-8">
+    <div class="mb-12 text-center md:mb-16">
+      <h2 class="font-serif text-3xl font-normal uppercase tracking-[0.15em] text-navy-text md:text-4xl">
+        {home.testimonials.title}
+      </h2>
+      <p class="mt-2 font-sans text-sm tracking-[0.15em] text-navy-text/40">
+        {home.testimonials.sub}
+      </p>
+    </div>
+    <div class="grid gap-6 md:grid-cols-3 md:gap-8">
+      {testimonials.map((t) => (
+        <div class="relative bg-white px-8 py-10">
+          <span class="absolute left-6 top-6 font-serif text-5xl leading-none text-teal/20">&ldquo;</span>
+          <p class="relative z-10 mb-6 pt-6 text-sm font-light leading-relaxed text-navy-text/80">{t.quote}</p>
+          <p class="text-xs font-normal tracking-[0.15em] text-teal">— {t.name}</p>
+        </div>
+      ))}
+    </div>
+    <div class="mt-10 text-center">
+      <a href="/testimonials" class="inline-block text-sm tracking-[0.08em] text-navy-text/50 transition-colors duration-300 hover:text-teal">
+        Read all stories →
+      </a>
+    </div>
+  </div>
+  <div class="absolute -bottom-1 left-0 w-full">
+    <img src="/ocean-waves.png" alt="" role="presentation" class="pointer-events-none w-full opacity-15" style="mask-image: linear-gradient(to top, black 0%, transparent 80%); -webkit-mask-image: linear-gradient(to top, black 0%, transparent 80%);" />
+  </div>
+</section>
+
+<!-- ============================== STORY (dark) ============================== -->
+<section
+  id="story"
+  data-dark-section
+  class="relative w-full overflow-hidden bg-navy-deep py-20 md:py-28"
+>
+  <img src="/cloud-formation.png" alt="" role="presentation" class="pointer-events-none absolute -left-10 top-[10%] w-[150px] opacity-20 animate-[cloud-drift_18s_ease-in-out_infinite]" />
+  <div class="relative z-10 mx-auto flex max-w-[1200px] flex-col items-center gap-12 px-6 md:flex-row md:gap-16 md:px-12 lg:px-8">
+    <div class="w-full md:w-[45%]">
+      <img src="/story-mountains.png" alt="" role="presentation" class="w-full max-w-[400px]" />
+    </div>
+    <div class="w-full md:w-[55%]">
+      <h2 class="font-serif text-3xl font-normal uppercase tracking-[0.15em] text-white md:text-4xl">
+        {home.story.title}
+      </h2>
+      <p class="mt-2 text-sm tracking-[0.1em] text-white/40">
+        {home.story.sub}
+      </p>
+      <div class="mt-8 space-y-5">
+        {storyParas.map((p) => (
+          <p class="text-sm font-light leading-relaxed text-white/80">{p}</p>
         ))}
       </div>
+      <p class="mt-8 text-[10px] uppercase tracking-[0.2em] text-white/40">
+        {home.story.certEyebrow}
+      </p>
+      <div class="mt-3 flex flex-wrap gap-2">
+        {flatCerts.map((cert) => (
+          <span class="rounded-full border border-white/20 px-4 py-1.5 text-xs tracking-[0.05em] text-white/60">{cert}</span>
+        ))}
+      </div>
+      <a href={aboutPath} class="mt-8 inline-block text-sm tracking-[0.08em] text-teal-light transition-colors duration-300 hover:text-white">
+        Read more →
+      </a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- About Section (stacked, sized for CJK legibility) -->
-  <section class="py-12 border-t border-rose/10">
-    <div class="max-w-4xl mx-auto px-6">
-      <div class="flex items-baseline gap-3 mb-4 border-b border-rose/20 pb-2">
-        <h2 class="font-serif text-2xl text-ink tracking-[0.1em]">{c.sectionAbout}</h2>
-        <span class="text-sm text-ink-light/60 tracking-[0.1em]">{c.sectionAboutSub}</span>
+<!-- ============================== Q & A (dark) ============================== -->
+<section
+  id="qa"
+  data-dark-section
+  class="relative w-full overflow-hidden bg-navy-deep py-20 md:py-28 border-t border-white/5"
+>
+  <div class="relative z-10 mx-auto max-w-[1200px] px-6 md:px-12 lg:px-8">
+    <h3 class="mb-8 font-serif text-2xl font-normal uppercase tracking-[0.12em] text-white">
+      {home.faqs.title}
+    </h3>
+
+    {sortedFaqs.length === 0 ? (
+      <p class="text-sm font-light text-white/60 italic">{home.faqs.empty}</p>
+    ) : (
+      <div class="space-y-3">
+        {sortedFaqs.map((f) => (
+          <details class="group rounded-md border border-white/10 bg-white/[0.03] [&_summary::-webkit-details-marker]:hidden">
+            <summary class="flex cursor-pointer list-none items-center justify-between px-6 py-4 text-left transition-colors duration-300 hover:bg-white/[0.05]">
+              <span class="pr-4 text-sm font-normal tracking-[0.04em] text-white/80">
+                {faqQ(f)}
+              </span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="shrink-0 text-white/40 transition-transform duration-300 group-open:rotate-180"
+                aria-hidden="true"
+              >
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </summary>
+            <div class="border-t border-white/10 px-6 pb-5 pt-4">
+              <p class="text-sm font-light leading-relaxed text-white/60 whitespace-pre-line">
+                {faqA(f)}
+              </p>
+            </div>
+          </details>
+        ))}
       </div>
-      <div class="flex items-start gap-6">
-        <div class="w-28 h-28 flex-shrink-0 rounded-full bg-gradient-to-br from-lavender-light to-sky-light flex items-center justify-center">
-          <span class="text-3xl opacity-40">✦</span>
-        </div>
-        <div class="flex-1">
-          <div class="text-sm text-ink-light leading-loose space-y-3 tracking-[0.1em]">
-            {locale === 'jp' ? (
-              <>
-                <p>ヒーリングの旅は十多年前、エネルギー・ワークが私の人生にもたらした深い変容の体験から始まりました。個人 RAAH セッション、ヒーリング、ボディスキャン・ワークショップなどを通し、クライアントの「自分の中にあるギフトや癒しの力を思い出す」お手伝いをしています。</p>
-                <p>レイキ、サウンドセラピー、量子催眠（QHHT）など複数の伝統を学び、古代の叡智と直感的な実践を融合させています。</p>
-                <p>セッションやワークショップの最新情報はブログとニュースレターにて。</p>
-              </>
-            ) : (
-              <>
-                <p>我的療癒旅程始於十多年前，親身經歷了能量療癒為生命帶來的深刻轉化。透過個人 RAAH 靈氣、療癒、Body Scan 工作坊等方式，協助客戶憶起自身本有的療癒力量。</p>
-                <p>我受過 Reiki、聲音療法、量子催眠（QHHT）等多重傳統的訓練，將古老的智慧與直覺性的實踐相融合。</p>
-                <p>最新工作坊與活動資訊請見網誌與電子報。</p>
-              </>
-            )}
+    )}
+  </div>
+</section>
+
+<!-- ============================== CONTACT (dark) ============================== -->
+<section
+  id="contact"
+  data-dark-section
+  class="relative w-full overflow-hidden bg-navy-deep py-20 md:py-28"
+>
+  <div class="absolute bottom-0 left-0 w-[280px] overflow-hidden lg:w-[380px]">
+    <img src="/lotus-flowers.png" alt="" role="presentation" class="pointer-events-none w-full" />
+  </div>
+  <div class="relative z-10 mx-auto max-w-[1200px] px-6 md:px-12 lg:px-8">
+    <div class="mb-16 md:mb-20">
+      <h2 class="font-serif text-3xl font-normal uppercase tracking-[0.15em] text-white md:text-4xl">
+        {home.contact.title}
+      </h2>
+      <p class="mt-2 text-sm tracking-[0.1em] text-white/40">
+        {home.contact.sub}
+      </p>
+      <div class="mt-10 grid gap-10 md:grid-cols-2 md:gap-16">
+        <div>
+          <p class="mb-6 text-sm font-light leading-relaxed text-white/70">
+            All sessions are held online via Zoom. I welcome clients from all over the world. Feel free to reach out with any questions or to book your session.
+          </p>
+          <div class="space-y-3">
+            <a href={`mailto:${home.contact.email}`} class="block text-sm tracking-[0.06em] text-teal-light transition-colors duration-300 hover:text-white">
+              {home.contact.email}
+            </a>
+            <div class="flex gap-6 pt-2 text-xs tracking-[0.06em] text-white/50">
+              <a href="https://instagram.com/carmennghealing" target="_blank" rel="noopener noreferrer" class="transition-colors duration-300 hover:text-teal-light">Instagram</a>
+              <a href="https://youtube.com/@CarmenNgHealing" target="_blank" rel="noopener noreferrer" class="transition-colors duration-300 hover:text-teal-light">YouTube</a>
+              <a href="https://open.spotify.com/artist/3dPiiI40Irujqmd4f9atMs" target="_blank" rel="noopener noreferrer" class="transition-colors duration-300 hover:text-teal-light">Spotify</a>
+            </div>
           </div>
-          <a href={`/${locale}/about`} class="inline-block mt-4 text-sm text-rose hover:underline tracking-[0.1em]">{c.connectWithMe} →</a>
+        </div>
+        <div class="flex flex-col items-start justify-center">
+          <p class="mb-6 text-sm font-light leading-relaxed text-white/70">
+            {home.contact.ctaCopy}
+          </p>
+          <a href={`mailto:${home.contact.email}?subject=Session%20Booking`} class="inline-block rounded-full bg-coral px-10 py-3.5 text-sm font-normal tracking-[0.1em] text-white shadow-lg shadow-coral/25 transition-all duration-300 hover:bg-coral-dark hover:shadow-xl">
+            {home.contact.bookSession}
+          </a>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
+<script>
+  function activate(name: string) {
+    const tabs = document.querySelectorAll<HTMLButtonElement>('[data-info-tab]');
+    tabs.forEach((tab) => {
+      const isActive = tab.getAttribute('data-info-tab') === name;
+      tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      tab.className = isActive
+        ? 'info-tab px-8 py-3 text-sm font-normal tracking-[0.1em] rounded-t-lg bg-teal text-white transition-all duration-300'
+        : 'info-tab px-8 py-3 text-sm font-normal tracking-[0.1em] rounded-t-lg bg-white text-navy-text/60 hover:text-navy-text transition-all duration-300';
+    });
+    document.querySelectorAll<HTMLElement>('[data-info-panel]').forEach((panel) => {
+      panel.classList.toggle('hidden', panel.getAttribute('data-info-panel') !== name);
+    });
+  }
+  document.querySelectorAll<HTMLButtonElement>('[data-info-tab]').forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const name = tab.getAttribute('data-info-tab');
+      if (name) activate(name);
+    });
+  });
+</script>

@@ -63,6 +63,11 @@ const services = defineCollection({
       zh: z.string().optional().default(''),
     }),
     icon: z.string(),
+    // Optional watercolor illustration path under /uploads/ (or any
+    // public path). Replaces the icon glyph on the homepage services
+    // tile when set. Editors pick this from PagesCMS like the `icon`
+    // field.
+    image: z.string().optional().default(''),
     color: z.enum(['rose', 'lavender', 'sky', 'peach']),
     order: z.number().default(100),
     // Optional hero / tagline line shown on the service detail page below
@@ -176,6 +181,30 @@ const events = defineCollection({
   }),
 });
 
+// Frequently asked questions shown on the homepage in the "Q & A"
+// section. Each FAQ has a per-locale question + answer (Markdown body).
+// Editors add/remove/reorder entries via PagesCMS.
+const faqs = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/faqs' }),
+  schema: z.object({
+    // Per-locale question. EN is required (canonical); JP and ZH fall
+    // back to EN when empty on the page.
+    question: z.object({
+      en: z.string(),
+      jp: z.string().optional().default(''),
+      zh: z.string().optional().default(''),
+    }),
+    // Per-locale answer (Markdown body). Same fallback rules.
+    answer: z.object({
+      en: z.string(),
+      jp: z.string().optional().default(''),
+      zh: z.string().optional().default(''),
+    }),
+    // Display order. Lower numbers appear first.
+    order: z.number().default(100),
+  }),
+});
+
 // Single-entry collection. There is only one About Me page. Fetch it
 // with `getEntry('about', 'main')`. Body content is a per-locale text
 // block (YAML literal block scalar) + a list of certification schools
@@ -215,4 +244,4 @@ const about = defineCollection({
   }),
 });
 
-export const collections = { blog, testimonials, services, events, about };
+export const collections = { blog, testimonials, services, events, faqs, about };
