@@ -276,6 +276,68 @@ content:
   # link is hidden.
   # ---------------------------------------------------------------------------
 
+  - name: hero
+    label: Hero (Homepage)
+    type: collection
+    path: src/content/hero
+    filename: 'main.md'
+    format: yaml-frontmatter
+    view:
+      primary: title
+    fields:
+      - name: title
+        type: object
+        label: Headline
+        description: >-
+          Per-locale headline shown in large display type on the homepage.
+          EN is required; JP and ZH fall back to EN when empty.
+        fields:
+          - name: en
+            type: string
+            label: Headline (English)
+          - name: jp
+            type: string
+            label: Headline (Japanese)
+          - name: zh
+            type: string
+            label: Headline (Traditional Chinese)
+      - name: title_kana
+        type: string
+        label: Kana / phonetic line
+        description: >-
+          Optional secondary line below the headline (e.g. "カーメン").
+          Leave empty to hide.
+      - name: welcome
+        type: string
+        label: Welcome line
+        description: >-
+          Optional small line above the headline (e.g. "Welcome").
+          Leave empty to hide.
+      - name: tagline
+        type: string
+        label: Tagline
+        description: >-
+          Small uppercase accent line (e.g. "Holistic Healing").
+          Leave empty to hide.
+      - name: description
+        type: text
+        label: Description
+        description: >-
+          Short hero paragraph (1-2 sentences) under the headline.
+          Falls back to the i18n default if empty.
+      - name: cta_primary
+        type: string
+        label: Primary CTA label
+        description: >-
+          Text for the coral "Book a Session" button.
+          Falls back to the i18n default if empty.
+      - name: cta_secondary
+        type: string
+        label: Secondary CTA label
+        description: >-
+          Text for the "Explore Services" outline button.
+          Falls back to the i18n default if empty.
+
   - name: events
     label: Events & Workshops
     type: collection
@@ -502,50 +564,28 @@ content:
             type: text
             label: Overview (Traditional Chinese)
 
-      # "What we do in the session" body block.
-      - name: what_we_do
+      # Long-form service body. Replaces the previous three separate
+      # fields (What we do / Through the session / Recommended for).
+      # Carmen writes her own Markdown — section headings (## / ###),
+      # paragraphs, **bold**, *italic*, and - bullet lists are all
+      # supported. JP/ZH fall back to EN on the detail page if empty.
+      - name: body
         type: object
-        label: 'What we do'
-        fields:
-          - name: en
-            type: text
-            label: 'What we do (English)'
-          - name: jp
-            type: text
-            label: 'What we do (Japanese)'
-          - name: zh
-            type: text
-            label: 'What we do (Traditional Chinese)'
-
-      # "Through the session" body block.
-      - name: through_session
-        type: object
-        label: 'Through the session'
-        fields:
-          - name: en
-            type: text
-            label: 'Through the session (English)'
-          - name: jp
-            type: text
-            label: 'Through the session (Japanese)'
-          - name: zh
-            type: text
-            label: 'Through the session (Traditional Chinese)'
-
-      # "Recommended for" block.
-      - name: recommended
-        type: object
-        label: 'Recommended for'
+        label: 'Service body'
+        description: >-
+          Long-form body shown on the detail page below the Overview.
+          Markdown is supported (## headings, **bold**, *italic*, - lists,
+          paragraphs). Write the section structure you want.
         fields:
           - name: en
             type: rich-text
-            label: 'Recommended for (English)'
+            label: 'Body (English)'
           - name: jp
             type: rich-text
-            label: 'Recommended for (Japanese)'
+            label: 'Body (Japanese)'
           - name: zh
             type: rich-text
-            label: 'Recommended for (Traditional Chinese)'
+            label: 'Body (Traditional Chinese)'
       - name: testimonial_1
         type: text
         label: 1st Testimonial

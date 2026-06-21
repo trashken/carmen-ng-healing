@@ -4,7 +4,6 @@ title:
   jp: ワークショップ
   zh: 工作坊
 icon: ✶
-image: /sound-bowl.jpg
 color: sky
 order: 3
 subtitle:

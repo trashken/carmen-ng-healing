@@ -86,17 +86,11 @@ const services = defineCollection({
       jp: z.string().optional().default(''),
       zh: z.string().optional().default(''),
     }).optional(),
-    what_we_do: z.object({
-      en: z.string().optional().default(''),
-      jp: z.string().optional().default(''),
-      zh: z.string().optional().default(''),
-    }).optional(),
-    through_session: z.object({
-      en: z.string().optional().default(''),
-      jp: z.string().optional().default(''),
-      zh: z.string().optional().default(''),
-    }).optional(),
-    recommended: z.object({
+    // Long-form service body (per locale, Markdown). Replaces the
+    // previous split into what_we_do / through_session / recommended.
+    // Carmen writes her own section headings (## etc.) and formatting
+    // here. JP/ZH fall back to EN on the detail page if empty.
+    body: z.object({
       en: z.string().optional().default(''),
       jp: z.string().optional().default(''),
       zh: z.string().optional().default(''),
@@ -181,6 +175,29 @@ const events = defineCollection({
   }),
 });
 
+// Single-entry collection. The homepage hero. Fetched with
+// `getEntry('hero', 'main')`. Editors edit it from PagesCMS. Per-
+// locale text fields let editors override the i18n defaults.
+const hero = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/hero' }),
+  schema: z.object({
+    // Per-locale hero copy. EN is required; JP and ZH fall back to EN
+    // on the page when empty.
+    welcome: z.string().optional().default(''),
+    title: z.object({
+      en: z.string(),
+      jp: z.string().optional().default(''),
+      zh: z.string().optional().default(''),
+    }),
+    title_kana: z.string().optional().default(''),
+    tagline: z.string().optional().default(''),
+    description: z.string().optional().default(''),
+    // CTA labels (Button text).
+    cta_primary: z.string().optional().default(''),
+    cta_secondary: z.string().optional().default(''),
+  }),
+});
+
 // Frequently asked questions shown on the homepage in the "Q & A"
 // section. Each FAQ has a per-locale question + answer (Markdown body).
 // Editors add/remove/reorder entries via PagesCMS.
@@ -244,4 +261,4 @@ const about = defineCollection({
   }),
 });
 
-export const collections = { blog, testimonials, services, events, faqs, about };
+export const collections = { blog, testimonials, services, events, faqs, hero, about };

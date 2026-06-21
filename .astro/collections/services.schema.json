@@ -113,41 +113,7 @@
         }
       }
     },
-    "what_we_do": {
-      "type": "object",
-      "properties": {
-        "en": {
-          "default": "",
-          "type": "string"
-        },
-        "jp": {
-          "default": "",
-          "type": "string"
-        },
-        "zh": {
-          "default": "",
-          "type": "string"
-        }
-      }
-    },
-    "through_session": {
-      "type": "object",
-      "properties": {
-        "en": {
-          "default": "",
-          "type": "string"
-        },
-        "jp": {
-          "default": "",
-          "type": "string"
-        },
-        "zh": {
-          "default": "",
-          "type": "string"
-        }
-      }
-    },
-    "recommended": {
+    "body": {
       "type": "object",
       "properties": {
         "en": {

@@ -9,6 +9,19 @@ const { locale } = Astro.props;
 const t = (await import('../i18n')).getDictionary(locale);
 const home = t.home;
 
+// Hero block: fetched from the single-entry `hero` collection. Per-locale
+// overrides fall back to the i18n defaults when empty.
+const heroEntry = await getEntry('hero', 'main');
+const heroTitle = locale === 'jp'
+  ? (heroEntry.data.title.jp || heroEntry.data.title.en)
+  : (heroEntry.data.title.zh || heroEntry.data.title.en);
+const heroKana = heroEntry.data.title_kana || (locale === 'jp' ? 'カーメン' : '');
+const heroWelcome = heroEntry.data.welcome || home.hero.welcome;
+const heroTagline = heroEntry.data.tagline || home.hero.tagline;
+const heroDescription = heroEntry.data.description || home.hero.description;
+const heroCtaPrimary = heroEntry.data.cta_primary || home.hero.bookSession;
+const heroCtaSecondary = heroEntry.data.cta_secondary || home.hero.exploreServices;
+
 const allServices = await getCollection('services');
 const pickL10n = (s: { en: string; jp: string; zh?: string }) =>
   locale === 'jp' ? s.jp : (s.zh || s.jp);
@@ -20,6 +33,7 @@ const services = allServices
     image: entry.data.image || '',
     title: pickL10n(entry.data.title),
     subtitle: pickL10n(entry.data.subtitle),
+    description: pickL10n(entry.data.desc),
   }));
 
 const allPosts = await getCollection('blog');
@@ -86,13 +100,13 @@ const contactPath = `/${locale}/contact`;
   style="background: linear-gradient(180deg, #7EC8E3 0%, #B8DCE8 30%, #D4EBF3 60%, #E8F4F8 85%, #EDF1F5 100%);"
 >
   <img
-    src="/cloud-formation.png"
+    src="/assets/cloud-formation.png"
     alt=""
     role="presentation"
     class="pointer-events-none absolute left-[5%] top-[8%] w-[180px] opacity-70 lg:w-[220px] animate-[cloud-drift_18s_ease-in-out_infinite]"
   />
   <img
-    src="/cloud-formation.png"
+    src="/assets/cloud-formation.png"
     alt=""
     role="presentation"
     class="pointer-events-none absolute right-[8%] top-[15%] w-[140px] opacity-60 lg:w-[180px] animate-[cloud-drift_18s_ease-in-out_infinite]"
@@ -102,13 +116,13 @@ const contactPath = `/${locale}/contact`;
   <div class="mx-auto flex min-h-screen max-w-[1200px] flex-col items-center px-6 pt-24 md:flex-row md:items-center md:justify-between md:px-12 md:pt-0 lg:px-8">
     <div class="relative flex w-full justify-center md:w-[50%] md:justify-start">
       <img
-        src="/fuji.png"
+        src="/assets/fuji.png"
         alt=""
         role="presentation"
         class="relative z-10 w-[280px] md:w-[400px] lg:w-[480px]"
       />
       <img
-        src="/cherry-blossom.png"
+        src="/assets/cherry-blossom.png"
         alt=""
         role="presentation"
         class="pointer-events-none absolute -bottom-8 -left-4 z-20 w-[200px] md:-left-8 md:w-[280px] lg:w-[340px]"
@@ -118,23 +132,32 @@ const contactPath = `/${locale}/contact`;
 
     <div class="relative z-20 mt-6 w-full text-center md:mt-0 md:w-[50%] md:text-left">
       <h1 class="font-serif text-4xl font-normal uppercase tracking-[0.15em] text-navy-text md:text-5xl lg:text-6xl">
-        {home.hero.title}
+        {heroTitle}
       </h1>
-      <p class="mt-2 font-sans text-lg font-normal tracking-[0.2em] text-navy-text/70 md:text-xl">
-        {home.hero.titleKana}
-      </p>
-      <p class="mt-4 font-serif text-sm font-normal uppercase tracking-[0.25em] text-teal md:text-base">
-        {home.hero.tagline}
-      </p>
+      {heroKana && (
+        <p class="mt-2 font-sans text-lg font-normal tracking-[0.2em] text-navy-text/70 md:text-xl">
+          {heroKana}
+        </p>
+      )}
+      {heroWelcome && (
+        <p class="mt-2 font-sans text-sm font-normal tracking-[0.2em] text-navy-text/60 md:text-base">
+          {heroWelcome}
+        </p>
+      )}
+      {heroTagline && (
+        <p class="mt-4 font-serif text-sm font-normal uppercase tracking-[0.25em] text-teal md:text-base">
+          {heroTagline}
+        </p>
+      )}
       <p class="mx-auto mt-6 max-w-[380px] text-sm font-light leading-relaxed text-navy-text/70 md:mx-0">
-        {home.hero.description}
+        {heroDescription}
       </p>
       <div class="mt-8 flex flex-col items-center gap-4 sm:flex-row md:items-start">
         <a href={contactPath} class="inline-block rounded-full bg-coral px-8 py-3 text-sm font-normal tracking-[0.1em] text-white shadow-lg shadow-coral/25 transition-all duration-300 hover:bg-coral-dark hover:shadow-xl hover:shadow-coral/30">
-          {home.hero.bookSession}
+          {heroCtaPrimary}
         </a>
         <a href="#services" class="inline-block rounded-full border border-navy-text/20 px-8 py-3 text-sm font-normal tracking-[0.1em] text-navy-text transition-all duration-300 hover:border-teal hover:text-teal">
-          {home.hero.exploreServices}
+          {heroCtaSecondary}
         </a>
       </div>
     </div>
@@ -155,8 +178,8 @@ const contactPath = `/${locale}/contact`;
         {home.info.sub}
       </p>
       <div class="relative mt-6">
-        <img src="/torii-gate.png" alt="" role="presentation" class="w-[220px] md:w-[280px]" />
-        <img src="/cloud-formation.png" alt="" role="presentation" class="pointer-events-none absolute -right-4 top-0 w-[80px] opacity-40 animate-[cloud-drift_18s_ease-in-out_infinite]" />
+        <img src="/assets/torii-gate.png" alt="" role="presentation" class="w-[220px] md:w-[280px]" />
+        <img src="/assets/cloud-formation.png" alt="" role="presentation" class="pointer-events-none absolute -right-4 top-0 w-[80px] opacity-40 animate-[cloud-drift_18s_ease-in-out_infinite]" />
       </div>
     </div>
 
@@ -206,7 +229,7 @@ const contactPath = `/${locale}/contact`;
   id="services"
   class="relative w-full overflow-hidden bg-white py-20 md:py-28"
 >
-  <img src="/petal-swirl.png" alt="" role="presentation" class="pointer-events-none absolute -right-20 -top-32 w-[250px] opacity-40 md:-right-10 md:w-[350px]" />
+  <img src="/assets/petal-swirl.png" alt="" role="presentation" class="pointer-events-none absolute -right-20 -top-32 w-[250px] opacity-40 md:-right-10 md:w-[350px]" />
   <div class="relative z-10 mx-auto max-w-[1200px] px-6 md:px-12 lg:px-8">
     <div class="mb-12 md:mb-16">
       <h2 class="font-serif text-3xl font-normal uppercase tracking-[0.15em] text-navy-text md:text-4xl">
@@ -219,25 +242,38 @@ const contactPath = `/${locale}/contact`;
     <div class="grid grid-cols-2 gap-6 md:grid-cols-3 md:gap-8 lg:gap-10">
       {services.map((s) => {
         const detailHref = `/${locale}/services/${s.slug}`;
-        return (
+        return s.image ? (
           <a href={detailHref} class="group cursor-pointer text-center">
             <div class="relative mx-auto mb-4 aspect-square w-full max-w-[180px] overflow-hidden rounded-full md:max-w-[200px] bg-gradient-to-br from-sky-light to-cream">
-              {s.image ? (
-                <img
-                  src={s.image}
-                  alt={s.title}
-                  loading="lazy"
-                  class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-              ) : (
-                <div class="absolute inset-0 flex items-center justify-center text-4xl text-teal/40 transition-transform duration-500 group-hover:scale-110">{s.icon}</div>
-              )}
+              <img
+                src={s.image}
+                alt={s.title}
+                loading="lazy"
+                class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
               <div class="absolute inset-0 rounded-full bg-teal/0 transition-all duration-500 group-hover:bg-teal/20"></div>
             </div>
             <h3 class="font-serif text-sm font-normal uppercase tracking-[0.1em] text-navy-text transition-colors duration-300 group-hover:text-teal md:text-base">
               {s.title}
             </h3>
             <p class="mt-1 text-xs tracking-[0.05em] text-navy-text/40">{s.subtitle}</p>
+          </a>
+        ) : (
+          <a href={detailHref} class="card group block hover:-translate-y-1 text-left">
+            <div class="flex items-center gap-3 mb-2">
+              <div class="w-10 h-10 rounded-lg bg-sky-light/40 flex items-center justify-center text-xl text-teal/70 transition-transform duration-300 group-hover:scale-110">
+                {s.icon}
+              </div>
+              <h3 class="font-serif text-base text-navy-text leading-snug group-hover:text-teal transition-colors duration-300">
+                {s.title}
+              </h3>
+            </div>
+            <p class="text-[11px] text-rose tracking-wider uppercase mb-2">{s.subtitle}</p>
+            {s.description && (
+              <p class="text-xs text-navy-text/80 leading-relaxed tracking-[0.05em]">
+                {s.description}
+              </p>
+            )}
           </a>
         );
       })}
@@ -251,7 +287,7 @@ const contactPath = `/${locale}/contact`;
   class="relative w-full overflow-hidden bg-gray-section py-20 md:py-28"
 >
   <div class="absolute -top-1 left-0 w-full rotate-180">
-    <img src="/ocean-waves.png" alt="" role="presentation" class="pointer-events-none w-full opacity-10" style="mask-image: linear-gradient(to bottom, black 0%, transparent 80%); -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 80%);" />
+    <img src="/assets/ocean-waves.png" alt="" role="presentation" class="pointer-events-none w-full opacity-10" style="mask-image: linear-gradient(to bottom, black 0%, transparent 80%); -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 80%);" />
   </div>
   <div class="relative z-10 mx-auto max-w-[1200px] px-6 md:px-12 lg:px-8">
     <div class="mb-12 text-center md:mb-16">
@@ -278,7 +314,7 @@ const contactPath = `/${locale}/contact`;
     </div>
   </div>
   <div class="absolute -bottom-1 left-0 w-full">
-    <img src="/ocean-waves.png" alt="" role="presentation" class="pointer-events-none w-full opacity-15" style="mask-image: linear-gradient(to top, black 0%, transparent 80%); -webkit-mask-image: linear-gradient(to top, black 0%, transparent 80%);" />
+    <img src="/assets/ocean-waves.png" alt="" role="presentation" class="pointer-events-none w-full opacity-15" style="mask-image: linear-gradient(to top, black 0%, transparent 80%); -webkit-mask-image: linear-gradient(to top, black 0%, transparent 80%);" />
   </div>
 </section>
 
@@ -288,10 +324,10 @@ const contactPath = `/${locale}/contact`;
   data-dark-section
   class="relative w-full overflow-hidden bg-navy-deep py-20 md:py-28"
 >
-  <img src="/cloud-formation.png" alt="" role="presentation" class="pointer-events-none absolute -left-10 top-[10%] w-[150px] opacity-20 animate-[cloud-drift_18s_ease-in-out_infinite]" />
+  <img src="/assets/cloud-formation.png" alt="" role="presentation" class="pointer-events-none absolute -left-10 top-[10%] w-[150px] opacity-20 animate-[cloud-drift_18s_ease-in-out_infinite]" />
   <div class="relative z-10 mx-auto flex max-w-[1200px] flex-col items-center gap-12 px-6 md:flex-row md:gap-16 md:px-12 lg:px-8">
     <div class="w-full md:w-[45%]">
-      <img src="/story-mountains.png" alt="" role="presentation" class="w-full max-w-[400px]" />
+      <img src="/assets/story-mountains.png" alt="" role="presentation" class="w-full max-w-[400px]" />
     </div>
     <div class="w-full md:w-[55%]">
       <h2 class="font-serif text-3xl font-normal uppercase tracking-[0.15em] text-white md:text-4xl">
@@ -376,7 +412,7 @@ const contactPath = `/${locale}/contact`;
   class="relative w-full overflow-hidden bg-navy-deep py-20 md:py-28"
 >
   <div class="absolute bottom-0 left-0 w-[280px] overflow-hidden lg:w-[380px]">
-    <img src="/lotus-flowers.png" alt="" role="presentation" class="pointer-events-none w-full" />
+    <img src="/assets/lotus-flowers.png" alt="" role="presentation" class="pointer-events-none w-full" />
   </div>
   <div class="relative z-10 mx-auto max-w-[1200px] px-6 md:px-12 lg:px-8">
     <div class="mb-16 md:mb-20">

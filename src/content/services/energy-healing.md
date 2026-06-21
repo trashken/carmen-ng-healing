@@ -4,7 +4,6 @@ title:
   jp: エネルギーヒーリング
   zh: 能量療程
 icon: ✦
-image: /energy-healing-hands.jpg
 color: lavender
 order: 2
 slug: energy-healing
@@ -29,8 +28,10 @@ tagline:
   en: Realign your soul’s frequency and remember your true self.
   jp: 魂の周波数を整え、本来の自分へと還る旅。
   zh: 重整靈魂頻率，回歸最真實的自我。
-what_we_do:
+body:
   en: |-
+    ## What we do
+
     Each session is personally customized, with guidance from your Higher Self, to provide the most effective healing for your current needs. Depending on what is required for your highest good, we will work through one or more of the following:
 
     Clearing & Restoration: Removing energetic blockages, low-frequency disturbances, and sealing auric leaks.
@@ -42,7 +43,23 @@ what_we_do:
     Healing & Release: Healing the inner child and severing negative energetic cords.
 
     Spiritual Evolution: Opening your consciousness, strengthening your connection with your Higher Self, and awakening your unique spiritual gifts.
+
+    ## Through the session
+
+    Please ensure you are in a quiet, undisturbed space for the duration of our session.
+
+    Experience Duration: Approx. 90 minutes
+
+    Format: Conducted remotely via Zoom 
+
+    ## Recommended for
+
+    Suitable for everyone, from those experiencing energy healing for the first time to seasoned practitioners. 
+
+    I hold a high-vibrational space rooted in Source Love Light, providing the support you need for your deepest levels of cleansing and healing.
   jp: |-
+    ## セッションで行うこと
+
     各セッションはハイヤーセルフの導きにより、必要な癒やしを最適化して提供します。その時々で最適な手法を用い、以下のプロセスを通じてサポートいたします。
 
     浄化と修復： エネルギーブロックや低周波の乱れをクリアにし、オーラの漏れを修復
@@ -54,7 +71,23 @@ what_we_do:
     癒やしと解放： インナーチャイルドを癒やし、ネガティブなエネルギーコードを切断
 
     霊性の進化： 意識の拡大、ハイヤーセルフとの繋がりを深め、あなた本来のスピリチュアルな才能を覚醒
+
+    ## セッションを通して
+
+    セッション中は、静かで穏やかな環境にいられるよう、あらかじめご準備をお願いいたします。
+
+    所要時間: 約90分
+
+    形式: Zoomによる遠隔セッション
+
+    ## このような方におすすめです
+
+    エネルギーヒーリングが初めてという方から、プロのヒーラーの方まで、どなたでも安心してお申し込みいただけます。
+
+    源（ソース）の愛という高い波動の空間を保持し、深い浄化と癒やしを全力でサポートいたします。
   zh: |-
+    ## 療程內容
+
     每次療程皆為您度身訂造，以提供最適切的療癒。在高我的指引下，我會透過以下方式為您進行深層調整：
 
     淨化與修復： 清除能量阻塞與低頻干擾，修補能量場 Aura的漏洞
@@ -66,35 +99,17 @@ what_we_do:
     療癒與釋放： 療癒內在小孩，切斷負面能量束
 
     靈性提升： 開啟意識維度，強化與高我的連結，並覺醒您獨特的靈性天賦
-through_session:
-  en: |-
-    Please ensure you are in a quiet, undisturbed space for the duration of our session.
 
-    Experience Duration: Approx. 90 minutes
+    ## 療程進行方式
 
-    Format: Conducted remotely via Zoom 
-  jp: |-
-    セッション中は、静かで穏やかな環境にいられるよう、あらかじめご準備をお願いいたします。
-
-    所要時間: 約90分
-
-    形式: Zoomによる遠隔セッション
-  zh: |-
     請確保在療程時，處於一個安靜且不受干擾的環境。
 
     療程需時: 約 90 分鐘
 
     形式: 透過 Zoom 網上進行
-recommended:
-  en: |-
-    Suitable for everyone, from those experiencing energy healing for the first time to seasoned practitioners. 
 
-    I hold a high-vibrational space rooted in Source Love Light, providing the support you need for your deepest levels of cleansing and healing.
-  jp: |-
-    エネルギーヒーリングが初めてという方から、プロのヒーラーの方まで、どなたでも安心してお申し込みいただけます。
+    ## 適合對象
 
-    源（ソース）の愛という高い波動の空間を保持し、深い浄化と癒やしを全力でサポートいたします。
-  zh: |-
     療程適合所有人士，無論您是第一次接觸能量療癒，還是資深的能量工作者，皆歡迎預約。
 
     我為您持守源頭愛心光芒的高頻空間，協助您進行最深層的淨化與療癒。
