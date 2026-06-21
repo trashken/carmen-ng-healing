@@ -42,6 +42,12 @@ media:
     output: /uploads
     categories: [image]
     extensions: [jpg, jpeg, png, webp]
+  - name: assets
+    label: Asset Images
+    input: public/assets
+    output: /assets
+    categories: [image]
+    extensions: [jpg, jpeg, png, webp]
   - name: videos
     label: Blog videos
     input: public/videos
@@ -217,8 +223,8 @@ content:
     filename: '{slug}.md'
     format: yaml-frontmatter
     view:
-      fields: [order, question, date]
-      primary: question
+      fields: [order, question.en, date]
+      primary: question.en
       sort: [order]
       default:
         sort: order
@@ -496,14 +502,17 @@ content:
           A single emoji or symbol character shown in the card (e.g. ✦, ♯,
           ☆, ◈). Rendered as text, so it must be a real Unicode character.
       - name: image
-        type: string
+        type: image
         label: Service image
         description: >-
           Public path to a watercolor illustration under /uploads/
           (e.g. /uploads/energy-healing-hands.jpg). When set, the image
           replaces the icon glyph on the homepage + services-index
           cards. Leave empty to fall back to the icon.
-
+        options:
+          media: images
+          path: public/assets
+          extensions: [jpg, jpeg, png, webp]
       - name: color
         type: select
         label: Accent color
@@ -749,13 +758,14 @@ content:
         label: Sign-off (Japanese)
       - name: signoff_zh
         type: text
-        label: Sign-off (Traditional Chinese)
+        label: Sign-off (Traditional Chinese)      
       - name: portrait
-        type: string
-        label: Portrait image path
-        description: >-
-          Public path under /uploads/ (e.g. /uploads/about-portrait.jpg).
-          Shown in the left column of the about page hero.
+        type: image
+        label: Portrait Image
+        options:
+          media: images
+          path: public/uploads
+          extensions: [jpg, jpeg, png, webp]
       - name: hands
         type: string
         label: Hands / second image path
