@@ -90,7 +90,7 @@ const services = defineCollection({
     // previous split into what_we_do / through_session / recommended.
     // Carmen writes her own section headings (## etc.) and formatting
     // here. JP/ZH fall back to EN on the detail page if empty.
-    body: z.object({
+    serviceBody: z.object({
       en: z.string().optional().default(''),
       jp: z.string().optional().default(''),
       zh: z.string().optional().default(''),

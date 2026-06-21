@@ -22,7 +22,7 @@ const title = pickL10n(d.title) || d.title.en;
 const subtitle = pickL10n(d.subtitle) || d.subtitle.en;
 const tagline = pickL10n(d.tagline);
 const intro = pickL10n(d.intro);
-const bodyMd = pickL10n(d.body);
+const bodyMd = pickL10n(d.serviceBody);
 const bodyHtml = renderInlineMarkdown(bodyMd);
 const isFallback =
   (d.tagline?.jp === '' || d.tagline?.jp == null) && d.tagline?.en !== '';

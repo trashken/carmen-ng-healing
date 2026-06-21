@@ -34,7 +34,7 @@ tagline:
   en: Transform your living space into a high-vibrational sanctuary of peace and harmony.
   jp: 住まいを高波動な聖域へ。家族が心から安らげる、調和のとれた空間を。
   zh: 轉化居家能量場，讓您的家成為高頻、和平且充滿和諧的空間。
-body:
+serviceBody:
   en: |+
     ## What we do
 

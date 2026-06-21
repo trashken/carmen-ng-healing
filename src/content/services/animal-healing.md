@@ -34,7 +34,7 @@ tagline:
   en: Restoring your companion's vitality and soul-level harmony.
   jp: 大切な家族の生命力と、魂の調和を取り戻す。
   zh: 重拾您的毛孩伴侶，那份來自靈魂深處的自然活力與諧和。
-body:
+serviceBody:
   en: |-
     ## What we do
 

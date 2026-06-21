@@ -28,7 +28,7 @@ tagline:
   en: Realign your soul’s frequency and remember your true self.
   jp: 魂の周波数を整え、本来の自分へと還る旅。
   zh: 重整靈魂頻率，回歸最真實的自我。
-body:
+serviceBody:
   en: |-
     ## What we do
 

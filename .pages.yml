@@ -578,7 +578,7 @@ content:
       # Carmen writes her own Markdown — section headings (## / ###),
       # paragraphs, **bold**, *italic*, and - bullet lists are all
       # supported. JP/ZH fall back to EN on the detail page if empty.
-      - name: body
+      - name: serviceBody
         type: object
         label: 'Service body'
         description: >-
