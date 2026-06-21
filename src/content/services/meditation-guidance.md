@@ -3,21 +3,21 @@ title:
   en: Home & Land Purification
   jp: 家・土地の浄化
   zh: 家居與土地淨化
-icon: ○
-color: sky
-order: 4
-slug: home-purification
-subtitle:
-  en: Clearing, Protecting, and Restoring Your Living Sanctuary
-  jp: 住空間と土地の浄化 ― 聖域としての心地よい住まいを取り戻す
-  zh: 空間與土地淨化 — 恢復居家聖域的清淨與平衡
 desc:
-  en: |-
-    Your home is an extension of your own energy field. When your space carries stagnant energy, negative imprints, or environmental imbalances, it can create a cycle of stress, disharmony, and internal restlessness. 
+  en: >-
+    Your home is an extension of your own energy field. When your space carries
+    stagnant energy, negative imprints, or environmental imbalances, it can
+    create a cycle of stress, disharmony, and internal restlessness. 
 
-    This service provides a deep-level, multidimensional clearing of your property. 
 
-    By identifying and releasing energetic congestion, sealing portals, and restoring your space to its natural, high-vibrational frequency, we create a sanctuary that supports your well-being, improves family relationships, and allows you to feel truly at home again.
+    This service provides a deep-level, multidimensional clearing of your
+    property. 
+
+
+    By identifying and releasing energetic congestion, sealing portals, and
+    restoring your space to its natural, high-vibrational frequency, we create a
+    sanctuary that supports your well-being, improves family relationships, and
+    allows you to feel truly at home again.
   jp: |-
     住まいは、あなた自身のエネルギーフィールドの延長です。もし空間に停滞したエネルギーやネガティブな刻印、環境の乱れが残っていると、それがストレスや不和、あるいは心安らがない原因となってしまうことがあります。
 
@@ -30,55 +30,74 @@ desc:
     本療程針對家居與土地的多維度深層淨化。
 
     透過識別並釋放能量堵塞、封印負面門戶，並將空間恢復至自然的平衡高頻狀態，我協助您創造一個支持個人與家庭幸福的聖域，讓家再次成為心靈的依歸。
+icon: ○
+color: sky
+order: 4
 tagline:
-  en: Transform your living space into a high-vibrational sanctuary of peace and harmony.
+  en: Transform your living space into a high-vibrational sanctuary of peace and
+    harmony.
   jp: 住まいを高波動な聖域へ。家族が心から安らげる、調和のとれた空間を。
   zh: 轉化居家能量場，讓您的家成為高頻、和平且充滿和諧的空間。
 serviceBody:
-  en: |+
+  en: >+
     ## What we do
 
-    Thorough clearing and energetic alignment of your space and land
 
-    Removal of negative codes, implants, hooks, and attachments
+    - Thorough clearing and energetic alignment of your space and land
 
-    Sealing of negative portals
+    - Removal of negative codes, implants, hooks, and attachments
 
-    Release of negative contracts
+    - Sealing of negative portals
 
-    Removal of curses
+    - Release of negative contracts
 
-    Protection and healing for your home and land
+    - Removal of curses
 
-    Blessings for all family members
+    - Protection and healing for your home and land
+
+    - Blessings for all family members
+
 
     ## Through the session
 
+
     Conducted online via Zoom
+
 
     Duration: Approx. 90 minutes
 
+
     ## Recommended for
+
 
     **Ideal for:**
 
+
     - Feeling a heavy or stagnant atmosphere in your home.
+
     - Persistent disharmony within the household.
+
     - Preparing to move into a new living space.
-    - Enhancing your home's energetic hygiene following personal healing sessions.
-    - A long-overdue energetic deep-clean to refresh your space after years of living there.
+
+    - Enhancing your home's energetic hygiene following personal healing
+    sessions.
+
+    - A long-overdue energetic deep-clean to refresh your space after years of
+    living there.
+
     - Purifying the energy of your professional office or workplace environment.
+
     - Clearing and blessing the land before starting new construction.
 
   jp: |+
     ## セッションで行うこと
 
-    空間と土地を隅々までの浄化・調整
-    負のコード、インプラント、フックなどの除去
-    負のポータルの封印
-    ネガティヴな契約の解除
-    呪いの解除
-    家と土地の保護とヒーリング
+    - 空間と土地を隅々までの浄化・調整
+    - 負のコード、インプラント、フックなどの除去
+    - 負のポータルの封印
+    - ネガティヴな契約の解除
+    - 呪いの解除
+    - 家と土地の保護とヒーリング  
     ご家族皆様への祝福
 
     ## このような方におすすめです
@@ -93,16 +112,16 @@ serviceBody:
     - オフィスや職場環境のエネルギーを浄化したい方。
     - 建物の建設前に、土地のエネルギーを浄化・調整したい方。
 
-  zh: |
+  zh: |+
     ## 療程內容
 
-    ・淨化調整空間及土地能量
-    ・移除負極線 Cord、植入物Implant、Hook 等
-    ・封印負極玄關 Dark Portal
-    ・解除負極契約
-    ・解除詛咒
-    ・保護及療癒家居及土地
-    ・為家庭成員加持祝福
+    - 淨化調整空間及土地能量
+    - 移除負極線 Cord、植入物Implant、Hook 等
+    - 封印負極玄關 Dark Portal
+    - 解除負極契約
+    - 解除詛咒
+    - 保護及療癒家居及土地
+    - 為家庭成員加持祝福
 
     ## 適合對象
 
@@ -115,4 +134,6 @@ serviceBody:
     - 感覺居住了多年，是時候為空間進行深層清潔與能量淨化。
     - 辦公室或工作環境的能量清理，提升工作效率與氣場。
     - 土地建屋前的能量淨化與空間祝福。
+
+slug: home-purification
 ---
