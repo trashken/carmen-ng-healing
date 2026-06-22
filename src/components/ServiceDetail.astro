@@ -19,7 +19,7 @@ const pickL10n = (s?: { en: string; jp: string; zh?: string }) => {
 };
 
 const title = pickL10n(d.title) || d.title.en;
-const subtitle = pickL10n(d.subtitle) || d.subtitle.en;
+const subtitle = (d.subtitle && pickL10n(d.subtitle)) || (d.subtitle?.en ?? '') || pickL10n(d.desc) || d.desc.en;
 const tagline = pickL10n(d.tagline);
 const intro = pickL10n(d.intro);
 const bodyMd = pickL10n(d.serviceBody);

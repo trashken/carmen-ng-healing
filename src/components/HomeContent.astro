@@ -33,7 +33,7 @@ const services = allServices
     icon: entry.data.icon,
     image: entry.data.image || '',
     title: pickL10n(entry.data.title),
-    subtitle: pickL10n(entry.data.subtitle),
+    subtitle: entry.data.subtitle ? pickL10n(entry.data.subtitle) : (pickL10n(entry.data.desc) || entry.data.desc.en),
     description: pickL10n(entry.data.desc),
   }));
 

@@ -267,7 +267,6 @@
   },
   "required": [
     "title",
-    "subtitle",
     "desc",
     "icon",
     "color"

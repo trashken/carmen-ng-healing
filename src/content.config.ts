@@ -52,11 +52,13 @@ const services = defineCollection({
       jp: z.string(),
       zh: z.string().optional().default(''),
     }),
-    subtitle: z.object({
-      en: z.string(),
-      jp: z.string(),
-      zh: z.string().optional().default(''),
-    }),
+    subtitle: z
+      .object({
+        en: z.string(),
+        jp: z.string(),
+        zh: z.string().optional().default(''),
+      })
+      .optional(),
     desc: z.object({
       en: z.string(),
       jp: z.string(),
@@ -244,15 +246,21 @@ const about = defineCollection({
     signoff_jp: z.string().optional().default(''),
     signoff_zh: z.string().optional().default(''),
     // Training & certifications. Each school is one section with a
-    // per-locale name + a list of items.
-    certifications: z.array(z.object({
-      school_en: z.string(),
-      school_jp: z.string(),
-      school_zh: z.string().optional().default(''),
-      items_en: z.array(z.string()),
-      items_jp: z.array(z.string()),
-      items_zh: z.array(z.string()).optional().default([]),
-    })).optional().default([]),
+    // per-locale name + a list of items. Also accepts a free-form
+    // string during early editing (PagesCMS users may type a
+    // placeholder); we coerce strings to [] and let the about page
+    // skip rendering.
+    certifications: z.union([
+      z.array(z.object({
+        school_en: z.string(),
+        school_jp: z.string(),
+        school_zh: z.string().optional().default(''),
+        items_en: z.array(z.string()),
+        items_jp: z.array(z.string()),
+        items_zh: z.array(z.string()).optional().default([]),
+      })),
+      z.string().transform(() => []),
+    ]).optional().default([]),
     // Languages Carmen works in (per-locale line, shown as a small
     // "I also work in..." footnote under the body).
     languages_en: z.string().optional().default(''),

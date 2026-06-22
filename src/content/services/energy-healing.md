@@ -3,6 +3,10 @@ title:
   en: Energy Healing
   jp: エネルギーヒーリング
   zh: 能量療程
+subtitle:
+  en: 'Deep Cleansing, Healing & Integration '
+  jp: 深層浄化・ヒーリング・統合
+  zh: 深層淨化、療癒與整合
 desc:
   en: >-
     This is a specialized Healing Alchemy session designed to unravel

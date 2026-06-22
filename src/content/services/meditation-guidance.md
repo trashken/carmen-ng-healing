@@ -3,6 +3,10 @@ title:
   en: Home & Land Purification
   jp: 家・土地の浄化
   zh: 家居與土地淨化
+subtitle:
+  en: Clearing, Protecting, and Restoring Your Living Sanctuary
+  jp: 住空間と土地の浄化 ― 聖域としての心地よい住まいを取り戻す
+  zh: 空間與土地淨化 — 恢復居家聖域的清淨與平衡
 desc:
   en: >-
     Your home is an extension of your own energy field. When your space carries

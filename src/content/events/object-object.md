@@ -3,6 +3,7 @@ title:
   en: Light Code Healing Session (English)
   jp: Light Code Healing Session (English)
   zh: Light Code Healing Session (English)
+slug: light-code-healing-session
 date: 2026-07-01
 endDate: 2026-07-01
 location: "Insight Timer App (Online) "

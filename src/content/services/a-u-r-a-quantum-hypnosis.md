@@ -3,6 +3,10 @@ title:
   en: A.U.R.A. Quantum Hypnosis
   jp: A.U.R.A. 量子催眠
   zh: A.U.R.A. 量子催眠療癒
+subtitle:
+  en: A.U.R.A. Quantum Hypnosis - Angelic Universal Regression Alchemy
+  jp: A.U.R.A. 量子催眠療法 - エンジェリック・ユニバーサル・レグレッション・アルケミー
+  zh: A.U.R.A. 量子催眠 - 量子回溯及天使鍊金術
 desc:
   en: >
     A modality that combines R.A.A.H. Reiki techniques with past life
