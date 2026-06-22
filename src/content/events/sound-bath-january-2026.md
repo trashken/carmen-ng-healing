@@ -1,31 +1,17 @@
 ---
-slug: sound-bath-january-2026
+slug: july-workshop
 title:
-  en: Sound Bath — January 2026
-  jp: サウンドバス — 2026年1月
-  zh: 聲音浴 — 2026年1月
-date: 2026-07-09
-endDate: 2026-07-09
+  en: Online Wellness Workshop (Cantonese)
+  jp: Online Wellness Workshop (Cantonese)
+  zh: 網上身心靈工作坊（廣東話）
+date: 2026-07-05
+endDate: 2026-07-05
 location: Online via Zoom
-summary_en: A 2-hour group sound bath with crystal bowls, gongs, and chimes.
-  Open to all levels — no experience needed.
-summary_jp: クリスタルボール、ゴンガ、チンシャを使った2時間のグループサウンドバス。 どなたでもご参加いただけます。
-summary_zh: 為時兩小時的團體聲音浴，使用水晶缽、鑼與風鈴。歡迎任何經驗程度的朋友參加。
-body_en: |-
-  A gentle 2-hour group sound bath to close out the week. We'll work
-  with crystal bowls, gongs, and chimes to help you drop into a deep
-  state of rest and restoration.
-
-  No experience needed — bring a mat, blanket, and an open heart.
-body_jp: |-
-  1週間を締めくくる、穏やかな2時間のグループサウンドバスです。クリスタル
-  ボール、ゴンガ、チンシャを用いて、深い休息と回復の状態へとご案内します。
-
-  経験は問いません。マットとブランケット、そして開かれた心をお持ちください。
+summary_zh: 兩小時的身心靈工作坊，題目：療癒陰影創傷。找回被遺落的靈魂碎片，重拾完整的自己。歡迎任何人士參加。
 body_zh: |-
-  為期兩小時的團體聲音浴，適合在週末前放鬆身心。我們會使用水晶缽、鑼與
-  風鈴，引導你進入深層的休息與修復狀態。
+  在我們成長的過程中，那些未被看見、未被接納的時刻，往往隱藏在潛意識的深處，形成了我們性格中的「陰影」。它們並非為了傷害我們而存在，而是靈魂在受創時所留下的碎片。這些碎片承載著我們未竟的情緒與記憶，影響著我們現下的選擇、情緒波動，以及我們如何看待世界。
 
-  無需任何經驗，請自備瑜伽墊、毛毯，並帶著一顆敞開的心。
-registrationUrl: https://example.com/sound-bath-jan-2026
+  本次工作坊，我們將以「療癒陰影創傷」為核心。透過結合古老傳統的體感智慧、靈魂層次的覺察，以及深層的能量療癒技術，帶領您溫柔地回溯，去接納那些被遺忘的自己。這不是一場對抗內在黑暗的戰爭，而是一場回歸完整的邀請，讓您從創傷的慣性中鬆綁，活出更真實、自在的力量。
+cover: /uploads/Screenshot 2026-06-22 at 1.58.51 PM.png
+registrationUrl: https://www.carmennghealing.com/7-5廣東話ws
 ---
