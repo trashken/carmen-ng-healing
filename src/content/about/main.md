@@ -2,7 +2,7 @@
 title_en: About Me
 title_jp: About Me
 title_zh: About Me
-body_en: >-
+body_en: >
   My spiritual journey began ten years ago. Since then, I’ve been remembering
   who I truly am — gradually freeing myself from the inverted, illusory matrix
   of the third-dimensional world. ​ I had always been what you’d call a “model
@@ -81,12 +81,6 @@ body_en: >-
    
   No matter where we are in the world, we are one team — connected beyond time
   and dimension. ​
-
-  ​
-
-  Love Light,
-
-  Carmen
 body_jp: |
   私のスピリチュアルな旅は10年前に始まりました。今、私は本当の自分を思い出し、3次元の逆転した幻想的なマトリックスの世界から解放されつつあります。
   ​
