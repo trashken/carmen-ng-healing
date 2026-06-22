@@ -1,4 +1,5 @@
 ---
+slug: apple-podcast
 title:
   en: A First! Apple Podcast
   jp: 初ポッドキャスト
