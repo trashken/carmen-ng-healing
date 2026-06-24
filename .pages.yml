@@ -271,17 +271,7 @@ content:
             type: text
             label: Answer (Traditional Chinese)
 
-  # ---------------------------------------------------------------------------
-  # Events / Workshops
-  # ---------------------------------------------------------------------------
-  # One Markdown file per event, in src/content/events/{slug}.md.
-  # Each event has a single date, optional end date, optional location,
-  # and per-locale title / summary / body. Shown on the Blog page's
-  # "Events & Workshops" tab. Past events are still listed but visually
-  # de-emphasized (lower opacity + "Past" label) and the registration
-  # link is hidden.
-  # ---------------------------------------------------------------------------
-
+ 
   - name: hero
     label: Hero (Homepage)
     type: collection
@@ -344,6 +334,17 @@ content:
           Text for the "Explore Services" outline button.
           Falls back to the i18n default if empty.
 
+  # ---------------------------------------------------------------------------
+  # Events / Workshops
+  # ---------------------------------------------------------------------------
+  # One Markdown file per event, in src/content/events/{slug}.md.
+  # Each event has a single date, optional end date, optional location,
+  # and per-locale title / summary / body. Shown on the Blog page's
+  # "Events & Workshops" tab. Past events are still listed but visually
+  # de-emphasized (lower opacity + "Past" label) and the registration
+  # link is hidden.
+  # ---------------------------------------------------------------------------
+
   - name: events
     label: Events & Workshops
     type: collection
@@ -391,6 +392,7 @@ content:
           ones and visually de-emphasized.
         options:
           format: yyyy-MM-dd'T'HH:mm
+          time: true
       - name: endDate
         type: date
         label: End date & time (optional)
@@ -399,6 +401,7 @@ content:
           end time is shown as "start – end" on the events page.
         options:
           format: yyyy-MM-dd'T'HH:mm
+          time: true
       - name: location
         type: string
         label: Location
