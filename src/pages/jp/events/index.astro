@@ -7,9 +7,10 @@ const locale: Locale = 'jp';
 const t = getDictionary(locale);
 
 const allEvents = await getCollection('events');
-const sortedEvents = allEvents.sort(
-  (a, b) => a.data.date.valueOf() - b.data.date.valueOf(),
-);
+const referenceDate = (e: typeof allEvents[number]) => e.data.endDate ?? e.data.date;
+const sortedEvents = allEvents
+  .filter((e) => referenceDate(e).getTime() >= Date.now())
+  .sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf());
 const isPast = (iso: Date) => iso.getTime() < Date.now();
 const formatEventDate = (iso: Date) =>
   iso.toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' });
@@ -60,14 +61,6 @@ const rendered = await Promise.all(
                       <time datetime={entry.data.date.toISOString()}>
                         {formatEventDate(entry.data.date)}{formatEventTime(entry.data.date) ? ` · ${formatEventTime(entry.data.date)}` : ''}
                       </time>
-                      {entry.data.endDate && (
-                        <>
-                          {' 〜 '}
-                          <time datetime={entry.data.endDate.toISOString()}>
-                            {formatEventDate(entry.data.endDate)}
-                          </time>
-                        </>
-                      )}
                     </p>
                   </div>
                   <svg
@@ -104,14 +97,6 @@ const rendered = await Promise.all(
                           <time datetime={entry.data.date.toISOString()}>
                             {formatEventDate(entry.data.date)}
                           </time>
-                          {entry.data.endDate && (
-                            <>
-                              {' 〜 '}
-                              <time datetime={entry.data.endDate.toISOString()}>
-                                {formatEventDate(entry.data.endDate)}
-                              </time>
-                            </>
-                          )}
                         </dd>
                       </div>
                       {entry.data.location && (

@@ -51,8 +51,9 @@ const formatDate = (iso: Date) => {
 
 const allEvents = await getCollection('events');
 const now = Date.now();
+const eventReferenceDate = (e: typeof allEvents[number]) => e.data.endDate ?? e.data.date;
 const upcomingEvents = allEvents
-  .filter((e) => e.data.date.getTime() >= now)
+  .filter((e) => eventReferenceDate(e).getTime() >= now)
   .sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf())
   .slice(0, 3);
 const eventTitle = (e: typeof upcomingEvents[number]) =>

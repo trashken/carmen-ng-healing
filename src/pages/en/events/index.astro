@@ -8,10 +8,13 @@ const t = getDictionary(locale);
 
 // Fetch all events. Each event's body is in the per-locale field
 // (body_en / body_jp / body_zh); we render the EN body on this page.
+// Hide events whose end date (or, if no end date, start date) has
+// already passed.
 const allEvents = await getCollection('events');
-const sortedEvents = allEvents.sort(
-  (a, b) => a.data.date.valueOf() - b.data.date.valueOf(),
-);
+const referenceDate = (e: typeof allEvents[number]) => e.data.endDate ?? e.data.date;
+const visibleEvents = allEvents
+  .filter((e) => referenceDate(e).getTime() >= Date.now())
+  .sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf());
 const isPast = (iso: Date) => iso.getTime() < Date.now();
 const formatEventDate = (iso: Date) =>
   iso.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
@@ -20,7 +23,7 @@ const formatEventTime = (iso: Date) =>
 
 // Pre-render each event's Markdown body so the page works without JS.
 const rendered = await Promise.all(
-  sortedEvents.map(async (entry) => {
+  visibleEvents.map(async (entry) => {
     const body = entry.data.body_en || entry.data.body_jp;
     return {
       entry,
@@ -64,14 +67,6 @@ const rendered = await Promise.all(
                       <time datetime={entry.data.date.toISOString()}>
                         {formatEventDate(entry.data.date)}{formatEventTime(entry.data.date) ? ` · ${formatEventTime(entry.data.date)}` : ''}
                       </time>
-                      {entry.data.endDate && (
-                        <>
-                          {' – '}
-                          <time datetime={entry.data.endDate.toISOString()}>
-                            {formatEventDate(entry.data.endDate)}
-                          </time>
-                        </>
-                      )}
                     </p>
                   </div>
                   <svg
@@ -108,14 +103,6 @@ const rendered = await Promise.all(
                           <time datetime={entry.data.date.toISOString()}>
                             {formatEventDate(entry.data.date)}
                           </time>
-                          {entry.data.endDate && (
-                            <>
-                              {' – '}
-                              <time datetime={entry.data.endDate.toISOString()}>
-                                {formatEventDate(entry.data.endDate)}
-                              </time>
-                            </>
-                          )}
                         </dd>
                       </div>
                       {entry.data.location && (

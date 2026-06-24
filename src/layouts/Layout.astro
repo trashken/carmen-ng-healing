@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import { getDictionary, defaultLocale, type Locale, locales } from '../i18n';
+import { getDictionary, dictionaries, defaultLocale, type Locale, locales } from '../i18n';
 
 export interface Props {
   title: string;
@@ -106,9 +106,9 @@ const currentPath = Astro.url.pathname;
                 href={localePathFor(l, currentPath)}
                 aria-label={`Switch language to ${l}`}
                 data-nav-link
-                class="px-2 py-1 rounded text-ink-light hover:text-rose hover:bg-rose/5 transition-colors uppercase"
+                class="px-2 py-1 rounded text-ink-light hover:text-rose hover:bg-rose/5 transition-colors"
               >
-                {l}
+                {dictionaries[l].label}
               </a>
             ))}
           </div>
@@ -171,19 +171,19 @@ const currentPath = Astro.url.pathname;
         <a href="/contact" class="py-3 text-ink hover:text-rose transition-colors border-b border-rose/5">{t.nav.contact}</a>
         <a href="/contact" class="btn-primary mt-6 text-center">{t.nav.bookSession}</a>
       </nav>
-      <div class="mt-auto px-6 py-6 border-t border-rose/10">
-        <p class="text-[10px] uppercase tracking-widest text-ink-light/50 mb-3">Language</p>
-        <div class="flex items-center gap-2 text-xs">
-          {otherLocales.map((l) => (
-            <a
-              href={localePathFor(l, currentPath)}
-              aria-label={`Switch language to ${l}`}
-              class="px-3 py-1.5 rounded-full border border-rose/20 text-ink-light hover:text-rose hover:border-rose/40 transition-colors uppercase"
-            >
-              {l}
-            </a>
-          ))}
-        </div>
+        <div class="mt-auto px-6 py-6 border-t border-rose/10">
+          <p class="text-[10px] uppercase tracking-widest text-ink-light/50 mb-3">{t.switcher.label}</p>
+          <div class="flex items-center gap-2 text-xs">
+            {otherLocales.map((l) => (
+              <a
+                href={localePathFor(l, currentPath)}
+                aria-label={`Switch language to ${l}`}
+                class="px-3 py-1.5 rounded-full border border-rose/20 text-ink-light hover:text-rose hover:border-rose/40 transition-colors"
+              >
+                {dictionaries[l].label}
+              </a>
+            ))}
+          </div>
       </div>
     </aside>
 
