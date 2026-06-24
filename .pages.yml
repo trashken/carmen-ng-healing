@@ -383,7 +383,7 @@ content:
             type: string
             label: Title (Traditional Chinese)
       - name: date
-        type: datetime
+        type: date
         label: Event date & start time
         description: >-
           The start date/time of the event. The Events tab lists events
@@ -392,7 +392,7 @@ content:
         options:
           format: YYYY-MM-DD HH:mm
       - name: endDate
-        type: datetime
+        type: date
         label: End date & time (optional)
         description: >-
           For multi-day events. Leave empty for single-day events. The
