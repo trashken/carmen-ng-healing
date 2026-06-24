@@ -383,33 +383,22 @@ content:
             type: string
             label: Title (Traditional Chinese)
       - name: date
-        type: date
-        label: Event Date
+        type: datetime
+        label: Event date & start time
         description: >-
           The start date/time of the event. The Events tab lists events
           in chronological order; past events are shown after upcoming
           ones and visually de-emphasized.
         options:
-          format: yyyy-MM-dd
+          format: YYYY-MM-DD HH:mm
       - name: endDate
-        type: date
-        label: End date (optional)
+        type: datetime
+        label: End date & time (optional)
         description: >-
-          For multi-day events. Leave empty for single-day events.
+          For multi-day events. Leave empty for single-day events. The
+          end time is shown as "start – end" on the events page.
         options:
-          format: yyyy-MM-dd
-      - name: startTime
-        type: string
-        label: Start time (optional)
-        description: >-
-          24h HH:mm format (e.g. "19:00"). Shown on the events page +
-          home info tab alongside the date. Leave empty to omit.
-      - name: endTime
-        type: string
-        label: End time (optional)
-        description: >-
-          24h HH:mm format (e.g. "21:00"). Shown as "start – end" on the
-          events page. Leave empty to show only the start time.
+          format: YYYY-MM-DD HH:mm
       - name: location
         type: string
         label: Location

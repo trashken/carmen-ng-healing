@@ -14,14 +14,9 @@ const sortedEvents = allEvents
 const isPast = (iso: Date) => iso.getTime() < Date.now();
 const formatEventDate = (iso: Date) =>
   iso.toLocaleDateString('zh-Hant', { year: 'numeric', month: 'long', day: 'numeric' });
-const formatTime = (hhmm: string) => {
-  if (!hhmm) return '';
-  const m = /^(\d{1,2}):(\d{2})$/.exec(hhmm.trim());
-  if (!m) return hhmm;
-  const d = new Date();
-  d.setHours(parseInt(m[1], 10), parseInt(m[2], 10), 0, 0);
-  return d.toLocaleTimeString('zh-Hant', { hour: 'numeric', minute: '2-digit', hour12: true });
-};
+const formatEventTime = (iso: Date) =>
+  iso.toLocaleTimeString('zh-Hant', { hour: 'numeric', minute: '2-digit', hour12: true });
+const hasTime = (iso: Date) => iso.getHours() !== 0 || iso.getMinutes() !== 0;
 
 const rendered = await Promise.all(
   sortedEvents.map(async (entry) => {
@@ -68,14 +63,14 @@ const rendered = await Promise.all(
                       <time datetime={entry.data.date.toISOString()}>
                         {formatEventDate(entry.data.date)}
                       </time>
-                      {(entry.data.startTime || entry.data.endTime) && (
+                      {hasTime(entry.data.date) && (
                         <span>
                           {' ・ '}
-                          {formatTime(entry.data.startTime)}
-                          {entry.data.endTime && (
+                          {formatEventTime(entry.data.date)}
+                          {entry.data.endDate && hasTime(entry.data.endDate) && (
                             <>
                               {' – '}
-                              {formatTime(entry.data.endTime)}
+                              {formatEventTime(entry.data.endDate)}
                             </>
                           )}
                         </span>

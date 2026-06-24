@@ -32,14 +32,6 @@
       "type": "string",
       "format": "date-time"
     },
-    "startTime": {
-      "default": "",
-      "type": "string"
-    },
-    "endTime": {
-      "default": "",
-      "type": "string"
-    },
     "location": {
       "default": "",
       "type": "string"
