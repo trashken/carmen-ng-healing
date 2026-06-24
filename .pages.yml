@@ -767,11 +767,15 @@ content:
           path: public/uploads
           extensions: [jpg, jpeg, png, webp]
       - name: hands
-        type: string
-        label: Hands / second image path
+        type: image
+        label: Second Image
         description: >-
           Public path under /uploads/. Shown in the right column of
           the about page hero.
+        options:
+          media: images
+          path: public/uploads
+          extensions: [jpg, jpeg, png, webp]
       - name: languages_en
         type: text
         label: 'Languages note (English)'
