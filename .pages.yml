@@ -390,7 +390,7 @@ content:
           in chronological order; past events are shown after upcoming
           ones and visually de-emphasized.
         options:
-          format: YYYY-MM-DD HH:mm
+          format: yyyy-MM-dd'T'HH:mm
       - name: endDate
         type: date
         label: End date & time (optional)
@@ -398,7 +398,7 @@ content:
           For multi-day events. Leave empty for single-day events. The
           end time is shown as "start – end" on the events page.
         options:
-          format: YYYY-MM-DD HH:mm
+          format: yyyy-MM-dd'T'HH:mm
       - name: location
         type: string
         label: Location
