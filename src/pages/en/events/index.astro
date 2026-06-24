@@ -18,8 +18,16 @@ const visibleEvents = allEvents
 const isPast = (iso: Date) => iso.getTime() < Date.now();
 const formatEventDate = (iso: Date) =>
   iso.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-const formatEventTime = (iso: Date) =>
-  iso.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+// Format a "HH:mm" 24h string as a localized time. Returns "" if the
+// input is empty or malformed so callers can fall back to hiding it.
+const formatTime = (hhmm: string) => {
+  if (!hhmm) return '';
+  const m = /^(\d{1,2}):(\d{2})$/.exec(hhmm.trim());
+  if (!m) return hhmm;
+  const d = new Date();
+  d.setHours(parseInt(m[1], 10), parseInt(m[2], 10), 0, 0);
+  return d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+};
 
 // Pre-render each event's Markdown body so the page works without JS.
 const rendered = await Promise.all(
@@ -65,8 +73,20 @@ const rendered = await Promise.all(
                     <h2 class="font-serif text-lg text-ink leading-snug">{title}</h2>
                     <p class="text-xs text-ink-light/70 mt-1">
                       <time datetime={entry.data.date.toISOString()}>
-                        {formatEventDate(entry.data.date)}{formatEventTime(entry.data.date) ? ` · ${formatEventTime(entry.data.date)}` : ''}
+                        {formatEventDate(entry.data.date)}
                       </time>
+                      {(entry.data.startTime || entry.data.endTime) && (
+                        <span>
+                          {' · '}
+                          {formatTime(entry.data.startTime)}
+                          {entry.data.endTime && (
+                            <>
+                              {' – '}
+                              {formatTime(entry.data.endTime)}
+                            </>
+                          )}
+                        </span>
+                      )}
                     </p>
                   </div>
                   <svg

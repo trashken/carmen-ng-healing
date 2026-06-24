@@ -158,6 +158,12 @@ const events = defineCollection({
     // Optional end date (for multi-day events). If omitted the event
     // is treated as a single-day event on `date`.
     endDate: z.coerce.date().optional(),
+    // Optional start time in 24h HH:mm format (e.g. "19:00"). Rendered
+    // on the events page + home info tab alongside the date.
+    startTime: z.string().optional().default(''),
+    // Optional end time in 24h HH:mm format (e.g. "21:00"). When set,
+    // shown as "start – end" on the events page.
+    endTime: z.string().optional().default(''),
     // Free-form location string ("Online via Zoom", "Hong Kong", etc.).
     location: z.string().optional().default(''),
     // Short summary used on the listing card (per locale, body kept on

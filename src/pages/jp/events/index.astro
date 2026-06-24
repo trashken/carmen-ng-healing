@@ -14,8 +14,14 @@ const sortedEvents = allEvents
 const isPast = (iso: Date) => iso.getTime() < Date.now();
 const formatEventDate = (iso: Date) =>
   iso.toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' });
-const formatEventTime = (iso: Date) =>
-  iso.toLocaleTimeString('ja-JP', { hour: 'numeric', minute: '2-digit', hour12: false });
+const formatTime = (hhmm: string) => {
+  if (!hhmm) return '';
+  const m = /^(\d{1,2}):(\d{2})$/.exec(hhmm.trim());
+  if (!m) return hhmm;
+  const d = new Date();
+  d.setHours(parseInt(m[1], 10), parseInt(m[2], 10), 0, 0);
+  return d.toLocaleTimeString('ja-JP', { hour: 'numeric', minute: '2-digit', hour12: false });
+};
 
 const rendered = await Promise.all(
   sortedEvents.map(async (entry) => {
@@ -59,8 +65,20 @@ const rendered = await Promise.all(
                     <h2 class="font-serif text-lg text-ink leading-snug">{title}</h2>
                     <p class="text-xs text-ink-light/70 mt-1">
                       <time datetime={entry.data.date.toISOString()}>
-                        {formatEventDate(entry.data.date)}{formatEventTime(entry.data.date) ? ` · ${formatEventTime(entry.data.date)}` : ''}
+                        {formatEventDate(entry.data.date)}
                       </time>
+                      {(entry.data.startTime || entry.data.endTime) && (
+                        <span>
+                          {' ・ '}
+                          {formatTime(entry.data.startTime)}
+                          {entry.data.endTime && (
+                            <>
+                              {' – '}
+                              {formatTime(entry.data.endTime)}
+                            </>
+                          )}
+                        </span>
+                      )}
                     </p>
                   </div>
                   <svg

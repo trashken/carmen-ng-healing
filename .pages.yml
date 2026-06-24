@@ -398,6 +398,18 @@ content:
           For multi-day events. Leave empty for single-day events.
         options:
           format: yyyy-MM-dd
+      - name: startTime
+        type: string
+        label: Start time (optional)
+        description: >-
+          24h HH:mm format (e.g. "19:00"). Shown on the events page +
+          home info tab alongside the date. Leave empty to omit.
+      - name: endTime
+        type: string
+        label: End time (optional)
+        description: >-
+          24h HH:mm format (e.g. "21:00"). Shown as "start – end" on the
+          events page. Leave empty to show only the start time.
       - name: location
         type: string
         label: Location
