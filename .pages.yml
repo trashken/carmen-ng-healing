@@ -834,5 +834,8 @@ actions:
     label: Deploy site
     workflow: cms-deploy.yml
     ref: current
-    fields:
+    fields:      
       - name: force
+        label: Force deploy
+        type: checkbox
+        default: false
