@@ -334,9 +334,9 @@ const contactPath = locale === 'en' ? '/contact' : `/${locale}/contact`;
       <h2 class="font-serif text-3xl font-normal uppercase tracking-[0.15em] text-navy-text md:text-4xl">
         {home.services.title}
       </h2>
-      <p class="mt-3 max-w-[400px] text-sm font-light leading-relaxed text-navy-text/60">
+      {/* <p class="mt-3 max-w-[400px] text-sm font-light leading-relaxed text-navy-text/60">
         {home.services.subtitle}
-      </p>
+      </p>*/}
     </div>
 
     <div class="grid grid-cols-2 gap-6 md:grid-cols-3 md:gap-8 lg:gap-10">
@@ -356,9 +356,9 @@ const contactPath = locale === 'en' ? '/contact' : `/${locale}/contact`;
             <h3 class="font-serif text-sm font-normal uppercase tracking-[0.1em] text-navy-text transition-colors duration-300 group-hover:text-teal md:text-base">
               {s.title}
             </h3>
-            <p class="mt-1 text-xs tracking-[0.05em] text-navy-text/40">
+            {/* <p class="mt-1 text-xs tracking-[0.05em] text-navy-text/40">
               {s.subtitle}
-            </p>
+            </p>*/}
           </a>
         ) : (
           <a href={detailHref} class="card group block hover:-translate-y-1 text-left">
@@ -366,13 +366,13 @@ const contactPath = locale === 'en' ? '/contact' : `/${locale}/contact`;
               <div class="w-12 h-12 rounded-xl bg-sky-light/40 flex items-center justify-center text-2xl text-teal/70 transition-transform duration-300 group-hover:scale-110">
                 {s.icon}
               </div>
-              <h3 class="font-serif text-base text-navy-text leading-snug group-hover:text-teal transition-colors duration-300">
+              <h3 class="font-serif text-xl text-navy-text leading-snug group-hover:text-teal transition-colors duration-300">
                 {s.title}
               </h3>
             </div>
-            <p class="text-[11px] text-rose tracking-wider uppercase mb-2">
+            {/*<p class="text-[11px] text-rose tracking-wider uppercase mb-2">
               {s.subtitle}
-            </p>
+            </p>*/}
             {s.description && (
               <p class="text-sm text-navy-text/80 leading-relaxed">
                 {s.description}

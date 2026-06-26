@@ -34,7 +34,7 @@ const colorClasses: Record<'rose' | 'lavender' | 'sky' | 'peach', { bg: string; 
           image: entry.data.image || '',
           color: entry.data.color,
           title: entry.data.title.en,
-          subtitle: entry.data.subtitle.en,
+          //subtitle: entry.data.subtitle.en,
           description: entry.data.desc.en,
         };
         const cc = colorClasses[s.color];
@@ -49,8 +49,8 @@ const colorClasses: Record<'rose' | 'lavender' | 'sky' | 'peach', { bg: string; 
                 {s.icon}
               </div>
             )}
-            <h2 class="font-serif text-xl mb-1">{s.title}</h2>
-            <p class="text-rose text-xs tracking-widest uppercase mb-3">{s.subtitle}</p>
+            <h2 class="font-serif text-rose text-xl mb-1">{s.title}</h2>
+            {/* <p class="text-rose text-xs tracking-widest uppercase mb-3">{s.subtitle}</p>*/}
             <p class="text-ink-light text-sm leading-relaxed">{s.description}</p>
             <p class={`mt-4 text-xs ${cc.text} group-hover:underline`}>View details & pricing →</p>
           </a>
