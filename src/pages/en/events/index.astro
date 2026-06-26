@@ -11,18 +11,41 @@ const t = getDictionary(locale);
 // Hide events whose end date (or, if no end date, start date) has
 // already passed.
 const allEvents = await getCollection('events');
+// Parse the datetime-local string (e.g. "2026-06-30T15:00") into a
+// Date anchored in UTC so the wall-clock time the editor typed is
+// preserved exactly. We treat the no-Z string as UTC (not local)
+// which avoids the server-TZ offset bug.
+const parseAsUTC = (s: string) => {
+  // Date-only "2026-06-30" -> UTC midnight.
+  if (s.length === 10) return new Date(`${s}T00:00:00Z`);
+  // Datetime "2026-06-30T15:00" -> treat the wall-clock as UTC.
+  return new Date(`${s}:00Z`);
+};
 const referenceDate = (e: typeof allEvents[number]) => e.data.endDate ?? e.data.date;
 const visibleEvents = allEvents
-  .filter((e) => referenceDate(e).getTime() >= Date.now())
-  .sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf());
-const isPast = (iso: Date) => iso.getTime() < Date.now();
-const formatEventDate = (iso: Date) =>
-  iso.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-const formatEventTime = (iso: Date) =>
-  iso.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
-// Only show the time when the date has a non-midnight time component
-// (so date-only events don't render "12:00 AM" or "0:00").
-const hasTime = (iso: Date) => iso.getHours() !== 0 || iso.getMinutes() !== 0;
+  .filter((e) => parseAsUTC(referenceDate(e)).getTime() >= Date.now())
+  .sort((a, b) => parseAsUTC(a.data.date).valueOf() - parseAsUTC(b.data.date).valueOf());
+const isPast = (s: string) => parseAsUTC(s).getTime() < Date.now();
+const formatEventDate = (s: string) =>
+  parseAsUTC(s).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+// Build a UTC ISO timestamp for the <time datetime="..."> attribute
+// from a datetime-local string like "2026-06-30T15:00" or date-only
+// "2026-06-30". We treat the wall-clock as UTC so the time matches
+// what the editor typed.
+const toISO = (s: string) => parseAsUTC(s).toISOString();
+// Format the wall-clock time from a datetime-local string without
+// timezone conversion. "2026-06-30T15:00" -> "3:00 PM".
+const formatTime = (s: string) => {
+  const m = /T(\d{2}):(\d{2})/.exec(s);
+  if (!m) return null;
+  const hh = parseInt(m[1], 10);
+  const mm = parseInt(m[2], 10);
+  if (hh === 0 && mm === 0) return null;
+  const ampm = hh < 12 ? 'AM' : 'PM';
+  const h12 = hh === 0 ? 12 : hh > 12 ? hh - 12 : hh;
+  return `${h12}:${String(mm).padStart(2, '0')} ${ampm}`;
+};
+const hasTime = (s: string) => formatTime(s) !== null;
 
 // Pre-render each event's Markdown body so the page works without JS.
 const rendered = await Promise.all(
@@ -67,17 +90,17 @@ const rendered = await Promise.all(
                     </div>
                     <h2 class="font-serif text-lg text-ink leading-snug">{title}</h2>
                     <p class="text-xs text-ink-light/70 mt-1">
-                      <time datetime={entry.data.date.toISOString()}>
+                      <time datetime={toISO(entry.data.date)}>
                         {formatEventDate(entry.data.date)}
                       </time>
                       {hasTime(entry.data.date) && (
                         <span>
                           {' · '}
-                          {formatEventTime(entry.data.date)}
+                          {formatTime(entry.data.date)}
                           {entry.data.endDate && hasTime(entry.data.endDate) && (
                             <>
                               {' – '}
-                              {formatEventTime(entry.data.endDate)}
+                              {formatTime(entry.data.endDate)}
                             </>
                           )}
                         </span>
@@ -115,9 +138,20 @@ const rendered = await Promise.all(
                       <div>
                         <dt class="text-[10px] uppercase tracking-wider text-ink-light/60 mb-1">{t.events.date}</dt>
                         <dd class="text-ink">
-                          <time datetime={entry.data.date.toISOString()}>
+                          <time datetime={toISO(entry.data.date)}>
                             {formatEventDate(entry.data.date)}
                           </time>
+                          {hasTime(entry.data.date) && (
+                            <span class="ml-1 text-ink-light/70">
+                              {formatTime(entry.data.date)}
+                              {entry.data.endDate && hasTime(entry.data.endDate) && (
+                                <>
+                                  {' – '}
+                                  {formatTime(entry.data.endDate)}
+                                </>
+                              )}
+                            </span>
+                          )}
                         </dd>
                       </div>
                       {entry.data.location && (

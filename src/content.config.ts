@@ -152,16 +152,16 @@ const events = defineCollection({
       jp: z.string(),
       zh: z.string().optional().default(''),
     }),
-    // Event date. The listing page sorts by this; past events are
-    // still listed but shown after upcoming ones, with a "past" label.
-    // The schema is `datetime` so the editor picks the start time
-    // alongside the date. If only a date is supplied, the time
-    // defaults to 00:00 in the local timezone.
-    date: z.coerce.date(),
-    // Optional end date (for multi-day events). If omitted the event
-    // is treated as a single-day event on `date`. Same `datetime`
-    // shape as `date` so editors can pick an end time.
-    endDate: z.coerce.date().optional(),
+    // Event date. We accept a datetime-local string "YYYY-MM-DDTHH:mm"
+    // (or date-only "YYYY-MM-DD") and parse it ourselves on the page
+    // so the wall-clock time the editor typed is preserved exactly
+    // (no timezone conversion). The string must end with the date or
+    // date-time format we control via the PagesCMS config.
+    date: z.string().regex(/^\d{4}-\d{2}-\d{2}(T\d{2}:\d{2})?$/),
+    // Optional end date (for multi-day events). Same format.
+    endDate: z.string()
+      .regex(/^\d{4}-\d{2}-\d{2}(T\d{2}:\d{2})?$/)
+      .optional(),
     // Free-form location string ("Online via Zoom", "Hong Kong", etc.).
     location: z.string().optional().default(''),
     // Short summary used on the listing card (per locale, body kept on

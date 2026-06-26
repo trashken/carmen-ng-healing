@@ -58,10 +58,21 @@ const formatDate = (iso: Date) => {
 // Upcoming events for the Info section.
 const allEvents = await getCollection('events');
 const now = Date.now();
+// Parse datetime-local strings ("YYYY-MM-DDTHH:mm" or "YYYY-MM-DD")
+// into a UTC Date so the wall-clock time the editor typed is
+// preserved exactly (no server-TZ offset).
+const parseEventDate = (s: string) => {
+  if (s.length === 10) return new Date(`${s}T00:00:00Z`);
+  return new Date(`${s}:00Z`);
+};
+// Localized date for an event datetime string (uses timeZone: 'UTC'
+// to keep the date components exactly as the editor typed them).
+const formatEventDate = (s: string) =>
+  parseEventDate(s).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' });
 const eventReferenceDate = (e: typeof allEvents[number]) => e.data.endDate ?? e.data.date;
 const upcomingEvents = allEvents
-  .filter((e) => eventReferenceDate(e).getTime() >= now)
-  .sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf())
+  .filter((e) => parseEventDate(eventReferenceDate(e)).getTime() >= now)
+  .sort((a, b) => parseEventDate(a.data.date).valueOf() - parseEventDate(b.data.date).valueOf())
   .slice(0, 3);
 const eventTitle = (e: typeof upcomingEvents[number]) =>
   locale === 'en'
@@ -260,7 +271,7 @@ const contactPath = locale === 'en' ? '/contact' : `/${locale}/contact`;
               class="group block border-b border-navy-text/10 bg-white px-6 py-5 transition-all duration-300 hover:bg-sky-light/50"
             >
               <p class="mb-1 text-xs tracking-[0.08em] text-navy-text/40">
-                {formatDate(event.data.date)}
+                {formatEventDate(event.data.date)}
               </p>
               <p class="text-sm font-normal leading-relaxed text-navy-text transition-colors duration-300 group-hover:text-teal">
                 {eventTitle(event)}

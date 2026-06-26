@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600&display=swap');
 @import "tailwindcss";
 
 /* ---------------------------------------------------------------------
@@ -135,5 +136,3 @@
   }
 }
 
-/* Font loading — matches the source repo's Google Fonts requests. */
-@import url('https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600&display=swap');
