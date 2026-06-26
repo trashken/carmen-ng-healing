@@ -5,13 +5,11 @@ title:
   zh: 1:1 身心靈指引
 desc:
   en: >
-    A channeling session for the mind, body, and soul, combining guidance from
-    your Higher Self and/or Spirit Guides with the energy alignment you need in
-    the present moment. 
-  jp: |
-    心・体・魂のためのチャネリング・セッション。あなたのハイヤーセルフやスピリットガイドからのメッセージを受け取り、今この瞬間に必要なエネルギー調整と統合へと導きます。
+    A channeling session to receive guidance from your Higher Self and spirit
+    guides, serving your highest good on this leg of your spiritual journey.
+  jp: このチャネリングセッションは、ハイヤーセルフからの導きを受け取り、あなたの最高善をサポートします。
   zh: |
-    結合來自高我（Higher Self）+ 守護靈的指引，獲取關鍵的訊息及當下最適切的能量調整建議，協助達致身心靈平衡。
+    結合來自高我（Higher Self）+ 守護靈的指引，獲取關鍵的訊息，協助達致身心靈平衡。
 icon: ✦
 color: rose
 order: 1
