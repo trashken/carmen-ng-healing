@@ -41,7 +41,7 @@ serviceBody:
     and/or Spirit Guides, and channel any further insights from the Divine. 
 
 
-    When needed, I may also access the Akashic Records, receiving wisdom from
+    When needed, we may also access the Akashic Records, receiving wisdom from
     your soul's records that is most relevant for you at this time, such as
     exploring the root causes behind any challenges or imbalances you may be
     experiencing from a multidimensional perspective. This may include not only
@@ -49,41 +49,29 @@ serviceBody:
     karmic themes, and connections to past or future timelines. 
 
 
-    ## Through the session
-
-
-    Please ensure you are in a quiet, undisturbed space for the duration of our
-    session.
-
-
-    Experience Duration: Approx. 60 minutes
+    Duration: 60 minutes
 
 
     Format: Conducted remotely via Zoom (Recording included)
 
 
+    Preparation details will be emailed to you upon booking.
+
+
     ## Recommended for
 
 
-    This session is designed for those who are ready for deeper clarity and
-    alignment, including:
+    - Navigating recurring difficulties or tensions in personal and family
+    connections
 
+    - Emotional instability or feeling trapped in recurring negative life
+    patterns
 
-    - Relationship & Family Challenges: Navigating recurring difficulties or
-    tensions in personal and family connections.
+    - Unexplained physical/energetic discomfort, or a feeling of misalignment
 
-    - Emotional Instability: Struggling with persistent emotional highs and
-    lows, or feeling trapped in recurring negative life patterns.
+    - Searching for answers in life 
 
-    - Unexplained Discomfort: Experiencing a lingering sense of being
-    "off-track," unexplained physical/energetic discomfort, or a feeling of
-    misalignment.
-
-    - Searching for Answers: Having spent a long time seeking truth and clarity,
-    but feeling that standard approaches haven't provided the depth you need.
-
-    - Soul Alignment: Seeking to understand your true essence and gain a clear,
-    guided direction for your soul's journey.
+    - Seeking to gain a clear, guided direction for your soul's journey
 
   jp: |+
     ## セッションで行うこと
