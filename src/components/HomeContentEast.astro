@@ -1,5 +1,6 @@
 ---
 import { getCollection, getEntry } from 'astro:content';
+import EventTime from './EventTime.astro';
 
 export interface Props {
   locale: 'jp' | 'zh';
@@ -57,6 +58,7 @@ const now = Date.now();
 const eventReferenceDate = (e: typeof allEvents[number]) => e.data.endDate ?? e.data.date;
 const formatEventDate = (s: string) =>
   new Date(s).toLocaleDateString('ja-JP', { year: 'numeric', month: 'short', day: 'numeric' });
+const hasTime = (s: string) => /T\d{2}:\d{2}/.test(s);
 const upcomingEvents = allEvents
   .filter((e) => new Date(eventReferenceDate(e)).getTime() >= now)
   .sort((a, b) => new Date(a.data.date).valueOf() - new Date(b.data.date).valueOf())
@@ -205,7 +207,20 @@ const contactPath = `/${locale}/contact`;
         ) : (
           upcomingEvents.map((event) => (
             <a href={eventsIndexPath} class="group block border-b border-navy-text/10 bg-white px-6 py-5 transition-all duration-300 hover:bg-sky-light/50">
-              <p class="mb-1 text-xs tracking-[0.08em] text-navy-text/40">{formatEventDate(event.data.date)}</p>
+              <p class="mb-1 text-xs tracking-[0.08em] text-navy-text/40">
+                {formatEventDate(event.data.date)}
+                {hasTime(event.data.date) && (
+                  <>
+                    {' ・ '}
+                    <EventTime
+                      start={event.data.date}
+                      end={event.data.endDate}
+                      timezone={event.data.timezone}
+                      twelvesHours={false}
+                    />
+                  </>
+                )}
+              </p>
               <p class="text-sm font-normal leading-relaxed text-navy-text transition-colors duration-300 group-hover:text-teal">{eventTitle(event)}</p>
             </a>
           ))
