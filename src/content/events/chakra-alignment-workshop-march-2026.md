@@ -6,6 +6,7 @@ title:
   zh: 脈輪調整工作坊
 date: 2026-06-30T15:00
 endDate: 2026-06-30T18:00
+timezone: HKT
 location: Hong Kong — Central
 summary_en: A half-day in-person workshop exploring the seven main chakras
   through breath, sound, and gentle movement.
