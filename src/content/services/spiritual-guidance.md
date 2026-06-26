@@ -26,9 +26,8 @@ intro:
   en: This is a channeling session to receive guidance from your Higher Self,
     serving your highest good on this leg of your spiritual journey.
   jp: |
-    ハイヤーセルフからのガイダンスと、今のあなたに必要なエネルギー調整を行う、心・体・魂のための総合的なヒーリングです。
-  zh: |
-    這是一個結合來自高我（Higher Self）的指引，以及當下您所需要的能量調整，為身心靈而設的整體療癒服務。
+    このチャネリングセッションは、ハイヤーセルフからの導きを受け取り、あなたの最高善をサポートします。
+  zh: 接收來自你高我的指引，為你這段的靈性旅程的最高利益。
 serviceBody:
   en: >+
     ## What we do
