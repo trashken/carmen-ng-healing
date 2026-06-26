@@ -403,6 +403,7 @@ content:
           format: yyyy-MM-dd'T'HH:mm
           time: true
       - name: timezone
+        label: Time Zone
         type: select 
         options:
           values: [(GMT+08:00) Hong Kong Standard Time, (GMT+09:00) Japan Standard Time]
