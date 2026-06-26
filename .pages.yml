@@ -555,21 +555,21 @@ content:
 
       # --- Detail page content (used by /[locale]/services/[slug] pages) ---
       # Tagline shown on the service detail page directly below the H1.
-      - name: tagline
-        type: object
-        label: Tagline
-        description: >-
-          Short line shown below the service title on the detail page.
-        fields:
-          - name: en
-            type: text
-            label: Tagline (English)
-          - name: jp
-            type: text
-            label: Tagline (Japanese)
-          - name: zh
-            type: text
-            label: Tagline (Traditional Chinese)
+      # - name: tagline
+      #   type: object
+      #   label: Tagline
+      #   description: >-
+      #    Short line shown below the service title on the detail page.
+      #   fields:
+      #     - name: en
+      #       type: text
+      #       label: Tagline (English)
+      #     - name: jp
+      #       type: text
+      #       label: Tagline (Japanese)
+      #     - name: zh
+      #       type: text
+      #       label: Tagline (Traditional Chinese)
 
       # Overview / intro paragraph at the top of the detail page.
       - name: intro
