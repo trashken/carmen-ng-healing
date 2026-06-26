@@ -1,11 +1,12 @@
 ---
+slug: light-code-healing-session
 title:
   en: Light Code Healing Session (English)
   jp: Light Code Healing Session (English)
   zh: Light Code Healing Session (English)
-slug: light-code-healing-session
 date: 2026-07-01T19:00
 endDate: 2026-07-01T19:15
+timezone: JST
 location: "Insight Timer App (Online) "
 summary_en: "Kuan Yin Light Code Healing: Sacral Flow & Restoration"
 body_en: Join me for a gentle 15-min transmission to bring your sacral centre
