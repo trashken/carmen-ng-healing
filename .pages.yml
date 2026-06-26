@@ -405,8 +405,12 @@ content:
       - name: timezone
         label: Time Zone
         type: select 
-        options:
-          values: [(GMT+08:00) Hong Kong Standard Time, (GMT+09:00) Japan Standard Time]
+        options:        
+          values: 
+            - name: HKT
+              label: (GMT+08:00) Hong Kong Standard Time
+            - name: JST
+              label: (GMT+09:00) Japan Standard Time
       - name: location
         type: string
         label: Location
