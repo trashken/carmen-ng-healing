@@ -22,12 +22,6 @@ tagline:
     ハイヤーセルフからの導き
   zh: |
     高我指引
-intro:
-  en: This is a channeling session to receive guidance from your Higher Self,
-    serving your highest good on this leg of your spiritual journey.
-  jp: |
-    このチャネリングセッションは、ハイヤーセルフからの導きを受け取り、あなたの最高善をサポートします。
-  zh: 接收來自你高我的指引，為你這段的靈性旅程的最高利益。
 serviceBody:
   en: >+
     ## What we do
