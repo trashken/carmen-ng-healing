@@ -136,6 +136,12 @@ const services = defineCollection({
         zh: z.string().optional().default('HK$'),
       }).optional(),
     })).optional().default([]),
+    // Up to 3 free-form testimonials shown on the service detail
+    // page. Editors type these in PagesCMS. Each field is a short
+    // quote + attribution string (e.g. "Healing is real. — Kao").
+    testimonial_1: z.string().optional().default(''),
+    testimonial_2: z.string().optional().default(''),
+    testimonial_3: z.string().optional().default(''),
   }),
 });
 

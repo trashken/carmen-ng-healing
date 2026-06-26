@@ -3,6 +3,9 @@ title:
   en: Energy Healing
   jp: エネルギーヒーリング
   zh: 能量療程
+testimonial_1: "After three sessions, I finally feel at home in my body again. The fog I carried for years has lifted. — Sarah L."
+testimonial_2: "Carmen's energy work reached places in me that years of talk therapy couldn't touch. I'm so grateful. — Michael T."
+testimonial_3: "She creates a truly sacred space. I left the session feeling lighter, clearer, and more at peace. — Emily W."
 subtitle:
   en: 'Deep Cleansing, Healing & Integration '
   jp: 深層浄化・ヒーリング・統合

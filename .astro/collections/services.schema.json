@@ -261,6 +261,18 @@
         ]
       }
     },
+    "testimonial_1": {
+      "default": "",
+      "type": "string"
+    },
+    "testimonial_2": {
+      "default": "",
+      "type": "string"
+    },
+    "testimonial_3": {
+      "default": "",
+      "type": "string"
+    },
     "$schema": {
       "type": "string"
     }

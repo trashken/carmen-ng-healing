@@ -48,6 +48,7 @@ const copy = {
     contactForPrice: 'Contact for pricing',
     fallbackNote: 'The full Japanese / Chinese translation of this service is in progress. Showing the English version for now.',
     backToServices: '← All services',
+    testimonialsHeading: 'Client stories',
   },
   jp: {
     overview: '概要',
@@ -58,6 +59,7 @@ const copy = {
     contactForPrice: '料金はお問い合わせください',
     fallbackNote: 'このページの一部は英語版を表示しています。日本語訳は順次整えていきます。',
     backToServices: '← サービス一覧',
+    testimonialsHeading: 'ご感想',
   },
   zh: {
     overview: '療程簡介',
@@ -68,6 +70,7 @@ const copy = {
     contactForPrice: '歡迎查詢收費',
     fallbackNote: '此頁部分正進行中文翻譯，現階段先以英文版本顯示。',
     backToServices: '← 返回服務總覽',
+    testimonialsHeading: '客戶分享',
   },
 }[locale];
 ---
@@ -103,6 +106,26 @@ const copy = {
            [&_li]:text-ink-light"
     set:html={bodyHtml}
   />
+)}
+
+{(d.testimonial_1 || d.testimonial_2 || d.testimonial_3) && (
+  <section class="mb-12 max-w-3xl">
+    <h2 class="font-serif text-2xl text-ink mb-6">{copy.testimonialsHeading}</h2>
+    <div class="grid sm:grid-cols-2 gap-4">
+      {[d.testimonial_1, d.testimonial_2, d.testimonial_3]
+        .filter((t) => t && t.trim())
+        .map((t) => (
+          <blockquote class="relative bg-white border border-rose/15 rounded-2xl p-6 shadow-sm">
+            <span class="absolute left-4 top-3 font-serif text-4xl leading-none text-teal/20">
+              &ldquo;
+            </span>
+            <p class="relative z-10 pt-4 text-sm font-light leading-relaxed text-ink-light whitespace-pre-line">
+              {t}
+            </p>
+          </blockquote>
+        ))}
+    </div>
+  </section>
 )}
 
 {d.offerings && d.offerings.length > 0 && (
