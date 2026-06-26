@@ -4,8 +4,8 @@ title:
   en: Online Wellness Workshop (Cantonese)
   jp: Online Wellness Workshop (Cantonese)
   zh: 網上身心靈工作坊（廣東話）
-date: 2026-07-05T19:00
-endDate: 2026-07-05T21:00
+date: 2026-07-05T11:00
+endDate: 2026-07-05T13:00
 location: Online via Zoom
 summary_zh: 兩小時的身心靈工作坊，題目：療癒陰影創傷。找回被遺落的靈魂碎片，重拾完整的自己。歡迎任何人士參加。
 body_zh: |-
