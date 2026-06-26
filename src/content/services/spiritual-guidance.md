@@ -14,12 +14,10 @@ icon: ✦
 color: rose
 order: 1
 tagline:
-  en: |
-    Guidance from Higher Self 
-  jp: |
-    ハイヤーセルフからの導き
-  zh: |
-    高我指引
+  en: |+
+    
+  jp: |+
+    
 serviceBody:
   en: >+
     ## What we do
