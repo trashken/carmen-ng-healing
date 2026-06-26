@@ -12,10 +12,6 @@ desc:
     心・体・魂のためのチャネリング・セッション。あなたのハイヤーセルフやスピリットガイドからのメッセージを受け取り、今この瞬間に必要なエネルギー調整と統合へと導きます。
   zh: |
     結合來自高我（Higher Self）+ 守護靈的指引，獲取關鍵的訊息及當下最適切的能量調整建議，協助達致身心靈平衡。
-subtitle:
-  en: Guidance from Higher Self
-  jp: ハイヤーセルフからの導き
-  zh: 高我指引
 icon: ✦
 color: rose
 order: 1
@@ -27,10 +23,8 @@ tagline:
   zh: |
     高我指引
 intro:
-  en: >
-    This is a holistic healing session for the mind, body, and soul, combining
-    guidance from your Higher Self with the energy alignment you need in the
-    present moment.
+  en: This is a channeling session to receive guidance from your Higher Self,
+    serving your highest good on this leg of your spiritual journey.
   jp: |
     ハイヤーセルフからのガイダンスと、今のあなたに必要なエネルギー調整を行う、心・体・魂のための総合的なヒーリングです。
   zh: |
