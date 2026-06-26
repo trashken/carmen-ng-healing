@@ -1,0 +1,40 @@
+---
+// Per-event time display. The user types a date + time + timezone
+// in PagesCMS; we render the time string AS-IS (no conversion),
+// appending the timezone label.
+
+interface Props {
+  start: string; // YYYY-MM-DDTHH:mm or YYYY-MM-DD
+  end?: string;
+  timezone: 'HKT' | 'JST' | undefined;
+  // 12h (en-US / zh-Hant) vs 24h (ja-JP) for the locale's display.
+  twelvesHours: boolean;
+}
+
+const { start, end, timezone, twelvesHours } = Astro.props;
+const hasTime = /T\d{2}:\d{2}/.test(start);
+
+// Extract HH:mm as the user typed it. We don't convert across timezones
+// — the user is responsible for typing the wall-clock in the right
+// timezone (declared via the `timezone` field).
+const extractTime = (s: string) => {
+  const m = /T(\d{2}):(\d{2})/.exec(s);
+  if (!m) return null;
+  const hh = parseInt(m[1], 10);
+  const mm = parseInt(m[2], 10);
+  if (twelvesHours) {
+    const ampm = hh < 12 ? 'AM' : 'PM';
+    const h12 = hh === 0 ? 12 : hh > 12 ? hh - 12 : hh;
+    return `${h12}:${String(mm).padStart(2, '0')} ${ampm}`;
+  }
+  return `${String(hh).padStart(2, '0')}:${String(mm).padStart(2, '0')}`;
+};
+
+const sStart = extractTime(start);
+const sEnd = end ? extractTime(end) : null;
+const tzLabel = timezone ? ` (${timezone})` : '';
+---
+
+<>
+  {sStart}{sEnd && ` – ${sEnd}`}{tzLabel}
+</>

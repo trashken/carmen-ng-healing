@@ -51,20 +51,15 @@ const formatDate = (iso: Date) => {
 
 const allEvents = await getCollection('events');
 const now = Date.now();
-// Parse datetime-local strings ("YYYY-MM-DDTHH:mm" or "YYYY-MM-DD")
-// into a UTC Date so the wall-clock time the editor typed is
-// preserved exactly (no server-TZ offset).
-const parseEventDate = (s: string) => {
-  if (s.length === 10) return new Date(`${s}T00:00:00Z`);
-  return new Date(`${s}:00Z`);
-};
-// Localized date for an event datetime string.
-const formatEventDate = (s: string) =>
-  parseEventDate(s).toLocaleDateString('ja-JP', { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' });
+// The date field is a YYYY-MM-DD or YYYY-MM-DDTHH:mm string. The
+// `timezone` field tells the page which TZ the wall-clock is in;
+// we don't do any TZ conversion — the date string is shown as-is.
 const eventReferenceDate = (e: typeof allEvents[number]) => e.data.endDate ?? e.data.date;
+const formatEventDate = (s: string) =>
+  new Date(s).toLocaleDateString('ja-JP', { year: 'numeric', month: 'short', day: 'numeric' });
 const upcomingEvents = allEvents
-  .filter((e) => parseEventDate(eventReferenceDate(e)).getTime() >= now)
-  .sort((a, b) => parseEventDate(a.data.date).valueOf() - parseEventDate(b.data.date).valueOf())
+  .filter((e) => new Date(eventReferenceDate(e)).getTime() >= now)
+  .sort((a, b) => new Date(a.data.date).valueOf() - new Date(b.data.date).valueOf())
   .slice(0, 3);
 const eventTitle = (e: typeof upcomingEvents[number]) =>
   locale === 'jp' ? e.data.title.jp : (e.data.title.zh || e.data.title.jp);

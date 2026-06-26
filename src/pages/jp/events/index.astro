@@ -2,40 +2,23 @@
 import Layout from '../../../layouts/Layout.astro';
 import { getCollection, render } from 'astro:content';
 import { getDictionary, type Locale } from '../../../i18n';
+import EventTime from '../../../components/EventTime.astro';
 
 const locale: Locale = 'jp';
 const t = getDictionary(locale);
 
 const allEvents = await getCollection('events');
-// Parse the datetime-local string (e.g. "2026-06-30T15:00") into a
-// Date anchored in UTC so the wall-clock time the editor typed is
-// preserved exactly.
-const parseAsUTC = (s: string) => {
-  if (s.length === 10) return new Date(`${s}T00:00:00Z`);
-  return new Date(`${s}:00Z`);
-};
 const referenceDate = (e: typeof allEvents[number]) => e.data.endDate ?? e.data.date;
-const sortedEvents = allEvents
-  .filter((e) => parseAsUTC(referenceDate(e)).getTime() >= Date.now())
-  .sort((a, b) => parseAsUTC(a.data.date).valueOf() - parseAsUTC(b.data.date).valueOf());
-const isPast = (s: string) => parseAsUTC(s).getTime() < Date.now();
+const visibleEvents = allEvents
+  .filter((e) => new Date(referenceDate(e)).getTime() >= Date.now())
+  .sort((a, b) => new Date(a.data.date).valueOf() - new Date(b.data.date).valueOf());
+const isPast = (s: string) => new Date(s).getTime() < Date.now();
 const formatEventDate = (s: string) =>
-  parseAsUTC(s).toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
-const toISO = (s: string) => parseAsUTC(s).toISOString();
-// Format the wall-clock time from a datetime-local string without
-// timezone conversion. "2026-06-30T15:00" -> "15:00".
-const formatTime = (s: string) => {
-  const m = /T(\d{2}):(\d{2})/.exec(s);
-  if (!m) return null;
-  const hh = parseInt(m[1], 10);
-  const mm = parseInt(m[2], 10);
-  if (hh === 0 && mm === 0) return null;
-  return `${String(hh).padStart(2, '0')}:${String(mm).padStart(2, '0')}`;
-};
-const hasTime = (s: string) => formatTime(s) !== null;
+  new Date(s).toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' });
+const hasTime = (s: string) => /T\d{2}:\d{2}/.test(s);
 
 const rendered = await Promise.all(
-  sortedEvents.map(async (entry) => {
+  visibleEvents.map(async (entry) => {
     return {
       entry,
       Content: entry.data.body_jp ? (await render(entry)).Content : null,
@@ -75,20 +58,19 @@ const rendered = await Promise.all(
                     </div>
                     <h2 class="font-serif text-lg text-ink leading-snug">{title}</h2>
                     <p class="text-xs text-ink-light/70 mt-1">
-                      <time datetime={toISO(entry.data.date)}>
+                      <time datetime={new Date(entry.data.date).toISOString()}>
                         {formatEventDate(entry.data.date)}
                       </time>
                       {hasTime(entry.data.date) && (
-                        <span>
+                        <>
                           {' ・ '}
-                          {formatTime(entry.data.date)}
-                          {entry.data.endDate && hasTime(entry.data.endDate) && (
-                            <>
-                              {' – '}
-                              {formatTime(entry.data.endDate)}
-                            </>
-                          )}
-                        </span>
+                          <EventTime
+                            start={entry.data.date}
+                            end={entry.data.endDate}
+                            timezone={entry.data.timezone}
+                            twelvesHours={false}
+                          />
+                        </>
                       )}
                     </p>
                   </div>
@@ -123,9 +105,19 @@ const rendered = await Promise.all(
                       <div>
                         <dt class="text-[10px] uppercase tracking-wider text-ink-light/60 mb-1">{t.events.date}</dt>
                         <dd class="text-ink">
-                          <time datetime={toISO(entry.data.date)}>
+                          <time datetime={new Date(entry.data.date).toISOString()}>
                             {formatEventDate(entry.data.date)}
                           </time>
+                          {hasTime(entry.data.date) && (
+                            <span class="ml-1 text-ink-light/70">
+                              <EventTime
+                                start={entry.data.date}
+                                end={entry.data.endDate}
+                                timezone={entry.data.timezone}
+                                twelvesHours={false}
+                              />
+                            </span>
+                          )}
                         </dd>
                       </div>
                       {entry.data.location && (

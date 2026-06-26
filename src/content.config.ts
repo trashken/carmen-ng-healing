@@ -153,15 +153,21 @@ const events = defineCollection({
       zh: z.string().optional().default(''),
     }),
     // Event date. We accept a datetime-local string "YYYY-MM-DDTHH:mm"
-    // (or date-only "YYYY-MM-DD") and parse it ourselves on the page
-    // so the wall-clock time the editor typed is preserved exactly
-    // (no timezone conversion). The string must end with the date or
-    // date-time format we control via the PagesCMS config.
+    // (or date-only "YYYY-MM-DD"). The `timezone` field below tells
+    // the page which timezone this wall-clock is in. The string is
+    // displayed as-is — no server-side conversion — so the editor
+    // sees exactly what they typed.
     date: z.string().regex(/^\d{4}-\d{2}-\d{2}(T\d{2}:\d{2})?$/),
-    // Optional end date (for multi-day events). Same format.
+    // Optional end date (for multi-day events). Same format as
+    // `date`. If omitted the event is treated as a single-day event.
     endDate: z.string()
       .regex(/^\d{4}-\d{2}-\d{2}(T\d{2}:\d{2})?$/)
       .optional(),
+    // Timezone the date/endDate wall-clocks are in. Drives the
+    // "(HKT)" / "(JST)" label on the events page. Required when a
+    // time is present so the user always knows which TZ the
+    // wall-clock is in.
+    timezone: z.enum(['HKT', 'JST']).optional(),
     // Free-form location string ("Online via Zoom", "Hong Kong", etc.).
     location: z.string().optional().default(''),
     // Short summary used on the listing card (per locale, body kept on
