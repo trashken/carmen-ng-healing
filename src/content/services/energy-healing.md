@@ -164,5 +164,13 @@ offerings:
       en: Follow-Ups
       jp: 次回以降
       zh: 第2次或之後
+    duration:
+      en: 60 min
+      jp: 60分
+      zh: 60分鐘
+    price:
+      en: 150
+      jp: 15000
+      zh: 1200
 slug: energy-healing
 ---
