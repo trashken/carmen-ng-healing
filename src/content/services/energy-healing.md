@@ -129,15 +129,26 @@ offerings:
       jp: 初回
       zh: "第1次療程 "
     desc:
-      en: |-
+      en: >-
+        In our first session, we will look at the physical areas, emotional
+        landscapes, and mental challenges currently asking for your attention.
+        From there, I will channel the exact healing modalities best suited for
+        your needs.
+
+
         Format: Conducted online via Zoom (Recording included)  
+
 
         Preparation: I will email you the preparation details after booking.
       jp: |-
+        初回のセッションでは、現在最もケアを必要としているお身体の部位や、感情・メンタル面の課題について、まず丁寧にお話を伺いながら整理していきます。そこから、お一人おひとりの状態に最も適したヒーリング手法を組み合わせて実践していきます。
+
         セッション方法：Zoomによるオンライン（セッションの録画データ付き）  
 
         事前準備：ご予約後、私からメールにて準備事項をお送りいたします。
       zh: |-
+        在第一次療程，我們會先探討你目前最需要關注的身體部位、情緒或心理方面正面對的挑戰。隨後，會因應你的狀況，調配及使用最適切的療癒項目。
+
         進行方式：由 Zoom 網上進行（附帶療程錄影）  
 
         事前準備：預約後我會email準備事項給你。
