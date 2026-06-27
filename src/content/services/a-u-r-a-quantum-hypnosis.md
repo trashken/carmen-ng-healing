@@ -193,7 +193,7 @@ offerings:
       zh: 4小時
     price:
       en: 444
-      jp: 88000
+      jp: 77000
       zh: 4400
 slug: a-u-r-a-quantum-hypnosis
 ---
