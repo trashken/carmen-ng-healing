@@ -54,7 +54,7 @@ serviceBody:
     Duration: 90 minutes
 
 
-    Format: Conducted online via Zoom 
+    Format: Conducted online via Zoom (Recording included)
 
 
     Preparation details will be emailed to you upon booking.
@@ -93,21 +93,21 @@ serviceBody:
   zh: |-
     ## 療程內容
 
-    每次療程皆為您度身訂造，以提供最適切的療癒。在高我的指引下，我會透過以下方式為您進行深層調整：
+    每次療程皆度身訂造，提供最適切的療癒。在高我的指引下，為你最佳利益而進行以下一項或多項深層調整：
 
     - 淨化與修復： 清除能量阻塞與低頻干擾，修補能量場 Aura的漏洞
-    - 能量調整： 平衡脈輪，並增強與大地的接地連結
-    - 靈魂與 DNA 整合： 啟動沉睡以太 DNA，回收靈魂碎片，並平衡小我 Ego
-    - 療癒與釋放： 療癒內在小孩，切斷負面能量束
-    - 靈性提升： 開啟意識維度，強化與高我的連結，並覺醒您獨特的靈性天賦
+    - 能量調整： 平衡脈輪，並增強與大地的接地連結 Grounding
+    - 靈魂與 DNA 整合： 啟動沉睡以太 DNA，收回靈魂碎片，並平衡自我 Ego
+    - 療癒與釋放： 療癒內在小孩，清理負能量線 Energetic Cords
+    - 靈性提升： 開啟意識維度，強化與高我的連結，並喚醒你獨特的靈性天賦才華
 
-    ## 療程進行方式
 
-    請確保在療程時，處於一個安靜且不受干擾的環境。
 
-    療程需時: 約 90 分鐘
 
-    形式: 透過 Zoom 網上進行
+
+    療程需時: 90 分鐘
+
+    形式: 透過 Zoom 網上進行 
 
     ## 適合對象
 
