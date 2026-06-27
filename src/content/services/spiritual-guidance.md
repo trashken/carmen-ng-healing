@@ -105,11 +105,7 @@ testimonial_3: |-
 
   ~おゆ
 offerings:
-  - title:
-      en: Fees
-      jp: 料金
-      zh: 費用
-    desc:
+  - desc:
       en: |-
         Each session covers around 4 to 6 of your prepared questions.
 
