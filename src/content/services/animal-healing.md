@@ -1,66 +1,61 @@
 ---
 title:
-  en: 'Animal Healing '
+  en: "Animal Healing "
   jp: 動物ヒーリング
   zh: 動物療癒
+desc:
+  en: Energy work to allow your beloved pets heal and return to their most
+    vibrant, authentic selves, often creating a ripple effect of harmony
+    throughout your entire household.
+  jp: 大切なペットが本来の輝きと活力を取り戻し、自己治癒力を高めるためのエネルギーワークです。ペットの癒やしは、ご家庭全体に調和というポジティブな連鎖反応をもたらします。
+  zh: 透過能量療癒，幫助您的動物伴侶重拾自然活力，回歸最真實、健康的狀態，為整個家庭帶來和諧的能量場。
 icon: ☆
 color: peach
 order: 6
-slug: animal-healing
-subtitle:
-  en: Multidimensional Healing & Energetic Restoration
-  jp: 多次元的ヒーリングとエネルギー修復
-  zh: 多維度療癒與能量修復
-desc:
-  en: |-
-    Our animal companions often mirror our own energetic state, yet they also carry their own unique burdens—from environmental stressors and trauma to deep-seated physical imbalances. When conventional methods have reached their limits, energetic intervention can provide the missing piece. 
-
-    By communicating with your companion on a soul level, identifying and clearing negative imprints, and realigning their frequency, we can unlock profound shifts in their physical health, emotional well-being, and behavioral patterns. 
-
-    My work helps your beloved pets not only heal but return to their most vibrant, authentic selves, often creating a ripple effect of harmony throughout your entire household.
-  jp: |-
-    大切な動物たちは、飼い主様や住環境のエネルギーを敏感に映し出す存在です。また、彼ら自身も環境からのストレスやトラウマ、肉体的な不調を抱えています。現代の獣医療で解決が難しい悩みも、エネルギーレベルからのアプローチによって道が開けることがあります。
-
-    本セッションでは、動物家族と魂のレベルで対話し、ネガティブな影響をクリアにし、本来の周波数を取り戻すお手伝いをします。
-
-    肉体的な回復から精神的な安定、行動の改善まで、彼らが本来の輝きと活力を取り戻し、家族全員が心穏やかに過ごせるよう全力でサポートいたします。
-  zh: |-
-    我們的動物伴侶不僅對居住環境與主人的能量高度敏感，牠們自身也可能承受著環境壓力、創傷或深層的生理失衡。當傳統治療方案遇到瓶頸時，能量療癒往往是促進轉化的關鍵。
-
-    透過與毛孩在靈魂層面進行連結，識別並清理負面印記、重整其能量場，協助牠們在身體健康、情緒穩定及行為模式上產生深刻的轉變。
-
-    療程旨在幫助您的動物伴侶重拾自然活力，回歸最真實、健康的狀態，為整個家庭帶來和諧的能量場。
-tagline:
-  en: Restoring your companion's vitality and soul-level harmony.
-  jp: 大切な家族の生命力と、魂の調和を取り戻す。
-  zh: 重拾您的毛孩伴侶，那份來自靈魂深處的自然活力與諧和。
 serviceBody:
-  en: |-
-    ## What we do
+  en: >-
+    ## What We Do
 
-    Each session is personally customized to the unique needs of your animal companion, often addressing the root causes that physical symptoms reflect.
 
-    Energetic Clearing: Removing low-vibrational entities, negative codes, implants, hooks, and energetic attachments.
+    Our animal companions often mirror our own energetic state, yet they also
+    carry their own unique burdens—from environmental stressors and trauma to
+    deep-seated physical imbalances. When conventional methods have reached
+    their limits, energetic intervention can provide the missing piece. 
 
-    Structural Repair: Sealing negative portals, repairing DNA, and restoring the aura.
 
-    Chakra & Bio-Energy Alignment: Balancing energy centers to support physical recovery and vitality.
+    By communicating with your companion on a soul level, identifying and
+    clearing negative imprints, and realigning their frequency, we can unlock
+    profound shifts in their physical health, emotional well-being, and
+    behavioural patterns. 
 
-    Soul-Level Communication & Guidance: Tuning into your pet’s needs, messages, and emotional state.
 
-    Environmental & Human-Pet Integration: Providing guidance on diet and energetic resonance between pets and their owners.
+    Each session is personally customised to the unique needs of your animal
+    companion, often addressing the root causes that physical symptoms reflect.
 
-    ## Through the session
 
-    Please ensure you and your companion are in a quiet, undisturbed space for the duration of our session.
+    - Energetic Clearing: Removing low-vibrational entities, negative codes,
+    implants, hooks, and energetic attachments
 
-    Experience Duration: Approx. 90 minutes
+    - Structural Repair: Sealing negative portals, repairing DNA, and restoring
+    the aura
 
-    Format: Conducted remotely via Zoom (Recording included)
+    - Chakra & Bio-Energy Alignment: Balancing energy centres to support
+    physical recovery and vitality
 
-    ## Recommended for
+    - Soul-Level Communication & Guidance: Tuning into your pet’s needs,
+    messages, and emotional state
 
-    Ideal for all animal companions—including cats, dogs, rabbits, birds, and small pets—who are experiencing physical ailments, unexplained behavioral shifts, trauma, or simply need an energetic tune-up to support their overall well-being.
+    - Environmental & Human-Pet Integration: Providing guidance on diet and
+    energetic resonance between pets and their owners
+
+
+    ## Recommended For
+
+
+    Ideal for all animal companions—including cats, dogs, rabbits, birds, and
+    small pets—who are experiencing physical ailments, unexplained behavioral
+    shifts, trauma, or simply need an energetic tune-up to support their overall
+    well-being.
   jp: |-
     ## セッションで行うこと
 
@@ -113,4 +108,5 @@ serviceBody:
     ## 適合對象
 
     適合所有動物，包括貓、狗、兔、鳥類及各類寵物。無論是面對身體病痛、不明原因的行為改變、創傷修復，或是希望透過能量調整來提升日常健康與生活品質，皆非常適用。
+slug: animal-healing
 ---
