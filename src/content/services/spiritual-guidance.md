@@ -122,16 +122,24 @@ offerings:
       jp: 料金
       zh: 費用
     desc:
-      en: >-
-        Each session allows ample space to address approximately 4 to 6 of your
-        questions.
+      en: |-
+        Each session covers around 4 to 6 of your prepared questions.
 
+        Format: Conducted online via Zoom (Recording included)
 
-        Format: Remotely via Zoom (Includes session recording)
+        Preparation: I will email you the preparation details after booking.
+      jp: |-
+        1回のセッションでは、事前にお手元にご用意いただいたご質問を、目安として4〜6問ほどお答えしていきます。
 
+        セッション方法：Zoomによるオンライン（セッションの録画データ付き）
 
-        Preparation: Full preparation details will be sent to your inbox upon
-        booking.
+        事前準備：ご予約後、私からメールにて準備事項をお送りいたします。
+      zh: |-
+        每個療程大概能解答 4 至 6 條你預備好的問題。
+
+        進行方式：由 Zoom 網上進行（附帶療程錄影）
+
+        事前準備：預約後我會email準備事項給你。
     duration:
       en: 60 min
       jp: 60 分
