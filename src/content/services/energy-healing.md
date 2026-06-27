@@ -4,29 +4,18 @@ title:
   jp: エネルギーヒーリング
   zh: 能量療程
 desc:
-  en: >-
-    This is a specialized Healing Alchemy session designed to unravel
-    deep-seated blocks and trauma at an energetic level, facilitating profound
-    purification and healing to help you live authentically.
-
-
-    Every aspect of this work is performed for your highest good, assisting you
-    in shifting back to your most organic timeline. Through this process, we
-    balance your body, mind, and soul, strengthening your spiritual path and
-    guiding you to remember your most authentic self—a sovereign soul.
-  jp: |-
-    自分らしく生きることを妨げている、根深いブロックやトラウマ。それらをエネルギーレベルで紐解き、深い浄化と癒やしをもたらす、専門的なヒーリング・アルケミー・セッションです。
-
-    すべてのプロセスは、あなたの最善のために行われ、最も調和のとれたタイムラインへと戻るサポートをします。心・体・魂のバランスを整え、スピリチュアルな道を強化することで、主権を持つ魂としての「本来のあなた」を呼び覚まします。
-  zh: |-
-    此療程旨在從能量層面抽絲剝繭，解開阻礙活出真我的深層心結與陰影創傷，為您帶來深度淨化與療癒。
-
-    所有過程皆以您的最高利益為核心，協助回歸最自然的時間線。透過平衡身、心、靈，強化您的靈性道路，並喚醒作為一個擁有自主權的靈魂，最真實的本質。
+  en: A tailor-made session combining the sacred alchemy of Light Codes and Reiki.
+    Designed to unravel deep-seated blocks and trauma at a subatomic level, this
+    potent blend facilitates profound purification—clearing the path for you to
+    live authentically.
+  jp: オーダーメイドされた特別なセッション。ライトコードと靈氣の神聖なるアルケミーを融合させました。細胞とエネルギーの深淵から、深く根づいたブロックやトラウマを解きほぐします。このパワフルなエネルギーが深遠な浄化を促し、自分らしく輝いて生きるための道を切り拓きます。
+  zh: 為你度身訂造的療程，融合光編碼Light Codes 與靈氣 Reiki
+    的神聖煉金術。從細胞與能量深處解開根深蒂固的阻塞與創傷；這股強大的能量將促進深層的身心淨化，為你掃清障礙，活出最真實的自己。
 icon: ◈
 color: lavender
 order: 2
 serviceBody:
-  en: >-
+  en: >+
     ## What we do
 
 
@@ -42,27 +31,33 @@ serviceBody:
     - Energy Alignment: Realigning your chakras and strengthening your grounding
     to the Earth.
 
-    - Soul & DNA Integration: Activating dormant etheric DNA, retrieving soul
-    fragments, and balancing the ego.
+    - Soul & DNA Integration: Activating etheric DNA, retrieving soul fragments,
+    and balancing the ego.
 
-    - Healing & Release: Healing the inner child and severing negative energetic
+    - Healing & Release: Healing the inner child and removing negative energetic
     cords.
 
     - Spiritual Evolution: Opening your consciousness, strengthening your
     connection with your Higher Self, and awakening your unique spiritual gifts.
 
 
-    ## Through the session
+    I hold a high-vibrational space rooted in Source Love Light, providing the
+    support you need for your deepest levels of cleansing and healing.
 
 
-    Please ensure you are in a quiet, undisturbed space for the duration of our
-    session.
+    Every aspect of this work is performed for your highest good, assisting you
+    in shifting back to your most organic timeline. Through this process, we
+    balance your body, mind, and soul, strengthening your spiritual path and
+    guiding you to remember your most authentic self—a sovereign soul.
 
 
-    Experience Duration: Approx. 90 minutes
+    Duration: 90 minutes
 
 
-    Format: Conducted remotely via Zoom 
+    Format: Conducted online via Zoom 
+
+
+    Preparation details will be emailed to you upon booking.
 
 
     ## Recommended for
@@ -71,11 +66,8 @@ serviceBody:
     Suitable for everyone, from those experiencing energy healing for the first
     time to seasoned practitioners. 
 
-
-    I hold a high-vibrational space rooted in Source Love Light, providing the
-    support you need for your deepest levels of cleansing and healing.
   jp: |-
-    ## セッションで行うこと
+    ## セッション内容
 
     各セッションはハイヤーセルフの導きにより、必要な癒やしを最適化して提供します。その時々で最適な手法を用い、以下のプロセスを通じてサポートいたします。
 
