@@ -3,32 +3,26 @@ title:
   en: A.U.R.A. Quantum Hypnosis
   jp: A.U.R.A. 量子催眠
   zh: A.U.R.A. 量子催眠療癒
-subtitle:
-  en: A.U.R.A. Quantum Hypnosis - Angelic Universal Regression Alchemy
-  jp: A.U.R.A. 量子催眠療法 - エンジェリック・ユニバーサル・レグレッション・アルケミー
-  zh: A.U.R.A. 量子催眠 - 量子回溯及天使鍊金術
 desc:
   en: >
-    A modality that combines R.A.A.H. Reiki techniques with past life
-    regression, fostering a deep understanding and connection that helps you
-    step out of the 3D Inverted A.I. Matrix.
+    A.U.R.A. (Angelic Universal Regression Alchemy) is an advanced quantum
+    hypnosis and past-life regression modality. By integrating deep entity
+    clearing and intensive energy work, it safely guides you into communication
+    with your Higher Self. This profound connection fosters the cellular
+    understanding and spiritual clarity needed to break free from the 3D
+    inverted A.I. matrix and reclaim your organic sovereignty.
   jp: |
     R.A.A.H.レイキと過去世回帰を融合させた、独自のヒーリングセッション。深い自己理解と高次元のつながりを通じて、3Dの反転したAIマトリックスから解放され、真のあなたへと還る旅路をサポートします。
     対応言語：英語・広東語
   zh: >
-    以人生回溯，配合 R.A.A.H. Reiki 的療法，深入自我洞察與高我連結，助您脫離 3D 顛倒矩陣時間線 Inverted AI Matrix
-    的束縛，協助您返回最天然人生道路。
+    A.U.R.A. (天使宇宙回溯煉金術 / Angelic Universal Regression Alchemy)
+    是一種先進的量子催眠與前世回溯療法。療程融合了深層的負面實體清理（Entity
+    Clearing）與高頻能量工作，引導您安全地與自己的「高我」（Higher
+    Self）建立連結。這種深層的靈魂連結能喚醒細胞層面的記憶與靈性清晰度，協助您打破三維倒置的 A.I. 矩陣（3D Inverted A.I.
+    Matrix）之束縛，全面奪回屬於您的有機自主權（Organic Sovereignty）。
 icon: ◉
 color: sky
 order: 4
-tagline:
-  en: >
-    Combining R.A.A.H. Reiki with past life regression for a deeper,
-    multi-dimensional purification of the body, mind, and spirit.
-  jp: |
-    R.A.A.H.レイキと過去世回帰を融合し、多次元の身心魂の浄化を促すセッション。
-  zh: |
-    結合 R.A.A.H. Reiki 與人生回溯，對身心靈進行更深層的多維度淨化。
 intro:
   en: >
     A.U.R.A. Quantum Hypnosis Healing combines the techniques of R.A.A.H. Reiki
