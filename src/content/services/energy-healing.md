@@ -125,9 +125,9 @@ testimonial_3: |-
   ~ 小芝
 offerings:
   - title:
-      en: Fees
-      jp: 料金
-      zh: 費用
+      en: "1st Session "
+      jp: 初回
+      zh: "第1次療程 "
     desc:
       en: |-
         Format: Conducted online via Zoom (Recording included)  
