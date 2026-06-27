@@ -16,7 +16,7 @@ color: lavender
 order: 2
 serviceBody:
   en: >-
-    ## What we do
+    ## What We Do
 
 
     Guided by your Higher Self, each session is personally customised to provide
@@ -52,16 +52,7 @@ serviceBody:
     guiding you to remember your most authentic self—a sovereign soul.
 
 
-    Duration: 90 minutes
-
-
-    Format: Conducted online via Zoom (Recording included)
-
-
-    Preparation details will be emailed to you upon booking.
-
-
-    ## Recommended for
+    ## Recommended For
 
 
     Suitable for everyone, from those experiencing energy healing for the first
@@ -76,12 +67,6 @@ serviceBody:
     - 魂とDNAの統合： エーテル体DNAを活性化し、魂の断片(ソウル・フラグメント)を回収；エゴのバランス調整
     - 癒やしと解放： インナーチャイルドを癒やし、ネガティブなエネルギーコードを除去
     - 霊性の進化： 意識を開き、ハイヤーセルフとの繋がりを深め、内に眠る固有のスピリチュアルな才能を覚醒
-
-    所要時間: 90分
-
-    形式: Zoomによるオンラインセッション (録画データ付き）
-
-    ご予約確定後、事前準備の詳細はメールにてお送りいたします。
 
     ## このような方におすすめです
 
@@ -108,15 +93,6 @@ serviceBody:
     我會為你守護一個宇宙愛心光芒 Source Love
     Light的高頻空間，協助你達致最深層的淨化與療癒。療程的每個層面都是為你的最高福祉而進行，協助錨定並轉化回最本源的生命軌跡 Organic
     timeline，協助平衡身、心、靈，鞏固你的靈性道路，引導你憶回自己最真實的本質 —— 我們都是一個主權獨立的靈魂 Sovereign soul。
-
-
-    療程需時: 90 分鐘
-
-
-    形式: 透過 Zoom 網上進行 (附送錄影file)
-
-
-    預約後，我會發送準備事項詳情結你。
 
 
     ## 適合對象
@@ -154,8 +130,6 @@ offerings:
       zh: 費用
     desc:
       en: |-
-        Each session covers around 4 to 6 of your prepared questions.  
-
         Format: Conducted online via Zoom (Recording included)  
 
         Preparation: I will email you the preparation details after booking.
