@@ -34,15 +34,6 @@ serviceBody:
     karmic themes, and connections to past or future timelines. 
 
 
-    Duration: 60 minutes
-
-
-    Format: Conducted remotely via Zoom (Recording included)
-
-
-    Preparation details will be emailed to you upon booking.
-
-
     ## Recommended for
 
 
@@ -125,5 +116,29 @@ testimonial_3: |-
   今まで無意識に無理をしていたり、他人の目線を気にしすぎていた自分を冷静に捉えることができ、「自分の人生は自分のものだから、もうこのようなつらい思いをする必要はないな」と吹っ切れて、その状況を変えるために他人にNoと言うことができました。初めてCarmenさんにヒーリングをして頂き、本当の自分に戻るための大きな一歩となりました！ありがとうございました！！教えて頂いたセルフヒーリングも心地よく、毎日続けたいです！
 
   ~おゆ
+offerings:
+  - title:
+      en: Fees
+      jp: 料金
+      zh: 費用
+    desc:
+      en: >-
+        Each session allows ample space to address approximately 4 to 6 of your
+        questions.
+
+
+        Format: Remotely via Zoom (Includes session recording)
+
+
+        Preparation: Full preparation details will be sent to your inbox upon
+        booking.
+    duration:
+      en: 60 min
+      jp: 60 分
+      zh: 60 分鐘
+    price:
+      en: 120
+      jp: 15000
+      zh: 1000
 slug: spiritual-guidance
 ---
