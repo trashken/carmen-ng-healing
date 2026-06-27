@@ -124,8 +124,14 @@ offerings:
       jp: 初回セッション
       zh: 第１次療程
     desc:
-      en: |-
+      en: >-
+        During the initial session, we will conduct a thorough energetic
+        assessment of your companion and provide deep, customized healing
+        tailored to their unique spiritual and emotional needs.
+
+
         Format: Conducted online via Zoom (Recording included)  
+
 
         Preparation: I will email you the preparation details after booking.
       jp: |-
