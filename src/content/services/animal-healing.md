@@ -144,9 +144,17 @@ offerings:
       en: 150
       jp: 15000
       zh: 1200
-  - desc:
-      en: Available within 3 months of your initial session. These focused, 30-minute
-        check-ins are designed to track your companion's progress and perform
-        any necessary energetic fine-tuning.
+  - title:
+      en: Follow-Up Sessions
+      jp: 次回以降
+      zh: 第2次或之後
+    desc:
+      en: >-
+        Available within 3 months of your initial session. These focused,
+        30-minute check-ins are designed to track your companion's progress and
+        perform any necessary energetic fine-tuning.
+
+
+        Format: Conducted online via Zoom (Recording included)  
 slug: animal-healing
 ---
