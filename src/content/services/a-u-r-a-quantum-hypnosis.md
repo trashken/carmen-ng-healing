@@ -187,5 +187,9 @@ offerings:
 
 
         Preparation: I will email you the preparation details after booking.
+    duration:
+      en: 4 hours
+      jp: 4時間
+      zh: 4小時
 slug: a-u-r-a-quantum-hypnosis
 ---
