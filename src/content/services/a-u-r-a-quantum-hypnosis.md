@@ -45,7 +45,7 @@ intro:
     如果已完成 R.A.A.H. Reiki 療程，A.U.R.A. 量子催眠將進一步協助您跨越前世今生，對身心靈進行更深層的多維度淨化與整合。
 serviceBody:
   en: >-
-    ## What we do
+    ## What We Do
 
 
     A.U.R.A. Hypnosis facilitates the following aspects of SELF-HEALING during
@@ -102,9 +102,6 @@ serviceBody:
     yourself ample time to prepare physically, mentally, and emotionally. This
     preparation will help you transition more smoothly into the quantum hypnosis
     state during the session.
-
-
-    ## Through the session
 
 
     In typical past life regression sessions, the full connection with the
