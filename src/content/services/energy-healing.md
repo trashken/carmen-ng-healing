@@ -121,11 +121,32 @@ serviceBody:
 
 
     療程適合所有人，無論是第一次體驗能量療癒，還是資深的能量工作者。
-testimonial_1: After three sessions, I finally feel at home in my body again.
-  The fog I carried for years has lifted. — Sarah L.
-testimonial_2: Carmen's energy work reached places in me that years of talk
-  therapy couldn't touch. I'm so grateful. — Michael T.
-testimonial_3: She creates a truly sacred space. I left the session feeling
-  lighter, clearer, and more at peace. — Emily W.
+testimonial_1: >-
+  ここ最近自分に起きた出来事の意味がわかったこと、また自分の中でまだ癒されてない傷の発見・自覚ができたこと、この２つがわかったことが収穫でした。
+  その上で自分の指針にすること、ベースとなるところが少しずつはっきりとしてきました。 ありがとうございました。
+
+
+  ~ 清水
+testimonial_2: >-
+  My experience with R.A.A.H. Reiki was incredibly comfortable and soothing.
+  From the healing process was started , I felt a sense of calm and guidance.
+  Carmen was warm and welcoming, always eager to answer any questions I had. The
+  follow-up materials and videos provided were fruitful and insightful, allowing
+  me to continue my healing journey. After the session, I could genuinely feel
+  my body becoming lighter, leaving me with a profound sense of peace and
+  balance.
+
+
+  ~ Stanley
+testimonial_3: |-
+  第一次做：經常覺得個肚很痛，但不知道原因，曾經照腸、照胃，最後照子宮，並做了刮宮手術，術後體內很痛。
+  RAAH Reiki療程後最初的一星期變化很大，並非心理因素，問題的確能夠改善，改善了不知名疼痛
+  第二次做：工作壓力很大，人很負面。
+  療程中最深刻印象, 合上眼睛會見到顏色、圖案及不斷變化的影像
+  做了之後心態與運程得到改善
+   *整體感覺*
+  值得推介，感覺把自己淨化了一次
+  ​
+  ~ 小芝
 slug: energy-healing
 ---
