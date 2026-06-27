@@ -168,5 +168,9 @@ offerings:
       en: 30 min
       jp: 30分
       zh: 30分鐘
+    price:
+      en: 80
+      jp: 10000
+      zh: 800
 slug: animal-healing
 ---
