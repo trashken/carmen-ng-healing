@@ -173,6 +173,10 @@ testimonial_3: |-
 offerings:
   - desc:
       en: >-
+        During the session, we will connect directly with the Higher Self,
+        allowing you to ask up to 11 of your prepared questions.
+
+
         Appointment date:
 
 
