@@ -160,6 +160,9 @@ offerings:
       en: 200
       jp: 28000
       zh: 1800
-  - {}
+  - title:
+      en: Follow-Ups
+      jp: 次回以降
+      zh: 第2次或之後
 slug: energy-healing
 ---
