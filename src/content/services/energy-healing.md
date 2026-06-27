@@ -3,13 +3,6 @@ title:
   en: Energy Healing
   jp: エネルギーヒーリング
   zh: 能量療程
-testimonial_1: "After three sessions, I finally feel at home in my body again. The fog I carried for years has lifted. — Sarah L."
-testimonial_2: "Carmen's energy work reached places in me that years of talk therapy couldn't touch. I'm so grateful. — Michael T."
-testimonial_3: "She creates a truly sacred space. I left the session feeling lighter, clearer, and more at peace. — Emily W."
-subtitle:
-  en: 'Deep Cleansing, Healing & Integration '
-  jp: 深層浄化・ヒーリング・統合
-  zh: 深層淨化、療癒與整合
 desc:
   en: >-
     This is a specialized Healing Alchemy session designed to unravel
@@ -29,13 +22,9 @@ desc:
     此療程旨在從能量層面抽絲剝繭，解開阻礙活出真我的深層心結與陰影創傷，為您帶來深度淨化與療癒。
 
     所有過程皆以您的最高利益為核心，協助回歸最自然的時間線。透過平衡身、心、靈，強化您的靈性道路，並喚醒作為一個擁有自主權的靈魂，最真實的本質。
-icon: ✦
+icon: ◈
 color: lavender
 order: 2
-tagline:
-  en: Realign your soul’s frequency and remember your true self.
-  jp: 魂の周波数を整え、本来の自分へと還る旅。
-  zh: 重整靈魂頻率，回歸最真實的自我。
 serviceBody:
   en: >-
     ## What we do
@@ -133,5 +122,11 @@ serviceBody:
     療程適合所有人士，無論您是第一次接觸能量療癒，還是資深的能量工作者，皆歡迎預約。
 
     我為您持守源頭愛心光芒的高頻空間，協助您進行最深層的淨化與療癒。
+testimonial_1: After three sessions, I finally feel at home in my body again.
+  The fog I carried for years has lifted. — Sarah L.
+testimonial_2: Carmen's energy work reached places in me that years of talk
+  therapy couldn't touch. I'm so grateful. — Michael T.
+testimonial_3: She creates a truly sacred space. I left the session feeling
+  lighter, clearer, and more at peace. — Emily W.
 slug: energy-healing
 ---
