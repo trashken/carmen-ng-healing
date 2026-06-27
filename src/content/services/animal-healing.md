@@ -144,5 +144,9 @@ offerings:
       en: 150
       jp: 15000
       zh: 1200
+  - desc:
+      en: Available within 3 months of your initial session. These focused, 30-minute
+        check-ins are designed to track your companion's progress and perform
+        any necessary energetic fine-tuning.
 slug: animal-healing
 ---
