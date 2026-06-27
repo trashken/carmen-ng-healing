@@ -93,7 +93,7 @@ serviceBody:
     It is suitable for people of any age — children, adults, seniors — whether
     they are awakened, partially awakened, or not awakened. 
   jp: |-
-    ## セッションで行うこと
+    ## セッション内容
 
     A.U.R.A.量子催眠では、ボディスキャンを通じて以下の側面の自己治癒を促進します:
 
