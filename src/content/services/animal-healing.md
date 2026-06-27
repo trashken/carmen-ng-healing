@@ -84,5 +84,39 @@ serviceBody:
 
 
     適合所有動物，包括貓、狗、兔、鳥類及各類寵物。無論是面對身體病痛、不明原因的行為改變、創傷修復，或希望透過能量調整來提升日常健康與生活品質。
+testimonial_1: >-
+  We had a reiki session for my cat who has diabetes. He had been receiving
+  insulin but it did not lower his blood glucose, even with gradually increased
+  dosage. 
+
+  Carmen was able to communicate with Bob to find out how he feels, what are the
+  negative forces impacting his health, and what he wanted to tell me. Carmen
+  addressed the issues thoroughly and made a recommendation on the diet and on
+  my own stress levels (because pets always pick up the energy from the
+  owners). 
+
+  We came off the insulin and started introducing real food in his diet. The
+  blood glucose stayed high in the first 12 hours (without the insulin), and
+  then it gradually lowered. over a course of 1 week, the average went from 22 -
+  27mmol/L to 12-14 mmol/L (bearing in mind a non-diabetic cat's glucose should
+  read 2-7mmol/L). 
+
+  I feel very confident and relieved to see this improvement, and to see my
+  cat's energy level improving. Carmen is really a miracle worker. Thank you!!!
+
+
+  ~ Chunling
+testimonial_2: |-
+  私の家ではシロという犬を飼っています。彼を迎え入れたのは、殺処分の直前でした。当時、まだ生まれて数週間しか経っていませんでした。本来は販売用の名犬だったのですが、体が弱く、兄弟たちにいじめられて心も病んでしまい、販売するには適さないと判断され、殺処分に回されることになったのです。あまりにも可哀想で、我が家に連れてくることにしました。
+   家に迎えた最初の数週間、シロはうまく歩けず、物にぶつかることも多く、目に問題があるのではないかと心配しました。そこで専門のペット病院に連れて行きました。その後、少し良くなったものの、まだ自然に歩けるようにはなりませんでした。機嫌も悪く、家族全員に対して不信感を示し、よく吠えていました。そこで私たちは、シロがリラックスできるように距離を保ちながら接することにしました。
+  ​一年後、カーメン先生と出会い、オンラインでペットのRAAHレイキセッションを受けました。セッションを受けてから1～2週間後、シロの行動に明らかな変化が見られました。以前より自分から撫でてもらおうと寄ってくるようになり、人に対して吠えることも明らかに減ってきました。家に遊びに来る友人たちも「シロは以前より落ち着いて、目や表情が柔らかくなったね」と言ってくれるようになりました。
+  ​カーメン先生のヒーリングのおかげで、シロはこのように改善しました。これからも愛情たっぷりにシロを愛し、幸せにしていきたいと思います。本当に不思議な体験で、カーメン先生に心から感謝しています。
+  ​
+  ~ ともえ
+testimonial_3: |-
+  雖然佢已經係家中嘅長者兔（ 12歲）本身已經有好多唔同嘅老人病而醫生經過種種嘅 check up 之後都冇再刻意去建議任何療程，只係維持日常用藥去減輕佢嘅痛楚同維持佢嘅胃口，但有一樣事情，即使用藥都冇太大幫助嘅就係佢嘅腸胃，簡單而言就係正常兔仔排便係乾身間中有盲腸便好讓佢哋之後服食返自己腸道嘅排泄物令本來未完全吸收得晒嘅營養再重新吸收，但佢嘅問題係佢嘅腸道長期都是一啲濕軟的便便甚至間中就會排出一啲像油般有時甚至係一大堆啫喱狀的東西，氣味很濃烈⋯⋯這個醫生都沒有辦法，只能提供一些腸胃藥減少痛楚盡量令到佢嘅便便未至於太不正常（但其實幫助不大）；
+  ​但這次療程之後大概過了四至五日左右，他的濕軟便便明顯真的減少了，形狀也是比較健康的，最重要係，佢嘅胃口比之前好咗。因為喺佢最病重嘅時候再加上手腳退化不能自理以及進食，加上冇胃口，體重一度跌至 1.1 kg，醫生話再咁落去一定有生命危險，於是往後嘅日子我試過好多唔同嘅方法幾經辛苦令到佢體重回升至 1.4 kg，但驚喜嘅係自從佢做完這個療程之後，佢能夠再下一城體重增加到 1.5 kg，雖然我知道好難回復佢壯年時期 2kg 嘅重量，但係我經已非常感恩了 。佢唔舒服期間除咗冇胃口之外就係冇心機，反應亦都慢，但係而家佢多咗郁嚟郁去，係一件超級好事，所以在此非常感謝 Carmen 老師嘅幫忙，令到小兒有返生活質素
+  ​
+  ~ Umi Mama
 slug: animal-healing
 ---
