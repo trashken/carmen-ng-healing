@@ -145,6 +145,30 @@ serviceBody:
     ## 適合對象
 
     本療程適合任何年齡層（兒童、成人、長者），無論目前處於已覺醒、部分覺醒或尚未覺醒的狀態，皆能從中受益。
+testimonial_1: |-
+  在療程中，我深刻感受到治療師Carmen的引導。她的聲音如天使之音，柔和而又堅定，讓我迅速進入療癒狀態。在她的帶領下，我完全信任地將自己的內在世界交給她，讓她引領我擺脫身心中的負能量。
+  ​特別是當Carmen替我釋放負能量靈體那一瞬間，我感覺自己長出了翅膀，全身頓時變得輕盈，很開心飛上天空的感覺。
+   從未體驗過的量子催眠，讓我感受到身心的深層變化。透過Carmen的指導，我學會了傾聽自己的身體直覺，並在催眠狀態下感受到身心的釋放和平靜。療程後，我感受到腸道暢通，睡眠也得到了改善。
+   由衷感謝Carmen的耐心和付出。身心靈治療是一個值得深入探討的領域，我們應該保持開放的心態，不斷學習和探索。 🙏🌟 
+   
+  ~ Jennifer
+testimonial_2: >-
+  I have been having work related stress from working long hours at the desk and
+  having lots of doubts of what I’m doing is in the right direction.
+  Coincidentally Carmen’s videos appeared in my YouTube feed during a time when
+  I’m looking for directions. I managed to get in touch with Carmen and she
+  assured me the feelings and worries that I’m having are a result of past
+  experiences and decisions.
+   Carmen created a safe, relaxing environment that allowed me to fully open up and address the root causes of my issues. Her soothing voice and expert guidance helped rewire my thought patterns, replacing negative self-talk with empowering beliefs. I've noticed a remarkable difference in my daily life - decisions come easier, my mind feels calmer, and I trust myself more than ever before.
+   If you're looking to break free from mental blocks and unlock your full potential, I can't recommend Carmen's hypnotherapy enough. It's been a game-changer for me!
+  ​
+
+  ~ Kenneth
+testimonial_3: |-
+  之前一直都係腳部麻痺既問題，試過針灸食藥等問題，一直都解決唔到，基本上24小時，除訓覺外都係痺既。。。好困擾，直到做完量子催眠療程麻痺既感覺真係少咗，情況有改善到，真係好神奇！
+  當催眠時第一次連接到”高我”，聽到同見到一啲畫面同聲音，知道係咩原因導致到自身問題既出現，係一個自我檢視既旅程，慶幸自己呢個機會體驗到！
+
+  ～ Kylie
 offerings:
   - desc:
       en: >-
