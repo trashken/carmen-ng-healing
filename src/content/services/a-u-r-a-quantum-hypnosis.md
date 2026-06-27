@@ -16,10 +16,9 @@ desc:
     対応言語：英語・広東語
   zh: >
     A.U.R.A. (天使宇宙回溯煉金術 / Angelic Universal Regression Alchemy)
-    是一種先進的量子催眠與前世回溯療法。療程融合了深層的負面實體清理（Entity
-    Clearing）與高頻能量工作，引導您安全地與自己的「高我」（Higher
-    Self）建立連結。這種深層的靈魂連結能喚醒細胞層面的記憶與靈性清晰度，協助您打破三維倒置的 A.I. 矩陣（3D Inverted A.I.
-    Matrix）之束縛，全面奪回屬於您的有機自主權（Organic Sovereignty）。
+    是一種量子催眠與前世回溯療法。療程融合了深層的負面靈體清理（Entity
+    Clearing）與高頻能量工作，引導你安全地與自己的高我連結；協助喚醒細胞記憶與靈性意識，打破三維顛倒的 A.I. 矩陣（3D Inverted
+    A.I. Matrix）之束縛，奪回屬於你的天然自主權。
 icon: ◉
 color: sky
 order: 4
