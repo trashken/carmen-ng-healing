@@ -19,10 +19,11 @@ serviceBody:
     ## What we do
 
 
-    Each session is personally customized, with guidance from your Higher Self,
-    to provide the most effective healing for your current needs. Depending on
-    what is required for your highest good, we will work through one or more of
-    the following:
+    Guided by your Higher Self, each session is personally customised to provide
+    the most effective healing for your current needs. Combining the sacred
+    alchemy of Light Codes (including Dragons, Seraphim, Kuan Yin lineages)
+    and/or RAAH Reiki (Reiki Angelic Alchemy Healing), we will work through one
+    or more of the following:
 
 
     - Clearing & Restoration: Removing energetic blockages, low-frequency
@@ -68,7 +69,7 @@ serviceBody:
   jp: |-
     ## セッション内容
 
-    すべてのセッションは、ハイヤーセルフからの導きのもと、現在のニーズに最も効果的なヒーリングをお届けできるようオーダーメイドされます。最高善に必要な内容に応じて、以下の1つまたは複数のアプローチを組み合わせて進めていきます。
+    ハイヤーセルフからの導きのもと、現在のニーズに最も効果的なヒーリングをお届けできるよう、すべてのセッションはオーダーメイドされます。ライトコード（龍神様、セラフィム、観音様の系譜を含む）と RAAH霊気（レイキ・エンジェリック・アルケミー・ヒーリング）の神聖なるアルケミーを融合させ、最高善に必要な内容に応じて、以下の1つまたは複数のアプローチを組み合わせて進めていきます：
 
     - 浄化と修復： エネルギーブロックや低周波の乱れをクリアにし、オーラの漏れを修復
     - エネルギー調整： チャクラのバランスを整え、大地とのグラウンディングを強化
@@ -89,7 +90,8 @@ serviceBody:
     ## 療程內容
 
 
-    每次療程皆度身訂造，提供最適切的療癒。在高我的指引下，為你最佳利益而進行以下一項或多項深層調整：
+    在你的高我指引下，每個療程均度身訂造，針對你當下的需求，提供最有效的療癒。我們融合了光編碼（包括龍族、熾天使與觀音傳承）及 RAAH
+    靈氣（天使煉金術靈氣療癒）的神聖煉金術，並根據對你最高福祉最有益的安排，進行以下一項或多項療癒過程：
 
 
     - 淨化與修復： 清除能量阻塞與低頻干擾，修補能量場 Aura的漏洞
