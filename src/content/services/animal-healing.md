@@ -156,6 +156,9 @@ offerings:
 
 
         Format: Conducted online via Zoom (Recording included)  
-      zh: 於首次療程後 3 個月內適用。透過 30 分鐘的跟進，我們會檢視小毛孩的最新狀態，並進行所需的能量調整及療癒。
+      zh: |-
+        於首次療程後 3 個月內適用。透過 30 分鐘的跟進，我們會檢視小毛孩的最新狀態，並進行所需的能量調整及療癒。
+
+        進行方式：由 Zoom 網上進行（附帶療程錄影）  
 slug: animal-healing
 ---
