@@ -160,5 +160,6 @@ offerings:
       en: 200
       jp: 28000
       zh: 1800
+  - {}
 slug: energy-healing
 ---
