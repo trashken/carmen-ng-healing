@@ -1,21 +1,17 @@
 ---
 title:
-  en: Workshops
+  en: Wellness Workshops
   jp: ワークショップ
-  zh: 工作坊
+  zh: 身心靈工作坊
+desc:
+  en: Offering occasional group sessions featuring teachings on spirituality,
+    breath work, body scans and sound baths, alongside energy healing
+    treatments.
+  jp: グループワークショップを不定期開催中。スピリチュアルな教え、ブレスワーク、ボディスキャン、音浴(サウンドバス)
+    などをご体験いただけます。また、エネルギーヒーリングの施術もご提供しています。
+  zh: 不定期舉辦小組療程，內容涵蓋靈修教導、呼吸練習、身體掃描及聲頻浴，同時亦提供能量療癒護理。
 icon: ✶
 color: sky
 order: 3
-subtitle:
-  en: 'Wellness Group Sessions '
-  jp: ウェルネス・グループセッション
-  zh: 集體療癒身心靈
-desc:
-  en: Offering occasional group sessions featuring body scans and sound baths, alongside professional energy healing treatments.
-  jp: グループワークショップを不定期開催中。ボディスキャン、音浴、エネルギーヒーリングなどを通して心身を整える体験を提供しています。
-  zh: 不定期舉辦身體掃描、聲頻浴等集體工作坊及能量療程。
-tagline:
-  en: Please come back later to check out the latest online healing workshops.
-  jp: ''
-  zh: ''
+slug: workshops
 ---
