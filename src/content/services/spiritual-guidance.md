@@ -15,7 +15,7 @@ color: rose
 order: 1
 serviceBody:
   en: >+
-    ## What we do
+    ## What We Do
 
 
     Before the session, you are invited to send in your questions or areas you
@@ -34,7 +34,7 @@ serviceBody:
     karmic themes, and connections to past or future timelines. 
 
 
-    ## Recommended for
+    ## Recommended For
 
 
     - Navigating recurring difficulties or tensions in personal and family
