@@ -130,10 +130,10 @@ offerings:
       zh: "第1次療程 "
     desc:
       en: >-
-        In our first session, we will look at the physical areas, emotional
-        landscapes, and mental challenges currently asking for your attention.
-        From there, I will channel the exact healing modalities best suited for
-        your needs.
+        The initial session is 90 minutes. We will carefully read your current
+        energy state and themes, while integrating both guidance and energy
+        healing. This session forms an important foundation for understanding
+        yourself more deeply and aligning your path moving forward.
 
 
         Format: Conducted online via Zoom (Recording included)  
@@ -161,12 +161,21 @@ offerings:
       jp: 28000
       zh: 1800
   - title:
-      en: Follow-Ups
+      en: Follow-Up Sessions
       jp: 次回以降
       zh: 第2次或之後
     desc:
-      en: |-
-        
+      en: >-
+        Subsequent sessions are available if booked within three months of your
+        previous session. These sessions are 60 minutes and are tailored to your
+        individual needs. By continuing sessions at a steady rhythm, you can
+        maintain the flow of transformation and move toward deeper, more stable
+        healing.
+
+
+        I value a gentle, step-by-step approach that allows your mind, body, and
+        soul to realign naturally, without force.
+
 
         Format: Conducted online via Zoom (Recording included)  
       jp: |-
