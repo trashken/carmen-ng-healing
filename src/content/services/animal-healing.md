@@ -118,5 +118,31 @@ testimonial_3: |-
   ​但這次療程之後大概過了四至五日左右，他的濕軟便便明顯真的減少了，形狀也是比較健康的，最重要係，佢嘅胃口比之前好咗。因為喺佢最病重嘅時候再加上手腳退化不能自理以及進食，加上冇胃口，體重一度跌至 1.1 kg，醫生話再咁落去一定有生命危險，於是往後嘅日子我試過好多唔同嘅方法幾經辛苦令到佢體重回升至 1.4 kg，但驚喜嘅係自從佢做完這個療程之後，佢能夠再下一城體重增加到 1.5 kg，雖然我知道好難回復佢壯年時期 2kg 嘅重量，但係我經已非常感恩了 。佢唔舒服期間除咗冇胃口之外就係冇心機，反應亦都慢，但係而家佢多咗郁嚟郁去，係一件超級好事，所以在此非常感謝 Carmen 老師嘅幫忙，令到小兒有返生活質素
   ​
   ~ Umi Mama
+offerings:
+  - title:
+      en: 1st Session
+      jp: 初回セッション
+      zh: 第１次療程
+    desc:
+      en: |-
+        Format: Conducted online via Zoom (Recording included)  
+
+        Preparation: I will email you the preparation details after booking.
+      jp: |-
+        セッション方法：Zoomによるオンライン（セッションの録画データ付き）  
+
+        事前準備：ご予約後、私からメールにて準備事項をお送りいたします。
+      zh: |-
+        進行方式：由 Zoom 網上進行（附帶療程錄影）  
+
+        事前準備：預約後我會email準備事項給你。
+    duration:
+      en: 60 min
+      jp: 60分
+      zh: 60分鐘
+    price:
+      en: 150
+      jp: 15000
+      zh: 1200
 slug: animal-healing
 ---
