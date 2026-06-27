@@ -190,6 +190,16 @@ offerings:
 
 
         Preparation: I will email you the preparation details after booking.
+      zh: |-
+        療程中將連結高我，可提問準備好的問題（最多 11 條）。
+
+        預約日期：
+
+        建議提早至少一週前預約，為自己留出充足時間在身體及心理層面作調頻準備，有助在療程中更流暢地進入量子催眠狀態。
+
+        形式：透過 Zoom 網上進行（包含全程錄影）
+
+        準備事項：預約後，我會email 你詳細的準備指引。
     duration:
       en: 4 hours
       jp: 4時間
