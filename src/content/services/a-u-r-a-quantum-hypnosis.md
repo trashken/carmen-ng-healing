@@ -173,7 +173,7 @@ serviceBody:
     適合任何年齡人士（兒童、成人、長者），亦不論是否已靈性覺醒。
 offerings:
   - desc:
-      en: >
+      en: >-
         Appointment date:
 
 
@@ -181,5 +181,11 @@ offerings:
         yourself ample time to prepare physically, mentally, and emotionally.
         This preparation will help you transition more smoothly into the quantum
         hypnosis state during the session.
+
+
+        Format: Conducted online via Zoom (Recording included)  
+
+
+        Preparation: I will email you the preparation details after booking.
 slug: a-u-r-a-quantum-hypnosis
 ---
