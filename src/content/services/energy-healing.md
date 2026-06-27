@@ -164,6 +164,19 @@ offerings:
       en: Follow-Ups
       jp: 次回以降
       zh: 第2次或之後
+    desc:
+      en: |-
+        
+
+        Format: Conducted online via Zoom (Recording included)  
+      jp: |-
+        
+
+        セッション方法：Zoomによるオンライン（セッションの録画データ付き）  
+      zh: |-
+        
+
+        進行方式：由 Zoom 網上進行（附帶療程錄影）  
     duration:
       en: 60 min
       jp: 60分
