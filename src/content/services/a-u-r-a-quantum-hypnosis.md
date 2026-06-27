@@ -13,7 +13,8 @@ desc:
     inverted A.I. matrix and reclaim your organic sovereignty.
   jp: |
     A.U.R.A.（天使宇宙回溯煉金術）は、量子ヒプノと前世退行を融合させたセッションです。深層のネガティブな霊体クリアリング（Entity Clearing）と高頻度エネルギーワークにより、ハイヤーセルフとの安全な連結へと導きます。細胞記憶と霊性意識を呼び覚まし、三次元の反転A.I.マトリックス（3D Inverted A.I. Matrix）の束縛を打破。本来の天然の主権を取り戻します。
-    対応言語：英語・広東語
+
+    *対応言語：英語・広東語
   zh: >
     A.U.R.A. (天使宇宙回溯煉金術 / Angelic Universal Regression Alchemy)
     是一種量子催眠與前世回溯療法。療程融合了深層的負面靈體清理（Entity
