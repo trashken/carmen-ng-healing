@@ -22,27 +22,6 @@ desc:
 icon: ◉
 color: sky
 order: 4
-intro:
-  en: >
-    A.U.R.A. Quantum Hypnosis Healing combines the techniques of R.A.A.H. Reiki
-    and past life regression, profoundly assisting you in learning to navigate
-    an organic path. It fosters a deep understanding and connection, enabling
-    you to remove yourself from the 3D Inverted A.I. Matrix. 
-
-
-    If you have undergone R.A.A.H. Reiki sessions, A.U.R.A. Quantum Hypnosis
-    will help you transcend past and present lives, providing a deeper,
-    multi-dimensional purification of the body, mind, and spirit.
-  jp: |
-    A.U.R.A.クォンタム・ヒプノシス（量子催眠療法）は、R.A.A.H.レイキの技法と過去世回帰を融合させた、独自のヒーリングセッションです。本セッションは、深い自己理解と高次元とのつながりを育むことで、3Dの反転したAIマトリックスから解放され、あなたが本来あるべき調和のとれた道を歩むためのサポートをします。
-
-    すでにR.A.A.H.レイキを体験された方にとっては、過去世と現世を超えて、心・体・魂のより深層にある多次元的な浄化と統合をもたらす素晴らしいステップとなるでしょう。
-  zh: >
-    以人生回溯，配合 R.A.A.H. Reiki 的療法，讓您深刻理解自己及連接高我，從而脫離 3D 顛倒矩陣時間線 Inverted AI
-    Matrix，協助您返回最天然人生道路。
-
-
-    如果已完成 R.A.A.H. Reiki 療程，A.U.R.A. 量子催眠將進一步協助您跨越前世今生，對身心靈進行更深層的多維度淨化與整合。
 serviceBody:
   en: >-
     ## What We Do
@@ -87,21 +66,6 @@ serviceBody:
     - Strengthening connection to Higher Self and Expansion of spiritual gifts
 
     - Cleansing and Healing of the Tree of Life
-
-
-
-
-    You are your own Creator, and I am here to bridge you to deeper healing with
-    the aid of Universal energies.
-
-
-    Appointment date:
-
-
-    I recommend scheduling your session at least one week in advance to give
-    yourself ample time to prepare physically, mentally, and emotionally. This
-    preparation will help you transition more smoothly into the quantum hypnosis
-    state during the session.
 
 
     In typical past life regression sessions, the full connection with the
