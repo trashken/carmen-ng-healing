@@ -44,21 +44,21 @@ serviceBody:
     ## Recommended For
 
 
-    - Feeling a heavy or stagnant atmosphere in your home.
+    - Feeling a heavy or stagnant atmosphere in your home
 
-    - Persistent disharmony within the household.
+    - Persistent disharmony within the household
 
-    - Preparing to move into a new living space.
+    - Preparing to move into a new living space
 
     - Enhancing your home's energetic hygiene following personal healing
-    sessions.
+    sessions
 
     - A long-overdue energetic deep-clean to refresh your space after years of
-    living there.
+    living there
 
-    - Purifying the energy of your professional office or workplace environment.
+    - Purifying the energy of your professional office or workplace environment
 
-    - Clearing and blessing the land before starting new construction.
+    - Clearing and blessing the land before starting new construction
 
   jp: |+
     ## セッション内容
