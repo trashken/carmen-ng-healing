@@ -125,7 +125,20 @@ testimonial_3: |-
 
   ~おさと
 offerings:
-  - duration:
+  - desc:
+      en: |-
+        Format: Conducted online via Zoom (Recording included)  
+
+        Preparation: I will email you the preparation details after booking.
+      jp: |-
+        セッション方法：Zoomによるオンライン（セッションの録画データ付き）  
+
+        事前準備：ご予約後、私からメールにて準備事項をお送りいたします。
+      zh: |-
+        進行方式：由 Zoom 網上進行（附帶療程錄影）  
+
+        事前準備：預約後我會email準備事項給你。
+    duration:
       en: 60 min
       jp: 60分
       zh: 60分鐘
