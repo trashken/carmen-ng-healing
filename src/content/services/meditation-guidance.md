@@ -3,28 +3,14 @@ title:
   en: Home & Land Purification
   jp: 家・土地の浄化
   zh: 家居與土地淨化
-subtitle:
-  en: Clearing, Protecting, and Restoring Your Living Sanctuary
-  jp: 住空間と土地の浄化 ― 聖域としての心地よい住まいを取り戻す
-  zh: 空間與土地淨化 — 恢復居家聖域的清淨與平衡
 desc:
-  en: >-
-    Your home is an extension of your own energy field. When your space carries
-    stagnant energy, negative imprints, or environmental imbalances, it can
-    create a cycle of stress, disharmony, and internal restlessness. 
-
-
-    This service provides a deep-level, multidimensional clearing of your
-    property. 
-
-
-    By identifying and releasing energetic congestion, sealing portals, and
-    restoring your space to its natural, high-vibrational frequency, we create a
-    sanctuary that supports your well-being, improves family relationships, and
-    allows you to feel truly at home again.
+  en: This service provides a deep-level, multidimensional clearing of your
+    property. By identifying and releasing energetic congestion, sealing
+    portals, and restoring your space to its natural, high-vibrational
+    frequency, we create a sanctuary that supports your well-being, improves
+    family relationships, and allows you to feel truly at home again.
   jp: |-
-    住まいは、あなた自身のエネルギーフィールドの延長です。もし空間に停滞したエネルギーやネガティブな刻印、環境の乱れが残っていると、それがストレスや不和、あるいは心安らがない原因となってしまうことがあります。
-
+    
     本セッションでは、建物から土地までを含めた多次元的な浄化を行います。
 
     空間に溜まった不調和なエネルギーをクリアにし、ネガティブな影響を遮断して本来の健やかな周波数を取り戻します。あなたと大切なご家族が心からリラックスできる、真の聖域へと整えていきましょう。
@@ -37,14 +23,14 @@ desc:
 icon: ○
 color: sky
 order: 4
-tagline:
-  en: Transform your living space into a high-vibrational sanctuary of peace and
-    harmony.
-  jp: 住まいを高波動な聖域へ。家族が心から安らげる、調和のとれた空間を。
-  zh: 轉化居家能量場，讓您的家成為高頻、和平且充滿和諧的空間。
 serviceBody:
   en: >+
-    ## What we do
+    ## What We Do
+
+
+    Your home is an extension of your own energy field. When your space carries
+    stagnant energy, negative imprints, or environmental imbalances, it can
+    create a cycle of stress, disharmony, and internal restlessness. 
 
 
     - Thorough clearing and energetic alignment of your space and land
@@ -62,19 +48,7 @@ serviceBody:
     - Blessings for all family members
 
 
-    ## Through the session
-
-
-    Conducted online via Zoom
-
-
-    Duration: Approx. 90 minutes
-
-
-    ## Recommended for
-
-
-    **Ideal for:**
+    ## Recommended For
 
 
     - Feeling a heavy or stagnant atmosphere in your home.
@@ -94,7 +68,9 @@ serviceBody:
     - Clearing and blessing the land before starting new construction.
 
   jp: |+
-    ## セッションで行うこと
+    ## セッション内容
+
+    住まいは、あなた自身のエネルギーフィールドの延長です。もし空間に停滞したエネルギーやネガティブな刻印、環境の乱れが残っていると、それがストレスや不和、あるいは心安らがない原因となってしまうことがあります。
 
     - 空間と土地を隅々までの浄化・調整
     - 負のコード、インプラント、フックなどの除去
@@ -104,9 +80,7 @@ serviceBody:
     - 家と土地の保護とヒーリング  
     ご家族皆様への祝福
 
-    ## このような方におすすめです
-
-    **このような方におすすめです：**
+    ## このような方におすすめ
 
     - 自宅の空間に重苦しさや停滞感を感じる方。
     - 家庭内の不和が続いていると感じる方。
