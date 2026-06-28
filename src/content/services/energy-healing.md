@@ -27,19 +27,19 @@ serviceBody:
 
 
     - Clearing & Restoration: Removing energetic blockages, low-frequency
-    disturbances, and sealing auric leaks.
+    disturbances, and sealing auric leaks
 
     - Energy Alignment: Realigning your chakras and strengthening your grounding
-    to the Earth.
+    to the Earth
 
     - Soul & DNA Integration: Activating etheric DNA, retrieving soul fragments,
-    and balancing the ego.
+    and balancing the ego
 
     - Healing & Release: Healing the inner child and removing negative energetic
-    cords.
+    cords
 
     - Spiritual Evolution: Opening your consciousness, strengthening your
-    connection with your Higher Self, and awakening your unique spiritual gifts.
+    connection with your Higher Self, and awakening your unique spiritual gifts
 
 
     I hold a high-vibrational space rooted in Source Love Light, providing the
