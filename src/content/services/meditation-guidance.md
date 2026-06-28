@@ -131,5 +131,7 @@ offerings:
       zh: 60分鐘
     price:
       en: 250
+      jp: 33000
+      zh: 2200
 slug: home-purification
 ---
