@@ -5,7 +5,6 @@ import { getDictionary } from '../../../i18n';
 
 const t = getDictionary('en');
 const services = (await getCollection('services'))
-  .filter((e) => (e.data.offerings?.length ?? 0) > 0)
   .sort((a, b) => a.data.order - b.data.order);
 
 const colorClasses: Record<'rose' | 'lavender' | 'sky' | 'peach', { bg: string; text: string }> = {

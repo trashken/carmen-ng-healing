@@ -24,8 +24,6 @@ const tagline = pickL10n(d.tagline);
 const intro = pickL10n(d.intro);
 const bodyMd = pickL10n(d.serviceBody);
 const bodyHtml = renderInlineMarkdown(bodyMd);
-const isFallback =
-  (d.tagline?.jp === '' || d.tagline?.jp == null) && d.tagline?.en !== '';
 
 const colorClasses: Record<'rose' | 'lavender' | 'sky' | 'peach', { bg: string; text: string; ring: string }> = {
   rose:     { bg: 'bg-rose/10',     text: 'text-rose',     ring: 'ring-rose/20' },
@@ -41,14 +39,13 @@ const servicesPath = locale === 'en' ? '/en/services' : `/${locale}/services`;
 const copy = {
   en: {
     overview: 'Overview',
-    offerings: 'Session options & pricing',
+    offerings: 'Session Options & Pricing',
     duration: 'Duration',
     fee: 'Fee',
-    bookSession: 'Book a session',
-    contactForPrice: 'Contact for pricing',
-    fallbackNote: 'The full Japanese / Chinese translation of this service is in progress. Showing the English version for now.',
-    backToServices: '← All services',
-    testimonialsHeading: 'Client stories',
+    bookSession: 'Book a Session',
+    contactForPrice: 'Contact for Pricing',
+    backToServices: '← All Services',
+    testimonialsHeading: 'Client Stories',
   },
   jp: {
     overview: '概要',
@@ -57,7 +54,6 @@ const copy = {
     fee: '料金',
     bookSession: 'ご予約・お問い合わせ',
     contactForPrice: '料金はお問い合わせください',
-    fallbackNote: 'このページの一部は英語版を表示しています。日本語訳は順次整えていきます。',
     backToServices: '← サービス一覧',
     testimonialsHeading: 'ご感想',
   },
@@ -68,7 +64,6 @@ const copy = {
     fee: '費用',
     bookSession: '預約 / 查詢',
     contactForPrice: '歡迎查詢收費',
-    fallbackNote: '此頁部分正進行中文翻譯，現階段先以英文版本顯示。',
     backToServices: '← 返回服務總覽',
     testimonialsHeading: '客戶分享',
   },
@@ -82,12 +77,6 @@ const copy = {
   <h1 class="font-serif text-4xl md:text-5xl font-bold text-ink mb-4 leading-tight">{title}</h1>
   {tagline && <p class="text-lg md:text-xl text-ink-light font-serif">{tagline}</p>}
 </header>
-
-{isFallback && (
-  <div class="mb-8 px-4 py-3 rounded-md bg-blush/50 border border-rose/20 text-sm text-ink-light">
-    {copy.fallbackNote}
-  </div>
-)}
 
 {intro && (
   <section class="mb-12 max-w-3xl">
