@@ -694,25 +694,6 @@ content:
                   Integer. Set to 0 to show "Contact for pricing".
                 options:
                   min: 0
-          - name: currency
-            type: object
-            label: Currency prefix
-            fields:
-              - name: en
-                type: string
-                label: Currency prefix (English)
-                description: >-
-                  Text prefix shown before the EN price. Default "US$".
-              - name: jp
-                type: string
-                label: Currency prefix (Japanese)
-                description: >-
-                  Text prefix shown before the JP price. Default "¥".
-              - name: zh
-                type: string
-                label: Currency prefix (Traditional Chinese)
-                description: >-
-                  Text prefix shown before the ZH price. Default "HK$".
       - name: slug
         type: string
         label: URL slug

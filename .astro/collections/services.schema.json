@@ -140,20 +140,18 @@
             "type": "object",
             "properties": {
               "en": {
+                "default": "",
                 "type": "string"
               },
               "jp": {
+                "default": "",
                 "type": "string"
               },
               "zh": {
                 "default": "",
                 "type": "string"
               }
-            },
-            "required": [
-              "en",
-              "jp"
-            ]
+            }
           },
           "desc": {
             "type": "object",
@@ -237,28 +235,8 @@
                 "maximum": 9007199254740991
               }
             }
-          },
-          "currency": {
-            "type": "object",
-            "properties": {
-              "en": {
-                "default": "US$",
-                "type": "string"
-              },
-              "jp": {
-                "default": "¥",
-                "type": "string"
-              },
-              "zh": {
-                "default": "HK$",
-                "type": "string"
-              }
-            }
           }
-        },
-        "required": [
-          "title"
-        ]
+        }
       }
     },
     "testimonial_1": {

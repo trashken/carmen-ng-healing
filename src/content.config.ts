@@ -103,10 +103,10 @@ const services = defineCollection({
     // services don't need to be updated.
     offerings: z.array(z.object({
       title: z.object({
-        en: z.string(),
-        jp: z.string(),
+        en: z.string().optional().default(''),
+        jp: z.string().optional().default(''),
         zh: z.string().optional().default(''),
-      }),
+      }).optional(),
       desc: z.object({
         en: z.string().optional().default(''),
         jp: z.string().optional().default(''),
@@ -123,17 +123,12 @@ const services = defineCollection({
         zh: z.string().optional().default(''),
       }).optional(),
       // Price per locale. Use 0 to hide the price (e.g. for "Contact
-      // for quote" offerings). The currency code is set per-locale
-      // below.
+      // for quote" offerings). The currency prefix is inferred from
+      // the locale on render (en -> US$, jp -> ¥, zh -> HK$).
       price: z.object({
         en: z.number().int().nonnegative().optional().default(0),
         jp: z.number().int().nonnegative().optional().default(0),
         zh: z.number().int().nonnegative().optional().default(0),
-      }).optional(),
-      currency: z.object({
-        en: z.string().optional().default('US$'),
-        jp: z.string().optional().default('¥'),
-        zh: z.string().optional().default('HK$'),
       }).optional(),
     })).optional().default([]),
     // Up to 3 free-form testimonials shown on the service detail

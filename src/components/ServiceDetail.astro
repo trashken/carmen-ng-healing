@@ -111,7 +111,7 @@ const copy = {
 {(d.testimonial_1 || d.testimonial_2 || d.testimonial_3) && (
   <section class="mb-12 max-w-3xl">
     <h2 class="font-serif text-2xl text-ink mb-6">{copy.testimonialsHeading}</h2>
-    <div class="grid sm:grid-cols-2 gap-4">
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
       {[d.testimonial_1, d.testimonial_2, d.testimonial_3]
         .filter((t) => t && t.trim())
         .map((t) => (
@@ -133,11 +133,12 @@ const copy = {
     <h2 class="font-serif text-2xl text-ink mb-6">{copy.offerings}</h2>
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
       {d.offerings.map((o) => {
-        const oTitle = pickL10n(o.title) || o.title.en;
+        const oTitle = o.title ? (pickL10n(o.title) || o.title.en) : '';
         const oDesc = pickL10n(o.desc);
         const oBullets = (locale === 'jp' ? o.bullets?.jp : (locale === 'zh' ? (o.bullets?.zh || o.bullets?.jp || []) : (o.bullets?.en || []))) ?? [];
         const oDuration = pickL10n(o.duration);
-        const oCurrency = (locale === 'jp' ? o.currency?.jp : (locale === 'zh' ? (o.currency?.zh || o.currency?.jp || 'HK$') : (o.currency?.en || 'US$')));
+        // Per-locale currency prefix inferred from the locale.
+        const oCurrency = locale === 'jp' ? '¥' : locale === 'zh' ? 'HK$' : 'US$';
         const oPrice = (locale === 'jp' ? o.price?.jp : (locale === 'zh' ? (o.price?.zh ?? o.price?.jp ?? 0) : (o.price?.en ?? 0))) ?? 0;
         return (
           <div class={`card ring-1 ${cc.ring} flex flex-col`}>
