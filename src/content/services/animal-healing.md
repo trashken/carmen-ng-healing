@@ -1,116 +1,186 @@
 ---
 title:
-  en: 'Animal Healing '
+  en: "Animal Healing "
   jp: 動物ヒーリング
   zh: 動物療癒
+desc:
+  en: Energy work to allow your beloved pets heal and return to their most
+    vibrant, authentic selves, often creating a ripple effect of harmony
+    throughout your entire household.
+  jp: 大切なペットが本来の輝きと活力を取り戻し、自己治癒力を高めるためのエネルギーワークです。ペットの癒やしは、ご家庭全体に調和というポジティブな連鎖反応をもたらします。
+  zh: 透過能量療癒，幫助您的動物伴侶重拾自然活力，回歸最真實、健康的狀態，為整個家庭帶來和諧的能量場。
 icon: ☆
 color: peach
 order: 6
-slug: animal-healing
-subtitle:
-  en: Multidimensional Healing & Energetic Restoration
-  jp: 多次元的ヒーリングとエネルギー修復
-  zh: 多維度療癒與能量修復
-desc:
-  en: |-
-    Our animal companions often mirror our own energetic state, yet they also carry their own unique burdens—from environmental stressors and trauma to deep-seated physical imbalances. When conventional methods have reached their limits, energetic intervention can provide the missing piece. 
-
-    By communicating with your companion on a soul level, identifying and clearing negative imprints, and realigning their frequency, we can unlock profound shifts in their physical health, emotional well-being, and behavioral patterns. 
-
-    My work helps your beloved pets not only heal but return to their most vibrant, authentic selves, often creating a ripple effect of harmony throughout your entire household.
-  jp: |-
-    大切な動物たちは、飼い主様や住環境のエネルギーを敏感に映し出す存在です。また、彼ら自身も環境からのストレスやトラウマ、肉体的な不調を抱えています。現代の獣医療で解決が難しい悩みも、エネルギーレベルからのアプローチによって道が開けることがあります。
-
-    本セッションでは、動物家族と魂のレベルで対話し、ネガティブな影響をクリアにし、本来の周波数を取り戻すお手伝いをします。
-
-    肉体的な回復から精神的な安定、行動の改善まで、彼らが本来の輝きと活力を取り戻し、家族全員が心穏やかに過ごせるよう全力でサポートいたします。
-  zh: |-
-    我們的動物伴侶不僅對居住環境與主人的能量高度敏感，牠們自身也可能承受著環境壓力、創傷或深層的生理失衡。當傳統治療方案遇到瓶頸時，能量療癒往往是促進轉化的關鍵。
-
-    透過與毛孩在靈魂層面進行連結，識別並清理負面印記、重整其能量場，協助牠們在身體健康、情緒穩定及行為模式上產生深刻的轉變。
-
-    療程旨在幫助您的動物伴侶重拾自然活力，回歸最真實、健康的狀態，為整個家庭帶來和諧的能量場。
-tagline:
-  en: Restoring your companion's vitality and soul-level harmony.
-  jp: 大切な家族の生命力と、魂の調和を取り戻す。
-  zh: 重拾您的毛孩伴侶，那份來自靈魂深處的自然活力與諧和。
 serviceBody:
-  en: |-
-    ## What we do
+  en: >-
+    ## What We Do
 
-    Each session is personally customized to the unique needs of your animal companion, often addressing the root causes that physical symptoms reflect.
 
-    Energetic Clearing: Removing low-vibrational entities, negative codes, implants, hooks, and energetic attachments.
+    Our beloved animal companions often mirror our own energetic state, yet they
+    also carry the weight of their own hidden wounds—such as environmental
+    stressors or bullying and trauma experienced during their growth, leading to
+    various physical and emotional imbalances. 
 
-    Structural Repair: Sealing negative portals, repairing DNA, and restoring the aura.
 
-    Chakra & Bio-Energy Alignment: Balancing energy centers to support physical recovery and vitality.
+    The session uncovers the root causes behind these symptoms, identifying and
+    clearing negative imprints while realigning their frequency to improve
+    health, emotional well-being, and behavior.
 
-    Soul-Level Communication & Guidance: Tuning into your pet’s needs, messages, and emotional state.
 
-    Environmental & Human-Pet Integration: Providing guidance on diet and energetic resonance between pets and their owners.
+    - Energetic Clearing: Removing low-vibrational entities, negative codes,
+    implants, hooks, and energetic attachments
 
-    ## Through the session
+    - Structural Repair: Sealing negative portals, repairing DNA, and restoring
+    the aura
 
-    Please ensure you and your companion are in a quiet, undisturbed space for the duration of our session.
+    - Chakra & Bio-Energy Alignment: Balancing energy centres to support
+    physical recovery and vitality
 
-    Experience Duration: Approx. 90 minutes
+    - Environmental & Human-Pet Integration: Providing guidance on diet and
+    energetic resonance between pets and their owners
 
-    Format: Conducted remotely via Zoom (Recording included)
 
-    ## Recommended for
+    ## Recommended For
 
-    Ideal for all animal companions—including cats, dogs, rabbits, birds, and small pets—who are experiencing physical ailments, unexplained behavioral shifts, trauma, or simply need an energetic tune-up to support their overall well-being.
+
+    Ideal for all animal companions—including cats, dogs, rabbits, birds, and
+    small pets—who are experiencing physical ailments, unexplained behavioral
+    shifts, trauma, or simply need an energetic tune-up to support their overall
+    well-being.
   jp: |-
-    ## セッションで行うこと
+    ## セッション内容
 
-    各セッションは、動物たちにとって最も必要な癒やしを届けるためにカスタマイズされます。彼らの心身の不調の背後にある根本的な原因にアプローチし、健やかな状態へと導きます。
+    愛犬や愛猫、大切な家族である動物たちは、しばしば私たち人間のエネルギー状態を鏡のように映し出します。それと同時に、彼ら自身も傷を抱えているものです。例えば、成長過程で受けた環境のストレスや、いじめ・トラウマなどによって、様々なバランスの乱れを引き起こしてしまいます。
 
-    エネルギー浄化： 低波動な存在やネガティブなコード、インプラント、フック、エネルギー的な付着物の除去。
+    セッションでは、身体の症状の根本原因を特定。ネガティブなエネルギーの記憶をクリアリングし、波動を整えることで、健康状態、心の安定、そして行動の改善へと導きます。
 
-    構造の修復： ネガティブなポータルの封印、エーテル体DNAの修復、オーラの修復。
+    - エネルギー・クリアリング： 低波動の存在、ネガティブなコード、インプラント、フック、エネルギー的アタッチメント（憑依物）の除去
+    - 構造の修復： ネガティブなポータルの閉鎖、DNAの修復、およびオーラの復元
+    - チャクラ＆バイオエネルギーの調整： エネルギーセンターのバランスを整え、身体の回復と活力をサポート
+    - 環境および人とペットの統合： 食事に関するアドバイスや、ペットと飼い主の間のエネルギー共鳴の調整
 
-    チャクラと生体エネルギーの調整： エネルギーセンターのバランスを整え、肉体的な回復と活力を促進。
+    ## このような子におすすめ
 
-    魂の対話とガイダンス： あなたの動物家族のニーズやメッセージ、感情状態にチューニング（共鳴）します。
-
-    環境と飼い主様との調和： 食生活の提案や、飼い主様とペット間のエネルギー共鳴に関するアドバイス。
-
-    ## セッションを通して
-
-    セッション中は、あなたと動物のパートナーが静かで穏やかな環境にいられるよう、あらかじめご準備をお願いいたします。
-
-    所要時間: 約90分
-
-    形式: Zoomによる遠隔セッション（レコーディング付き）
-
-    ## このような方におすすめです
-
-    猫、犬、うさぎ、鳥など、あらゆる動物が対象です。原因不明の体調不良や行動の変化、トラウマの癒やし、日々の健康維持・波動調整を必要としているパートナーに最適です。
-  zh: |-
+    猫、犬、うさぎ、鳥、小動物など、すべての伴侶動物におすすめです。身体の不調、原因不明の行動の変化、トラウマを抱えている子は勿論、健やかで幸せな毎日のために、心身のエネルギー調整を必要としている子にも最適です。
+  zh: >-
     ## 療程內容
 
-    每一次療程皆為您的動物伴侶度身訂造，提供最適合的能量療癒。我會深入探討生理症狀背後的根本原因，為牠們的最高利益進行深層調整。
 
-    能量淨化： 清除低頻能量體、負面代碼、植入物、勾鎖及能量附著物。
+    可愛的小毛孩伴侶往往反映出我們人類的能量狀態，但牠們同時也承擔著自己所受的傷害；例如
+    於成長期間遭遇到的環境壓力、欺凌創傷，而導致各種身心失衡。療程會找出症狀背後的原因，識別並清除負面印記、重新調整頻率，改善健康、情緒及行為。
 
-    結構修復： 封印負面門戶、修復 DNA 及修補能量場（Aura）。
 
-    脈輪與生物能量調整： 平衡能量中心，促進生理復原與活力。
+    - 能量清理： 清除低頻存在、負面編碼、植入物、能量鈎及能量附著物
 
-    靈魂溝通與指引： 連結您寵物的心靈，讀取牠們的需求、訊息與情緒狀態。
+    - 結構修復： 封閉負能量出入口、修復 DNA 及氣場
 
-    環境與人寵連結： 提供飲食調整建議，以及優化主人與寵物之間的能量共振。
+    - 脈輪調整： 平衡能量中心，協助身體康復與活力
 
-    ## 療程進行方式
+    - 環境與人寵整合： 提供飲食建議，並調和小毛孩與主人之間的能量共振
 
-    請確保您與您的動物伴侶在療程時，處於一個安靜且不受干擾的環境。
-
-    療程需時: 約 90 分鐘
-
-    形式: 透過 Zoom 網上進行（附錄影file）
 
     ## 適合對象
 
-    適合所有動物，包括貓、狗、兔、鳥類及各類寵物。無論是面對身體病痛、不明原因的行為改變、創傷修復，或是希望透過能量調整來提升日常健康與生活品質，皆非常適用。
+
+    適合所有動物，包括貓、狗、兔、鳥類及各類寵物。無論是面對身體病痛、不明原因的行為改變、創傷修復，或希望透過能量調整來提升日常健康與生活品質。
+testimonial_1: >-
+  We had a reiki session for my cat who has diabetes. He had been receiving
+  insulin but it did not lower his blood glucose, even with gradually increased
+  dosage. 
+
+  Carmen was able to communicate with Bob to find out how he feels, what are the
+  negative forces impacting his health, and what he wanted to tell me. Carmen
+  addressed the issues thoroughly and made a recommendation on the diet and on
+  my own stress levels (because pets always pick up the energy from the
+  owners). 
+
+  We came off the insulin and started introducing real food in his diet. The
+  blood glucose stayed high in the first 12 hours (without the insulin), and
+  then it gradually lowered. over a course of 1 week, the average went from 22 -
+  27mmol/L to 12-14 mmol/L (bearing in mind a non-diabetic cat's glucose should
+  read 2-7mmol/L). 
+
+  I feel very confident and relieved to see this improvement, and to see my
+  cat's energy level improving. Carmen is really a miracle worker. Thank you!!!
+
+
+  ~ Chunling
+testimonial_2: |-
+  私の家ではシロという犬を飼っています。彼を迎え入れたのは、殺処分の直前でした。当時、まだ生まれて数週間しか経っていませんでした。本来は販売用の名犬だったのですが、体が弱く、兄弟たちにいじめられて心も病んでしまい、販売するには適さないと判断され、殺処分に回されることになったのです。あまりにも可哀想で、我が家に連れてくることにしました。
+   家に迎えた最初の数週間、シロはうまく歩けず、物にぶつかることも多く、目に問題があるのではないかと心配しました。そこで専門のペット病院に連れて行きました。その後、少し良くなったものの、まだ自然に歩けるようにはなりませんでした。機嫌も悪く、家族全員に対して不信感を示し、よく吠えていました。そこで私たちは、シロがリラックスできるように距離を保ちながら接することにしました。
+  ​一年後、カーメン先生と出会い、オンラインでペットのRAAHレイキセッションを受けました。セッションを受けてから1～2週間後、シロの行動に明らかな変化が見られました。以前より自分から撫でてもらおうと寄ってくるようになり、人に対して吠えることも明らかに減ってきました。家に遊びに来る友人たちも「シロは以前より落ち着いて、目や表情が柔らかくなったね」と言ってくれるようになりました。
+  ​カーメン先生のヒーリングのおかげで、シロはこのように改善しました。これからも愛情たっぷりにシロを愛し、幸せにしていきたいと思います。本当に不思議な体験で、カーメン先生に心から感謝しています。
+  ​
+  ~ ともえ
+testimonial_3: |-
+  雖然佢已經係家中嘅長者兔（ 12歲）本身已經有好多唔同嘅老人病而醫生經過種種嘅 check up 之後都冇再刻意去建議任何療程，只係維持日常用藥去減輕佢嘅痛楚同維持佢嘅胃口，但有一樣事情，即使用藥都冇太大幫助嘅就係佢嘅腸胃，簡單而言就係正常兔仔排便係乾身間中有盲腸便好讓佢哋之後服食返自己腸道嘅排泄物令本來未完全吸收得晒嘅營養再重新吸收，但佢嘅問題係佢嘅腸道長期都是一啲濕軟的便便甚至間中就會排出一啲像油般有時甚至係一大堆啫喱狀的東西，氣味很濃烈⋯⋯這個醫生都沒有辦法，只能提供一些腸胃藥減少痛楚盡量令到佢嘅便便未至於太不正常（但其實幫助不大）；
+  ​但這次療程之後大概過了四至五日左右，他的濕軟便便明顯真的減少了，形狀也是比較健康的，最重要係，佢嘅胃口比之前好咗。因為喺佢最病重嘅時候再加上手腳退化不能自理以及進食，加上冇胃口，體重一度跌至 1.1 kg，醫生話再咁落去一定有生命危險，於是往後嘅日子我試過好多唔同嘅方法幾經辛苦令到佢體重回升至 1.4 kg，但驚喜嘅係自從佢做完這個療程之後，佢能夠再下一城體重增加到 1.5 kg，雖然我知道好難回復佢壯年時期 2kg 嘅重量，但係我經已非常感恩了 。佢唔舒服期間除咗冇胃口之外就係冇心機，反應亦都慢，但係而家佢多咗郁嚟郁去，係一件超級好事，所以在此非常感謝 Carmen 老師嘅幫忙，令到小兒有返生活質素
+  ​
+  ~ Umi Mama
+offerings:
+  - title:
+      en: 1st Session
+      jp: 初回セッション
+      zh: 第１次療程
+    desc:
+      en: >-
+        During the initial session, we will conduct a thorough energetic
+        assessment of your companion and provide deep, customized healing
+        tailored to their unique spiritual and emotional needs.
+
+
+        Format: Conducted online via Zoom (Recording included)  
+
+
+        Preparation: I will email you the preparation details after booking.
+      jp: |-
+        初回のセッションでは、その子のエネルギー状態を全体的に詳しくスキャンします。そして、その子が今まさに必要としているスピリチュアル・情緒的なニーズに合わせて、ヒーリングを施します。
+
+        セッション方法：Zoomによるオンライン（セッションの録画データ付き）  
+
+        事前準備：ご予約後、私からメールにて準備事項をお送りいたします。
+      zh: |-
+        在首次療程中，我們將為小毛孩進行全方位的能量檢視，並根據牠們獨特的靈魂與身心需求，進行深層的專屬能量療癒。
+
+        進行方式：由 Zoom 網上進行（附帶療程錄影）  
+
+        事前準備：預約後我會email準備事項給你。
+    duration:
+      en: 60 min
+      jp: 60分
+      zh: 60分鐘
+    price:
+      en: 150
+      jp: 15000
+      zh: 1200
+  - title:
+      en: Follow-Up Sessions
+      jp: 次回以降
+      zh: 第2次或之後
+    desc:
+      en: >-
+        Available within 3 months of your initial session. These focused,
+        30-minute check-ins are designed to track your companion's progress and
+        perform any necessary energetic fine-tuning and healing.
+
+
+        Format: Conducted online via Zoom (Recording included)  
+      jp: |-
+        初回セッションから3ヶ月以内限定のメニューです。30分間でその後の経過を確認し、今の状態に合わせて必要な波動の調整とヒーリングを行います。
+
+        事前準備：ご予約後、私からメールにて準備事項をお送りいたします。
+      zh: |-
+        於首次療程後 3 個月內適用。透過 30 分鐘的跟進，我們會檢視小毛孩的最新狀態，並進行所需的能量調整及療癒。
+
+        進行方式：由 Zoom 網上進行（附帶療程錄影）  
+    duration:
+      en: 30 min
+      jp: 30分
+      zh: 30分鐘
+    price:
+      en: 80
+      jp: 10000
+      zh: 800
+slug: animal-healing
 ---

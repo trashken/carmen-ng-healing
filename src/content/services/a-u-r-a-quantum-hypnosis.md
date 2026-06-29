@@ -3,56 +3,29 @@ title:
   en: A.U.R.A. Quantum Hypnosis
   jp: A.U.R.A. 量子催眠
   zh: A.U.R.A. 量子催眠療癒
-subtitle:
-  en: A.U.R.A. Quantum Hypnosis - Angelic Universal Regression Alchemy
-  jp: A.U.R.A. 量子催眠療法 - エンジェリック・ユニバーサル・レグレッション・アルケミー
-  zh: A.U.R.A. 量子催眠 - 量子回溯及天使鍊金術
 desc:
   en: >
-    A modality that combines R.A.A.H. Reiki techniques with past life
-    regression, fostering a deep understanding and connection that helps you
-    step out of the 3D Inverted A.I. Matrix.
+    A.U.R.A. (Angelic Universal Regression Alchemy) is an advanced quantum
+    hypnosis and past-life regression modality. By integrating deep entity
+    clearing and intensive energy work, it safely guides you into communication
+    with your Higher Self. This profound connection fosters the cellular
+    understanding and spiritual clarity needed to break free from the 3D
+    inverted A.I. matrix and reclaim your organic sovereignty.
   jp: |
-    R.A.A.H.レイキと過去世回帰を融合させた、独自のヒーリングセッション。深い自己理解と高次元のつながりを通じて、3Dの反転したAIマトリックスから解放され、真のあなたへと還る旅路をサポートします。
-    対応言語：英語・広東語
+    A.U.R.A.（天使宇宙回溯煉金術）は、量子ヒプノと前世退行を融合させたセッションです。深層のネガティブな霊体クリアリング（Entity Clearing）と高頻度エネルギーワークにより、ハイヤーセルフとの安全な連結へと導きます。細胞記憶と霊性意識を呼び覚まし、三次元の反転A.I.マトリックス（3D Inverted A.I. Matrix）の束縛を打破。本来の天然の主権を取り戻します。
+
+    *対応言語：英語・広東語
   zh: >
-    以人生回溯，配合 R.A.A.H. Reiki 的療法，深入自我洞察與高我連結，助您脫離 3D 顛倒矩陣時間線 Inverted AI Matrix
-    的束縛，協助您返回最天然人生道路。
+    A.U.R.A. (天使宇宙回溯煉金術 / Angelic Universal Regression Alchemy)
+    是一種量子催眠與前世回溯療法。療程融合了深層的負整極靈體清理（Entity
+    Removal）與高頻能量工作，引導你安全地與自己的高我連結；協助喚醒細胞記憶與靈性意識，打破三維顛倒的 A.I. 矩陣（3D Inverted
+    A.I. Matrix）之束縛，奪回屬於你的天然自主權。
 icon: ◉
 color: sky
 order: 4
-tagline:
-  en: >
-    Combining R.A.A.H. Reiki with past life regression for a deeper,
-    multi-dimensional purification of the body, mind, and spirit.
-  jp: |
-    R.A.A.H.レイキと過去世回帰を融合し、多次元の身心魂の浄化を促すセッション。
-  zh: |
-    結合 R.A.A.H. Reiki 與人生回溯，對身心靈進行更深層的多維度淨化。
-intro:
-  en: >
-    A.U.R.A. Quantum Hypnosis Healing combines the techniques of R.A.A.H. Reiki
-    and past life regression, profoundly assisting you in learning to navigate
-    an organic path. It fosters a deep understanding and connection, enabling
-    you to remove yourself from the 3D Inverted A.I. Matrix. 
-
-
-    If you have undergone R.A.A.H. Reiki sessions, A.U.R.A. Quantum Hypnosis
-    will help you transcend past and present lives, providing a deeper,
-    multi-dimensional purification of the body, mind, and spirit.
-  jp: |
-    A.U.R.A.クォンタム・ヒプノシス（量子催眠療法）は、R.A.A.H.レイキの技法と過去世回帰を融合させた、独自のヒーリングセッションです。本セッションは、深い自己理解と高次元とのつながりを育むことで、3Dの反転したAIマトリックスから解放され、あなたが本来あるべき調和のとれた道を歩むためのサポートをします。
-
-    すでにR.A.A.H.レイキを体験された方にとっては、過去世と現世を超えて、心・体・魂のより深層にある多次元的な浄化と統合をもたらす素晴らしいステップとなるでしょう。
-  zh: >
-    以人生回溯，配合 R.A.A.H. Reiki 的療法，讓您深刻理解自己及連接高我，從而脫離 3D 顛倒矩陣時間線 Inverted AI
-    Matrix，協助您返回最天然人生道路。
-
-
-    如果已完成 R.A.A.H. Reiki 療程，A.U.R.A. 量子催眠將進一步協助您跨越前世今生，對身心靈進行更深層的多維度淨化與整合。
 serviceBody:
   en: >-
-    ## What we do
+    ## What We Do
 
 
     A.U.R.A. Hypnosis facilitates the following aspects of SELF-HEALING during
@@ -96,24 +69,6 @@ serviceBody:
     - Cleansing and Healing of the Tree of Life
 
 
-
-
-    You are your own Creator, and I am here to bridge you to deeper healing with
-    the aid of Universal energies.
-
-
-    Appointment date:
-
-
-    I recommend scheduling your session at least one week in advance to give
-    yourself ample time to prepare physically, mentally, and emotionally. This
-    preparation will help you transition more smoothly into the quantum hypnosis
-    state during the session.
-
-
-    ## Through the session
-
-
     In typical past life regression sessions, the full connection with the
     Higher Self often occurs midway through the session, after it's officially
     called forth. 
@@ -133,55 +88,45 @@ serviceBody:
     facilitating the healing of the mind, body, and soul.
 
 
-    ## Recommended for
+    ## Recommended For
 
 
     It is suitable for people of any age — children, adults, seniors — whether
     they are awakened, partially awakened, or not awakened. 
   jp: |-
-    ## セッションで行うこと
+    ## セッション内容
 
     A.U.R.A.量子催眠では、ボディスキャンを通じて以下の側面の自己治癒を促進します:
 
-    - ネガティブな存在の除去: ネガティブな憑依体、レプティリアン意識、アルコーンの浄化
-    - テクノロジーによる損傷の修復: あらゆる種類のワクチンやAIによるネガティブなテクノロジーからの影響の浄化
-    - エネルギーコード・インプラント・フックの除去: ネガティブなコード、インプラント、フックの取り外し
-    - 闇のポータルの封印: ダークポータルの閉鎖
-    - 疾患・病気・障害のケア: がん、腫瘍、糖尿病、多発性硬化症、エプスタイン・バール・ウイルスなど
-    - ネガティブな契約の破棄: 魂のネガティブな契約の解除
-    - トラウマの解放: 現世または過去世から来るトラウマの特定と解放
-    - 視力の改善サポート
-    - 歯の健康のサポート
-    - 年齢の若返り: 5〜15歳程度の肉体年齢への調整
-    - DNAの再プログラミングと修復: 生命力とウェルビーイング（心身の健康）を強化するためのDNA修復
-    - エネルギー調整: チャクラのバランス調整と整列
-    - オーラフィールドの修復
-    - 魂の断片の回収: 魂の欠片を取り戻し、統合と全体性を回復させる
-    - 高我（ハイヤーセルフ）とのつながりの強化: スピリチュアルなギフトの拡張
-    - 生命の樹の浄化と癒やし
+    - 霊体クリアリング: ネガティブなエンティティ（霊体）の付着、レプティリアン意識、アコーンの駆除や変容
+    - 人工テクノロジーの解毒：あらゆる種類のワクチン、および反転A.I.の負面テクノロジーによる損害の修復
+    - ネガティブな付着物の除去：コード（Cords）、インプラント、フックの除去
+    - ダークポータルの閉鎖
+    - 心身の不調・疾患のケア：癌、腫瘍、糖尿病、多発性硬化症、EBウイルスなどの波動調整
+    - 負の契約の解除
+    - トラウマの解放：今生や過去生におけるトラウマの識別と解放
+    - 視力および歯の健康問題の改善
+    - 年齢回溯：肉体やエネルギーの5〜15年の若返り
+    - DNAのリプログラミングと修復：生命力とウェルビーイングの向上
+    - エネルギーのアライメント：チャクラのバランス調整と活性化
+    - オーラフィールド（Auric field）の修復
+    - ソウルリトリーバル（魂の回収）：断片化したソウルの側面を回収し、本来の調和と統合へ導く
+    - ハイヤーセルフとの連結強化：霊的なギフト（才能）の拡大
+    - 生命の樹（Tree of Life）のクレンジングと癒やし
 
-    あなた自身の人生を創造するのはあなた自身です。私は、宇宙エネルギーの助けを借りて、あなたがより深い癒やしへと至るための橋渡し役を務めます。
+    一般的な過去生退行セッションでは、ハイヤーセルフとの完全な連結はセッションの中盤以降になることがほとんどです。しかし、A.U.R.A.量子ヒプノでは、セッションの冒頭から神聖なエネルギーワークとサウンドバスを通じて、瞬時にハイヤーセルフとの連結を確立します。この早い段階での連結により、エゴの干擾を最小限に抑え、ハイヤーセルフとのスムーズな対話が可能になります。結果として、無限の創造の探求へと深く入り込み、豊かな自己治癒が促されます。万が一、ハイヤーセルフとの連結や量子ヒーリングのプロセスに滞りがある場合でも、大天使やアセンデッドマスターやハイヤーセルフがサポートに介入し、精神・肉体・魂の全方位的な癒やしをもたらします。
 
-    ご予約について：
-    心身ともに十分な準備期間を確保していただくため、セッションは少なくとも1週間前までにご予約いただくことをお勧めいたします。事前の準備を整えることで、セッション中にスムーズに量子催眠の状態へ入り、より深い変容を体験することができます。
+    ## このような方におすすめ
 
-    ## セッションを通して
+    お子様から大人、ご年配の方まで、覚醒の度合いに関わらず、全ての方に適しています。
 
-    一般的な過去世回帰セッションでは、ハイヤーセルフとの完全なつながりは、正式に呼びかけが行われるセッション中盤に確立されるのが一般的です。
-
-    しかし、A.U.R.A.ヒプノシスでは、神聖なエネルギーワークであるサウンドバスを用いることで、セッションの開始直後からこのつながりを確立します。この早期のつながりはエゴの影響を抑え、ハイヤーセルフとのよりシームレスで深い絆を築くことを可能にします。その結果、自らの無限の創造性を探求する深い旅路へと導かれ、より充実した自己治癒が促進されるのです。
-
-    さらに、量子ヒーリングのためにハイヤーセルフとのつながりが難しい場合や、より深いレベルでのつながりが必要な際には、大天使やアセンデッドマスターたちがハイヤーセルフと一体となり、あなたの心・体・魂の癒やしを力強くサポートします。
-
-    ## このような方におすすめです
-
-    お子様から大人、ご年配の方まで、覚醒の度合いを問わず、どなたでも受けていただけます。
+    *対応言語：英語・広東語 ONLY
   zh: |-
     ## 療程內容
 
     在身體掃描過程中，A.U.R.A. 催眠促進以下各方面的自我療癒：
 
-    - 清除靈體：清除依附身上的負極靈體、蜥蜴爬蟲類意識、大魔頭 Archon 
+    - 清除靈體：清除依附身上的負極靈體、蜥蜴爬蟲類意識、Archon 
     - 各類疫苗和負極人工智能科技造成的傷害
     - 消除負極線、植入物、鈎
     - 關閉暗黑能量出入口
@@ -198,24 +143,82 @@ serviceBody:
     - 加強與高我聯繫，激發/發揮您的天賦才華
     - 淨化和療癒生命之樹
 
-
-
-    您是自己的創造者，而我會幫助您通過宇宙能量實現更深層次的療癒。
-
-    預約日期：
-
-    建議您預約至少一星期後的日期，以便有充足時間做好身心準備，助您在療程中更容易順利進入量子催眠狀態。另外，療程後要有充分時間讓身體休息，至少３小時內不要駕駛及當天休假一天，不要立即工作。
-
-    ## 療程進行方式
-
-    在一般前世回溯療程中，與高我的連接通常發生在療程的中間部分，即正式召喚高我之後。
-
-    但在 A.U.R.A. 量子催眠則通過神聖能量工作，讓連接一開始就會建立起來。這樣有助減少自我意識的影響，從而達致更無縫的高我連接，更深入探索自己無限的創造力，並促進自我療癒。
-
-    如果連接高我出現困難，或需要更深層次的連接，大天使和揚昇大師將聯合高我一起介入協助，促使身心靈療癒順利進行。
+    在傳統的前世回溯中，通常在療程中段後才能與高我完整連結。然而，A.U.R.A. 量子催眠在療程一開始，便透過神聖能量及音療直接與高我同頻。這種先行的深度連結有效淡化自我（Ego）的干擾，讓高我訊息的傳遞更流暢，引領靈魂步入更深邃的無限創造之旅，促進更佳療癒。此外，若在連結高我或進行量子療癒時遇到障礙，大天使（Archangels）及揚昇大師（Ascended Masters）將與高我聯手介入協助，全方位修復身心靈。
 
     ## 適合對象
 
-    適合任何年齡人士（兒童、成人、長者），亦不論是否已靈性覺醒。
+    本療程適合任何年齡層（兒童、成人、長者），無論目前處於已覺醒、部分覺醒或尚未覺醒的狀態，皆能從中受益。
+testimonial_1: |-
+  在療程中，我深刻感受到治療師Carmen的引導。她的聲音如天使之音，柔和而又堅定，讓我迅速進入療癒狀態。在她的帶領下，我完全信任地將自己的內在世界交給她，讓她引領我擺脫身心中的負能量。
+  ​特別是當Carmen替我釋放負能量靈體那一瞬間，我感覺自己長出了翅膀，全身頓時變得輕盈，很開心飛上天空的感覺。
+   從未體驗過的量子催眠，讓我感受到身心的深層變化。透過Carmen的指導，我學會了傾聽自己的身體直覺，並在催眠狀態下感受到身心的釋放和平靜。療程後，我感受到腸道暢通，睡眠也得到了改善。
+   由衷感謝Carmen的耐心和付出。身心靈治療是一個值得深入探討的領域，我們應該保持開放的心態，不斷學習和探索。 🙏🌟 
+   
+  ~ Jennifer
+testimonial_2: >-
+  I have been having work related stress from working long hours at the desk and
+  having lots of doubts of what I’m doing is in the right direction.
+  Coincidentally Carmen’s videos appeared in my YouTube feed during a time when
+  I’m looking for directions. I managed to get in touch with Carmen and she
+  assured me the feelings and worries that I’m having are a result of past
+  experiences and decisions.
+   Carmen created a safe, relaxing environment that allowed me to fully open up and address the root causes of my issues. Her soothing voice and expert guidance helped rewire my thought patterns, replacing negative self-talk with empowering beliefs. I've noticed a remarkable difference in my daily life - decisions come easier, my mind feels calmer, and I trust myself more than ever before.
+   If you're looking to break free from mental blocks and unlock your full potential, I can't recommend Carmen's hypnotherapy enough. It's been a game-changer for me!
+  ​
+
+  ~ Kenneth
+testimonial_3: |-
+  之前一直都係腳部麻痺既問題，試過針灸食藥等問題，一直都解決唔到，基本上24小時，除訓覺外都係痺既。。。好困擾，直到做完量子催眠療程麻痺既感覺真係少咗，情況有改善到，真係好神奇！
+  當催眠時第一次連接到”高我”，聽到同見到一啲畫面同聲音，知道係咩原因導致到自身問題既出現，係一個自我檢視既旅程，慶幸自己呢個機會體驗到！
+
+  ～ Kylie
+offerings:
+  - desc:
+      en: >-
+        During the session, we will connect directly with the Higher Self,
+        allowing you to ask up to 11 of your prepared questions.
+
+
+        Appointment date:
+
+
+        I recommend scheduling your session at least one week in advance to give
+        yourself ample time to prepare physically, mentally, and emotionally.
+        This preparation will help you transition more smoothly into the quantum
+        hypnosis state during the session.
+
+
+        Format: Conducted online via Zoom (Recording included)  
+
+
+        Preparation: I will email you the preparation details after booking.
+      jp: |-
+        セッション中はハイヤーセルフと連結し、用意された質問（最大11問）を通じてガイダンスを受け取ります。
+
+        ご予約日時：
+
+        心身の準備を整えるため、少なくとも1週間前までのご予約を推奨します。十分な準備を行うことで、セッション当日に量子ヒプノ状態へとよりスムーズに移行できます。
+
+        形式：Zoomによるオンライン（録画データ付）
+
+        事前準備：ご予約確定後、詳細な準備案内をメールにて送付します。
+      zh: |-
+        療程中將連結高我，可提問準備好的問題（最多 11 條）。
+
+        預約日期：
+
+        建議提早至少一週前預約，為自己留出充足時間在身體及心理層面作調頻準備，有助在療程中更流暢地進入量子催眠狀態。
+
+        形式：透過 Zoom 網上進行（包含全程錄影）
+
+        準備事項：預約後，我會email 你詳細的準備指引。
+    duration:
+      en: 4 hours
+      jp: 4時間
+      zh: 4小時
+    price:
+      en: 444
+      jp: 77000
+      zh: 4400
 slug: a-u-r-a-quantum-hypnosis
 ---
