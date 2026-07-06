@@ -54,7 +54,7 @@ const copy = {
     fee: '料金',
     bookSession: 'ご予約・お問い合わせ',
     contactForPrice: '料金はお問い合わせください',
-    backToServices: '← サービス一覧',
+    backToServices: '← セッション一覧',
     testimonialsHeading: 'ご感想',
   },
   zh: {
@@ -70,10 +70,10 @@ const copy = {
 }[locale];
 ---
 
-<a href={servicesPath} class="block text-sm text-rose hover:underline mb-6">{copy.backToServices}</a>
+<a href={servicesPath} class="block text-sm text-rose hover:underline mb-10">{copy.backToServices}</a>
 
-<header class="mb-12 max-w-3xl">
-  {/* <p class={`text-sm font-serif mb-3 ${cc.text} tracking-widest uppercase`}>{subtitle}</p>*/}
+<header class="mb-16 max-w-3xl">
+  <p class={`text-sm font-serif mb-3 ${cc.text} tracking-widest uppercase`}>{subtitle}</p>
   <h1 class="font-serif text-4xl md:text-5xl font-bold text-ink mb-4 leading-tight">{title}</h1>
   {tagline && <p class="text-lg md:text-xl text-ink-light font-serif">{tagline}</p>}
 </header>
@@ -99,7 +99,7 @@ const copy = {
 
 {(d.testimonial_1 || d.testimonial_2 || d.testimonial_3) && (
   <section class="mb-12 max-w-3xl">
-    <h2 class="font-serif text-2xl text-ink mb-6">{copy.testimonialsHeading}</h2>
+    <h2 class="font-serif text-2xl text-ink mb-8">{copy.testimonialsHeading}</h2>
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
       {[d.testimonial_1, d.testimonial_2, d.testimonial_3]
         .filter((t) => t && t.trim())
@@ -119,7 +119,7 @@ const copy = {
 
 {d.offerings && d.offerings.length > 0 && (
   <section class="mb-12">
-    <h2 class="font-serif text-2xl text-ink mb-6">{copy.offerings}</h2>
+    <h2 class="font-serif text-2xl text-ink mb-8">{copy.offerings}</h2>
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
       {d.offerings.map((o) => {
         const oTitle = o.title ? (pickL10n(o.title) || o.title.en) : '';

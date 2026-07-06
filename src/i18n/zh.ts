@@ -62,12 +62,12 @@ export default {
       contact: '聯絡',
     },
     hero: {
-      welcome: '歡迎',
+      welcome: '',
       title: 'Carmen Ng',
-      titleKana: '卡門',
+      titleKana: '',
       tagline: '整體療癒',
       description:
-        '一個神聖的空間，將阻力化為流動，回歸內心，並讓您內在的黃金綻放。',
+        '一個神聖的空間協助您淨化及轉化能量，讓您回歸真正的自己，喚起內在的黃金寶庫。',
       bookSession: '預約療程',
       exploreServices: '了解服務',
     },
@@ -84,10 +84,11 @@ export default {
       tabNews: '最新消息',
       tabBlogs: '網誌',
       moreNews: '更多消息 →',
+      moreBlogs: '更多網誌 →',
     },
     testimonials: {
       eyebrow: '客戶分享',
-      title: '他們的話',
+      title: '客戶分享',
       sub: '客戶分享',
     },
     story: {

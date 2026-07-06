@@ -64,9 +64,9 @@ export default {
       contact: 'Contact',
     },
     hero: {
-      welcome: 'Welcome',
+      welcome: '',
       title: 'Carmen Ng',
-      titleKana: 'カーメン',
+      titleKana: '',
       tagline: 'Holistic Healing',
       description:
         'A sacred space to transmute resistance into flow, return to the heart, and reveal the gold within you.',
@@ -86,6 +86,7 @@ export default {
       tabNews: 'NEWS',
       tabBlogs: 'BLOGS',
       moreNews: 'More News →',
+      moreBlogs: 'More Articles →',
     },
     testimonials: {
       eyebrow: 'What Clients Say',

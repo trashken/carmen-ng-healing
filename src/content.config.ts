@@ -204,7 +204,11 @@ const hero = defineCollection({
     }),
     title_kana: z.string().optional().default(''),
     tagline: z.string().optional().default(''),
-    description: z.string().optional().default(''),
+    description: z.object({
+      en: z.string().optional().default(''),
+      jp: z.string().optional().default(''),
+      zh: z.string().optional().default(''),
+    }).optional(),
     // CTA labels (Button text).
     cta_primary: z.string().optional().default(''),
     cta_secondary: z.string().optional().default(''),

@@ -13,11 +13,14 @@
  * ------------------------------------------------------------------- */
 
 @theme {
-  /* Fonts: the source uses 'Zen Old Mincho' for display (h1-h4) and
-     'Noto Sans JP' for body. Tailwind utilities: font-serif = display,
-     font-sans = body. */
-  --font-serif: 'Zen Old Mincho', 'Playfair Display', Georgia, serif;
-  --font-sans: 'Noto Sans JP', 'Inter', system-ui, sans-serif;
+  /* Fonts:
+     - EN: Hanken Grotesk (free Google Font, similar to HK Grotesk)
+     - JP: Noto Sans JP
+     - ZH: Noto Sans HK
+     Browsers pick the first font in the stack that has the needed
+     glyphs, so each script falls through to the right family. */
+  --font-sans: 'Hanken Grotesk', 'Noto Sans JP', 'Noto Sans HK', system-ui, sans-serif;
+  --font-serif: 'Hanken Grotesk', 'Noto Sans JP', 'Noto Sans HK', Georgia, serif;
 
   /* Sky / light blue family (used for hero gradient + light backgrounds). */
   --color-sky: #b8dce8;

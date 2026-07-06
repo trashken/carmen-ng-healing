@@ -58,24 +58,24 @@ export default {
 
   home: {
     nav: {
-      services: 'サービス',
+      services: 'セッション',
       stories: 'ご感想',
       story: '私の物語',
       contact: 'お問い合わせ',
     },
     hero: {
-      welcome: 'ようこそ',
+      welcome: '',
       title: 'Carmen Ng',
-      titleKana: 'カーメン',
+      titleKana: '',
       tagline: 'ホリスティック・ヒーリング',
       description:
-        '内なる抵抗を流れに変え、ハートへと還り、あなたの内側の黄金を現すための聖なる空間。',
+        '心のモヤモヤをすっきりさせ、自分らしさと落ち着きを取り戻すための聖域をご案内します。',
       bookSession: 'セッションを予約',
-      exploreServices: 'サービスを見る',
+      exploreServices: 'セッションを見る',
     },
     services: {
       eyebrow: '提供内容',
-      title: 'サービス',
+      title: 'セッション',
       subtitle:
         'あなたの歩み・エネルギー・意図に合わせてカスタマイズされた、多彩な癒しのメソッドをご用意しています。',
     },
@@ -86,10 +86,11 @@ export default {
       tabNews: 'ニュース',
       tabBlogs: 'ブログ',
       moreNews: '一覧を見る →',
+      moreBlogs: 'ブログ一覧 →',
     },
     testimonials: {
       eyebrow: 'お客様の声',
-      title: 'ご感想',
+      title: 'お客様の声',
       sub: 'お客様の声',
     },
     story: {

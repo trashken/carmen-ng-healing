@@ -70,7 +70,7 @@ const currentPath = Astro.url.pathname;
     <meta name="description" content={description || t.meta.defaultDescription} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&family=Noto+Sans+HK:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   </head>
   <body class="overflow-x-hidden">
     <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[60] focus:bg-coral focus:text-white focus:px-4 focus:py-2 focus:rounded">
@@ -270,7 +270,7 @@ const currentPath = Astro.url.pathname;
       window.addEventListener('scroll', setNavState, { passive: true });
     </script>
 
-    <main id="main" class="min-h-screen">
+    <main id="main" class="min-h-screen pt-16">
       <slot />
     </main>
 
