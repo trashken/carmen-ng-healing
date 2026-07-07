@@ -297,18 +297,18 @@ content:
           - name: zh
             type: string
             label: Headline (Traditional Chinese)
-      - name: title_kana
-        type: string
-        label: Kana / phonetic line
-        description: >-
-          Optional secondary line below the headline (e.g. "カーメン").
-          Leave empty to hide.
-      - name: welcome
-        type: string
-        label: Welcome line
-        description: >-
-          Optional small line above the headline (e.g. "Welcome").
-          Leave empty to hide.
+      #- name: title_kana
+      #  type: string
+      #  label: Kana / phonetic line
+      #  description: >-
+      #    Optional secondary line below the headline (e.g. "カーメン").
+      #    Leave empty to hide.
+      #- name: welcome
+      #  type: string
+      #  label: Welcome line
+      #  description: >-
+      #    Optional small line above the headline (e.g. "Welcome").
+      #    Leave empty to hide.
       - name: tagline
         type: string
         label: Tagline
@@ -325,13 +325,13 @@ content:
         type: string
         label: Primary CTA label
         description: >-
-          Text for the coral "Book a Session" button.
+          Text for the "Book a Session" button.
           Falls back to the i18n default if empty.
       - name: cta_secondary
         type: string
         label: Secondary CTA label
         description: >-
-          Text for the "Explore Services" outline button.
+          Text for the "Explore Services" button.
           Falls back to the i18n default if empty.
 
   # ---------------------------------------------------------------------------
