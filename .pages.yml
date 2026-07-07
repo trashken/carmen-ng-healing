@@ -282,6 +282,8 @@ content:
       primary: title.en
     fields:
       - name: title
+        component: t_string   
+      - name: title
         type: object
         label: Headline
         description: >-
