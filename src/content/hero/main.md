@@ -3,6 +3,10 @@ title:
   en: Carmen Ng
   jp: Carmen Ng
   zh: Carmen Ng
+tagline:
+  en: Holistic Healing
+  jp: Holistic Healing
+  zh: Holistic Healing
 description:
   en: A sacred space to transmute resistance into flow, return to the heart, and
     reveal the gold within you.
