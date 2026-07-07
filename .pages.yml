@@ -216,60 +216,60 @@ content:
   # Shown on the homepage in the "Q & A" section under Contact.
   # ---------------------------------------------------------------------------
 
-  - name: faqs
-    label: Q & A
-    type: collection
-    path: src/content/faqs
-    filename: '{slug}.md'
-    format: yaml-frontmatter
-    view:
-      fields: [order, question.en, date]
-      primary: question.en
-      sort: [order]
-      default:
-        sort: order
-        order: asc
-    fields:
-      - name: order
-        type: number
-        label: Display order
-        description: >-
-          Lower numbers appear first. Leave at 100 to push to the end.
-        options:
-          min: 1
-          max: 999
-          default: 1
-      - name: question
-        type: object
-        label: Question
-        description: >-
-          Per-locale question. EN is required (canonical); JP and ZH
-          are optional and fall back to EN on the page when empty.
-        fields:
-          - name: en
-            type: string
-            label: Question (English)
-          - name: jp
-            type: string
-            label: Question (Japanese)
-          - name: zh
-            type: string
-            label: Question (Traditional Chinese)
-      - name: answer
-        type: object
-        label: Answer
-        description: >-
-          Per-locale answer (Markdown). Same fallback rules.
-        fields:
-          - name: en
-            type: text
-            label: Answer (English)
-          - name: jp
-            type: text
-            label: Answer (Japanese)
-          - name: zh
-            type: text
-            label: Answer (Traditional Chinese)
+  #- name: faqs
+  #  label: Q & A
+  #  type: collection
+  #  path: src/content/faqs
+  #  filename: '{slug}.md'
+  #  format: yaml-frontmatter
+  #  view:
+  #    fields: [order, question.en, date]
+  #    primary: question.en
+  #    sort: [order]
+  #    default:
+  #      sort: order
+  #      order: asc
+  #  fields:
+  #    - name: order
+  #      type: number
+  #      label: Display order
+  #      description: >-
+  #        Lower numbers appear first. Leave at 100 to push to the end.
+  #      options:
+  #        min: 1
+  #        max: 999
+  #        default: 1
+  #    - name: question
+  #      type: object
+  #      label: Question
+  #      description: >-
+  #        Per-locale question. EN is required (canonical); JP and ZH
+  #        are optional and fall back to EN on the page when empty.
+  #      fields:
+  #        - name: en
+  #          type: string
+  #          label: Question (English)
+  #        - name: jp
+  #          type: string
+  #          label: Question (Japanese)
+  #        - name: zh
+  #          type: string
+  #          label: Question (Traditional Chinese)
+  #    - name: answer
+  #      type: object
+  #      label: Answer
+  #      description: >-
+  #        Per-locale answer (Markdown). Same fallback rules.
+  #      fields:
+  #        - name: en
+  #          type: text
+  #          label: Answer (English)
+  #        - name: jp
+  #          type: text
+  #          label: Answer (Japanese)
+  #        - name: zh
+  #          type: text
+  #          label: Answer (Traditional Chinese)
 
  
   - name: hero
