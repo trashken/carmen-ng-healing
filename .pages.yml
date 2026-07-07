@@ -296,25 +296,22 @@ content:
       #    Optional small line above the headline (e.g. "Welcome").
       #    Leave empty to hide.
       - name: tagline
-        type: string
-        label: Tagline
-        description: >-
-          Small uppercase accent line (e.g. "Holistic Healing").
-          Leave empty to hide.
+        component: t_string
+        label: Tagline        
       - name: description
-        type: text
+        component: t_text
         label: Description
         description: >-
           Short hero paragraph (1-2 sentences) under the headline.
           Falls back to the i18n default if empty.
       - name: cta_primary
-        type: string
+        component: t-string
         label: Primary CTA label
         description: >-
           Text for the "Book a Session" button.
           Falls back to the i18n default if empty.
       - name: cta_secondary
-        type: string
+        component: t_string
         label: Secondary CTA label
         description: >-
           Text for the "Explore Services" button.
