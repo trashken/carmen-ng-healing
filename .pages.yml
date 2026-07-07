@@ -279,7 +279,7 @@ content:
     filename: 'main.md'
     format: yaml-frontmatter
     view:
-      primary: title
+      primary: title.en
     fields:
       - name: title
         type: object
