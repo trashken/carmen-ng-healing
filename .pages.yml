@@ -305,7 +305,7 @@ content:
           Short hero paragraph (1-2 sentences) under the headline.
           Falls back to the i18n default if empty.
       - name: cta_primary
-        component: t-string
+        component: t_string
         label: Primary CTA label
         description: >-
           Text for the "Book a Session" button.
