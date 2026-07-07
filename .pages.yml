@@ -282,23 +282,7 @@ content:
       primary: title.en
     fields:
       - name: title
-        component: t_string   
-      - name: title
-        type: object
-        label: Headline
-        description: >-
-          Per-locale headline shown in large display type on the homepage.
-          EN is required; JP and ZH fall back to EN when empty.
-        fields:
-          - name: en
-            type: string
-            label: Headline (English)
-          - name: jp
-            type: string
-            label: Headline (Japanese)
-          - name: zh
-            type: string
-            label: Headline (Traditional Chinese)
+        component: t_string         
       #- name: title_kana
       #  type: string
       #  label: Kana / phonetic line
