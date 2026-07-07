@@ -279,7 +279,7 @@ content:
     filename: 'main.md'
     format: yaml-frontmatter
     view:
-      primary: title.en
+      fields: [ title.en ]      
     fields:
       - name: title
         component: t_string         
