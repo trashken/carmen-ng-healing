@@ -196,22 +196,32 @@ const hero = defineCollection({
   schema: z.object({
     // Per-locale hero copy. EN is required; JP and ZH fall back to EN
     // on the page when empty.
-    welcome: z.string().optional().default(''),
     title: z.object({
       en: z.string(),
       jp: z.string().optional().default(''),
       zh: z.string().optional().default(''),
     }),
-    title_kana: z.string().optional().default(''),
-    tagline: z.string().optional().default(''),
+    tagline: z.object({
+      en: z.string().optional().default(''),
+      jp: z.string().optional().default(''),
+      zh: z.string().optional().default(''),
+    }).optional(),
     description: z.object({
       en: z.string().optional().default(''),
       jp: z.string().optional().default(''),
       zh: z.string().optional().default(''),
     }).optional(),
-    // CTA labels (Button text).
-    cta_primary: z.string().optional().default(''),
-    cta_secondary: z.string().optional().default(''),
+    // CTA button labels.
+    cta_primary: z.object({
+      en: z.string().optional().default(''),
+      jp: z.string().optional().default(''),
+      zh: z.string().optional().default(''),
+    }).optional(),
+    cta_secondary: z.object({
+      en: z.string().optional().default(''),
+      jp: z.string().optional().default(''),
+      zh: z.string().optional().default(''),
+    }).optional(),
   }),
 });
 

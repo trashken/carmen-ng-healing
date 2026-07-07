@@ -11,33 +11,29 @@ const { locale } = Astro.props;
 const t = (await import('../i18n')).getDictionary(locale);
 const home = t.home;
 
+// Per-locale lookup helper. EN uses the English value; JP uses the
+// Japanese (falling back to EN); ZH uses Chinese (falling back to JP).
+const pickL10n = (s: { en: string; jp: string; zh?: string }) =>
+  locale === 'en' ? s.en : (locale === 'jp' ? s.jp : (s.zh || s.jp));
+
 // Hero block: fetched from the single-entry `hero` collection. Per-locale
 // overrides fall back to the i18n defaults when empty. The getEntry
 // return is typed as `undefined` so we guard with `??` when reading
 // each field — a missing entry is treated the same as an empty one.
 const heroEntry = await getEntry('hero', 'main');
 const heroData = heroEntry?.data;
-const heroTitle = (() => {
-  if (!heroData) return '';
-  if (locale === 'en') return heroData.title.en;
-  if (locale === 'jp') return heroData.title.jp || heroData.title.en;
-  return heroData.title.zh || heroData.title.en;
-})();
-const heroKana = heroData?.title_kana || home.hero.titleKana;
-const heroWelcome = heroData?.welcome || home.hero.welcome;
-const heroTagline = heroData?.tagline || home.hero.tagline;
+const heroTitle = pickL10n(heroData?.title ?? { en: '', jp: '' });
+const heroTagline = pickL10n(heroData?.tagline) || home.hero.tagline;
 const heroDescription = (() => {
   if (!heroData?.description) return home.hero.description;
   if (locale === 'en') return heroData.description.en || home.hero.description;
   if (locale === 'jp') return heroData.description.jp || heroData.description.en || home.hero.description;
   return heroData.description.zh || heroData.description.en || home.hero.description;
 })();
-const heroCtaPrimary = heroData?.cta_primary || home.hero.bookSession;
-const heroCtaSecondary = heroData?.cta_secondary || home.hero.exploreServices;
+const heroCtaPrimary = pickL10n(heroData?.cta_primary) || home.bookSession;
+const heroCtaSecondary = pickL10n(heroData?.cta_secondary) || home.exploreServices;
 
 const allServices = await getCollection('services');
-const pickL10n = (s: { en: string; jp: string; zh?: string }) =>
-  locale === 'en' ? s.en : (locale === 'jp' ? s.jp : (s.zh || s.jp));
 const services = allServices
   .sort((a, b) => a.data.order - b.data.order)
   .map((entry) => ({
@@ -54,10 +50,7 @@ const allPosts = await getCollection('blog');
 const topPosts = allPosts
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
   .slice(0, 3);
-const postTitle = (p: typeof topPosts[number]) =>
-  locale === 'en'
-    ? (p.data.title.en || p.data.title.jp)
-    : (locale === 'jp' ? p.data.title.jp : (p.data.title.zh || p.data.title.jp));
+const postTitle = (p: typeof topPosts[number]) => pickL10n(p.data.title);
 const formatDate = (iso: Date) => {
   const y = iso.getFullYear();
   const m = String(iso.getMonth() + 1).padStart(2, '0');
@@ -75,64 +68,53 @@ const now = Date.now();
 // we don't do any TZ conversion — the date string is shown as-is.
 const eventReferenceDate = (e: typeof allEvents[number]) => e.data.endDate ?? e.data.date;
 const formatEventDate = (s: string) =>
-  new Date(s).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+  new Date(s).toLocaleDateString('ja-JP', { year: 'numeric', month: 'short', day: 'numeric' });
 const hasTime = (s: string) => /T\d{2}:\d{2}/.test(s);
 const upcomingEvents = allEvents
   .filter((e) => new Date(eventReferenceDate(e)).getTime() >= now)
   .sort((a, b) => new Date(a.data.date).valueOf() - new Date(b.data.date).valueOf())
   .slice(0, 3);
-const eventTitle = (e: typeof upcomingEvents[number]) =>
-  locale === 'en'
-    ? (e.data.title.en || e.data.title.jp)
-    : (locale === 'jp' ? e.data.title.jp : (e.data.title.zh || e.data.title.jp));
+const eventTitle = (e: typeof upcomingEvents[number]) => pickL10n(e.data.title);
 
 // Story section data: pulled from the about collection.
 const about = await getEntry('about', 'main');
 const storyParas = (() => {
   if (!about) return [];
-  // Use the first ~3 paragraphs of the EN body, with paragraphs split
-  // by blank lines.
-  const body = about.data.body_en || about.data.body_jp || '';
+  // Pick the per-locale body. EN uses the EN field; JP and ZH prefer
+  // their own, falling back to JP for ZH if missing.
+  const body = locale === 'en'
+    ? (about.data.body_en || about.data.body_jp || '')
+    : (about.data.body_zh || about.data.body_jp || '');
   return body.split(/\n\s*\n/).slice(0, 3);
 })();
-const certs = (about?.data.certifications || []).flatMap((c) =>
-  (c.items_en || []).slice(0, 1).map(() => c.school_en)
-);
+const certs = (about?.data.certifications || []).flatMap((c) => {
+  // EN uses EN items/school; JP and ZH use the JP items/school (the
+  // same list — they're school names, not localizable text).
+  const items = locale === 'en' ? (c.items_en || []) : (c.items_jp || []);
+  const school = locale === 'en' ? c.school_en : c.school_jp;
+  return items.slice(0, 1).map(() => school);
+});
 const flatCerts = Array.from(new Set(certs)).slice(0, 6);
 
-// FAQ section: read from the faqs collection, sorted by `order`. EN
-// canonical; JP and ZH fall back to EN on the page.
-const allFaqs = await getCollection('faqs');
-const sortedFaqs = allFaqs.sort((a, b) => a.data.order - b.data.order);
-const faqQ = (f: typeof sortedFaqs[number]) =>
-  locale === 'en'
-    ? f.data.question.en
-    : (locale === 'jp' ? (f.data.question.jp || f.data.question.en) : (f.data.question.zh || f.data.question.en));
-const faqA = (f: typeof sortedFaqs[number]) =>
-  locale === 'en'
-    ? f.data.answer.en
-    : (locale === 'jp' ? (f.data.answer.jp || f.data.answer.en) : (f.data.answer.zh || f.data.answer.en));
-
-// Static testimonials fallback (the full 94 live in the testimonials
-// collection; the homepage just shows 3 highlighted quotes).
-const testimonials = [
-  {
-    name: 'Monika',
-    quote:
-      'Thank you very much Carmen for sharing your gifts and light! I experienced the healing session twice and it was absolutely unique. Light codes transmissions were so powerful and tangible.',
-  },
-  {
-    name: 'Chun Ling',
-    quote:
-      "My right shoulder is improving already. The movement range is bigger and I can do a yoga pose which I couldn't do before today. And I'm in such a brightened mood today.",
-  },
-  {
-    name: 'Cary',
-    quote:
-      'It was an amazing experience! The whole process was very relaxing and enlightening. After the session, I felt like my mind and body has been cleansed and my senses heightened.',
-  },
+// Static testimonials fallback. The full 94 live in the testimonials
+// collection; the homepage just shows 3 highlighted quotes — different
+// ones per locale.
+const testimonials = locale === 'jp' ? [
+  { name: 'Kao', quote: '心も体も軽くなり、自分の進みたい方向もはっきりして、とても安心しました。' },
+  { name: 'もん', quote: '実際の誘導以外の説明やアフターケアを絵や文字で示してくださり、確認しやすかったです。' },
+  { name: 'おゆ', quote: '感謝と愛をたくさん感じることができる時間は改めて幸せだなあと思いました。' },
+] : locale === 'zh' ? [
+  { name: 'Christine', quote: '我 75 歲，呢幾年身體一路有好幾處唔舒服……做完 RAAH 療程後，多年來第一次瞓得咁好。' },
+  { name: 'M', quote: '整個過程非常舒適和放鬆。療程後我感到身心被淨化，感官也變得敏銳。' },
+  { name: 'Kylie', quote: "Carmen's 引導清晰、溫柔，讓我更深地連結自己的本質。" },
+] : [
+  { name: 'Monika', quote: 'Thank you very much Carmen for sharing your gifts and light! I experienced the healing session twice and it was absolutely unique. Light codes transmissions were so powerful and tangible.' },
+  { name: 'Chun Ling', quote: "My right shoulder is improving already. The movement range is bigger and I can do a yoga pose which I couldn't do before today. And I'm in such a brightened mood today." },
+  { name: 'Cary', quote: 'It was an amazing experience! The whole process was very relaxing and enlightening. After the session, I felt like my mind and body has been cleansed and my senses heightened.' },
 ];
 
+// URL paths. The `/testimonials` and `/contact` routes are
+// locale-unaware; everything else is prefixed with the locale.
 const blogIndexPath = locale === 'en' ? '/en/blog' : `/${locale}/blog`;
 const eventsIndexPath = locale === 'en' ? '/en/events' : `/${locale}/events`;
 const aboutPath = locale === 'en' ? '/en/about' : `/${locale}/about`;
@@ -193,16 +175,6 @@ const contactPath = locale === 'en' ? '/contact' : `/${locale}/contact`;
       <h1 class="font-serif text-4xl font-normal uppercase tracking-[0.15em] text-white md:text-5xl lg:text-6xl">
         {heroTitle}
       </h1>
-      {heroKana && (
-        <p class="mt-2 font-sans text-lg font-normal tracking-[0.2em] text-navy-text/70 md:text-xl">
-          {heroKana}
-        </p>
-      )}
-      {heroWelcome && (
-        <p class="mt-2 font-sans text-sm font-normal tracking-[0.2em] text-navy-text/60 md:text-base">
-          {heroWelcome}
-        </p>
-      )}
       {heroTagline && (
         <p class="mt-4 font-serif text-sm font-normal uppercase tracking-[0.25em] text-white md:text-base">
           {heroTagline}
