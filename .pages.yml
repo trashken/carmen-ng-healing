@@ -351,21 +351,11 @@ content:
         options:
           maxlength: 80
       - name: title
-        type: object
+        component: t_string
         label: Event title
         description: >-
           Per-locale title. JP and EN are required; ZH is optional and
-          falls back to JP when empty.
-        fields:
-          - name: en
-            type: string
-            label: Title (English)
-          - name: jp
-            type: string
-            label: Title (Japanese)
-          - name: zh
-            type: string
-            label: Title (Traditional Chinese)
+          falls back to JP when empty.        
       - name: date
         type: date
         label: Event date & start time
