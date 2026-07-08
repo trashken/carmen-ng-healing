@@ -335,7 +335,7 @@ content:
     filename: '{slug}.md'
     format: yaml-frontmatter
     view:
-      fields: [date, title.en, title.jp, location]
+      fields: [date, title.en, title.jp, location, published]
       primary: title
       sort: [ date ]
       default:
@@ -431,6 +431,9 @@ content:
         description: >-
           External link (e.g. Eventbrite). Shown as a "Register" button
           on upcoming events; hidden once the event date has passed.
+      - name: published
+        type: boolean
+        label: Published
       # Note: events render at /en/events, /jp/events, /zh/events (a single
       # page per locale, with all events in a vertical accordion). Editors
       # do not maintain per-event pages via PagesCMS.
