@@ -24,4 +24,5 @@ body_zh: |-
   名額最多 12 人的小型半日工作坊。我們會透過呼吸、聲音與輕柔的動作，
   逐一走過七大主要脈輪，讓你身心更清明、與身體的智慧更同頻。
 registrationUrl: https://example.com/chakra-workshop-mar-2026
+show: true
 ---

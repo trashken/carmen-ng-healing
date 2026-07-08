@@ -18,4 +18,5 @@ body_en: Join this live 15-minute activation to receive powerful Dragon Light
   a quiet space to receive.
 cover: /uploads/Insight-Timer-Logo.png
 registrationUrl: https://insig.ht/t1Zamv11i4b
+show: true
 ---
