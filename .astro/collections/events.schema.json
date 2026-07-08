@@ -73,6 +73,10 @@
     "registrationUrl": {
       "type": "string"
     },
+    "alwaysShow": {
+      "default": true,
+      "type": "boolean"
+    },
     "$schema": {
       "type": "string"
     }

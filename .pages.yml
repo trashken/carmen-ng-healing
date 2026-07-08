@@ -323,9 +323,12 @@ content:
   # One Markdown file per event, in src/content/events/{slug}.md.
   # Each event has a single date, optional end date, optional location,
   # and per-locale title / summary / body. Shown on the Blog page's
-  # "Events & Workshops" tab. Past events are still listed but visually
-  # de-emphasized (lower opacity + "Past" label) and the registration
-  # link is hidden.
+  # "Events & Workshops" tab. Visibility is controlled by the
+  # `alwaysShow` flag (defaults to true): when false, the event is
+  # hidden from the homepage events section and the /[locale]/events
+  # subpage. Past events remain visible and are visually de-emphasized
+  # via a "Past" badge; the registration link is hidden once the event
+  # date has passed.
   # ---------------------------------------------------------------------------
 
   - name: events
@@ -335,7 +338,7 @@ content:
     filename: '{slug}.md'
     format: yaml-frontmatter
     view:
-      fields: [date, title.en, title.jp, location]
+      fields: [date, title.en, title.jp, location, alwaysShow]
       primary: title
       sort: [ date ]
       default:
@@ -431,6 +434,14 @@ content:
         description: >-
           External link (e.g. Eventbrite). Shown as a "Register" button
           on upcoming events; hidden once the event date has passed.
+      - name: alwaysShow
+        type: boolean
+        label: Always Show
+        description: >-
+          When checked (default), the event appears on the homepage
+          events section and the /[locale]/events subpage regardless
+          of whether the date is in the past. Uncheck to hide the
+          event without deleting it.
       # Note: events render at /en/events, /jp/events, /zh/events (a single
       # page per locale, with all events in a vertical accordion). Editors
       # do not maintain per-event pages via PagesCMS.

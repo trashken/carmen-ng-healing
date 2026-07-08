@@ -8,9 +8,10 @@ const locale: Locale = 'zh';
 const t = getDictionary(locale);
 
 const allEvents = await getCollection('events');
-const referenceDate = (e: typeof allEvents[number]) => e.data.endDate ?? e.data.date;
+// Visibility is controlled by the `alwaysShow` frontmatter flag
+// (defaults to true). Past events are no longer auto-hidden.
 const visibleEvents = allEvents
-  .filter((e) => new Date(referenceDate(e)).getTime() >= Date.now())
+  .filter((e) => e.data.alwaysShow !== false)
   .sort((a, b) => new Date(a.data.date).valueOf() - new Date(b.data.date).valueOf());
 const isPast = (s: string) => new Date(s).getTime() < Date.now();
 const formatEventDate = (s: string) =>

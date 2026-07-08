@@ -9,15 +9,15 @@ const t = getDictionary(locale);
 
 // Fetch all events. Each event's body is in the per-locale field
 // (body_en / body_jp / body_zh); we render the EN body on this page.
-// Hide events whose end date (or, if no end date, start date) has
-// already passed.
+// Visibility is controlled by the `alwaysShow` frontmatter flag
+// (defaults to true). Past events are no longer auto-hidden; they
+// stay listed and are visually de-emphasized via the "Past" badge.
 const allEvents = await getCollection('events');
 // The date field is a YYYY-MM-DD or YYYY-MM-DDTHH:mm string. The
 // `timezone` field tells the page which TZ the wall-clock is in;
-// we don't do any TZ conversion — the string is shown as-is.
-const referenceDate = (e: typeof allEvents[number]) => e.data.endDate ?? e.data.date;
+// we don't do any TZ conversion — the date string is shown as-is.
 const visibleEvents = allEvents
-  .filter((e) => new Date(referenceDate(e)).getTime() >= Date.now())
+  .filter((e) => e.data.alwaysShow !== false)
   .sort((a, b) => new Date(a.data.date).valueOf() - new Date(b.data.date).valueOf());
 const isPast = (s: string) => new Date(s).getTime() < Date.now();
 const formatEventDate = (s: string) =>

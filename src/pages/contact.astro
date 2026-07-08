@@ -1,16 +1,23 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITEKEY ?? '';
+const contactEmail = 'hello@carmennghealing.com';
 ---
 
 <Layout title="Contact" description="Book a session or get in touch with Carmen Ng for holistic healing, energy work, and sound therapy.">
   <section class="py-24 bg-gradient-to-b from-blush to-warm-white min-h-screen">
     <div class="max-w-4xl mx-auto px-6">
-      <!-- <p class="text-rose font-serif text-center text-lg italic mb-2">Get in Touch</p>-->
       <h1 class="section-title">Book a Session</h1>
-      <!-- <p class="section-subtitle">I'd love to hear from you. Whether you have questions or are ready to begin your healing journey, reach out below.</p>-->
 
-      <div class="card max-w-xl mx-auto">
-        <form action="/api/contact" method="POST" class="space-y-5">
+      <div id="contact-form-card" class="card max-w-xl mx-auto">
+        <form
+          id="contact-form"
+          action="/api/contact"
+          method="POST"
+          class="space-y-5"
+          novalidate
+        >
           <div class="grid sm:grid-cols-2 gap-4">
             <div>
               <label for="firstName" class="block text-sm font-medium text-ink mb-1.5">First Name</label>
@@ -33,15 +40,63 @@ import Layout from '../layouts/Layout.astro';
             <textarea id="message" name="message" rows="5" required
               class="w-full px-4 py-3 rounded-xl border border-rose/20 bg-warm-white text-sm text-ink placeholder:text-ink-light/40 focus:outline-none focus:border-rose focus:ring-1 focus:ring-rose/30 resize-none"></textarea>
           </div>
-          <button type="submit" class="btn-primary w-full text-center py-4">Send Message</button>
+          {turnstileSiteKey && (
+            <div class="cf-turnstile" data-sitekey={turnstileSiteKey}></div>
+          )}
+          <button id="contact-submit" type="submit" class="btn-primary w-full text-center py-4">Send Message</button>
         </form>
       </div>
 
-      <!-- Alternative contact -->
-      <div class="text-center mt-12">
-        <!-- <p class="text-ink-light text-sm mb-2">Prefer direct contact?</p>-->
-        <p class="text-ink font-serif text-lg">hello@carmennghealing.com</p>
+      <div id="contact-status" class="card max-w-xl mx-auto mt-6 hidden" role="status" aria-live="polite"></div>
+
+      <!-- <div class="text-center mt-12">
+        <p class="text-ink-light text-sm mb-2">Prefer direct contact?</p>
+        <a href={`mailto:${contactEmail}`} class="text-ink font-serif text-lg hover:text-rose transition-colors">{contactEmail}</a>
       </div>
+    -->
     </div>
   </section>
 </Layout>
+
+{turnstileSiteKey && (
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer is:inline></script>
+)}
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  const card = document.getElementById('contact-form-card');
+  const status = document.getElementById('contact-status') as HTMLDivElement | null;
+  const submit = document.getElementById('contact-submit') as HTMLButtonElement | null;
+  if (form && card && status && submit) {
+    const renderStatus = (kind: 'ok' | 'err', message: string) => {
+      status.classList.remove('hidden');
+      status.className =
+        'card max-w-xl mx-auto mt-6 ' +
+        (kind === 'ok' ? 'border border-rose/30 bg-warm-white' : 'border border-red-300 bg-red-50');
+      status.innerHTML =
+        kind === 'ok'
+          ? `<p class="text-ink font-medium">Thank you!</p><p class="text-sm text-ink-light mt-1">${message}</p>`
+          : `<p class="text-red-700 font-medium">${message}</p>`;
+    };
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      submit.disabled = true;
+      submit.classList.add('opacity-60', 'cursor-not-allowed');
+      try {
+        const res = await fetch(form.action, { method: 'POST', body: new FormData(form) });
+        const data = (await res.json().catch(() => ({}))) as { ok?: boolean; error?: string };
+        if (res.ok && data.ok) {
+          card.classList.add('hidden');
+          renderStatus('ok', 'Your message is on its way. Carmen will reply within a few days.');
+          return;
+        }
+        renderStatus('err', data.error ?? `Submission failed (HTTP ${res.status}). Please try again.`);
+      } catch {
+        renderStatus('err', 'Network error. Please check your connection and try again.');
+      } finally {
+        submit.disabled = false;
+        submit.classList.remove('opacity-60', 'cursor-not-allowed');
+      }
+    });
+  }
+</script>

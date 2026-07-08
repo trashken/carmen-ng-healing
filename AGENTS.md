@@ -140,10 +140,23 @@ tsconfig.json             # extends astro/tsconfigs/strict
 - `src/components/` contains `HomeContent.astro` (the shared homepage body used by all 4 homepage routes). The nav and footer are inlined in `Layout.astro` (keep them in sync across pages).
 - **Astro 6 content collection gotcha:** the schema file must be `src/content.config.ts` (NOT `src/content/config.ts` — that location throws `LegacyContentConfigError`). `z` is imported from `astro/zod`, not `astro:content` (the latter re-export is deprecated).
 
+## Backend (Cloudflare Pages Functions)
+
+- Adapter: `@astrojs/cloudflare` (`astro.config.mjs:4`) with `output: 'static'`. Static pages stay static; server-side routes opt in with `export const prerender = false;`.
+- API routes: `src/pages/api/contact.ts` — `POST /api/contact`, the contact-form handler. Validates input, verifies a Cloudflare Turnstile token (if `TURNSTILE_SECRET` is set), and sends the submission to Carmen via the Resend REST API. Returns JSON.
+- Env vars (see `.env.example` for the full list; set as CF Pages encrypted secrets in the dashboard):
+  - `RESEND_API_KEY` — Resend API key. Required; missing → 500.
+  - `TURNSTILE_SECRET` — server-side Turnstile secret. Optional; if unset, verification is skipped (dev only).
+  - `PUBLIC_TURNSTILE_SITEKEY` — public Turnstile site key, inlined into the page at build (Vite `PUBLIC_` prefix). Optional; if unset, the widget is hidden.
+  - `CONTACT_TO_EMAIL` — recipient, defaults to `hello@carmennghealing.com`.
+  - `CONTACT_FROM_ADDRESS` — sender, must be on a domain verified in Resend. Defaults to `Carmen Ng Healing <noreply@carmennghealing.com>`.
+- Local dev: `platformProxy: { enabled: true }` in the adapter makes `context.locals.runtime.env` available in `astro dev`, mirroring the CF Pages runtime. Put dev secrets in `.env` (not committed).
+- Adding another API route: create `src/pages/api/<name>.ts`, set `export const prerender = false;` at the top, and read env from `context.locals.runtime.env`.
+
 ## Things that are missing or fake
 
-- The contact form (`src/pages/contact.astro:13`) posts to `/api/contact` — no API route or backend is wired up. Submitting the form will 404.
-- No tests, no CI, no pre-commit hooks, no `.env.example`, no deployment config in the repo. Deploy target is implied by `site` in `astro.config.mjs` but not configured here.
+- The `/${locale}/contact` links on the JP and ZH homepages (`HomeContent.astro:121`) 404 because the contact page is English-only at `/contact`. Same link bug in `ServiceDetail.astro:36` and `AboutContent.astro:19`. Pre-existing; either localize `contact.astro` into a `[locale]/contact.astro` or rewrite the link to always be `/contact`.
+- No tests, no CI, no pre-commit hooks, no deployment config in the repo. Deploy target is implied by `site` in `astro.config.mjs`; the `@astrojs/cloudflare` adapter is installed but wrangler/Pages project settings live in the CF dashboard.
 - `README.md` is the unmodified Astro "basics" starter template and does not describe this site. Treat it as inaccurate.
 - Newsletter form in the footer is a static `<form>` with no handler.
 - All 11 post bodies have `body_zh: ""`; `/zh/blog/...` pages render the Japanese original with a "中文翻譯準備中" note until Carmen provides Chinese translations.

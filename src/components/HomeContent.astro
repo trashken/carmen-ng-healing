@@ -60,18 +60,26 @@ const formatDate = (iso: Date) => {
     : `${y}.${m}.${d}`;
 };
 
-// Upcoming events for the Info section.
+// Events for the Info section. Visibility is controlled by the
+// `alwaysShow` frontmatter flag (defaults to true). The previous
+// "hide when end date has passed" rule has been removed so past
+// events remain visible.
 const allEvents = await getCollection('events');
-const now = Date.now();
 // The date field is a YYYY-MM-DD or YYYY-MM-DDTHH:mm string. The
 // `timezone` field tells the page which TZ the wall-clock is in;
 // we don't do any TZ conversion — the date string is shown as-is.
-const eventReferenceDate = (e: typeof allEvents[number]) => e.data.endDate ?? e.data.date;
-const formatEventDate = (s: string) =>
-  new Date(s).toLocaleDateString('ja-JP', { year: 'numeric', month: 'short', day: 'numeric' });
+const formatEventDate = (s: string) => {
+  const d = new Date(s);
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  return locale === 'en'
+    ? d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })
+    : `${y}.${m}.${day}`;
+};
 const hasTime = (s: string) => /T\d{2}:\d{2}/.test(s);
 const upcomingEvents = allEvents
-  .filter((e) => new Date(eventReferenceDate(e)).getTime() >= now)
+  .filter((e) => e.data.alwaysShow !== false)
   .sort((a, b) => new Date(a.data.date).valueOf() - new Date(b.data.date).valueOf())
   .slice(0, 3);
 const eventTitle = (e: typeof upcomingEvents[number]) => pickL10n(e.data.title);

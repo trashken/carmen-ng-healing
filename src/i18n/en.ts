@@ -17,7 +17,7 @@ export default {
     events: 'Events',
     testimonials: 'Testimonials',
     contact: 'Contact',
-    bookSession: 'Book a Session',
+    bookSession: 'Contact Me',
   },
 
   footer: {

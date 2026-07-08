@@ -185,6 +185,12 @@ const events = defineCollection({
     cover: z.string().optional(),
     // Optional registration / external link.
     registrationUrl: z.string().optional(),
+    // Controls whether the event appears on the homepage events section
+    // and the /[locale]/events subpage. Defaults to true so existing
+    // entries keep showing; set to false to hide an event without
+    // deleting it. Replaces the previous "hide when end date has
+    // passed" rule.
+    alwaysShow: z.boolean().optional().default(true),
   }),
 });
 
