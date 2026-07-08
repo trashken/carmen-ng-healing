@@ -15,4 +15,5 @@ body_zh: |-
   本次工作坊，我們將以「療癒陰影創傷」為核心。透過結合古老傳統的體感智慧、靈魂層次的覺察，以及深層的能量療癒技術，帶領您溫柔地回溯，去接納那些被遺忘的自己。這不是一場對抗內在黑暗的戰爭，而是一場回歸完整的邀請，讓您從創傷的慣性中鬆綁，活出更真實、自在的力量。
 cover: /uploads/Screenshot 2026-06-22 at 1.58.51 PM.png
 registrationUrl: https://www.carmennghealing.com/7-5廣東話ws
+show: true
 ---
