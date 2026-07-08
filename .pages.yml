@@ -335,7 +335,7 @@ content:
     filename: '{slug}.md'
     format: yaml-frontmatter
     view:
-      fields: [date, title.en, title.jp, location, published]
+      fields: [date, title.en, title.jp, location, show ]
       primary: title
       sort: [ date ]
       default:
