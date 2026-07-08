@@ -431,9 +431,9 @@ content:
         description: >-
           External link (e.g. Eventbrite). Shown as a "Register" button
           on upcoming events; hidden once the event date has passed.
-      - name: published
+      - name: show
         type: boolean
-        label: Published
+        label: Always Show
       # Note: events render at /en/events, /jp/events, /zh/events (a single
       # page per locale, with all events in a vertical accordion). Editors
       # do not maintain per-event pages via PagesCMS.
