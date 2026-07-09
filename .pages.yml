@@ -803,6 +803,92 @@ content:
                 options:
                   item:
                     type: string
+
+  # ---------------------------------------------------------------------------
+  # Footer (Contact section + social links + copyright)
+  # ---------------------------------------------------------------------------
+  # Single-entry collection. One Markdown file at
+  # src/content/footer/main.md. The footer block drives:
+  #   - the contact tagline + email shown in the site footer
+  #   - the ordered list of social links (rendered in the footer and
+  #     reused on the homepage Contact section)
+  #   - the per-locale copyright text (the "© {year} " prefix is
+  #     added automatically at render time)
+  # Fetched with getEntry('footer', 'main').
+  # ---------------------------------------------------------------------------
+
+  - name: footer
+    label: Footer (Contact & Social)
+    type: collection
+    path: src/content/footer
+    filename: 'main.md'
+    format: yaml-frontmatter
+    view:
+      fields: [ email ]
+    fields:
+      - name: tagline
+        component: t_text
+        label: Footer tagline
+        description: >-
+          Short tagline shown at the top of the footer contact
+          section. Per-locale; falls back to English when empty.
+      - name: email
+        type: string
+        label: Contact email
+        description: >-
+          Email address shown in the footer and used as the
+          `mailto:` link target.
+        options:
+          maxlength: 120
+      - name: social_links
+        type: list
+        label: Social links
+        description: >-
+          Ordered list of social profile links. Each entry has a
+          platform identifier, a URL, and a per-locale display
+          label. Drag to reorder.
+        options:
+          item:
+            type: object
+            fields:
+              - name: platform
+                type: string
+                label: Platform
+                description: >-
+                  Identifier for the platform (instagram, youtube,
+                  spotify, facebook, tiktok, etc.). Reserved for
+                  future icon support.
+                options:
+                  maxlength: 40
+              - name: url
+                type: string
+                label: URL
+                description: Full URL to the profile.
+                options:
+                  maxlength: 300
+              - name: label_en
+                type: string
+                label: Label (English)
+              - name: label_jp
+                type: string
+                label: Label (Japanese)
+              - name: label_zh
+                type: string
+                label: Label (Traditional Chinese)
+      - name: copyright_en
+        type: string
+        label: Copyright text (English)
+        description: >-
+          Copyright line without the year. The "© {year} " prefix
+          is added automatically at render time. Example:
+          "Carmen Ng Healing. All rights reserved."
+      - name: copyright_jp
+        type: string
+        label: Copyright text (Japanese)
+      - name: copyright_zh
+        type: string
+        label: Copyright text (Traditional Chinese)
+
 actions:
   - name: deploy-site
     label: Deploy site

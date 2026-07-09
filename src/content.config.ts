@@ -300,4 +300,38 @@ const about = defineCollection({
   }),
 });
 
-export const collections = { blog, testimonials, services, events, faqs, hero, about };
+// Single-entry collection. The site footer: contact section +
+// social links + copyright. Fetched with `getEntry('footer', 'main').
+// Editors control the contact email, the ordered list of social
+// links, and the per-locale copyright text from PagesCMS. The year
+// is prepended at render time so editors never have to update it.
+const footer = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/footer' }),
+  schema: z.object({
+    // Short tagline shown at the top of the footer contact section.
+    tagline: z.object({
+      en: z.string().optional().default(''),
+      jp: z.string().optional().default(''),
+      zh: z.string().optional().default(''),
+    }).optional(),
+    // Contact email. Rendered as a `mailto:` link.
+    email: z.string().optional().default('hello@carmennghealing.com'),
+    // Ordered list of social links. Each link has a platform
+    // identifier (instagram / youtube / spotify / etc. — for future
+    // icon use), a URL, and per-locale display labels.
+    social_links: z.array(z.object({
+      platform: z.string(),
+      url: z.string(),
+      label_en: z.string().optional().default(''),
+      label_jp: z.string().optional().default(''),
+      label_zh: z.string().optional().default(''),
+    })).optional().default([]),
+    // Copyright line per locale. The "© {year} " prefix is added
+    // at render time so editors don't have to touch it yearly.
+    copyright_en: z.string().optional().default(''),
+    copyright_jp: z.string().optional().default(''),
+    copyright_zh: z.string().optional().default(''),
+  }),
+});
+
+export const collections = { blog, testimonials, services, events, faqs, hero, about, footer };

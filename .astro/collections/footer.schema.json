@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "tagline": {
+      "type": "object",
+      "properties": {
+        "en": {
+          "default": "",
+          "type": "string"
+        },
+        "jp": {
+          "default": "",
+          "type": "string"
+        },
+        "zh": {
+          "default": "",
+          "type": "string"
+        }
+      }
+    },
+    "email": {
+      "default": "hello@carmennghealing.com",
+      "type": "string"
+    },
+    "social_links": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "platform": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "label_en": {
+            "default": "",
+            "type": "string"
+          },
+          "label_jp": {
+            "default": "",
+            "type": "string"
+          },
+          "label_zh": {
+            "default": "",
+            "type": "string"
+          }
+        },
+        "required": [
+          "platform",
+          "url"
+        ]
+      }
+    },
+    "copyright_en": {
+      "default": "",
+      "type": "string"
+    },
+    "copyright_jp": {
+      "default": "",
+      "type": "string"
+    },
+    "copyright_zh": {
+      "default": "",
+      "type": "string"
+    },
+    "$schema": {
+      "type": "string"
+    }
+  }
+}

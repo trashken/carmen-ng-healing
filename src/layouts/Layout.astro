@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import { getDictionary, dictionaries, defaultLocale, type Locale, locales } from '../i18n';
+import { getEntry } from 'astro:content';
 
 export interface Props {
   title: string;
@@ -12,6 +13,29 @@ export interface Props {
 const { title, description, locale = defaultLocale, transparentNav = false } = Astro.props;
 const t = getDictionary(locale);
 const otherLocales = locales.filter((l) => l !== locale);
+
+// Footer content is driven by the `footer` content collection
+// (src/content/footer/main.md), editable from PagesCMS. We resolve
+// per-locale strings at render time and fall back to English (or
+// the default email) when a field is empty.
+const footerData = await getEntry('footer', 'main');
+const footerTagline = footerData?.data.tagline
+  ? (locale === 'en' ? footerData.data.tagline.en
+    : locale === 'jp' ? (footerData.data.tagline.jp || footerData.data.tagline.en)
+    : (footerData.data.tagline.zh || footerData.data.tagline.en))
+  : '';
+const footerEmail = footerData?.data.email || 'hello@carmennghealing.com';
+const footerSocialLinks = footerData?.data.social_links || [];
+const socialLabel = (link: typeof footerSocialLinks[number]) =>
+  locale === 'en' ? (link.label_en || link.label_jp || link.platform)
+  : locale === 'jp' ? (link.label_jp || link.label_en || link.platform)
+  : (link.label_zh || link.label_en || link.platform);
+const footerCopyright = locale === 'en'
+  ? (footerData?.data.copyright_en || 'Carmen Ng Healing. All rights reserved.')
+  : locale === 'jp'
+    ? (footerData?.data.copyright_jp || footerData?.data.copyright_en || 'Carmen Ng Healing. All rights reserved.')
+    : (footerData?.data.copyright_zh || footerData?.data.copyright_en || 'Carmen Ng Healing. All rights reserved.');
+const footerYear = new Date().getFullYear();
 
 // Smart language switcher: given the target locale and the current URL,
 // return the path the switcher should link to.
@@ -275,13 +299,44 @@ const currentPath = Astro.url.pathname;
     </main>
 
     <footer class="bg-navy-dark text-cream mt-24 border-t border-white/10">
-      <div class="max-w-6xl mx-auto px-6 py-10 text-center">
-        <p class="text-xs font-normal tracking-[0.08em] text-white/40 mb-2">
-          © {new Date().getFullYear()} Carmen Ng Healing · All Rights Reserved
-        </p>
-        <p class="text-xs font-normal tracking-[0.06em] text-white/25">
-          {t.disclaimer}
-        </p>
+      <div class="max-w-6xl mx-auto px-6 py-12">
+        {(footerTagline || footerSocialLinks.length > 0) && (
+          <div class="text-center mb-10">
+            {footerTagline && (
+              <p class="text-sm font-light leading-relaxed text-white/70 max-w-xl mx-auto mb-6">
+                {footerTagline}
+              </p>
+            )}
+            <a
+              href={`mailto:${footerEmail}`}
+              class="inline-block text-sm tracking-[0.08em] text-teal-light transition-colors duration-300 hover:text-white mb-4"
+            >
+              {footerEmail}
+            </a>
+            {footerSocialLinks.length > 0 && (
+              <div class="flex justify-center gap-6 text-xs tracking-[0.08em] text-white/50">
+                {footerSocialLinks.map((link) => (
+                  <a
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="transition-colors duration-300 hover:text-teal-light"
+                  >
+                    {socialLabel(link)}
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
+        )}
+        <div class="text-center border-t border-white/10 pt-6">
+          <p class="text-xs font-normal tracking-[0.08em] text-white/40 mb-2">
+            © {footerYear} {footerCopyright}
+          </p>
+          <p class="text-xs font-normal tracking-[0.06em] text-white/25">
+            {t.disclaimer}
+          </p>
+        </div>
       </div>
     </footer>
   </body>
