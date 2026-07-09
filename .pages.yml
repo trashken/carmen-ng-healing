@@ -767,21 +767,12 @@ content:
         type: text
         label: 'Languages note (Traditional Chinese)'
       - name: certifications
-        type: block
-        list: true
+        type: rich-text
         label: Training & Certifications
         description: >-
           One entry per school. Each school has a per-locale name +
           a list of completed programs.
-        blocks:
-          - name: school
-            fields:
-              - name: school
-                component: t_string
-                label: School Name              
-              - name: programs
-                component: t_text
-                label: Programs
+        
               
   # ---------------------------------------------------------------------------
   # Footer (Contact section + social links + copyright)
