@@ -842,6 +842,7 @@ content:
           maxlength: 120
       - name: social_links
         component: links
+        list: true
         label: Social links
         description: >-
           Ordered list of social profile links. Each entry has a
