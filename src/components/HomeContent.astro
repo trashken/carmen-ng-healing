@@ -89,10 +89,12 @@ const eventTitle = (e: typeof upcomingEvents[number]) => pickL10n(e.data.title);
 // only manage them in one place.
 const homeFooterData = await getEntry('footer', 'main');
 const homeSocialLinks = homeFooterData?.data.social_links || [];
-const homeSocialLabel = (link: typeof homeSocialLinks[number]) =>
-  locale === 'en' ? (link.label_en || link.label_jp || link.platform)
-  : locale === 'jp' ? (link.label_jp || link.label_en || link.platform)
-  : (link.label_zh || link.label_en || link.platform);
+const homeSocialLabel = (link: typeof homeSocialLinks[number]) => {
+  const t = link.title;
+  if (locale === 'en') return t.en || t.jp || t.zh;
+  if (locale === 'jp') return t.jp || t.en || t.zh;
+  return t.zh || t.en || t.jp;
+};
 
 // Story section data: pulled from the about collection.
 const about = await getEntry('about', 'main');
@@ -105,14 +107,24 @@ const storyParas = (() => {
     : (about.data.body_zh || about.data.body_jp || '');
   return body.split(/\n\s*\n/).slice(0, 3);
 })();
-const certs = (about?.data.certifications || []).flatMap((c) => {
-  // EN uses EN items/school; JP and ZH use the JP items/school (the
-  // same list — they're school names, not localizable text).
-  const items = locale === 'en' ? (c.items_en || []) : (c.items_jp || []);
-  const school = locale === 'en' ? c.school_en : c.school_jp;
-  return items.slice(0, 1).map(() => school);
-});
-const flatCerts = Array.from(new Set(certs)).slice(0, 6);
+// School names for the Story section are extracted from the `###`
+// headings in the certifications Markdown block (the same block
+// rendered on the About page). One name per heading, locale-specific.
+const certsText = (() => {
+  const c = about?.data.certifications;
+  if (!c) return '';
+  if (locale === 'en') return c.en || c.jp || '';
+  if (locale === 'jp') return c.jp || c.en || '';
+  return c.zh || c.en || '';
+})();
+const flatCerts = Array.from(
+  new Set(
+    certsText
+      .split('\n')
+      .filter((l) => l.trim().startsWith('### '))
+      .map((l) => l.trim().slice(4).trim())
+  )
+).slice(0, 6);
 
 // Static testimonials fallback. The full 94 live in the testimonials
 // collection; the homepage just shows 3 highlighted quotes — different

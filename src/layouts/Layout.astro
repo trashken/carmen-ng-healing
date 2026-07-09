@@ -26,15 +26,20 @@ const footerTagline = footerData?.data.tagline
   : '';
 const footerEmail = footerData?.data.email || 'hello@carmennghealing.com';
 const footerSocialLinks = footerData?.data.social_links || [];
-const socialLabel = (link: typeof footerSocialLinks[number]) =>
-  locale === 'en' ? (link.label_en || link.label_jp || link.platform)
-  : locale === 'jp' ? (link.label_jp || link.label_en || link.platform)
-  : (link.label_zh || link.label_en || link.platform);
-const footerCopyright = locale === 'en'
-  ? (footerData?.data.copyright_en || 'Carmen Ng Healing. All rights reserved.')
-  : locale === 'jp'
-    ? (footerData?.data.copyright_jp || footerData?.data.copyright_en || 'Carmen Ng Healing. All rights reserved.')
-    : (footerData?.data.copyright_zh || footerData?.data.copyright_en || 'Carmen Ng Healing. All rights reserved.');
+const socialLabel = (link: typeof footerSocialLinks[number]) => {
+  const t = link.title;
+  if (locale === 'en') return t.en || t.jp || t.zh;
+  if (locale === 'jp') return t.jp || t.en || t.zh;
+  return t.zh || t.en || t.jp;
+};
+const footerCopyright = (() => {
+  const c = footerData?.data.copyright;
+  const fallback = 'Carmen Ng Healing. All rights reserved.';
+  if (!c) return fallback;
+  if (locale === 'en') return c.en || c.jp || fallback;
+  if (locale === 'jp') return c.jp || c.en || fallback;
+  return c.zh || c.en || fallback;
+})();
 const footerYear = new Date().getFullYear();
 
 // Smart language switcher: given the target locale and the current URL,

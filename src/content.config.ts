@@ -257,8 +257,10 @@ const faqs = defineCollection({
 
 // Single-entry collection. There is only one About Me page. Fetch it
 // with `getEntry('about', 'main')`. Body content is a per-locale text
-// block (YAML literal block scalar) + a list of certification schools
-// (each with a per-locale name + per-locale list of items).
+// block (YAML literal block scalar). The Training & Certifications
+// section is a per-locale Markdown block (### headings + - lists) so
+// editors can write the full block freely from PagesCMS without
+// re-shaping it into structured fields.
 const about = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/about' }),
   schema: z.object({
@@ -276,22 +278,14 @@ const about = defineCollection({
     signoff_en: z.string().optional().default(''),
     signoff_jp: z.string().optional().default(''),
     signoff_zh: z.string().optional().default(''),
-    // Training & certifications. Each school is one section with a
-    // per-locale name + a list of items. Also accepts a free-form
-    // string during early editing (PagesCMS users may type a
-    // placeholder); we coerce strings to [] and let the about page
-    // skip rendering.
-    certifications: z.union([
-      z.array(z.object({
-        school_en: z.string(),
-        school_jp: z.string(),
-        school_zh: z.string().optional().default(''),
-        items_en: z.array(z.string()),
-        items_jp: z.array(z.string()),
-        items_zh: z.array(z.string()).optional().default([]),
-      })),
-      z.string().transform(() => []),
-    ]).optional().default([]),
+    // Training & certifications. A per-locale Markdown block —
+    // editors write the full section as Markdown (### school name,
+    // - program). Rendered by AboutContent.astro.
+    certifications: z.object({
+      en: z.string().optional().default(''),
+      jp: z.string().optional().default(''),
+      zh: z.string().optional().default(''),
+    }).optional().default({ en: '', jp: '', zh: '' }),
     // Languages Carmen works in (per-locale line, shown as a small
     // "I also work in..." footnote under the body).
     languages_en: z.string().optional().default(''),
@@ -316,21 +310,24 @@ const footer = defineCollection({
     }).optional(),
     // Contact email. Rendered as a `mailto:` link.
     email: z.string().optional().default('hello@carmennghealing.com'),
-    // Ordered list of social links. Each link has a platform
-    // identifier (instagram / youtube / spotify / etc. — for future
-    // icon use), a URL, and per-locale display labels.
+    // Ordered list of social links. Each link has a per-locale
+    // title (translatable display label) and a URL. Matches the
+    // `links` PagesCMS component.
     social_links: z.array(z.object({
-      platform: z.string(),
+      title: z.object({
+        en: z.string().optional().default(''),
+        jp: z.string().optional().default(''),
+        zh: z.string().optional().default(''),
+      }),
       url: z.string(),
-      label_en: z.string().optional().default(''),
-      label_jp: z.string().optional().default(''),
-      label_zh: z.string().optional().default(''),
     })).optional().default([]),
     // Copyright line per locale. The "© {year} " prefix is added
     // at render time so editors don't have to touch it yearly.
-    copyright_en: z.string().optional().default(''),
-    copyright_jp: z.string().optional().default(''),
-    copyright_zh: z.string().optional().default(''),
+    copyright: z.object({
+      en: z.string().optional().default(''),
+      jp: z.string().optional().default(''),
+      zh: z.string().optional().default(''),
+    }).optional(),
   }),
 });
 

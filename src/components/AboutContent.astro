@@ -16,6 +16,41 @@ function pickLocalised<T>(en: T, jp: T, zh: T | undefined): T {
   return en;
 }
 
+// Minimal Markdown renderer for the certifications block. Handles
+// the three features the editor uses: ### headings, - bullet
+// lists, and blank-line paragraph breaks. No external dependency —
+// the full Markdown spec is not needed here. Tailwind classes are
+// inlined on each element so the typography plugin isn't required.
+function renderCertificationsMarkdown(md: string): string {
+  const lines = md.split('\n');
+  const out: string[] = [];
+  let inList = false;
+  const flushList = () => {
+    if (inList) { out.push('</ul>'); inList = false; }
+  };
+  for (const raw of lines) {
+    const line = raw.trimEnd();
+    if (line.startsWith('### ')) {
+      flushList();
+      out.push(`<h3 class="font-serif text-lg text-rose mb-2 mt-6">${escapeHtml(line.slice(4))}</h3>`);
+    } else if (line.startsWith('- ')) {
+      if (!inList) { out.push('<ul class="text-sm text-ink-light space-y-1 mb-4">'); inList = true; }
+      out.push(`<li class="flex gap-2"><span class="text-rose/60 flex-shrink-0">·</span><span>${escapeHtml(line.slice(2))}</span></li>`);
+    } else if (line.trim() === '') {
+      flushList();
+      out.push('');
+    } else {
+      flushList();
+      out.push(`<p class="mb-3">${escapeHtml(line)}</p>`);
+    }
+  }
+  flushList();
+  return out.join('\n');
+}
+function escapeHtml(s: string): string {
+  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
 const contactPath = locale === 'en' ? '/contact' : `/${locale}/contact`;
 const servicesPath = locale === 'en' ? '/en/services' : `/${locale}/services`;
 
@@ -36,6 +71,9 @@ const copy = {
     viewServices: '服務總覽',
   },
 }[locale];
+
+const certificationsMd = pickLocalised(d.certifications?.en ?? '', d.certifications?.jp ?? '', d.certifications?.zh);
+const certificationsHtml = certificationsMd ? renderCertificationsMarkdown(certificationsMd) : '';
 ---
 
 <header class="mb-16 max-w-3xl">
@@ -64,28 +102,10 @@ const copy = {
   )}
 </section>
 
-{d.certifications && d.certifications.length > 0 && (
+{certificationsHtml && (
   <section class="mt-20 max-w-3xl mx-auto">
     <h2 class="font-serif text-3xl text-ink mb-8 text-center">{copy.certifications}</h2>
-    <div class="space-y-8">
-      {d.certifications.map((c) => {
-        const school = pickLocalised(c.school_en, c.school_jp, c.school_zh);
-        const items = pickLocalised(c.items_en, c.items_jp, c.items_zh);
-        return (
-          <div>
-            <h3 class="font-serif text-lg text-rose mb-2">{school}</h3>
-            <ul class="text-sm text-ink-light space-y-1">
-              {items.map((item) => (
-                <li class="flex gap-2">
-                  <span class="text-rose/60 flex-shrink-0">·</span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        );
-      })}
-    </div>
+    <div class="certifications-body text-ink-light leading-relaxed" set:html={certificationsHtml} />
   </section>
 )}
 

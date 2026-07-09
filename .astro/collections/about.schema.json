@@ -41,54 +41,26 @@
       "type": "string"
     },
     "certifications": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "school_en": {
-                "type": "string"
-              },
-              "school_jp": {
-                "type": "string"
-              },
-              "school_zh": {
-                "default": "",
-                "type": "string"
-              },
-              "items_en": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "items_jp": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "items_zh": {
-                "default": [],
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              }
-            },
-            "required": [
-              "school_en",
-              "school_jp",
-              "items_en",
-              "items_jp"
-            ]
-          }
+      "default": {
+        "en": "",
+        "jp": "",
+        "zh": ""
+      },
+      "type": "object",
+      "properties": {
+        "en": {
+          "default": "",
+          "type": "string"
         },
-        {
+        "jp": {
+          "default": "",
+          "type": "string"
+        },
+        "zh": {
+          "default": "",
           "type": "string"
         }
-      ]
+      }
     },
     "languages_en": {
       "default": "",
