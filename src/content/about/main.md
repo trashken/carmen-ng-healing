@@ -134,5 +134,10 @@ portrait: /uploads/about-portrait.jpg
 hands: /uploads/about-hands.jpg
 languages_jp: |
   P.S. 私の日本語はまだ不十分ですが、セッション中は問題なくコミュニケーションを取れるかと思います。なお、英語と広東語でのコミュニケーションも得意ですので、どちらの言語でもお気軽にお話しください。
-certifications: xxx + xxx
+certifications:
+  - _block: school
+    school:
+      en: University of Cambridge, UK
+    programs:
+      en: BA & MA in Economics
 ---
