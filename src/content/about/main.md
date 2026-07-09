@@ -140,18 +140,13 @@ certifications:
     currently offer sessions in service of light:
 
 
-
-
-    University of Cambridge, UK
+    ### University of Cambridge, UK
 
 
     - BA & MA in Economics
 
 
-    ​
-
-
-    Rising Phoenix Mystery School
+    ### ​Rising Phoenix Mystery School
 
 
     - A.U.R.A. Hypnosis (Angelic Universal Regression Alchemy)
@@ -163,10 +158,7 @@ certifications:
     - Quantum Alchemy Channeling
 
 
-    ​
-
-
-    New Earth Alchemists Academy
+    ### New Earth Alchemists Academy
 
 
     - Lemurian Rose Light Codes Healer
@@ -178,9 +170,7 @@ certifications:
     - Bringer of Light (Light Language Training Program)
 
 
-
-
-    Discover Healing
+    ### Discover Healing
 
 
     - The Emotion Code
