@@ -767,7 +767,7 @@ content:
         type: text
         label: 'Languages note (Traditional Chinese)'
       - name: certifications
-        type: list
+        list: true
         label: Training & Certifications
         description: >-
           One entry per school. Each school has a per-locale name +
@@ -776,34 +776,13 @@ content:
           item:
             type: object
             fields:
-              - name: school_en
-                type: string
-                label: School name (English)
-              - name: school_jp
-                type: string
-                label: School name (Japanese)
-              - name: school_zh
-                type: string
-                label: School name (Traditional Chinese)
-              - name: items_en
-                type: list
-                label: Programs (English)
-                options:
-                  item:
-                    type: string
-              - name: items_jp
-                type: list
-                label: Programs (Japanese)
-                options:
-                  item:
-                    type: string
-              - name: items_zh
-                type: list
-                label: Programs (Traditional Chinese)
-                options:
-                  item:
-                    type: string
-
+              - name: school
+                component: t_string
+                label: School Name              
+              - name: programs
+                component: t_string
+                label: Programs
+              
   # ---------------------------------------------------------------------------
   # Footer (Contact section + social links + copyright)
   # ---------------------------------------------------------------------------
