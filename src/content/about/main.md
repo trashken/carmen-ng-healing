@@ -140,4 +140,9 @@ certifications:
       en: University of Cambridge, UK
     programs:
       en: BA & MA in Economics
+  - _block: school
+    school:
+      en: Rising Phoenix Mystery School
+    programs:
+      en: A.U.R.A. Hypnosis (Angelic Universal Regression Alchemy)
 ---
