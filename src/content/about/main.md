@@ -135,14 +135,55 @@ hands: /uploads/about-hands.jpg
 languages_jp: |
   P.S. 私の日本語はまだ不十分ですが、セッション中は問題なくコミュニケーションを取れるかと思います。なお、英語と広東語でのコミュニケーションも得意ですので、どちらの言語でもお気軽にお話しください。
 certifications:
-  - _block: school
-    school:
-      en: University of Cambridge, UK
-    programs:
-      en: BA & MA in Economics
-  - _block: school
-    school:
-      en: Rising Phoenix Mystery School
-    programs:
-      en: A.U.R.A. Hypnosis (Angelic Universal Regression Alchemy)
+  en: >+
+    I have completed the following internationally recognized programs and
+    currently offer sessions in service of light:
+
+
+
+
+    University of Cambridge, UK
+
+
+    - BA & MA in Economics
+
+
+    ​
+
+
+    Rising Phoenix Mystery School
+
+
+    - A.U.R.A. Hypnosis (Angelic Universal Regression Alchemy)
+
+    - R.A.A.H. Reiki Angelic Alchemy Healing
+
+    - Quantum Galactic Akashic Reading
+
+    - Quantum Alchemy Channeling
+
+
+    ​
+
+
+    New Earth Alchemists Academy
+
+
+    - Lemurian Rose Light Codes Healer
+
+    - Kuan Qi Light Codes Healer
+
+    - Dragon Light Codes Healer
+
+    - Bringer of Light (Light Language Training Program)
+
+
+
+
+    Discover Healing
+
+
+    - The Emotion Code
+
+    - The Body Code
 ---
