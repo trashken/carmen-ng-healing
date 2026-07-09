@@ -841,40 +841,12 @@ content:
         options:
           maxlength: 120
       - name: social_links
-        type: list
+        component: links
         label: Social links
         description: >-
           Ordered list of social profile links. Each entry has a
-          platform identifier, a URL, and a per-locale display
-          label. Drag to reorder.
-        options:
-          item:
-            type: object
-            fields:
-              - name: platform
-                type: string
-                label: Platform
-                description: >-
-                  Identifier for the platform (instagram, youtube,
-                  spotify, facebook, tiktok, etc.). Reserved for
-                  future icon support.
-                options:
-                  maxlength: 40
-              - name: url
-                type: string
-                label: URL
-                description: Full URL to the profile.
-                options:
-                  maxlength: 300
-              - name: label_en
-                type: string
-                label: Label (English)
-              - name: label_jp
-                type: string
-                label: Label (Japanese)
-              - name: label_zh
-                type: string
-                label: Label (Traditional Chinese)
+          platform identifier, a URL, and a display label. Drag to reorder.
+        
       - name: copyright_en
         type: string
         label: Copyright text (English)
