@@ -847,19 +847,13 @@ content:
           Ordered list of social profile links. Each entry has a
           platform identifier, a URL, and a display label. Drag to reorder.
         
-      - name: copyright_en
-        type: string
-        label: Copyright text (English)
+      - name: copyright
+        component: t_string
+        label: Copyright Text
         description: >-
           Copyright line without the year. The "© {year} " prefix
           is added automatically at render time. Example:
-          "Carmen Ng Healing. All rights reserved."
-      - name: copyright_jp
-        type: string
-        label: Copyright text (Japanese)
-      - name: copyright_zh
-        type: string
-        label: Copyright text (Traditional Chinese)
+          "Carmen Ng Healing. All rights reserved."      
 
 actions:
   - name: deploy-site
