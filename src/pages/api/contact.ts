@@ -1,6 +1,7 @@
 /// <reference types="astro/client" />
 
 import type { APIRoute } from 'astro';
+import { env } from 'cloudflare:workers';
 
 export const prerender = false;
 
@@ -11,10 +12,7 @@ type RuntimeEnv = {
   CONTACT_FROM_ADDRESS?: string;
 };
 
-type PagesRuntime = { runtime?: { env?: RuntimeEnv } };
-
-const getEnv = (locals: unknown): RuntimeEnv =>
-  (locals as PagesRuntime)?.runtime?.env ?? {};
+const getEnv = (): RuntimeEnv => env as unknown as RuntimeEnv;
 
 const json = (body: unknown, status = 200) =>
   new Response(JSON.stringify(body), {
@@ -110,10 +108,10 @@ const sendViaResend = async (
   return { ok: true };
 };
 
-export const POST: APIRoute = async ({ request, locals }) => {
-  const env = getEnv(locals);
+export const POST: APIRoute = async ({ request }) => {
+  const e = getEnv();
 
-  if (!env.RESEND_API_KEY) {
+  if (!e.RESEND_API_KEY) {
     return json({ error: 'Server is not configured to send email (missing RESEND_API_KEY).' }, 500);
   }
 
@@ -127,21 +125,21 @@ export const POST: APIRoute = async ({ request, locals }) => {
   const v = validate(formData);
   if (!v.ok) return json({ error: v.error }, 400);
 
-  if (env.TURNSTILE_SECRET) {
+  if (e.TURNSTILE_SECRET) {
     if (!v.turnstileToken) {
       return json({ error: 'Please complete the spam check.' }, 400);
     }
     const remoteIp = request.headers.get('CF-Connecting-IP') ?? undefined;
-    const ok = await verifyTurnstile(v.turnstileToken, env.TURNSTILE_SECRET, remoteIp);
+    const ok = await verifyTurnstile(v.turnstileToken, e.TURNSTILE_SECRET, remoteIp);
     if (!ok) return json({ error: 'Spam check failed. Please try again.' }, 400);
   }
 
-  const toEmail = env.CONTACT_TO_EMAIL ?? 'hello@carmennghealing.com';
-  const fromAddress = env.CONTACT_FROM_ADDRESS ?? 'Carmen Ng Healing <noreply@carmennghealing.com>';
+  const toEmail = e.CONTACT_TO_EMAIL ?? 'hello@carmennghealing.com';
+  const fromAddress = e.CONTACT_FROM_ADDRESS ?? 'Carmen Ng Healing <noreply@carmennghealing.com>';
 
   const result = await sendViaResend(
     { firstName: v.firstName, lastName: v.lastName, email: v.email, message: v.message },
-    env.RESEND_API_KEY,
+    e.RESEND_API_KEY,
     toEmail,
     fromAddress,
   );

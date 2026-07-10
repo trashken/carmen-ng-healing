@@ -303,7 +303,9 @@ const currentPath = Astro.url.pathname;
       <slot />
     </main>
 
-    <footer class="bg-navy-dark text-cream mt-24 border-t border-white/10">
+    <footer class="text-cream border-t border-white/10" 
+      style="background: linear-gradient(90deg, #95b2cc 0%, #a3bfd5 30%, #b2cee0 60%, #bfdbe9 85%, #d4f0f8 100%);"
+    >
       <div class="max-w-6xl mx-auto px-6 py-12">
         {(footerTagline || footerSocialLinks.length > 0) && (
           <div class="text-center mb-10">
